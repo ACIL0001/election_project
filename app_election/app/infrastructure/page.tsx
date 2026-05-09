@@ -21,8 +21,15 @@ import { motion } from "framer-motion";
 
 export default function InfrastructureSetup() {
   const [wilayasData, setWilayasData] = useState([
-    { id: 1, name: "Adrar", num_wilaya: "01", seats_count: 12, communes: 28, centers: 142, desks: 840 },
+    { id: 1, name: "Adrar", num_wilaya: "01", seats_count: 8, communes: 28, centers: 142, desks: 840 },
+    { id: 2, name: "Chlef", num_wilaya: "02", seats_count: 12, communes: 35, centers: 210, desks: 1100 },
+    { id: 5, name: "Batna", num_wilaya: "05", seats_count: 14, communes: 61, centers: 320, desks: 1450 },
+    { id: 6, name: "Béjaïa", num_wilaya: "06", seats_count: 12, communes: 52, centers: 280, desks: 1200 },
+    { id: 9, name: "Blida", num_wilaya: "09", seats_count: 10, communes: 25, centers: 180, desks: 950 },
+    { id: 13, name: "Tlemcen", num_wilaya: "13", seats_count: 11, communes: 53, centers: 240, desks: 1050 },
     { id: 16, name: "Alger", num_wilaya: "16", seats_count: 35, communes: 57, centers: 612, desks: 2450 },
+    { id: 19, name: "Sétif", num_wilaya: "19", seats_count: 19, communes: 60, centers: 410, desks: 1800 },
+    { id: 25, name: "Constantine", num_wilaya: "25", seats_count: 12, communes: 12, centers: 195, desks: 1020 },
     { id: 31, name: "Oran", num_wilaya: "31", seats_count: 22, communes: 26, centers: 215, desks: 1120 },
   ]);
 
@@ -30,6 +37,8 @@ export default function InfrastructureSetup() {
     { id: 1, name: "Sidi M'hamed", num_bladia: "01", wilaya: "Alger", centers: 12, desks: 84 },
     { id: 2, name: "Bab El Oued", num_bladia: "05", wilaya: "Alger", centers: 8, desks: 56 },
     { id: 3, name: "Es Senia", num_bladia: "12", wilaya: "Oran", centers: 10, desks: 70 },
+    { id: 4, name: "El Khroub", num_bladia: "03", wilaya: "Constantine", centers: 15, desks: 95 },
+    { id: 5, name: "Akbou", num_bladia: "08", wilaya: "Béjaïa", centers: 10, desks: 65 },
   ]);
 
   const [centersData, setCentersData] = useState([
@@ -365,8 +374,13 @@ export default function InfrastructureSetup() {
             <div className="space-y-4">
                <div className="space-y-1">
                 <label className="text-xs font-bold text-zinc-500 uppercase">Wilaya Parente</label>
-                <select className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none" value={formData.wilaya} onChange={(e) => setFormData({...formData, wilaya: e.target.value})}>
-                  {wilayasData.map(w => <option key={w.id} value={w.name}>{w.name}</option>)}
+                <select 
+                  className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 outline-none text-sm" 
+                  value={formData.wilaya} 
+                  onChange={(e) => setFormData({...formData, wilaya: e.target.value})}
+                >
+                  <option value="">Sélectionner une Wilaya</option>
+                  {wilayasData.map(w => <option key={w.id} value={w.name}>{w.num_wilaya} - {w.name}</option>)}
                 </select>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -387,14 +401,27 @@ export default function InfrastructureSetup() {
                <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-zinc-500 uppercase">Wilaya</label>
-                  <select className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none">
-                    {wilayasData.map(w => <option key={w.id} value={w.id}>{w.name}</option>)}
+                  <select 
+                    className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 outline-none text-sm"
+                    value={formData.wilaya}
+                    onChange={(e) => setFormData({...formData, wilaya: e.target.value})}
+                  >
+                    <option value="">Choisir...</option>
+                    {wilayasData.map(w => <option key={w.id} value={w.name}>{w.name}</option>)}
                   </select>
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-zinc-500 uppercase">Commune</label>
-                  <select className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none">
-                    <option>Sidi M'hamed</option>
+                  <select 
+                    className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 outline-none text-sm"
+                    value={formData.location.split(', ')[0] === formData.wilaya ? "" : formData.location.split(', ')[1]}
+                    onChange={(e) => setFormData({...formData, location: `${formData.wilaya}, ${e.target.value}`})}
+                  >
+                    <option value="">Choisir...</option>
+                    {communesData.filter(c => c.wilaya === formData.wilaya).map(c => (
+                      <option key={c.id} value={c.name}>{c.name}</option>
+                    ))}
+                    {communesData.filter(c => c.wilaya === formData.wilaya).length === 0 && <option disabled>Aucune commune</option>}
                   </select>
                 </div>
               </div>
@@ -403,8 +430,8 @@ export default function InfrastructureSetup() {
                 <input required type="text" placeholder="Ex: Centre Pasteur" className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-500 uppercase">Localisation Exacte</label>
-                <input required type="text" placeholder="Adresse ou coordonnées" className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none" value={formData.location} onChange={(e) => setFormData({...formData, location: e.target.value})} />
+                <label className="text-xs font-bold text-zinc-500 uppercase">Localisation / Adresse</label>
+                <input required type="text" placeholder="Ex: Rue Didouche Mourad" className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none" value={formData.location} onChange={(e) => setFormData({...formData, location: e.target.value})} />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-1">
@@ -432,8 +459,13 @@ export default function InfrastructureSetup() {
           {modalType === "desk" && (
             <div className="space-y-4">
                <div className="space-y-1">
-                <label className="text-xs font-bold text-zinc-500 uppercase">Centre Parent</label>
-                <select className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 outline-none" value={formData.center} onChange={(e) => setFormData({...formData, center: e.target.value})}>
+                <label className="text-xs font-bold text-zinc-500 uppercase">Centre de Vote Parent</label>
+                <select 
+                  className="w-full h-11 px-4 rounded-xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 outline-none text-sm" 
+                  value={formData.center} 
+                  onChange={(e) => setFormData({...formData, center: e.target.value})}
+                >
+                  <option value="">Sélectionner un Centre</option>
                   {centersData.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
                 </select>
               </div>

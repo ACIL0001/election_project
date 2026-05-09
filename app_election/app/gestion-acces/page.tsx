@@ -20,14 +20,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function GestionAcces() {
   const [adminsData, setAdminsData] = useState([
-    { id: 1, name: "Mohamed Amine", email: "m.amine@anie.dz", nin: "123456789012345678", phone: "0550123456", role: "Super Admin", status: "Actif", wilaya: "Alger" },
-    { id: 2, name: "Fatima Zohra", email: "f.zohra@anie.dz", nin: "987654321098765432", phone: "0550987654", role: "Admin Wilaya (Alger)", status: "Actif", wilaya: "Alger" },
-    { id: 3, name: "Abdelkader Ben", email: "a.ben@anie.dz", nin: "555555555555555555", phone: "0550555555", role: "Admin Baladia (Oran)", status: "Inactif", wilaya: "Oran" },
+    { id: 1, name: "Mohamed Benali", email: "m.benali@anie.dz", nin: "197516010012345678", phone: "0550123456", role: "Super Admin", status: "Actif", wilaya: "Alger" },
+    { id: 2, name: "Zohra Mansouri", email: "z.mansouri@anie.dz", nin: "198009010098765432", phone: "0550987654", role: "Admin Wilaya (Blida)", status: "Actif", wilaya: "Blida" },
+    { id: 3, name: "Abdelkader Brahimi", email: "a.brahimi@anie.dz", nin: "197231010055555555", phone: "0550555555", role: "Admin Baladia (Oran)", status: "Actif", wilaya: "Oran" },
+    { id: 4, name: "Amine Khelladi", email: "a.khelladi@anie.dz", nin: "198825010022334455", phone: "0661223344", role: "Admin Wilaya (Constantine)", status: "Actif", wilaya: "Constantine" },
   ]);
 
   const [membersData, setMembersData] = useState([
-    { id: 1, name: "Yassine Brahimi", email: "y.brahimi@gmail.com", nin: "111222333444555666", phone: "0660112233", birthday: "1985-05-20", party: "FLN", goal: "Surveillance générale du centre Pasteur", location: "Alger, Sidi M'hamed", admin_commun: "Abdelkader Ben", status: "Permanent" },
-    { id: 2, name: "Lina Mahrez", email: "l.mahrez@outlook.com", nin: "777888999000111222", phone: "0660998877", birthday: "1992-11-12", party: "MSP", goal: "Contrôle des listes électorales", location: "Blida, Ouled Yaïch", admin_commun: "Ahmed Said", status: "Permanent" },
+    { id: 1, name: "Yassine Belmadi", email: "y.belmadi@gmail.com", nin: "199016010011122233", phone: "0660112233", birthday: "1990-05-20", party: "FLN", goal: "Supervision du centre Pasteur", location: "Alger", admin_commun: "Mohamed Benali", status: "Permanent" },
+    { id: 2, name: "Lydia Bensaïd", email: "l.bensaid@outlook.com", nin: "199509010077788899", phone: "0660998877", birthday: "1995-11-12", party: "MSP", goal: "Contrôle des listes électorales", location: "Blida", admin_commun: "Zohra Mansouri", status: "Permanent" },
+    { id: 3, name: "Ryad Mahrez", email: "r.mahrez@gmail.com", nin: "199131010033445566", phone: "0770334455", birthday: "1991-02-21", party: "FFS", goal: "Observateur de bureau", location: "Oran", admin_commun: "Abdelkader Brahimi", status: "Permanent" },
   ]);
 
   const [activeTab, setActiveTab] = useState("admins");
