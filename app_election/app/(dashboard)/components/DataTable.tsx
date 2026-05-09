@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Column {
   header: string;
@@ -29,6 +30,7 @@ interface DataTableProps {
 }
 
 export default function DataTable({ columns, data, title, onEdit, onDelete }: DataTableProps) {
+  const { t, language, dir } = useLanguage();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
@@ -60,44 +62,44 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
         {title && (
           <div>
             <h3 className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">{title}</h3>
-            <p className="text-xs text-zinc-500 font-medium mt-0.5">Analyse et gestion des données opérationnelles</p>
+            <p className="text-xs text-zinc-500 font-medium mt-0.5">{language === 'ar' ? 'تحليل وإدارة البيانات العملياتية' : 'Analyse et gestion des données opérationnelles'}</p>
           </div>
         )}
         <div className="flex items-center gap-3">
           <div className="relative group">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 group-hover:text-algerian-green transition-colors" />
+            <Search className="absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 group-hover:text-algerian-green transition-colors" />
             <input
               type="text"
-              placeholder="Rechercher dans les registres..."
+              placeholder={language === 'ar' ? 'البحث في السجلات...' : 'Rechercher dans les registres...'}
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
-              className="h-11 pl-11 pr-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 text-sm font-medium focus:ring-2 focus:ring-algerian-green/10 w-full md:w-72 transition-all shadow-sm"
+              className="h-11 ps-11 pe-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/5 text-sm font-medium focus:ring-2 focus:ring-algerian-green/10 w-full md:w-72 transition-all text-start"
             />
           </div>
-          <button className="h-11 px-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 flex items-center gap-2 text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all shadow-sm">
+          <button className="h-11 px-4 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 flex items-center gap-2 text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">
             <Filter size={16} className="text-zinc-400" />
-            <span>Filtres</span>
+            <span>{language === 'ar' ? 'تصفية' : 'Filtres'}</span>
           </button>
-          <button className="h-11 w-11 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all shadow-sm" title="Exporter">
+          <button className="h-11 w-11 rounded-xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all" title={language === 'ar' ? 'تصدير' : 'Exporter'}>
             <Download size={18} className="text-zinc-400" />
           </button>
         </div>
       </div>
 
-      <div className="relative glass rounded-[20px] overflow-hidden border border-zinc-200 dark:border-white/5 shadow-2xl">
+      <div className="relative glass rounded-[20px] overflow-hidden border border-zinc-200 dark:border-white/5">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-start border-collapse" dir={dir}>
             <thead>
-              <tr className="bg-zinc-50/50 dark:bg-[#09090b] border-b border-zinc-200 dark:border-white/5">
+              <tr className="bg-zinc-50/50 dark:bg-[#09090b] border-b border-zinc-200 dark:border-white/5 text-start">
                 {columns.map((col, i) => (
-                  <th key={i} className="px-6 py-5 text-[11px] font-black uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">
+                  <th key={i} className="px-6 py-5 text-[11px] font-black uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400 text-start">
                     <div className="flex items-center gap-2">
                       {col.header}
                       <ArrowUpDown size={12} className="opacity-30" />
                     </div>
                   </th>
                 ))}
-                {(onEdit || onDelete) && <th className="px-6 py-5 text-[11px] font-black uppercase tracking-[0.1em] text-right text-zinc-500 dark:text-zinc-400">Opérations</th>}
+                {(onEdit || onDelete) && <th className="px-6 py-5 text-[11px] font-black uppercase tracking-[0.1em] text-end text-zinc-500 dark:text-zinc-400">{language === 'ar' ? 'العمليات' : 'Opérations'}</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-100 dark:divide-white/5">
@@ -112,18 +114,18 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
                     className="table-row-hover hover:bg-algerian-green/[0.01] dark:hover:bg-white/[0.01] transition-all group"
                   >
                     {columns.map((col, colIndex) => (
-                      <td key={colIndex} className="px-6 py-4.5 text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                      <td key={colIndex} className="px-6 py-4.5 text-sm font-medium text-zinc-700 dark:text-zinc-300 text-start">
                         {col.render ? col.render(row[col.accessor], row) : row[col.accessor]}
                       </td>
                     ))}
                     {(onEdit || onDelete) && (
-                      <td className="px-6 py-4.5 text-right">
+                      <td className="px-6 py-4.5 text-end">
                         <div className="flex items-center justify-end gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                           {onEdit && (
                             <button 
                               onClick={() => onEdit(row)}
                               className="h-8 w-8 flex items-center justify-center rounded-lg text-zinc-400 hover:text-algerian-green hover:bg-algerian-green/10 transition-all"
-                              title="Modifier"
+                              title={language === 'ar' ? 'تعديل' : 'Modifier'}
                             >
                               <Edit2 size={14} />
                             </button>
@@ -132,7 +134,7 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
                             <button 
                               onClick={() => onDelete(row)}
                               className="h-8 w-8 flex items-center justify-center rounded-lg text-zinc-400 hover:text-algerian-red hover:bg-algerian-red/10 transition-all"
-                              title="Supprimer"
+                              title={language === 'ar' ? 'حذف' : 'Supprimer'}
                             >
                               <Trash2 size={14} />
                             </button>
@@ -151,8 +153,8 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
                         <Search size={24} />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-zinc-900 dark:text-white">Aucun résultat</p>
-                        <p className="text-xs text-zinc-500">Essayez d'ajuster vos filtres de recherche.</p>
+                        <p className="text-sm font-bold text-zinc-900 dark:text-white">{language === 'ar' ? 'لا توجد نتائج' : 'Aucun résultat'}</p>
+                        <p className="text-xs text-zinc-500">{language === 'ar' ? 'حاول تعديل فلاتر البحث الخاصة بك.' : "Essayez d'ajuster vos filtres de recherche."}</p>
                       </div>
                     </div>
                   </td>
@@ -164,11 +166,11 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
       </div>
         
       {/* Floating Pagination Footer */}
-      <div className="px-8 py-4 glass dark:bg-[#000000] rounded-2xl flex items-center justify-between border border-zinc-200 dark:border-white/5 shadow-xl pagination-footer">
-        <div className="hidden sm:flex flex-col">
-          <p className="text-[10px] uppercase tracking-widest font-black text-zinc-500">Registre Électoral</p>
+      <div className="px-8 py-4 glass dark:bg-[#000000] rounded-2xl flex items-center justify-between border border-zinc-200 dark:border-white/5 pagination-footer" dir={dir}>
+        <div className="hidden sm:flex flex-col text-start">
+          <p className="text-[10px] uppercase tracking-widest font-black text-zinc-500">{language === 'ar' ? 'السجل الانتخابي' : 'Registre Électoral'}</p>
           <p className="text-xs text-zinc-700 dark:text-zinc-400 font-bold">
-            <span className="text-algerian-green dark:text-white">{Math.min(startIndex + 1, filteredData.length)}</span> - <span className="text-algerian-green dark:text-white">{Math.min(startIndex + rowsPerPage, filteredData.length)}</span> sur <span className="text-algerian-green dark:text-white">{filteredData.length}</span>
+            <span className="text-algerian-green dark:text-white">{Math.min(startIndex + 1, filteredData.length)}</span> - <span className="text-algerian-green dark:text-white">{Math.min(startIndex + rowsPerPage, filteredData.length)}</span> {language === 'ar' ? 'من' : 'sur'} <span className="text-algerian-green dark:text-white">{filteredData.length}</span>
           </p>
         </div>
 
@@ -176,7 +178,7 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
           <button 
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(prev => prev - 1)}
-            className="h-9 w-9 flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 disabled:opacity-20 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all shadow-sm"
+            className="h-9 w-9 flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 disabled:opacity-20 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all rtl:rotate-180"
           >
             <ChevronLeft size={18} />
           </button>
@@ -194,7 +196,7 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
                   key={i}
                   onClick={() => setCurrentPage(pageNum)}
                   className={cn(
-                    "w-9 h-9 rounded-xl text-xs font-black transition-all shadow-sm",
+                    "w-9 h-9 rounded-xl text-xs font-black transition-all",
                     currentPage === pageNum 
                       ? "bg-algerian-green text-white dark:bg-white dark:text-black glow-emerald scale-110" 
                       : "bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
@@ -209,7 +211,7 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
           <button 
             disabled={currentPage === totalPages || totalPages === 0}
             onClick={() => setCurrentPage(prev => prev + 1)}
-            className="h-9 w-9 flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 disabled:opacity-20 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all shadow-sm"
+            className="h-9 w-9 flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 disabled:opacity-20 hover:bg-zinc-50 dark:hover:bg-white/5 transition-all rtl:rotate-180"
           >
             <ChevronRight size={18} />
           </button>

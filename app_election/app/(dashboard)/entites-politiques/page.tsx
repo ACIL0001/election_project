@@ -7,19 +7,16 @@ import {
   Flag, 
   UserSquare, 
   Plus, 
-  ExternalLink,
   MapPin,
-  Image as ImageIcon,
   UserPlus,
   ShieldCheck,
-  Users,
-  Target,
-  Medal,
-  Calendar
+  Activity,
+  Medal
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useData } from "../context/DataContext";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function EntitesPolitiques() {
   const { 
@@ -27,6 +24,7 @@ export default function EntitesPolitiques() {
     partiesData, setPartiesData,
     candidatesData, setCandidatesData
   } = useData();
+  const { t, language, dir } = useLanguage();
 
   const [activeTab, setActiveTab] = useState<"parties" | "candidates">("parties");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,7 +66,11 @@ export default function EntitesPolitiques() {
   };
 
   const handleDelete = (id: number, type: "party" | "candidate") => {
-    if (confirm(`Êtes-vous sûr de vouloir supprimer ce ${type === 'party' ? 'parti' : 'candidat'} ?`)) {
+    const confirmMsg = language === 'ar' 
+      ? `هل أنت متأكد من رغبتك في حذف هذا ${type === 'party' ? 'الحزب' : 'المترشح'}؟`
+      : `Êtes-vous sûr de vouloir supprimer ce ${type === 'party' ? 'parti' : 'candidat'} ?`;
+    
+    if (confirm(confirmMsg)) {
       if (type === "party") {
         setPartiesData(partiesData.filter(p => p.id !== id));
       } else {
@@ -129,8 +131,8 @@ export default function EntitesPolitiques() {
   };
 
   const tabs = [
-    { id: "parties", label: "Partis Politiques", icon: Flag, count: partiesData.length },
-    { id: "candidates", label: "Candidatures", icon: UserSquare, count: candidatesData.length },
+    { id: "parties", label: language === 'ar' ? 'الأحزاب السياسية' : "Partis Politiques", icon: Flag, count: partiesData.length },
+    { id: "candidates", label: language === 'ar' ? 'الترشيحات' : "Candidatures", icon: UserSquare, count: candidatesData.length },
   ] as const;
 
   return (
@@ -144,27 +146,29 @@ export default function EntitesPolitiques() {
         >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 w-fit">
             <ShieldCheck size={12} className="text-emerald-500" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Registre Officiel</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{language === 'ar' ? 'السجل الرسمي' : 'Registre Officiel'}</span>
           </div>
-          <h1 className="text-4xl font-black tracking-tighter text-zinc-900 dark:text-white lg:text-5xl lg:whitespace-nowrap">
-            Entités Politiques
+          <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
+            {t("nav.entities")}
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
-            Gestion institutionnelle des partis et validation du registre national des candidatures.
+            {language === 'ar' ? 'الإدارة المؤسسية للأحزاب والمصادقة على السجل الوطني للترشيحات.' : 'Gestion institutionnelle des partis et validation du registre national des candidatures.'}
           </p>
         </motion.div>
 
         <button 
           onClick={() => openModal()}
-          className="h-12 px-6 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2 flex-shrink-0"
+          className="h-12 px-6 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2 flex-shrink-0"
         >
           <Plus size={18} strokeWidth={3} />
-          {activeTab === 'parties' ? 'Enregistrer Parti' : 'Inscrire Candidat'}
+          {activeTab === 'parties' 
+            ? (language === 'ar' ? 'تسجيل حزب' : 'Enregistrer Parti') 
+            : (language === 'ar' ? 'تسجيل مترشح' : 'Inscrire Candidat')}
         </button>
       </div>
 
       {/* Tabs System */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-fit border-white/5 shadow-inner">
+      <div className="flex flex-wrap items-center gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-fit border-white/5">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -172,7 +176,7 @@ export default function EntitesPolitiques() {
             className={cn(
               "flex items-center gap-3 px-6 py-3 rounded-[18px] text-xs font-black uppercase tracking-widest transition-all duration-500 relative",
               activeTab === tab.id
-                ? "bg-white dark:bg-white text-zinc-900 dark:text-black shadow-xl scale-105 z-10"
+                ? "bg-white dark:bg-white text-zinc-900 dark:text-black scale-105 z-10"
                 : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
             )}
           >
@@ -195,29 +199,33 @@ export default function EntitesPolitiques() {
       <Modal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        title={editingItem ? "Modification " + (activeTab === 'parties' ? "Parti" : "Candidat") : (activeTab === 'parties' ? "Nouveau Parti" : "Nouvelle Candidature")}
+        title={
+          editingItem 
+            ? (language === 'ar' ? 'تعديل ' : "Modification ") + (activeTab === 'parties' ? (language === 'ar' ? "حزب" : "Parti") : (language === 'ar' ? "مترشح" : "Candidat")) 
+            : (activeTab === 'parties' ? (language === 'ar' ? "حزب جديد" : "Nouveau Parti") : (language === 'ar' ? "ترشيح جديد" : "Nouvelle Candidature"))
+        }
       >
         <form onSubmit={handleSubmit} className="space-y-6 max-h-[75vh] overflow-y-auto px-1 custom-scrollbar">
           {activeTab === "parties" ? (
             <div className="space-y-5">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Dénomination Officielle</label>
-                <input required type="text" placeholder="Ex: Front de Libération Nationale" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'التسمية الرسمية' : 'Dénomination Officielle'}</label>
+                <input required type="text" placeholder={language === 'ar' ? 'مثال: جبهة التحرير الوطني' : "Ex: Front de Libération Nationale"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Acronyme</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الشعار' : 'Acronyme'}</label>
                   <input required type="text" placeholder="Ex: FLN" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.short} onChange={(e) => setFormData({...formData, short: e.target.value})} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Secrétaire Général</label>
-                  <input required type="text" placeholder="Responsable légal" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.leader} onChange={(e) => setFormData({...formData, leader: e.target.value})} />
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الأمين العام' : 'Secrétaire Général'}</label>
+                  <input required type="text" placeholder={language === 'ar' ? 'المسؤول القانوني' : "Responsable légal"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.leader} onChange={(e) => setFormData({...formData, leader: e.target.value})} />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Siège National</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'المقر الوطني' : 'Siège National'}</label>
                 <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.wilaya} onChange={(e) => setFormData({...formData, wilaya: e.target.value})}>
-                  <option value="">Sélectionner une Wilaya</option>
+                  <option value="">{language === 'ar' ? 'اختر ولاية' : 'Sélectionner une Wilaya'}</option>
                   {wilayasData.map(w => <option key={w.id} value={w.name}>{w.name}</option>)}
                 </select>
               </div>
@@ -225,39 +233,40 @@ export default function EntitesPolitiques() {
           ) : (
             <div className="space-y-5">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Identité du Candidat</label>
-                <input required type="text" placeholder="Prénom et Nom" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'هوية المترشح' : 'Identité du Candidat'}</label>
+                <input required type="text" placeholder={language === 'ar' ? 'الاسم واللقب' : "Prénom et Nom"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Affiliation</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الانتماء' : 'Affiliation'}</label>
                   <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.short} onChange={(e) => setFormData({...formData, short: e.target.value})}>
-                    <option value="">Choisir...</option>
-                    <option value="Indépendant">Indépendant</option>
+                    <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
+                    <option value="Indépendant">{language === 'ar' ? 'مستقل' : 'Indépendant'}</option>
                     {partiesData.map(p => <option key={p.id} value={p.short}>{p.name} ({p.short})</option>)}
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Circonscription</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الدائرة الانتخابية' : 'Circonscription'}</label>
                   <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.wilaya} onChange={(e) => setFormData({...formData, wilaya: e.target.value})}>
-                    <option value="">Choisir...</option>
+                    <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
                     {wilayasData.map(w => <option key={w.id} value={w.name}>{w.name}</option>)}
                   </select>
                 </div>
               </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Identifiant National (NIN)</label>
-                  <input required type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder="18 chiffres" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.nin} onChange={(e) => setFormData({...formData, nin: e.target.value.replace(/\D/g, "")})} />
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الرقم التعريفي الوطني (NIN)' : 'Identifiant National (NIN)'}</label>
+                  <input required type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder={language === 'ar' ? '18 رقمًا' : "18 chiffres"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.nin} onChange={(e) => setFormData({...formData, nin: e.target.value.replace(/\D/g, "")})} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Contact</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الاتصال' : 'Contact'}</label>
                   <input required type="text" placeholder="05/06/07..." className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Date de Naissance</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'تاريخ الميلاد' : 'Date de Naissance'}</label>
                   <input required type="date" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.birthday} onChange={(e) => setFormData({...formData, birthday: e.target.value})} />
                 </div>
                 <div className="flex items-center gap-3 pt-8">
@@ -265,13 +274,13 @@ export default function EntitesPolitiques() {
                     <input type="checkbox" id="fav" className="peer w-6 h-6 rounded-lg border-2 border-zinc-200 dark:border-white/10 appearance-none checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer" checked={formData.fav} onChange={(e) => setFormData({...formData, fav: e.target.checked})} />
                     <ShieldCheck size={14} className="absolute left-1.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-all" />
                   </div>
-                  <label htmlFor="fav" className="text-[11px] font-black uppercase tracking-widest text-zinc-500 cursor-pointer">Éligibilité Confirmée</label>
+                  <label htmlFor="fav" className="text-[11px] font-black uppercase tracking-widest text-zinc-500 cursor-pointer">{language === 'ar' ? 'تأكيد الأهلية' : 'Éligibilité Confirmée'}</label>
                 </div>
               </div>
               <div className="p-8 border-2 border-dashed border-zinc-200 dark:border-white/5 rounded-2xl flex flex-col items-center gap-3 text-zinc-400 dark:bg-white/5 group hover:border-emerald-500/30 transition-all cursor-pointer">
                 <UserPlus size={32} className="group-hover:text-emerald-500 transition-all" />
                 <div className="text-center">
-                  <span className="text-[10px] font-black uppercase tracking-widest block">Portrait Officiel</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest block">{language === 'ar' ? 'الصورة الرسمية' : 'Portrait Officiel'}</span>
                   <span className="text-[9px] font-medium opacity-50">PNG, JPG (Max. 2MB)</span>
                 </div>
               </div>
@@ -279,9 +288,9 @@ export default function EntitesPolitiques() {
           )}
 
           <div className="pt-6 flex gap-4">
-            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">Annuler</button>
-            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest shadow-2xl hover:scale-[1.02] active:scale-95 transition-all">
-              {editingItem ? "Sauvegarder" : "Confirmer"}
+            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">{language === 'ar' ? 'إلغاء' : 'Annuler'}</button>
+            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all">
+              {editingItem ? (language === 'ar' ? 'حفظ' : "Sauvegarder") : (language === 'ar' ? 'تأكيد' : "Confirmer")}
             </button>
           </div>
         </form>
@@ -299,20 +308,20 @@ export default function EntitesPolitiques() {
           >
             {activeTab === "parties" && (
               <DataTable 
-                title="Registre des Partis Politiques"
+                title={language === 'ar' ? 'سجل الأحزاب السياسية' : "Registre des Partis Politiques"}
                 columns={[
-                  { header: "Sigle", accessor: "short", render: (val) => (
+                  { header: language === 'ar' ? 'الشعار' : "Sigle", accessor: "short", render: (val) => (
                     <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 flex items-center justify-center font-black text-emerald-500 border border-transparent dark:border-white/10">
                       {val}
                     </div>
                   )},
-                  { header: "Dénomination Officielle", accessor: "name", render: (val) => <span className="font-black text-zinc-900 dark:text-white tracking-tight">{val}</span> },
-                  { header: "Siège National", accessor: "wilaya_siege", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
-                  { header: "Status", accessor: "short", render: (val) => (
+                  { header: language === 'ar' ? 'التسمية الرسمية' : "Dénomination Officielle", accessor: "name", render: (val) => <span className="font-black text-zinc-900 dark:text-white tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'المقر الوطني' : "Siège National", accessor: "wilaya_siege", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'الحالة' : "Status", accessor: "short", render: (val) => (
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-[11px] font-black uppercase tracking-widest text-emerald-500">
-                        {candidatesData.filter(c => c.party === val).length} Candidats
+                        {candidatesData.filter(c => c.party === val).length} {language === 'ar' ? 'مترشحين' : 'Candidats'}
                       </span>
                     </div>
                   )},
@@ -325,30 +334,30 @@ export default function EntitesPolitiques() {
 
             {activeTab === "candidates" && (
               <DataTable 
-                title="Registre National des Candidatures"
+                title={language === 'ar' ? 'السجل الوطني للترشيحات' : "Registre National des Candidatures"}
                 columns={[
-                  { header: "Candidat", accessor: "full_name", render: (val, row: any) => (
+                  { header: language === 'ar' ? 'المترشح' : "Candidat", accessor: "full_name", render: (val, row: any) => (
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-zinc-400">
                         {row.fav ? <Medal size={20} className="text-emerald-500 fill-emerald-500/20" /> : <UserSquare size={20} />}
                       </div>
                       <div className="flex flex-col">
                         <span className="font-black text-zinc-900 dark:text-white tracking-tight leading-tight">{val}</span>
-                        <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">NIN: {row.nin}</span>
+                        <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">{language === 'ar' ? 'التعريف الوطني' : 'NIN'}: {row.nin}</span>
                       </div>
                     </div>
                   )},
-                  { header: "Affiliation", accessor: "party", render: (val) => (
+                  { header: language === 'ar' ? 'الانتماء' : "Affiliation", accessor: "party", render: (val) => (
                     <span className={cn(
                       "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest",
                       val === 'Indépendant' || !val ? "bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400" : "bg-emerald-500/10 text-emerald-500"
                     )}>
-                      {val || 'Indépendant'}
+                      {val === 'Indépendant' ? (language === 'ar' ? 'مستقل' : 'Indépendant') : (val || (language === 'ar' ? 'مستقل' : 'Indépendant'))}
                     </span>
                   )},
-                  { header: "Circonscription", accessor: "wilaya", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
-                  { header: "Contact", accessor: "phone", render: (val) => <span className="text-[11px] font-bold text-zinc-500">{val}</span> },
-                  { header: "Validation", accessor: "result", render: (val) => (
+                  { header: language === 'ar' ? 'الدائرة الانتخابية' : "Circonscription", accessor: "wilaya", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'الاتصال' : "Contact", accessor: "phone", render: (val) => <span className="text-[11px] font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'المصادقة' : "Validation", accessor: "result", render: (val) => (
                     <div className="flex items-center gap-2">
                       <Activity size={14} className="text-emerald-500" />
                       <span className="font-black text-emerald-500">{val}%</span>

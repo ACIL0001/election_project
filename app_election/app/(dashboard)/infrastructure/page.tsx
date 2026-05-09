@@ -22,6 +22,7 @@ import {
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useData } from "../context/DataContext";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function InfrastructureSetup() {
   const { 
@@ -30,6 +31,7 @@ export default function InfrastructureSetup() {
     centersData, setCentersData,
     desksData, setDesksData
   } = useData();
+  const { t, language, dir } = useLanguage();
 
   const [activeTab, setActiveTab] = useState<"wilayas" | "communes" | "centers" | "desks">("wilayas");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -105,14 +107,12 @@ export default function InfrastructureSetup() {
           }
         });
 
-        setWilayasData(prev => [...newWilayas, ...prev]);
-        setCommunesData(prev => [...newCommunes, ...prev]);
         setCentersData(prev => [...newCenters, ...prev]);
         
-        alert("Importation réussie : " + data.length + " lignes traitées.");
+        alert(language === 'ar' ? `تم الاستيراد بنجاح: تمت معالجة ${data.length} صفًا.` : "Importation réussie : " + data.length + " lignes traitées.");
       } catch (err) {
         console.error(err);
-        alert("Erreur lors de l'importation. Vérifiez le format du fichier.");
+        alert(language === 'ar' ? "خطأ أثناء الاستيراد. تحقق من تنسيق الملف." : "Erreur lors de l'importation. Vérifiez le format du fichier.");
       } finally {
         setIsImporting(false);
       }
@@ -249,10 +249,10 @@ export default function InfrastructureSetup() {
   };
 
   const tabs = [
-    { id: "wilayas", label: "Wilayas", icon: Globe, count: wilayasData.length },
-    { id: "communes", label: "Communes", icon: MapPin, count: communesData.length },
-    { id: "centers", label: "Centres", icon: Building2, count: centersData.length },
-    { id: "desks", label: "Bureaux", icon: Vote, count: desksData.length },
+    { id: "wilayas", label: language === 'ar' ? 'الولايات' : 'Wilayas', icon: Globe, count: wilayasData.length },
+    { id: "communes", label: language === 'ar' ? 'البلديات' : 'Communes', icon: MapPin, count: communesData.length },
+    { id: "centers", label: language === 'ar' ? 'المراكز' : 'Centres', icon: Building2, count: centersData.length },
+    { id: "desks", label: language === 'ar' ? 'المكاتب' : 'Bureaux', icon: Vote, count: desksData.length },
   ] as const;
 
   return (
@@ -266,43 +266,47 @@ export default function InfrastructureSetup() {
         >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 w-fit">
             <Server size={12} className="text-indigo-500" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500">Cartographie Nationale</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500">{language === 'ar' ? 'الخرائط الوطنية' : 'Cartographie Nationale'}</span>
           </div>
-          <h1 className="text-4xl font-black tracking-tighter text-zinc-900 dark:text-white lg:text-5xl lg:whitespace-nowrap">
-            Infrastructure Électorale
+          <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
+            {t("nav.infrastructure")}
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
-            Configuration et déploiement de la hiérarchie administrative pour le scrutin national.
+            {language === 'ar' ? 'تهيئة ونشر الهيكل الإداري للاقتراع الوطني.' : 'Configuration et déploiement de la hiérarchie administrative pour le scrutin national.'}
           </p>
         </motion.div>
 
         <div className="flex items-center gap-3">
           <button 
             onClick={downloadTemplate}
-            className="h-12 px-5 rounded-2xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all flex items-center gap-2 shadow-sm"
+            className="h-12 px-5 rounded-2xl border border-zinc-200 dark:border-white/5 bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all flex items-center gap-2"
           >
             <Download size={18} className="text-zinc-400" />
-            Modèle
+            {language === 'ar' ? 'نموذج' : 'Modèle'}
           </button>
           
-          <label className="h-12 px-5 rounded-2xl border border-dashed border-algerian-green/30 bg-algerian-green/5 text-algerian-green text-[11px] font-black uppercase tracking-widest hover:bg-algerian-green/10 transition-all flex items-center gap-2 cursor-pointer shadow-sm">
+          <label className="h-12 px-5 rounded-2xl border border-dashed border-algerian-green/30 bg-algerian-green/5 text-algerian-green text-[11px] font-black uppercase tracking-widest hover:bg-algerian-green/10 transition-all flex items-center gap-2 cursor-pointer">
             <FileUp size={18} />
-            <span>{isImporting ? "Importation..." : "Importer Registre"}</span>
+            <span>{isImporting ? (language === 'ar' ? 'جاري الاستيراد...' : "Importation...") : (language === 'ar' ? 'استيراد السجل' : "Importer Registre")}</span>
             <input type="file" accept=".xlsx, .xls" className="hidden" onChange={handleFileUpload} disabled={isImporting} />
           </label>
 
           <button 
             onClick={() => openModal(activeTab === 'wilayas' ? 'wilaya' : activeTab === 'communes' ? 'commune' : activeTab === 'centers' ? 'center' : 'desk')}
-            className="h-12 px-6 rounded-2xl bg-algerian-green text-white text-[11px] font-black uppercase tracking-widest shadow-xl shadow-algerian-green/20 hover:bg-algerian-green-dark transition-all flex items-center gap-2"
+            className="h-12 px-6 rounded-2xl bg-algerian-green text-white text-[11px] font-black uppercase tracking-widest hover:bg-algerian-green-dark transition-all flex items-center gap-2"
           >
             <Plus size={18} strokeWidth={3} />
-            Ajouter {activeTab === 'wilayas' ? 'Wilaya' : activeTab === 'communes' ? 'Commune' : activeTab === 'centers' ? 'Centre' : 'Bureau'}
+            {language === 'ar' ? 'إضافة ' : 'Ajouter '}
+            {activeTab === 'wilayas' ? (language === 'ar' ? 'ولاية' : 'Wilaya') : 
+             activeTab === 'communes' ? (language === 'ar' ? 'بلدية' : 'Commune') : 
+             activeTab === 'centers' ? (language === 'ar' ? 'مركز' : 'Centre') : 
+             (language === 'ar' ? 'مكتب' : 'Bureau')}
           </button>
         </div>
       </div>
 
       {/* Tabs System */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-fit border-white/5 shadow-inner">
+      <div className="flex flex-wrap items-center gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-fit border-white/5">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -310,7 +314,7 @@ export default function InfrastructureSetup() {
             className={cn(
               "flex items-center gap-3 px-6 py-3 rounded-[18px] text-xs font-black uppercase tracking-widest transition-all duration-500 relative",
               activeTab === tab.id
-                ? "bg-white dark:bg-white text-zinc-900 dark:text-black shadow-xl scale-105 z-10"
+                ? "bg-white dark:bg-white text-zinc-900 dark:text-black scale-105 z-10"
                 : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
             )}
           >
@@ -334,10 +338,10 @@ export default function InfrastructureSetup() {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         title={
-          editingItem ? "Modification de " + (modalType === "wilaya" ? "la Wilaya" : modalType === "commune" ? "la Commune" : modalType === "center" ? "du Centre" : "du Bureau") :
-          modalType === "wilaya" ? "Enregistrement Wilaya" : 
-          modalType === "commune" ? "Enregistrement Commune" : 
-          modalType === "center" ? "Enregistrement Centre" : "Enregistrement Bureau"
+          editingItem ? (language === 'ar' ? 'تعديل ' : "Modification de ") + (modalType === "wilaya" ? (language === 'ar' ? 'الولاية' : "la Wilaya") : modalType === "commune" ? (language === 'ar' ? 'البلدية' : "la Commune") : modalType === "center" ? (language === 'ar' ? 'المركز' : "du Centre") : (language === 'ar' ? 'المكتب' : "du Bureau")) :
+          modalType === "wilaya" ? (language === 'ar' ? 'تسجيل ولاية' : "Enregistrement Wilaya") : 
+          modalType === "commune" ? (language === 'ar' ? 'تسجيل بلدية' : "Enregistrement Commune") : 
+          modalType === "center" ? (language === 'ar' ? 'تسجيل مركز' : "Enregistrement Centre") : (language === 'ar' ? 'تسجيل مكتب' : "Enregistrement Bureau")
         }
       >
         <form onSubmit={handleSubmit} className="space-y-6 max-h-[75vh] overflow-y-auto px-1 custom-scrollbar">
@@ -345,16 +349,16 @@ export default function InfrastructureSetup() {
             <div className="space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Code Wilaya</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'رمز الولاية' : 'Code Wilaya'}</label>
                   <input required type="text" pattern="[0-9]*" inputMode="numeric" placeholder="Ex: 16" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.num} onChange={(e) => setFormData({...formData, num: e.target.value.replace(/\D/g, "")})} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Sièges</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'المقاعد' : 'Sièges'}</label>
                   <input required type="text" pattern="[0-9]*" inputMode="numeric" placeholder="Ex: 12" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.seats} onChange={(e) => setFormData({...formData, seats: e.target.value.replace(/\D/g, "")})} />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Désignation</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'التسمية' : 'Désignation'}</label>
                 <input required type="text" placeholder="Ex: Alger" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
             </div>
@@ -363,19 +367,19 @@ export default function InfrastructureSetup() {
           {modalType === "commune" && (
             <div className="space-y-5">
                <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Wilaya d'Attachement</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الولاية التابعة لها' : "Wilaya d'Attachement"}</label>
                 <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.wilaya} onChange={(e) => setFormData({...formData, wilaya: e.target.value})}>
-                  <option value="">Choisir la wilaya...</option>
+                  <option value="">{language === 'ar' ? 'اختر الولاية...' : 'Choisir la wilaya...'}</option>
                   {wilayasData.map(w => <option key={w.id} value={w.name}>{w.num_wilaya} - {w.name}</option>)}
                 </select>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Désignation</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'التسمية' : 'Désignation'}</label>
                   <input required type="text" placeholder="Ex: Sidi M'hamed" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Code Commune</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'رمز البلدية' : 'Code Commune'}</label>
                   <input required type="text" pattern="[0-9]*" inputMode="numeric" placeholder="Ex: 01" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold focus:ring-2 focus:ring-algerian-green/10" value={formData.num} onChange={(e) => setFormData({...formData, num: e.target.value.replace(/\D/g, "")})} />
                 </div>
               </div>
@@ -386,46 +390,46 @@ export default function InfrastructureSetup() {
             <div className="space-y-5">
                <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Wilaya</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الولاية' : 'Wilaya'}</label>
                   <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.wilaya} onChange={(e) => setFormData({...formData, wilaya: e.target.value})}>
-                    <option value="">Choisir...</option>
+                    <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
                     {wilayasData.map(w => <option key={w.id} value={w.name}>{w.name}</option>)}
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Commune</label>
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'البلدية' : 'Commune'}</label>
                   <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.location.split(', ')[1]} onChange={(e) => setFormData({...formData, location: `${formData.wilaya}, ${e.target.value}`})}>
-                    <option value="">Choisir...</option>
+                    <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
                     {communesData.filter(c => c.wilaya === formData.wilaya).map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
                   </select>
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Désignation du Centre</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'تسمية المركز' : 'Désignation du Centre'}</label>
                 <input required type="text" placeholder="Ex: Centre Pasteur" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Adresse / Localisation</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'العنوان / الموقع' : 'Adresse / Localisation'}</label>
                 <input required type="text" placeholder="Ex: Rue Didouche Mourad" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.location} onChange={(e) => setFormData({...formData, location: e.target.value})} />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[9px] font-black text-zinc-500 uppercase">Inscrits (H)</label>
+                  <label className="text-[9px] font-black text-zinc-500 uppercase">{language === 'ar' ? 'مسجلين (ذكور)' : 'Inscrits (H)'}</label>
                   <input required type="number" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.male} onChange={(e) => setFormData({...formData, male: parseInt(e.target.value) || 0})} />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[9px] font-black text-zinc-500 uppercase">Inscrits (F)</label>
+                  <label className="text-[9px] font-black text-zinc-500 uppercase">{language === 'ar' ? 'مسجلين (إناث)' : 'Inscrits (F)'}</label>
                   <input required type="number" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.female} onChange={(e) => setFormData({...formData, female: parseInt(e.target.value) || 0})} />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Total</label>
+                  <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الإجمالي' : 'Total'}</label>
                   <div className="w-full h-12 px-4 rounded-xl bg-algerian-green/10 flex items-center text-algerian-green font-black border border-algerian-green/20">
                     {formData.male + formData.female}
                   </div>
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Nombre de Bureaux</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'عدد المكاتب' : 'Nombre de Bureaux'}</label>
                 <input required type="number" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.desksCount} onChange={(e) => setFormData({...formData, desksCount: parseInt(e.target.value) || 0})} />
               </div>
             </div>
@@ -434,14 +438,14 @@ export default function InfrastructureSetup() {
           {modalType === "desk" && (
             <div className="space-y-5">
                <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Centre Parent</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'المركز الرئيسي' : 'Centre Parent'}</label>
                 <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.center} onChange={(e) => setFormData({...formData, center: e.target.value})}>
-                  <option value="">Sélectionner un Centre</option>
+                  <option value="">{language === 'ar' ? 'اختر مركزًا' : 'Sélectionner un Centre'}</option>
                   {centersData.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">N° du Bureau</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'رقم المكتب' : 'N° du Bureau'}</label>
                 <input required type="text" pattern="[0-9]*" inputMode="numeric" placeholder="Ex: 01" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.num} onChange={(e) => setFormData({...formData, num: e.target.value.replace(/\D/g, "")})} />
               </div>
               <div className="grid grid-cols-3 gap-4">
@@ -464,9 +468,9 @@ export default function InfrastructureSetup() {
           )}
 
           <div className="pt-6 flex gap-4">
-            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">Annuler</button>
-            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest shadow-2xl hover:scale-[1.02] active:scale-95 transition-all">
-              {editingItem ? "Sauvegarder" : "Confirmer"}
+            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">{language === 'ar' ? 'إلغاء' : 'Annuler'}</button>
+            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all">
+              {editingItem ? (language === 'ar' ? 'حفظ' : "Sauvegarder") : (language === 'ar' ? 'تأكيد' : "Confirmer")}
             </button>
           </div>
         </form>
@@ -483,13 +487,13 @@ export default function InfrastructureSetup() {
           >
             {activeTab === "wilayas" && (
               <DataTable 
-                title="Registre des Wilayas"
+                title={language === 'ar' ? 'سجل الولايات' : "Registre des Wilayas"}
                 columns={[
-                  { header: "Code", accessor: "num_wilaya" },
-                  { header: "Wilaya", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
-                  { header: "Sièges", accessor: "seats_count", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
-                  { header: "Communes", accessor: "communes", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
-                  { header: "Centres", accessor: "centers", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'الرمز' : "Code", accessor: "num_wilaya" },
+                  { header: language === 'ar' ? 'الولاية' : "Wilaya", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'المقاعد' : "Sièges", accessor: "seats_count", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
+                  { header: language === 'ar' ? 'البلديات' : "Communes", accessor: "communes", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'المراكز' : "Centres", accessor: "centers", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
                 ]}
                 data={wilayasData}
                 onEdit={(row) => openModal("wilaya", row)}
@@ -499,13 +503,13 @@ export default function InfrastructureSetup() {
 
             {activeTab === "communes" && (
               <DataTable 
-                title="Registre des Communes"
+                title={language === 'ar' ? 'سجل البلديات' : "Registre des Communes"}
                 columns={[
-                  { header: "N°", accessor: "num_bladia" },
-                  { header: "Commune", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
-                  { header: "Wilaya d'Origine", accessor: "wilaya", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
-                  { header: "Centres", accessor: "centers", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
-                  { header: "Bureaux", accessor: "desks", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'رقم' : "N°", accessor: "num_bladia" },
+                  { header: language === 'ar' ? 'البلدية' : "Commune", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'الولاية الأصلية' : "Wilaya d'Origine", accessor: "wilaya", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'المراكز' : "Centres", accessor: "centers", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
+                  { header: language === 'ar' ? 'المكاتب' : "Bureaux", accessor: "desks", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
                 ]}
                 data={communesData}
                 onEdit={(row) => openModal("commune", row)}
@@ -515,14 +519,14 @@ export default function InfrastructureSetup() {
 
             {activeTab === "centers" && (
               <DataTable 
-                title="Centres de Scrutin"
+                title={language === 'ar' ? 'مراكز الاقتراع' : "Centres de Scrutin"}
                 columns={[
-                  { header: "Centre de Vote", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
-                  { header: "Localisation", accessor: "location", render: (val) => <span className="text-[11px] font-medium text-zinc-500">{val}</span> },
-                  { header: "H", accessor: "male" },
-                  { header: "F", accessor: "female" },
-                  { header: "Total Inscrits", accessor: "total", render: (val) => <span className="text-algerian-green font-black">{val?.toLocaleString()}</span> },
-                  { header: "Bureaux", accessor: "numbers_desks", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
+                  { header: language === 'ar' ? 'مركز التصويت' : "Centre de Vote", accessor: "name", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'الموقع' : "Localisation", accessor: "location", render: (val) => <span className="text-[11px] font-medium text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'ذ' : "H", accessor: "male" },
+                  { header: language === 'ar' ? 'إ' : "F", accessor: "female" },
+                  { header: language === 'ar' ? 'إجمالي المسجلين' : "Total Inscrits", accessor: "total", render: (val) => <span className="text-algerian-green font-black">{val?.toLocaleString()}</span> },
+                  { header: language === 'ar' ? 'المكاتب' : "Bureaux", accessor: "numbers_desks", render: (val) => <span className="font-bold text-indigo-500">{val}</span> },
                 ]}
                 data={centersData}
                 onEdit={(row) => openModal("center", row)}
@@ -532,13 +536,13 @@ export default function InfrastructureSetup() {
 
             {activeTab === "desks" && (
               <DataTable 
-                title="Bureaux de Vote"
+                title={language === 'ar' ? 'مكاتب التصويت' : "Bureaux de Vote"}
                 columns={[
-                  { header: "N° Bureau", accessor: "num_desk", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
-                  { header: "Centre de Rattachement", accessor: "center", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
-                  { header: "H", accessor: "male" },
-                  { header: "F", accessor: "female" },
-                  { header: "Inscrits", accessor: "total", render: (val) => <span className="text-algerian-green font-black">{val}</span> },
+                  { header: language === 'ar' ? 'رقم المكتب' : "N° Bureau", accessor: "num_desk", render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'المركز التابع له' : "Centre de Rattachement", accessor: "center", render: (val) => <span className="font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'ذ' : "H", accessor: "male" },
+                  { header: language === 'ar' ? 'إ' : "F", accessor: "female" },
+                  { header: language === 'ar' ? 'المسجلين' : "Inscrits", accessor: "total", render: (val) => <span className="text-algerian-green font-black">{val}</span> },
                 ]}
                 data={desksData}
                 onEdit={(row) => openModal("desk", row)}

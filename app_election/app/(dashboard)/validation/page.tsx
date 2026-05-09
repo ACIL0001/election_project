@@ -22,17 +22,19 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const mockPVData = [
+const getMockPVData = (t: any) => [
   { id: "PV-1029-A", candidate: "Abdelmadjid Tebboune", manual: 450, ocr: 450, status: "matched" },
   { id: "PV-1029-B", candidate: "Youcef Aouchiche", manual: 120, ocr: 125, status: "mismatch" },
   { id: "PV-1029-C", candidate: "Ali Benflis", manual: 85, ocr: 85, status: "matched" },
-  { id: "PV-1029-D", candidate: "Votes Blancs", manual: 12, ocr: 12, status: "matched" },
-  { id: "PV-1029-E", candidate: "Votes Nuls", manual: 5, ocr: 8, status: "mismatch" },
+  { id: "PV-1029-D", candidate: t("validation.white_votes") || "Votes Blancs", manual: 12, ocr: 12, status: "matched" },
+  { id: "PV-1029-E", candidate: t("validation.null_votes") || "Votes Nuls", manual: 5, ocr: 8, status: "mismatch" },
 ];
 
 export default function ValidationResults() {
-  const [selectedPV, setSelectedPV] = useState(mockPVData);
+  const { t, language } = useLanguage();
+  const [selectedPV, setSelectedPV] = useState(getMockPVData(t));
   const [zoom, setZoom] = useState(1);
 
   const handleUpdateManual = (id: string, value: string) => {
@@ -56,50 +58,50 @@ export default function ValidationResults() {
         >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 w-fit">
             <ShieldCheck size={12} className="text-emerald-500" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Validation Intelligente</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{language === 'ar' ? 'المصادقة الذكية' : 'Validation Intelligente'}</span>
           </div>
-          <h1 className="text-4xl font-black tracking-tighter text-zinc-900 dark:text-white lg:text-5xl lg:whitespace-nowrap">
-            Saisie & Audit PV
+          <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
+            {t("nav.validation")}
           </h1>
           <div className="flex items-center gap-4 text-zinc-500 dark:text-zinc-400 text-[11px] font-black uppercase tracking-widest">
             <div className="flex items-center gap-1.5 bg-zinc-100 dark:bg-white/5 px-2 py-1 rounded-lg">
               <MapPin size={12} className="text-emerald-500" />
-              <span>Alger • 16001</span>
+              <span>{language === 'ar' ? 'الجزائر • 16001' : 'Alger • 16001'}</span>
             </div>
             <div className="flex items-center gap-1.5 bg-zinc-100 dark:bg-white/5 px-2 py-1 rounded-lg">
               <Clock size={12} className="text-emerald-500" />
-              <span>Dernier Scan: 14:32</span>
+              <span>{language === 'ar' ? 'آخر مسح: 14:32' : 'Dernier Scan: 14:32'}</span>
             </div>
           </div>
         </motion.div>
 
         <div className="flex items-center gap-3">
           <div className="flex flex-col items-end mr-4">
-            <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest">Intégrité OCR</span>
+            <span className="text-[10px] uppercase font-black text-zinc-400 tracking-widest">{language === 'ar' ? 'نزاهة التعرف الضوئي' : 'Intégrité OCR'}</span>
             <div className="flex items-center gap-1.5 text-amber-500 font-black text-xs uppercase tracking-tighter">
               <AlertTriangle size={14} />
-              2 Écarts Détectés
+              {language === 'ar' ? 'تم اكتشاف فارقين' : '2 Écarts Détectés'}
             </div>
           </div>
           <button className="h-12 px-6 rounded-2xl bg-zinc-100 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-200 dark:hover:bg-white/10 transition-all flex items-center gap-2">
             <RotateCcw size={16} />
-            Réinitialiser
+            {language === 'ar' ? 'إعادة ضبط' : 'Réinitialiser'}
           </button>
-          <button className="h-12 px-6 rounded-2xl bg-emerald-500 text-white text-[11px] font-black uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all flex items-center gap-2">
+          <button className="h-12 px-6 rounded-2xl bg-emerald-500 text-white text-[11px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all flex items-center gap-2">
             <Save size={16} />
-            Confirmer l'Audit
+            {language === 'ar' ? 'تأكيد التدقيق' : "Confirmer l'Audit"}
           </button>
         </div>
       </div>
 
       <div className="flex-1 flex gap-6 overflow-hidden min-h-0">
         {/* Document Engine View */}
-        <div className="flex-1 glass dark:bg-white/5 rounded-[32px] overflow-hidden flex flex-col relative border-white/5 shadow-2xl">
+        <div className="flex-1 glass dark:bg-white/5 rounded-[32px] overflow-hidden flex flex-col relative border-white/5">
           <div className="absolute top-6 right-6 z-10 flex flex-col gap-3">
-            <button onClick={() => setZoom(prev => Math.min(prev + 0.2, 2.5))} className="h-10 w-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-900 shadow-xl border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-white hover:scale-110 transition-all">
+            <button onClick={() => setZoom(prev => Math.min(prev + 0.2, 2.5))} className="h-10 w-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-white hover:scale-110 transition-all">
               <ZoomIn size={18} strokeWidth={2.5} />
             </button>
-            <button onClick={() => setZoom(prev => Math.max(prev - 0.2, 0.5))} className="h-10 w-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-900 shadow-xl border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-white hover:scale-110 transition-all">
+            <button onClick={() => setZoom(prev => Math.max(prev - 0.2, 0.5))} className="h-10 w-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-white hover:scale-110 transition-all">
               <ZoomOut size={18} strokeWidth={2.5} />
             </button>
           </div>
@@ -109,7 +111,7 @@ export default function ValidationResults() {
               <div className="h-8 w-8 rounded-lg bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
                 <ImageIcon size={16} className="text-emerald-500" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">Moteur de Visualisation PV</span>
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/70">{language === 'ar' ? 'محرك عرض المحاضر' : 'Moteur de Visualisation PV'}</span>
             </div>
             <span className="text-[10px] font-black text-emerald-500 font-mono bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">PV_2024_AUDIT_16.SCAN</span>
           </div>
@@ -117,7 +119,7 @@ export default function ValidationResults() {
           <div className="flex-1 overflow-auto p-12 flex items-center justify-center custom-scrollbar bg-zinc-50 dark:bg-zinc-950/50">
             <motion.div 
               style={{ scale: zoom }}
-              className="relative w-[500px] h-[700px] bg-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] rounded-sm border-[16px] border-zinc-100 flex flex-col p-12 space-y-10"
+              className="relative w-[500px] h-[700px] bg-white rounded-sm border-[16px] border-zinc-100 flex flex-col p-12 space-y-10"
             >
               {/* Institutional Header */}
               <div className="text-center border-b-2 border-zinc-900 pb-6 space-y-2">
@@ -127,65 +129,65 @@ export default function ValidationResults() {
               </div>
 
               <div className="text-center">
-                <h3 className="font-serif text-xl font-black border-2 border-zinc-900 px-6 py-2 w-fit mx-auto uppercase">PV de Scrutin</h3>
+                <h3 className="font-serif text-xl font-black border-2 border-zinc-900 px-6 py-2 w-fit mx-auto uppercase">{language === 'ar' ? 'محضر الفرز' : 'PV de Scrutin'}</h3>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-[10px] font-black uppercase border-2 border-zinc-900 p-4 rounded-md">
                 <div className="space-y-1.5">
-                  <p className="flex justify-between">Wilaya: <span className="text-emerald-600">Alger (16)</span></p>
-                  <p className="flex justify-between">Commune: <span>Sidi M'hamed</span></p>
+                  <p className="flex justify-between">{language === 'ar' ? 'الولاية' : 'Wilaya'}: <span className="text-emerald-600">{language === 'ar' ? 'الجزائر (16)' : 'Alger (16)'}</span></p>
+                  <p className="flex justify-between">{language === 'ar' ? 'البلدية' : 'Commune'}: <span>{language === 'ar' ? 'سيدي امحمد' : "Sidi M'hamed"}</span></p>
                 </div>
                 <div className="space-y-1.5">
-                  <p className="flex justify-between">Centre: <span>Pasteur</span></p>
-                  <p className="flex justify-between">Bureau: <span className="text-emerald-600">008</span></p>
+                  <p className="flex justify-between">{language === 'ar' ? 'المركز' : 'Centre'}: <span>{language === 'ar' ? 'باستور' : 'Pasteur'}</span></p>
+                  <p className="flex justify-between">{language === 'ar' ? 'المكتب' : 'Bureau'}: <span className="text-emerald-600">008</span></p>
                 </div>
               </div>
               
               <div className="flex-1 border-2 border-zinc-900 p-4 space-y-6">
                  <div className="flex justify-between font-black text-[10px] uppercase border-b-2 border-zinc-900 pb-2">
-                    <span>Option / Candidat</span>
-                    <span>Voix</span>
+                    <span>{language === 'ar' ? 'الخيار / المترشح' : 'Option / Candidat'}</span>
+                    <span>{language === 'ar' ? 'الأصوات' : 'Voix'}</span>
                  </div>
                  <div className="space-y-3">
-                   {mockPVData.map((p, i) => (
-                     <div key={i} className="flex justify-between items-end border-b border-zinc-200 pb-1">
-                        <span className="text-[11px] font-black text-zinc-900">{p.candidate}</span>
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono text-base font-black border-2 border-zinc-900 px-3 py-1 bg-zinc-50">{p.manual}</span>
-                          <div className="h-4 w-4 rounded-full bg-zinc-100 border border-zinc-300"></div>
-                        </div>
-                     </div>
-                   ))}
+                    {selectedPV.map((p, i) => (
+                      <div key={i} className="flex justify-between items-end border-b border-zinc-200 pb-1">
+                         <span className="text-[11px] font-black text-zinc-900">{p.candidate}</span>
+                         <div className="flex items-center gap-2">
+                           <span className="font-mono text-base font-black border-2 border-zinc-900 px-3 py-1 bg-zinc-50">{p.manual}</span>
+                           <div className="h-4 w-4 rounded-full bg-zinc-100 border border-zinc-300"></div>
+                         </div>
+                      </div>
+                    ))}
                  </div>
               </div>
 
               <div className="flex justify-between items-center pt-8 border-t border-zinc-200">
-                 <div className="h-12 w-28 border-2 border-dashed border-zinc-300 flex items-center justify-center text-[10px] font-black text-zinc-300 uppercase rotate-12">Sceau ANIE</div>
-                 <div className="flex flex-col items-center gap-1">
-                    <span className="text-[9px] font-black uppercase text-zinc-400">Président du Bureau</span>
-                    <div className="h-10 w-24 border-b-2 border-zinc-900 font-serif text-sm flex items-end justify-center italic text-zinc-400">Signature</div>
-                 </div>
+                  <div className="h-12 w-28 border-2 border-dashed border-zinc-300 flex items-center justify-center text-[10px] font-black text-zinc-300 uppercase rotate-12">{language === 'ar' ? 'ختم السلطة' : 'Sceau ANIE'}</div>
+                  <div className="flex flex-col items-center gap-1">
+                     <span className="text-[9px] font-black uppercase text-zinc-400">{language === 'ar' ? 'رئيس المكتب' : 'Président du Bureau'}</span>
+                     <div className="h-10 w-24 border-b-2 border-zinc-900 font-serif text-sm flex items-end justify-center italic text-zinc-400">{language === 'ar' ? 'التوقيع' : 'Signature'}</div>
+                  </div>
               </div>
             </motion.div>
           </div>
         </div>
 
         {/* Verification Sidebar */}
-        <div className="w-[450px] glass dark:bg-white/5 rounded-[32px] flex flex-col overflow-hidden border-white/5 shadow-2xl">
+        <div className="w-[450px] glass dark:bg-white/5 rounded-[32px] flex flex-col overflow-hidden border-white/5">
           <div className="p-8 bg-zinc-50/50 dark:bg-white/5 border-b border-white/5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
+                <div className="h-10 w-10 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
                 <FileText size={20} className="text-emerald-500" />
               </div>
-              <h2 className="text-lg font-black tracking-tight text-zinc-900 dark:text-white uppercase">Vérification de Saisie</h2>
+              <h2 className="text-lg font-black tracking-tight text-zinc-900 dark:text-white uppercase">{language === 'ar' ? 'التحقق من الإدخال' : 'Vérification de Saisie'}</h2>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white dark:bg-black/40 p-4 rounded-2xl border border-zinc-200 dark:border-white/5 shadow-inner">
-                <p className="text-[10px] text-zinc-500 font-black uppercase tracking-widest mb-1">Total Voix</p>
+              <div className="bg-white dark:bg-black/40 p-4 rounded-2xl border border-zinc-200 dark:border-white/5">
+                <p className="text-[10px] text-zinc-500 font-black uppercase tracking-widest mb-1">{language === 'ar' ? 'إجمالي الأصوات' : 'Total Voix'}</p>
                 <p className="text-2xl font-black text-emerald-500">672</p>
               </div>
-              <div className="bg-white dark:bg-black/40 p-4 rounded-2xl border border-zinc-200 dark:border-white/5 shadow-inner">
-                <p className="text-[10px] text-zinc-500 font-black uppercase tracking-widest mb-1">Inscrits</p>
+              <div className="bg-white dark:bg-black/40 p-4 rounded-2xl border border-zinc-200 dark:border-white/5">
+                <p className="text-[10px] text-zinc-500 font-black uppercase tracking-widest mb-1">{language === 'ar' ? 'المسجلين' : 'Inscrits'}</p>
                 <p className="text-2xl font-black text-zinc-900 dark:text-white tracking-tighter">800</p>
               </div>
             </div>
@@ -193,8 +195,8 @@ export default function ValidationResults() {
 
           <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
             <div className="grid grid-cols-12 gap-3 text-[10px] font-black text-zinc-400 uppercase tracking-widest px-4">
-              <div className="col-span-6">Identité / Option</div>
-              <div className="col-span-3 text-center">Manuel</div>
+              <div className="col-span-6">{language === 'ar' ? 'الهوية / الخيار' : 'Identité / Option'}</div>
+              <div className="col-span-3 text-center">{language === 'ar' ? 'يدوي' : 'Manuel'}</div>
               <div className="col-span-3 text-center">OCR</div>
             </div>
 
@@ -206,19 +208,19 @@ export default function ValidationResults() {
                   className={cn(
                     "grid grid-cols-12 gap-3 p-4 rounded-2xl border transition-all duration-500 relative overflow-hidden group",
                     pv.status === 'mismatch' 
-                      ? "bg-red-500/[0.03] dark:bg-red-500/[0.08] border-red-500/20 shadow-lg shadow-red-500/5" 
+                      ? "bg-red-500/[0.03] dark:bg-red-500/[0.08] border-red-500/20" 
                       : "bg-white dark:bg-white/5 border-zinc-100 dark:border-white/5 hover:border-emerald-500/30"
                   )}
                 >
                   {pv.status === 'mismatch' && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-red-500 shadow-[0_0_15px_rgba(239,68,68,0.5)]" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-red-500" />
                   )}
-                  <div className="col-span-6 flex flex-col justify-center">
+                    <div className="col-span-6 flex flex-col justify-center">
                     <span className="text-xs font-black text-zinc-900 dark:text-white uppercase tracking-tight">{pv.candidate}</span>
                     {pv.status === 'mismatch' && (
                       <span className="text-[9px] text-red-500 font-black uppercase tracking-widest flex items-center gap-1 mt-1">
                         <Zap size={10} strokeWidth={3} />
-                        Discrépance Détectée
+                        {language === 'ar' ? 'تم اكتشاف تباين' : 'Discrépance Détectée'}
                       </span>
                     )}
                   </div>
@@ -252,18 +254,18 @@ export default function ValidationResults() {
              <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-widest mb-6">
                 <div className="flex items-center gap-2">
                   <Activity size={16} className="text-emerald-500" />
-                  <span className="text-zinc-500">Moteur de Confiance</span>
+                  <span className="text-zinc-500">{language === 'ar' ? 'محرك الثقة' : 'Moteur de Confiance'}</span>
                 </div>
-                <span className="text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">84.2% Audit Pass</span>
+                <span className="text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">84.2% {language === 'ar' ? 'تدقيق ناجح' : 'Audit Pass'}</span>
              </div>
              <div className="flex gap-4">
-                <button className="flex-1 h-14 rounded-2xl bg-white dark:bg-red-500/10 text-red-500 text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-2 border border-red-500/20 hover:bg-red-500/20 transition-all shadow-lg">
+                <button className="flex-1 h-14 rounded-2xl bg-white dark:bg-red-500/10 text-red-500 text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-2 border border-red-500/20 hover:bg-red-500/20 transition-all">
                   <XCircle size={18} strokeWidth={2.5} />
-                  Rejeter PV
+                  {language === 'ar' ? 'رفض المحضر' : 'Rejeter PV'}
                 </button>
-                <button className="flex-1 h-14 rounded-2xl bg-emerald-500 text-white text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/30 hover:bg-emerald-600 transition-all">
+                <button className="flex-1 h-14 rounded-2xl bg-emerald-500 text-white text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-600 transition-all">
                   <CheckCircle2 size={18} strokeWidth={2.5} />
-                  Approuver PV
+                  {language === 'ar' ? 'قبول المحضر' : 'Approuver PV'}
                 </button>
              </div>
           </div>

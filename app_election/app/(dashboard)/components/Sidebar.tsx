@@ -17,45 +17,52 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-const navigationGroups = [
-  {
-    title: "Principal",
-    items: [
-      { name: "Tableau de Bord", href: "/", icon: LayoutDashboard },
-    ]
-  },
-  {
-    title: "Administration",
-    items: [
-      { name: "Gestion des Accès", href: "/gestion-acces", icon: Users },
-      { name: "Infrastructure", href: "/infrastructure", icon: MapPin },
-    ]
-  },
-  {
-    title: "Opérations Électorales",
-    items: [
-      { name: "Entités Politiques", href: "/entites-politiques", icon: Flag },
-      { name: "Validation PV", href: "/validation", icon: CheckCircle },
-      { name: "Planification Jour-J", href: "/roles-election", icon: Calendar },
-    ]
-  }
-];
+// Moved inside component to support translation
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { t, dir, language } = useLanguage();
+
+  const navigationGroups = [
+    {
+      title: language === 'ar' ? 'الرئيسية' : 'Principal',
+      items: [
+        { name: t("nav.overview"), href: "/", icon: LayoutDashboard },
+      ]
+    },
+    {
+      title: language === 'ar' ? 'الإدارة' : 'Administration',
+      items: [
+        { name: t("nav.access"), href: "/gestion-acces", icon: Users },
+        { name: t("nav.infrastructure"), href: "/infrastructure", icon: MapPin },
+      ]
+    },
+    {
+      title: language === 'ar' ? 'العمليات الانتخابية' : 'Opérations Électorales',
+      items: [
+        { name: t("nav.entities"), href: "/entites-politiques", icon: Flag },
+        { name: t("nav.validation"), href: "/validation", icon: CheckCircle },
+        { name: t("nav.roles"), href: "/roles-election", icon: Calendar },
+      ]
+    }
+  ];
 
   return (
-    <div className="flex h-full w-72 flex-col sidebar-glass fixed left-0 top-0 z-40 p-4">
+    <div className={cn(
+      "flex h-full w-72 flex-col sidebar-glass fixed top-0 z-40 p-4",
+      dir === 'rtl' ? 'right-0 border-l border-white/5' : 'left-0 border-r border-white/5'
+    )}>
       {/* Brand Header */}
       <div className="flex h-16 items-center px-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-algerian-green flex items-center justify-center text-white shadow-xl shadow-algerian-green/20 glow-emerald">
+          <div className="h-10 w-10 rounded-xl bg-algerian-green flex items-center justify-center text-white glow-emerald">
             <ShieldCheck size={24} strokeWidth={2.5} />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-black tracking-tighter text-algerian-green dark:text-white leading-none">ANIE</span>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Algérie</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{language === 'ar' ? 'الجزائر' : 'Algérie'}</span>
           </div>
         </div>
       </div>
@@ -63,13 +70,19 @@ export default function Sidebar() {
       {/* Command Search */}
       <div className="px-4 mb-8">
         <div className="relative group">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 group-hover:text-algerian-green transition-colors" size={16} />
+          <Search className="absolute start-3 top-1/2 -translate-y-1/2 text-zinc-500 group-hover:text-algerian-green transition-colors" size={16} />
           <input 
             type="text" 
-            placeholder="Rechercher..." 
-            className="w-full h-10 pl-10 pr-4 bg-zinc-100/50 dark:bg-white/5 border-none rounded-xl text-xs font-medium focus:ring-1 focus:ring-algerian-green/50 transition-all"
+            placeholder={t("common.search")} 
+            className={cn(
+              "w-full h-10 pr-4 bg-zinc-100/50 dark:bg-white/5 border-none rounded-xl text-xs font-medium focus:ring-1 focus:ring-algerian-green/50 transition-all",
+              dir === 'rtl' ? 'pr-10 pl-4' : 'pl-10 pr-4'
+            )}
           />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-white/10 text-[10px] font-bold text-zinc-400">
+          <div className={cn(
+            "absolute top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded border border-zinc-200 dark:border-white/10 text-[10px] font-bold text-zinc-400",
+            dir === 'rtl' ? 'left-3' : 'right-3'
+          )}>
             ⌘K
           </div>
         </div>
@@ -99,14 +112,15 @@ export default function Sidebar() {
                     {isActive && (
                       <motion.div
                         layoutId="activeNav"
-                        className="absolute inset-0 bg-white dark:bg-white/10 border border-zinc-200 dark:border-white/10 rounded-xl shadow-sm z-[-1]"
+                        className="absolute inset-0 bg-white dark:bg-white/10 border border-zinc-200 dark:border-white/10 rounded-xl z-[-1]"
                         initial={false}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
                     <item.icon
                       className={cn(
-                        "mr-3 h-5 w-5 shrink-0 transition-all duration-300",
+                        "h-5 w-5 shrink-0 transition-all duration-300",
+                        dir === 'rtl' ? 'ml-3' : 'mr-3',
                         isActive 
                           ? "text-algerian-green dark:text-algerian-green-light scale-110" 
                           : "text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300"
@@ -121,7 +135,10 @@ export default function Sidebar() {
                       />
                     )}
                     {!isActive && (
-                      <ChevronRight className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-zinc-400" size={14} />
+                      <ChevronRight className={cn(
+                        "opacity-0 group-hover:opacity-100 transition-all text-zinc-400",
+                        dir === 'rtl' ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'
+                      )} size={14} />
                     )}
                   </Link>
                 );
@@ -135,11 +152,11 @@ export default function Sidebar() {
       <div className="mt-auto px-2 pt-6 border-t border-zinc-100 dark:border-white/5 space-y-1">
         <Link href="/settings" className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
           <Settings size={18} />
-          <span>Paramètres</span>
+          <span>{t("nav.settings")}</span>
         </Link>
         <Link href="/help" className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
           <HelpCircle size={18} />
-          <span>Aide & Support</span>
+          <span>{language === 'ar' ? 'المساعدة والدعم' : 'Aide & Support'}</span>
         </Link>
       </div>
     </div>

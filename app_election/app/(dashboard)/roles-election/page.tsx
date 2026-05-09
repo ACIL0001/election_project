@@ -23,12 +23,14 @@ import {
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useData } from "../context/DataContext";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function RolesElection() {
   const { 
     observersData, setObserversData,
     centersData
   } = useData();
+  const { t, language, dir } = useLanguage();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<any>(null);
@@ -73,7 +75,7 @@ export default function RolesElection() {
   };
 
   const handleDelete = (id: number) => {
-    if (confirm("Révoquer cet accès temporaire ?")) {
+    if (confirm(language === 'ar' ? 'هل أنت متأكد من إلغاء هذا الاعتماد المؤقت؟' : "Révoquer cet accès temporaire ?")) {
       setObserversData(observersData.filter(o => o.id !== id));
     }
   };
@@ -85,10 +87,10 @@ export default function RolesElection() {
         ...o,
         name: newUser.name,
         email: newUser.email,
-        role: newUser.role === "obs_center" ? "Observateur Centre" : "Observateur Bureau",
+        role: newUser.role === "obs_center" ? (language === 'ar' ? "مراقب مركز" : "Observateur Centre") : (language === 'ar' ? "مراقب مكتب" : "Observateur Bureau"),
         center: newUser.center,
         desk: newUser.desk,
-        location: `${newUser.center || "Centre Non Spécifié"}${newUser.desk ? ` - Bureau ${newUser.desk}` : ""}`,
+        location: `${newUser.center || (language === 'ar' ? "مركز غير محدد" : "Centre Non Spécifié")}${newUser.desk ? ` - ${language === 'ar' ? 'مكتب' : 'Bureau'} ${newUser.desk}` : ""}`,
         expires: newUser.time || o.expires
       } : o));
     } else {
@@ -96,12 +98,12 @@ export default function RolesElection() {
         id: observersData.length + 1,
         name: newUser.name,
         email: newUser.email,
-        role: newUser.role === "obs_center" ? "Observateur Centre" : "Observateur Bureau",
+        role: newUser.role === "obs_center" ? (language === 'ar' ? "مراقب مركز" : "Observateur Centre") : (language === 'ar' ? "مراقب مكتب" : "Observateur Bureau"),
         center: newUser.center,
         desk: newUser.desk,
-        location: `${newUser.center || "Centre Non Spécifié"}${newUser.desk ? ` - Bureau ${newUser.desk}` : ""}`,
+        location: `${newUser.center || (language === 'ar' ? "مركز غير محدد" : "Centre Non Spécifié")}${newUser.desk ? ` - ${language === 'ar' ? 'مكتب' : 'Bureau'} ${newUser.desk}` : ""}`,
         code: generateCode(),
-        status: "Actif",
+        status: language === 'ar' ? "نشط" : "Actif",
         expires: newUser.time || "20:00"
       }, ...observersData]);
     }
@@ -119,23 +121,23 @@ export default function RolesElection() {
         >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 w-fit">
             <Timer size={12} className="text-amber-500" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">Déploiement Opérationnel Jour-J</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">{language === 'ar' ? 'الانتشار العملياتي يوم الاقتراع' : 'Déploiement Opérationnel Jour-J'}</span>
           </div>
-          <h1 className="text-4xl font-black tracking-tighter text-zinc-900 dark:text-white lg:text-5xl lg:whitespace-nowrap">
-            Rôles & Missions
+          <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
+            {t("nav.roles")}
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
-            Gestion des accréditations temporaires et supervision du personnel de terrain pour le scrutin national.
+            {language === 'ar' ? 'إدارة الاعتمادات المؤقتة والإشراف على الموظفين الميدانيين للاقتراع الوطني.' : 'Gestion des accréditations temporaires et supervision du personnel de terrain pour le scrutin national.'}
           </p>
         </motion.div>
 
         <div className="flex items-center gap-3 flex-shrink-0">
           <button 
             onClick={() => openModal()}
-            className="h-12 px-6 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
+            className="h-12 px-6 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
           >
             <UserCheck size={18} strokeWidth={3} />
-            Accréditer Observateur
+            {language === 'ar' ? 'اعتماد مراقب' : 'Accréditer Observateur'}
           </button>
         </div>
       </div>
@@ -143,16 +145,16 @@ export default function RolesElection() {
       {/* Stats Summary Bento */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
-          { label: "Total Accrédités", value: observersData.length, icon: Users, color: "text-emerald-500" },
-          { label: "Sessions Actives", value: observersData.filter(o => o.status === 'Actif').length, icon: Activity, color: "text-blue-500" },
-          { label: "Zones Couvertes", value: Array.from(new Set(observersData.map(o => o.center))).length, icon: MapPin, color: "text-amber-500" },
+          { label: language === 'ar' ? "إجمالي المعتمدين" : "Total Accrédités", value: observersData.length, icon: Users, color: "text-emerald-500" },
+          { label: language === 'ar' ? "الجلسات النشطة" : "Sessions Actives", value: observersData.filter(o => o.status === 'Actif' || o.status === 'نشط').length, icon: Activity, color: "text-blue-500" },
+          { label: language === 'ar' ? "المناطق المغطاة" : "Zones Couvertes", value: Array.from(new Set(observersData.map(o => o.center))).length, icon: MapPin, color: "text-amber-500" },
         ].map((stat, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="p-6 glass dark:bg-white/5 rounded-3xl border-white/10 shadow-xl flex items-center justify-between"
+            className="p-6 glass dark:bg-white/5 rounded-3xl border-white/10 flex items-center justify-between"
           >
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-1">{stat.label}</p>
@@ -168,27 +170,29 @@ export default function RolesElection() {
       <Modal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        title={editingItem ? "Mise à jour d'Accréditation" : "Nouvelle Accréditation Temporaire"}
+        title={editingItem 
+          ? (language === 'ar' ? "تحديث الاعتماد" : "Mise à jour d'Accréditation") 
+          : (language === 'ar' ? "اعتماد مؤقت جديد" : "Nouvelle Accréditation Temporaire")}
       >
         <form onSubmit={handleSubmit} className="space-y-6 max-h-[75vh] overflow-y-auto px-1 custom-scrollbar">
           <div className="space-y-5">
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Identité du Personnel</label>
-              <input required type="text" placeholder="Prénom et Nom" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.name} onChange={(e) => setNewUser({...newUser, name: e.target.value})} />
+              <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'هوية الموظف' : 'Identité du Personnel'}</label>
+              <input required type="text" placeholder={language === 'ar' ? 'الاسم واللقب' : 'Prénom et Nom'} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.name} onChange={(e) => setNewUser({...newUser, name: e.target.value})} />
             </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Rôle Opérationnel</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الدور العملياتي' : 'Rôle Opérationnel'}</label>
                 <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.role} onChange={(e) => setNewUser({...newUser, role: e.target.value})}>
-                  <option value="obs_center">Observateur Centre</option>
-                  <option value="obs_desk">Observateur Bureau</option>
+                  <option value="obs_center">{language === 'ar' ? 'مراقب مركز' : 'Observateur Centre'}</option>
+                  <option value="obs_desk">{language === 'ar' ? 'مراقب مكتب' : 'Observateur Bureau'}</option>
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Affectation Centre</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'تعيين المركز' : 'Affectation Centre'}</label>
                 <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.center} onChange={(e) => setNewUser({...newUser, center: e.target.value})}>
-                  <option value="">Sélectionner...</option>
+                  <option value="">{language === 'ar' ? 'اختيار...' : 'Sélectionner...'}</option>
                   {centersData.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
                 </select>
               </div>
@@ -196,63 +200,72 @@ export default function RolesElection() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Identifiant National (NIN)</label>
-                <input required type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder="18 chiffres" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.nin} onChange={(e) => setNewUser({...newUser, nin: e.target.value.replace(/\D/g, "")})} />
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الرقم التعريفي الوطني (NIN)' : 'Identifiant National (NIN)'}</label>
+                <input required type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder={language === 'ar' ? '18 رقم' : '18 chiffres'} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.nin} onChange={(e) => setNewUser({...newUser, nin: e.target.value.replace(/\D/g, "")})} />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Contact Urgent</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'جهة اتصال طارئة' : 'Contact Urgent'}</label>
                 <input required type="text" placeholder="05XX XX XX XX" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.phone} onChange={(e) => setNewUser({...newUser, phone: e.target.value})} />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Expiration de Session</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'انتهاء صلاحية الجلسة' : 'Expiration de Session'}</label>
                 <input type="time" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.time} onChange={(e) => setNewUser({...newUser, time: e.target.value})} />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Date Effective</label>
+                <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'التاريخ الفعلي' : 'Date Effective'}</label>
                 <input type="date" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={newUser.date} onChange={(e) => setNewUser({...newUser, date: e.target.value})} />
               </div>
             </div>
           </div>
 
           <div className="pt-6 flex gap-4">
-            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">Annuler</button>
-            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest shadow-2xl hover:scale-[1.02] active:scale-95 transition-all">
-              {editingItem ? "Mettre à jour" : "Délivrer Accréditation"}
+            <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 h-14 rounded-2xl border border-zinc-200 dark:border-white/5 text-[11px] font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-white/5 transition-all">{language === 'ar' ? 'إلغاء' : 'Annuler'}</button>
+            <button type="submit" className="flex-1 h-14 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all">
+              {editingItem 
+                ? (language === 'ar' ? "تحديث" : "Mettre à jour") 
+                : (language === 'ar' ? "إصدار الاعتماد" : "Délivrer Accréditation")}
             </button>
           </div>
         </form>
       </Modal>
 
       <DataTable 
-        title="Contrôle des Accréditations Temporaires"
+        title={language === 'ar' ? "مراقبة الاعتمادات المؤقتة" : "Contrôle des Accréditations Temporaires"}
         columns={[
-          { header: "Personnel Accrédité", accessor: "name", render: (val, row: any) => (
+          { header: language === 'ar' ? "الموظفون المعتمدون" : "Personnel Accrédité", accessor: "name", render: (val, row: any) => (
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 flex items-center justify-center border border-zinc-200 dark:border-white/10">
                 <Fingerprint size={18} className="text-emerald-500" />
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-zinc-900 dark:text-white tracking-tight leading-tight">{val}</span>
-                <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">Session ID: {row.id * 8243}</span>
+                <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">{language === 'ar' ? 'معرف الجلسة' : 'Session ID'}: {row.id * 8243}</span>
               </div>
             </div>
           )},
-          { header: "Mission", accessor: "role", render: (val) => (
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-emerald-500" />
-              <span className="text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">{val}</span>
-            </div>
-          )},
-          { header: "Zone Affectée", accessor: "location", render: (val) => (
+          { header: language === 'ar' ? "المهمة" : "Mission", accessor: "role", render: (val) => {
+            const roleKey = val === "Chef de Centre" ? "roles.chef" : 
+                            val === "Observateur Bureau" ? "roles.obs_bureau" : 
+                            val === "Observateur Centre" ? "roles.obs_center" : null;
+            return (
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={14} className="text-emerald-500" />
+                <span className="text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">
+                  {roleKey ? t(roleKey) : val}
+                </span>
+              </div>
+            );
+          }},
+          { header: language === 'ar' ? "المنطقة المعينة" : "Zone Affectée", accessor: "location", render: (val) => (
             <div className="flex items-center gap-2">
               <MapPin size={14} className="text-zinc-400" />
               <span className="text-[11px] font-bold text-zinc-500 truncate max-w-[150px]">{val}</span>
             </div>
           )},
-          { header: "Token d'Accès", accessor: "code", render: (val) => (
+          { header: language === 'ar' ? "رمز الوصول" : "Token d'Accès", accessor: "code", render: (val) => (
             <div className="flex items-center gap-2">
               <QrCode size={14} className="text-zinc-400" />
               <code className="bg-zinc-100 dark:bg-white/10 px-2 py-1 rounded font-mono text-[10px] text-emerald-500 font-black border border-emerald-500/10 uppercase tracking-wider">
@@ -260,18 +273,18 @@ export default function RolesElection() {
               </code>
             </div>
           )},
-          { header: "Vérification", accessor: "status", render: (val) => (
+          { header: language === 'ar' ? "التحقق" : "Vérification", accessor: "status", render: (val) => (
             <div className="flex items-center gap-2">
-              <div className={cn("h-1.5 w-1.5 rounded-full animate-pulse", val === 'Actif' ? "bg-emerald-500" : "bg-zinc-400")} />
+              <div className={cn("h-1.5 w-1.5 rounded-full animate-pulse", (val === 'Actif' || val === 'نشط') ? "bg-emerald-500" : "bg-zinc-400")} />
               <span className={cn(
                 "text-[10px] font-black uppercase tracking-widest",
-                val === 'Actif' ? "text-emerald-500" : "text-zinc-400"
+                (val === 'Actif' || val === 'نشط') ? "text-emerald-500" : "text-zinc-400"
               )}>
                 {val}
               </span>
             </div>
           )},
-          { header: "Validité", accessor: "expires", render: (val) => (
+          { header: language === 'ar' ? "الصلاحية" : "Validité", accessor: "expires", render: (val) => (
             <div className="flex items-center gap-2">
               <Clock size={12} className="text-zinc-400" />
               <span className="text-[11px] font-bold text-zinc-500">{val}</span>

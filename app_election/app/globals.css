@@ -20,6 +20,7 @@
   --radius-modal: 28px;
   --radius-input: 14px;
   --radius-table: 18px;
+  --font-plus-jakarta: var(--font-plus-jakarta);
 }
 
 :root {
@@ -46,10 +47,16 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter Variable', 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   background-image: radial-gradient(circle at 2px 2px, rgba(0, 98, 51, 0.03) 1px, transparent 0);
   background-size: 40px 40px;
   letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, .font-plus-jakarta {
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+  text-wrap: balance;
 }
 
 .dark body {
@@ -64,15 +71,11 @@ body {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: 
-    0 0 0 1px rgba(255, 255, 255, 0.01),
-    0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 .dark .glass-elevated {
   background: #18181b;
   border: 1px solid #3f3f46;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 168, 107, 0.05);
 }
 
 .glass-morphism {
@@ -80,7 +83,6 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* Premium Sidebar */
@@ -88,7 +90,6 @@ body {
   background: var(--sidebar-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border-right: 1px solid var(--glass-border);
 }
 
 /* Form Elements */
@@ -102,7 +103,6 @@ input, select, textarea {
 
 input:focus, select:focus {
   border-color: var(--color-algerian-green) !important;
-  box-shadow: 0 0 0 4px rgba(0, 98, 51, 0.1) !important;
   background-color: rgba(255, 255, 255, 0.02) !important;
 }
 
@@ -131,7 +131,6 @@ input:focus, select:focus {
   border: 1px solid #27272a !important;
   border-radius: 18px;
   margin-top: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* Status Badges */
@@ -172,12 +171,11 @@ input:focus, select:focus {
 .dark .tab-active {
   background-color: #fafafa !important;
   color: #000000 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Ambient Glow Shadows */
 .glow-emerald {
-  box-shadow: 0 0 20px rgba(0, 168, 107, 0.1);
+  border: 1px solid rgba(0, 168, 107, 0.2);
 }
 
 .custom-scrollbar::-webkit-scrollbar {

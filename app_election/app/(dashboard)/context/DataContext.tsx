@@ -33,7 +33,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [wilayasData, setWilayasData] = useState([
   {
     "id": 1,
-    "name": "Adrar",
+    "name": "أدرار",
     "num_wilaya": "01",
     "seats_count": 18,
     "communes": 16,
@@ -42,7 +42,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 2,
-    "name": "Chlef",
+    "name": "الشلف",
     "num_wilaya": "02",
     "seats_count": 10,
     "communes": 35,
@@ -51,7 +51,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 3,
-    "name": "Laghouat",
+    "name": "الأغواط",
     "num_wilaya": "03",
     "seats_count": 11,
     "communes": 23,
@@ -60,7 +60,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 4,
-    "name": "Oum El Bouaghi",
+    "name": "أم البواقي",
     "num_wilaya": "04",
     "seats_count": 13,
     "communes": 29,
@@ -69,7 +69,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 5,
-    "name": "Batna",
+    "name": "باتنة",
     "num_wilaya": "05",
     "seats_count": 19,
     "communes": 60,
@@ -78,7 +78,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 6,
-    "name": "Béjaïa",
+    "name": "بجاية",
     "num_wilaya": "06",
     "seats_count": 27,
     "communes": 52,
@@ -87,7 +87,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 7,
-    "name": "Biskra",
+    "name": "بسكرة",
     "num_wilaya": "07",
     "seats_count": 13,
     "communes": 26,
@@ -96,7 +96,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 8,
-    "name": "Béchar",
+    "name": "بشار",
     "num_wilaya": "08",
     "seats_count": 12,
     "communes": 12,
@@ -105,7 +105,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 9,
-    "name": "Blida",
+    "name": "البليدة",
     "num_wilaya": "09",
     "seats_count": 13,
     "communes": 25,
@@ -114,7 +114,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 10,
-    "name": "Bouira",
+    "name": "البويرة",
     "num_wilaya": "10",
     "seats_count": 27,
     "communes": 45,
@@ -123,7 +123,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 11,
-    "name": "Tamanrasset",
+    "name": "تمنراست",
     "num_wilaya": "11",
     "seats_count": 10,
     "communes": 5,
@@ -132,7 +132,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 12,
-    "name": "Tébessa",
+    "name": "تبسة",
     "num_wilaya": "12",
     "seats_count": 25,
     "communes": 27,
@@ -141,7 +141,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 13,
-    "name": "Tlemcen",
+    "name": "تلمسان",
     "num_wilaya": "13",
     "seats_count": 16,
     "communes": 52,
@@ -150,7 +150,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 14,
-    "name": "Tiaret",
+    "name": "تيارت",
     "num_wilaya": "14",
     "seats_count": 17,
     "communes": 41,
@@ -159,7 +159,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 15,
-    "name": "Tizi Ouzou",
+    "name": "تيزي وزو",
     "num_wilaya": "15",
     "seats_count": 22,
     "communes": 67,
@@ -168,7 +168,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 16,
-    "name": "Alger",
+    "name": "الجزائر",
     "num_wilaya": "16",
     "seats_count": 23,
     "communes": 57,
@@ -177,7 +177,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 17,
-    "name": "Djelfa",
+    "name": "الجلفة",
     "num_wilaya": "17",
     "seats_count": 8,
     "communes": 34,
@@ -186,7 +186,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 18,
-    "name": "Jijel",
+    "name": "جيجل",
     "num_wilaya": "18",
     "seats_count": 19,
     "communes": 28,
@@ -195,7 +195,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 19,
-    "name": "Sétif",
+    "name": "سطيف",
     "num_wilaya": "19",
     "seats_count": 25,
     "communes": 60,
@@ -204,7 +204,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 20,
-    "name": "Saïda",
+    "name": "سعيدة",
     "num_wilaya": "20",
     "seats_count": 18,
     "communes": 16,
@@ -213,7 +213,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 21,
-    "name": "Skikda",
+    "name": "سكيكدة",
     "num_wilaya": "21",
     "seats_count": 11,
     "communes": 38,
@@ -222,7 +222,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 22,
-    "name": "Sidi Bel Abbès",
+    "name": "سيدي بلعباس",
     "num_wilaya": "22",
     "seats_count": 18,
     "communes": 52,
@@ -231,7 +231,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 23,
-    "name": "Annaba",
+    "name": "عنابة",
     "num_wilaya": "23",
     "seats_count": 13,
     "communes": 12,
@@ -240,7 +240,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 24,
-    "name": "Guelma",
+    "name": "قالمة",
     "num_wilaya": "24",
     "seats_count": 17,
     "communes": 34,
@@ -249,7 +249,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 25,
-    "name": "Constantine",
+    "name": "قسنطينة",
     "num_wilaya": "25",
     "seats_count": 27,
     "communes": 12,
@@ -258,7 +258,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 26,
-    "name": "Médéa",
+    "name": "المدية",
     "num_wilaya": "26",
     "seats_count": 18,
     "communes": 63,
@@ -267,7 +267,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 27,
-    "name": "Mostaganem",
+    "name": "مستغانم",
     "num_wilaya": "27",
     "seats_count": 25,
     "communes": 32,
@@ -276,7 +276,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 28,
-    "name": "M'Sila",
+    "name": "المسيلة",
     "num_wilaya": "28",
     "seats_count": 20,
     "communes": 46,
@@ -285,7 +285,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 29,
-    "name": "Mascara",
+    "name": "معسكر",
     "num_wilaya": "29",
     "seats_count": 20,
     "communes": 47,
@@ -294,7 +294,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 30,
-    "name": "Ouargla",
+    "name": "ورقلة",
     "num_wilaya": "30",
     "seats_count": 23,
     "communes": 8,
@@ -303,7 +303,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 31,
-    "name": "Oran",
+    "name": "وهران",
     "num_wilaya": "31",
     "seats_count": 26,
     "communes": 26,
@@ -312,7 +312,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 32,
-    "name": "El Bayadh",
+    "name": "البيض",
     "num_wilaya": "32",
     "seats_count": 22,
     "communes": 21,
@@ -321,7 +321,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 33,
-    "name": "Illizi",
+    "name": "إيليزي",
     "num_wilaya": "33",
     "seats_count": 20,
     "communes": 4,
@@ -339,7 +339,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 35,
-    "name": "Boumerdès",
+    "name": "بومرداس",
     "num_wilaya": "35",
     "seats_count": 23,
     "communes": 32,
@@ -348,7 +348,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 36,
-    "name": "El Tarf",
+    "name": "الطارف",
     "num_wilaya": "36",
     "seats_count": 26,
     "communes": 24,
@@ -357,7 +357,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 37,
-    "name": "Tindouf",
+    "name": "تندوف",
     "num_wilaya": "37",
     "seats_count": 11,
     "communes": 2,
@@ -366,7 +366,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 38,
-    "name": "Tissemsilt",
+    "name": "تيسمسيلت",
     "num_wilaya": "38",
     "seats_count": 22,
     "communes": 22,
@@ -375,7 +375,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 39,
-    "name": "El Oued",
+    "name": "الوادي",
     "num_wilaya": "39",
     "seats_count": 19,
     "communes": 22,
@@ -384,7 +384,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 40,
-    "name": "Khenchela",
+    "name": "خنشلة",
     "num_wilaya": "40",
     "seats_count": 25,
     "communes": 21,
@@ -393,7 +393,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 41,
-    "name": "Souk Ahras",
+    "name": "سوق أهراس",
     "num_wilaya": "41",
     "seats_count": 25,
     "communes": 26,
@@ -402,7 +402,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 42,
-    "name": "Tipaza",
+    "name": "تيبازة",
     "num_wilaya": "42",
     "seats_count": 13,
     "communes": 28,
@@ -411,7 +411,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 43,
-    "name": "Mila",
+    "name": "ميلة",
     "num_wilaya": "43",
     "seats_count": 15,
     "communes": 32,
@@ -420,7 +420,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 44,
-    "name": "Aïn Defla",
+    "name": "عين الدفلى",
     "num_wilaya": "44",
     "seats_count": 13,
     "communes": 36,
@@ -429,7 +429,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 45,
-    "name": "Naâma",
+    "name": "النعامة",
     "num_wilaya": "45",
     "seats_count": 16,
     "communes": 12,
@@ -438,7 +438,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 46,
-    "name": "Aïn Témouchent",
+    "name": "عين تموشنت",
     "num_wilaya": "46",
     "seats_count": 12,
     "communes": 28,
@@ -447,7 +447,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 47,
-    "name": "Ghardaïa",
+    "name": "غرداية",
     "num_wilaya": "47",
     "seats_count": 14,
     "communes": 10,
@@ -456,7 +456,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 48,
-    "name": "Relizane",
+    "name": "غليزان",
     "num_wilaya": "48",
     "seats_count": 27,
     "communes": 38,
@@ -465,7 +465,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 49,
-    "name": "Timimoun",
+    "name": "تيميمون",
     "num_wilaya": "49",
     "seats_count": 23,
     "communes": 10,
@@ -474,7 +474,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 50,
-    "name": "Bordj Badji Mokhtar",
+    "name": "برج باجي مختار",
     "num_wilaya": "50",
     "seats_count": 11,
     "communes": 2,
@@ -483,7 +483,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 51,
-    "name": "Ouled Djellal",
+    "name": "أولاد جلال",
     "num_wilaya": "51",
     "seats_count": 9,
     "communes": 6,
@@ -492,7 +492,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 52,
-    "name": "Béni Abbès",
+    "name": "بني عباس",
     "num_wilaya": "52",
     "seats_count": 21,
     "communes": 9,
@@ -501,7 +501,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 53,
-    "name": "In Salah",
+    "name": "عين صالح",
     "num_wilaya": "53",
     "seats_count": 8,
     "communes": 3,
@@ -510,7 +510,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 54,
-    "name": "In Guezzam",
+    "name": "عين قزام",
     "num_wilaya": "54",
     "seats_count": 9,
     "communes": 2,
@@ -519,7 +519,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 55,
-    "name": "Touggourt",
+    "name": "تقرت",
     "num_wilaya": "55",
     "seats_count": 16,
     "communes": 13,
@@ -528,7 +528,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 56,
-    "name": "Djanet",
+    "name": "جانت",
     "num_wilaya": "56",
     "seats_count": 13,
     "communes": 2,
@@ -555,7 +555,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 59,
-    "name": "Aflou",
+    "name": "أفلو",
     "num_wilaya": "59",
     "seats_count": 12,
     "communes": 3,
@@ -564,7 +564,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 60,
-    "name": "Barika",
+    "name": "بريكة",
     "num_wilaya": "60",
     "seats_count": 17,
     "communes": 3,
@@ -573,7 +573,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 61,
-    "name": "Ksar Chellala",
+    "name": "قصر الشلالة",
     "num_wilaya": "61",
     "seats_count": 20,
     "communes": 3,
@@ -582,7 +582,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 62,
-    "name": "Messaad",
+    "name": "مسعد",
     "num_wilaya": "62",
     "seats_count": 15,
     "communes": 5,
@@ -618,7 +618,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 66,
-    "name": "El Kantara",
+    "name": "القنطرة",
     "num_wilaya": "66",
     "seats_count": 16,
     "communes": 2,
@@ -636,7 +636,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 68,
-    "name": "Ksar El Boukhari",
+    "name": "قصر البخاري",
     "num_wilaya": "68",
     "seats_count": 13,
     "communes": 3,
@@ -645,7 +645,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 69,
-    "name": "El Aricha",
+    "name": "العريشة",
     "num_wilaya": "69",
     "seats_count": 16,
     "communes": 2,
@@ -657,665 +657,665 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [communesData, setCommunesData] = useState([
   {
     "id": 1,
-    "name": "Timekten",
+    "name": "تيمقطن",
     "num_bladia": "22",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 2,
-    "name": "Bouda",
+    "name": "بودة",
     "num_bladia": "06",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 3,
-    "name": "Ouled Ahmed Timmi",
+    "name": "أولاد أحمد تيمي",
     "num_bladia": "13",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 4,
-    "name": "Adrar",
+    "name": "أدرار",
     "num_bladia": "01",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 5,
-    "name": "Fenoughil",
+    "name": "فنوغيل",
     "num_bladia": "09",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 6,
-    "name": "In Zghmir",
+    "name": "إن زغمير",
     "num_bladia": "10",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 7,
-    "name": "Reggane",
+    "name": "رقان",
     "num_bladia": "16",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 8,
-    "name": "Sali",
+    "name": "سالي",
     "num_bladia": "17",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 9,
-    "name": "Sebaa",
+    "name": "السبع",
     "num_bladia": "18",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 10,
-    "name": "Tsabit",
+    "name": "تسابيت",
     "num_bladia": "27",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 11,
-    "name": "Tamest",
+    "name": "تامست",
     "num_bladia": "21",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 12,
-    "name": "Tamantit",
+    "name": "تامنطيط",
     "num_bladia": "20",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 13,
-    "name": "Tit",
+    "name": "تيت",
     "num_bladia": "26",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 14,
-    "name": "Zaouiet Kounta",
+    "name": "زاوية كنتة",
     "num_bladia": "28",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 15,
-    "name": "Akabli",
+    "name": "اقبلي",
     "num_bladia": "02",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 16,
-    "name": "Aoulef",
+    "name": "أولف",
     "num_bladia": "04",
-    "wilaya": "Adrar",
+    "wilaya": "أدرار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 17,
-    "name": "Talassa",
+    "name": "تلعصة",
     "num_bladia": "60",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 18,
-    "name": "Zeboudja",
+    "name": "الزبوجة",
     "num_bladia": "63",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 19,
-    "name": "El Hadjadj",
+    "name": "الحجاج",
     "num_bladia": "41",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 20,
-    "name": "Ouled Ben Abdelkader",
+    "name": "أولاد بن عبد القادر",
     "num_bladia": "52",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 21,
-    "name": "Ain Merane",
+    "name": "عين مران",
     "num_bladia": "30",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 22,
-    "name": "Breira",
+    "name": "بريرة",
     "num_bladia": "37",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 23,
-    "name": "Ouled Abbes",
+    "name": "أولاد عباس",
     "num_bladia": "51",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 24,
-    "name": "Oued Fodda",
+    "name": "وادي الفضة",
     "num_bladia": "48",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 25,
-    "name": "Beni Rached",
+    "name": "بني راشد",
     "num_bladia": "34",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 26,
-    "name": "Herenfa",
+    "name": "الهرانفة",
     "num_bladia": "45",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 27,
-    "name": "Tadjena",
+    "name": "تاجنة",
     "num_bladia": "59",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 28,
-    "name": "El Marsa",
+    "name": "المرسى",
     "num_bladia": "43",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 29,
-    "name": "Chlef",
+    "name": "الشلف",
     "num_bladia": "39",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 30,
-    "name": "Oum Drou",
+    "name": "أم الدروع",
     "num_bladia": "54",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 31,
-    "name": "Sendjas",
+    "name": "سنجاس",
     "num_bladia": "55",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 32,
-    "name": "Sidi Abderrahmane",
+    "name": "سيدي عبد الرحمن",
     "num_bladia": "56",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 33,
-    "name": "Sidi Akkacha",
+    "name": "سيدي عكاشة",
     "num_bladia": "57",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 34,
-    "name": "Tenes",
+    "name": "تنس",
     "num_bladia": "62",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 35,
-    "name": "Beni  Bouattab",
+    "name": "بني بوعتاب",
     "num_bladia": "32",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 36,
-    "name": "El Karimia",
+    "name": "الكريمية",
     "num_bladia": "42",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 37,
-    "name": "Harchoun",
+    "name": "حرشون",
     "num_bladia": "44",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 38,
-    "name": "Bouzeghaia",
+    "name": "بوزغاية",
     "num_bladia": "36",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 39,
-    "name": "Taougrit",
+    "name": "تاوقريت",
     "num_bladia": "61",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 40,
-    "name": "Beni Haoua",
+    "name": "بني حواء",
     "num_bladia": "33",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 41,
-    "name": "Abou El Hassane",
+    "name": "أبو الحسن",
     "num_bladia": "29",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 42,
-    "name": "Oued Goussine",
+    "name": "وادي قوسين",
     "num_bladia": "49",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 43,
-    "name": "Chettia",
+    "name": "الشطية",
     "num_bladia": "38",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 44,
-    "name": "Moussadek",
+    "name": "مصدق",
     "num_bladia": "47",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 45,
-    "name": "Ouled Fares",
+    "name": "أولاد فارس",
     "num_bladia": "53",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 46,
-    "name": "Boukadir",
+    "name": "بوقادير",
     "num_bladia": "35",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 47,
-    "name": "Oued Sly",
+    "name": "وادي سلي",
     "num_bladia": "50",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 48,
-    "name": "Sobha",
+    "name": "الصبحة",
     "num_bladia": "58",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 49,
-    "name": "Benairia",
+    "name": "بنايرية",
     "num_bladia": "31",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 50,
-    "name": "Labiod Medjadja",
+    "name": "الأبيض مجاجة",
     "num_bladia": "46",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 51,
-    "name": "Dahra",
+    "name": "الظهرة",
     "num_bladia": "40",
-    "wilaya": "Chlef",
+    "wilaya": "الشلف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 52,
-    "name": "El Beidha",
+    "name": "البيضاء",
     "num_bladia": "67",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 53,
-    "name": "Gueltat Sidi Saad",
+    "name": "قلتة سيدي سعد",
     "num_bladia": "73",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 54,
-    "name": "Brida",
+    "name": "بريدة",
     "num_bladia": "69",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 55,
-    "name": "Ain Sidi Ali",
+    "name": "عين سيدي علي",
     "num_bladia": "66",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 56,
-    "name": "Tadjemout",
+    "name": "تاجموت",
     "num_bladia": "85",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 57,
-    "name": "Hadj Mechri",
+    "name": "الحاج مشري",
     "num_bladia": "74",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 58,
-    "name": "Taouiala",
+    "name": "تاويالة",
     "num_bladia": "87",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 59,
-    "name": "El Ghicha",
+    "name": "الغيشة",
     "num_bladia": "71",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 60,
-    "name": "Tadjrouna",
+    "name": "تاجرونة",
     "num_bladia": "86",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 61,
-    "name": "Sebgag",
+    "name": "سبقاق",
     "num_bladia": "82",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 62,
-    "name": "Sidi Bouzid",
+    "name": "سيدي بوزيد",
     "num_bladia": "83",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 63,
-    "name": "Oued Morra",
+    "name": "وادي مرة",
     "num_bladia": "80",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 64,
-    "name": "Laghouat",
+    "name": "الأغواط",
     "num_bladia": "79",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 65,
-    "name": "Oued M'zi",
+    "name": "وادي مزي",
     "num_bladia": "81",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 66,
-    "name": "Ksar El Hirane",
+    "name": "قصر الحيران",
     "num_bladia": "78",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 67,
-    "name": "El Assafia",
+    "name": "العسافية",
     "num_bladia": "70",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 68,
-    "name": "Sidi Makhlouf",
+    "name": "سيدي مخلوف",
     "num_bladia": "84",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 69,
-    "name": "Hassi Delaa",
+    "name": "حاسي الدلاعة",
     "num_bladia": "75",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 70,
-    "name": "Hassi R'mel",
+    "name": "حاسي الرمل",
     "num_bladia": "76",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 71,
-    "name": "Ain Madhi",
+    "name": "عين ماضي",
     "num_bladia": "65",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 72,
-    "name": "El Haouaita",
+    "name": "الحويطة",
     "num_bladia": "72",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 73,
-    "name": "Kheneg",
+    "name": "الخنق",
     "num_bladia": "77",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 74,
-    "name": "Benacer Benchohra",
+    "name": "بن ناصر بن شهرة",
     "num_bladia": "68",
-    "wilaya": "Laghouat",
+    "wilaya": "الأغواط",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 75,
-    "name": "Fkirina",
+    "name": "فكيرينة",
     "num_bladia": "104",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 76,
-    "name": "El Fedjoudj Boughrara Sa",
+    "name": "الفجوج بوغرارة سعودي",
     "num_bladia": "102",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 77,
-    "name": "Ain Fekroun",
+    "name": "عين فكرون",
     "num_bladia": "91",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 78,
-    "name": "Rahia",
+    "name": "الرحية",
     "num_bladia": "113",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 79,
-    "name": "Meskiana",
+    "name": "مسكيانة",
     "num_bladia": "107",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 80,
-    "name": "El Belala",
+    "name": "البلالة",
     "num_bladia": "100",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 81,
-    "name": "Behir Chergui",
+    "name": "بحير الشرقي",
     "num_bladia": "95",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 82,
-    "name": "Ksar Sbahi",
+    "name": "قصر الصباحي",
     "num_bladia": "106",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 83,
-    "name": "Souk Naamane",
+    "name": "سوق نعمان",
     "num_bladia": "115",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
@@ -1323,199 +1323,199 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 84,
     "name": "Ouled Zouai",
     "num_bladia": "111",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 85,
-    "name": "Oum El Bouaghi",
+    "name": "أم البواقي",
     "num_bladia": "112",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 86,
-    "name": "Ain Babouche",
+    "name": "عين ببوش",
     "num_bladia": "88",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 87,
-    "name": "Ain Zitoun",
+    "name": "عين الزيتون",
     "num_bladia": "94",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 88,
-    "name": "Bir Chouhada",
+    "name": "بئر الشهداء",
     "num_bladia": "97",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 89,
-    "name": "Ain Beida",
+    "name": "عين البيضاء",
     "num_bladia": "89",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 90,
-    "name": "Berriche",
+    "name": "بريش",
     "num_bladia": "96",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 91,
-    "name": "Zorg",
+    "name": "الزرق",
     "num_bladia": "116",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 92,
-    "name": "Ain M'lila",
+    "name": "عين مليلة",
     "num_bladia": "93",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 93,
-    "name": "Ouled Gacem",
+    "name": "أولاد قاسم",
     "num_bladia": "109",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 94,
-    "name": "Ouled Hamla",
+    "name": "أولاد حملة",
     "num_bladia": "110",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 95,
-    "name": "El Amiria",
+    "name": "العامرية",
     "num_bladia": "99",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 96,
-    "name": "Sigus",
+    "name": "سيقوس",
     "num_bladia": "114",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 97,
-    "name": "Oued Nini",
+    "name": "وادي نيني",
     "num_bladia": "108",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 98,
-    "name": "Ain Diss",
+    "name": "عين الديس",
     "num_bladia": "90",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 99,
-    "name": "Dhalaa",
+    "name": "الضلعة",
     "num_bladia": "98",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 100,
-    "name": "El Djazia",
+    "name": "الجازية",
     "num_bladia": "101",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 101,
-    "name": "Ain Kercha",
+    "name": "عين كرشة",
     "num_bladia": "92",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 102,
-    "name": "El Harmilia",
+    "name": "الحرملية",
     "num_bladia": "103",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 103,
-    "name": "Hanchir Toumghani",
+    "name": "هنشير تومغني",
     "num_bladia": "105",
-    "wilaya": "Oum El Bouaghi",
+    "wilaya": "أم البواقي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 104,
-    "name": "Maafa",
+    "name": "معافة",
     "num_bladia": "150",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 105,
-    "name": "Gosbat",
+    "name": "القصبات",
     "num_bladia": "139",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 106,
-    "name": "Timgad",
+    "name": "تيمقاد",
     "num_bladia": "176",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 107,
-    "name": "Taxlent",
+    "name": "تاكسلانت",
     "num_bladia": "170",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 108,
-    "name": "Ouled Si Slimane",
+    "name": "أولاد سي سليمان",
     "num_bladia": "161",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
@@ -1523,7 +1523,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 109,
     "name": "Lemcene",
     "num_bladia": "148",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
@@ -1531,1511 +1531,1511 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 110,
     "name": "Talkhamt",
     "num_bladia": "169",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 111,
-    "name": "Ras El Aioun",
+    "name": "رأس العيون",
     "num_bladia": "164",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 112,
-    "name": "Rahbat",
+    "name": "الرحبات",
     "num_bladia": "163",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 113,
-    "name": "Ouled Sellem",
+    "name": "أولاد سلام",
     "num_bladia": "160",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 114,
-    "name": "Guigba",
+    "name": "القيقبة",
     "num_bladia": "140",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 115,
-    "name": "Teniet El Abed",
+    "name": "ثنية العابد",
     "num_bladia": "172",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 116,
-    "name": "Batna",
+    "name": "باتنة",
     "num_bladia": "123",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 117,
-    "name": "Fesdis",
+    "name": "فسديس",
     "num_bladia": "136",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 118,
-    "name": "Oued Chaaba",
+    "name": "وادي الشعبة",
     "num_bladia": "154",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 119,
-    "name": "Hidoussa",
+    "name": "حيدوسة",
     "num_bladia": "141",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 120,
-    "name": "Ksar Bellezma",
+    "name": "قصر بلزمة",
     "num_bladia": "145",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 121,
-    "name": "Merouana",
+    "name": "مروانة",
     "num_bladia": "152",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 122,
-    "name": "Oued El Ma",
+    "name": "وادي الماء",
     "num_bladia": "155",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 123,
-    "name": "Lazrou",
+    "name": "لازرو",
     "num_bladia": "147",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 124,
-    "name": "Seriana",
+    "name": "سريانة",
     "num_bladia": "167",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 125,
-    "name": "Zanet El Beida",
+    "name": "زانة البيضاء",
     "num_bladia": "177",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 126,
-    "name": "Menaa",
+    "name": "منعة",
     "num_bladia": "151",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 127,
-    "name": "Tigharghar",
+    "name": "تغرغار",
     "num_bladia": "174",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 128,
-    "name": "Ain Yagout",
+    "name": "عين ياقوت",
     "num_bladia": "119",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 129,
-    "name": "Boumia",
+    "name": "بومية",
     "num_bladia": "128",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 130,
-    "name": "Djerma",
+    "name": "جرمة",
     "num_bladia": "132",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 131,
-    "name": "El Madher",
+    "name": "المعذر",
     "num_bladia": "135",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 132,
-    "name": "Ouyoun El Assafir",
+    "name": "عيون العصافير",
     "num_bladia": "162",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 133,
-    "name": "Tazoult",
+    "name": "تازولت",
     "num_bladia": "171",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 134,
-    "name": "Boumagueur",
+    "name": "بومقر",
     "num_bladia": "127",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 135,
-    "name": "N Gaous",
+    "name": "نقاوس",
     "num_bladia": "153",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 136,
-    "name": "Sefiane",
+    "name": "سفيان",
     "num_bladia": "165",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 137,
-    "name": "Arris",
+    "name": "أريس",
     "num_bladia": "120",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 138,
-    "name": "Tighanimine",
+    "name": "تيغانمين",
     "num_bladia": "173",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 139,
-    "name": "Ain Djasser",
+    "name": "عين جاسر",
     "num_bladia": "117",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 140,
-    "name": "El Hassi",
+    "name": "الحاسي",
     "num_bladia": "134",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 141,
-    "name": "Seggana",
+    "name": "سقانة",
     "num_bladia": "166",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 142,
-    "name": "Tilatou",
+    "name": "تيلاطو",
     "num_bladia": "175",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 143,
-    "name": "Foum Toub",
+    "name": "فم الطوب",
     "num_bladia": "137",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 144,
-    "name": "Ichemoul",
+    "name": "إشمول",
     "num_bladia": "142",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 145,
-    "name": "Inoughissen",
+    "name": "إينوغيسن",
     "num_bladia": "143",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 146,
-    "name": "Bouzina",
+    "name": "بوزينة",
     "num_bladia": "129",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 147,
-    "name": "Larbaa",
+    "name": "الأربعاء",
     "num_bladia": "146",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 148,
-    "name": "Boulhilat",
+    "name": "بولهيلات",
     "num_bladia": "126",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 149,
-    "name": "Chemora",
+    "name": "الشمرة",
     "num_bladia": "130",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 150,
-    "name": "Bitam",
+    "name": "بيطام",
     "num_bladia": "125",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 151,
-    "name": "M Doukal",
+    "name": "إمدوكل",
     "num_bladia": "149",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 152,
-    "name": "Azil Abedelkader",
+    "name": "عزيل عبد القادر",
     "num_bladia": "121",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 153,
-    "name": "Djezzar",
+    "name": "الجزار",
     "num_bladia": "133",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 154,
-    "name": "Ouled Ammar",
+    "name": "أولاد عمار",
     "num_bladia": "157",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 155,
-    "name": "Ghassira",
+    "name": "غسيرة",
     "num_bladia": "138",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 156,
-    "name": "Kimmel",
+    "name": "كيمل",
     "num_bladia": "144",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 157,
-    "name": "T Kout",
+    "name": "تكوت",
     "num_bladia": "168",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 158,
-    "name": "Ain Touta",
+    "name": "عين التوتة",
     "num_bladia": "118",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 159,
-    "name": "Beni Foudhala El Hakania",
+    "name": "بني فضالة الحقانية",
     "num_bladia": "124",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 160,
-    "name": "Ouled Fadel",
+    "name": "أولاد فاضل",
     "num_bladia": "159",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 161,
-    "name": "Ouled Aouf",
+    "name": "أولاد عوف",
     "num_bladia": "158",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 162,
-    "name": "Chir",
+    "name": "شير",
     "num_bladia": "131",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 163,
-    "name": "Oued Taga",
+    "name": "وادي الطاقة",
     "num_bladia": "156",
-    "wilaya": "Batna",
+    "wilaya": "باتنة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 164,
-    "name": "Sidi Ayad",
+    "name": "سيدي عياد",
     "num_bladia": "212",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 165,
-    "name": "Barbacha",
+    "name": "برباشة",
     "num_bladia": "186",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 166,
-    "name": "Leflaye",
+    "name": "الفلاي",
     "num_bladia": "199",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 167,
-    "name": "Kendira",
+    "name": "كنديرة",
     "num_bladia": "206",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 168,
-    "name": "Sidi-Aich",
+    "name": "سيدي عيش",
     "num_bladia": "213",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 169,
-    "name": "Tifra",
+    "name": "تيفرة",
     "num_bladia": "225",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 170,
-    "name": "Tinebdar",
+    "name": "تينبدار",
     "num_bladia": "227",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 171,
-    "name": "El Kseur",
+    "name": "القصر",
     "num_bladia": "200",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 172,
-    "name": "Fenaia Il Maten",
+    "name": "فناية الماثن",
     "num_bladia": "201",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 173,
-    "name": "Toudja",
+    "name": "توجة",
     "num_bladia": "229",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 174,
-    "name": "Dra El Caid",
+    "name": "ذراع القايد",
     "num_bladia": "198",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 175,
-    "name": "Kherrata",
+    "name": "خراطة",
     "num_bladia": "207",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 176,
-    "name": "Bejaia",
+    "name": "بجاية",
     "num_bladia": "187",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 177,
-    "name": "Oued Ghir",
+    "name": "وادي غير",
     "num_bladia": "210",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 178,
-    "name": "Benimaouche",
+    "name": "بني معوش",
     "num_bladia": "191",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 179,
-    "name": "Beni Djellil",
+    "name": "بني جليل",
     "num_bladia": "188",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 180,
-    "name": "Feraoun",
+    "name": "فرعون",
     "num_bladia": "202",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 181,
-    "name": "Smaoun",
+    "name": "سمعون",
     "num_bladia": "214",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 182,
-    "name": "Timezrit",
+    "name": "تيمزريت",
     "num_bladia": "226",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 183,
-    "name": "Melbou",
+    "name": "مالبو",
     "num_bladia": "209",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 184,
-    "name": "Souk El Tenine",
+    "name": "سوق لإثنين",
     "num_bladia": "215",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 185,
-    "name": "Tamridjet",
+    "name": "تامريجت",
     "num_bladia": "219",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 186,
-    "name": "Boukhelifa",
+    "name": "بوخليفة",
     "num_bladia": "194",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 187,
-    "name": "Tala Hamza",
+    "name": "تالة حمزة",
     "num_bladia": "217",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 188,
-    "name": "Tichy",
+    "name": "تيشي",
     "num_bladia": "224",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 189,
-    "name": "Ait R'zine",
+    "name": "أيت رزين",
     "num_bladia": "179",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 190,
-    "name": "Ighil-Ali",
+    "name": "إغيل علي",
     "num_bladia": "204",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 191,
-    "name": "Ait-Smail",
+    "name": "أيت إسماعيل",
     "num_bladia": "180",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 192,
-    "name": "Darguina",
+    "name": "درقينة",
     "num_bladia": "197",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 193,
-    "name": "Taskriout",
+    "name": "تاسكريوت",
     "num_bladia": "221",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 194,
-    "name": "Aokas",
+    "name": "أوقاس",
     "num_bladia": "185",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 195,
-    "name": "Tizi-N'berber",
+    "name": "تيزي نبربر",
     "num_bladia": "228",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 196,
-    "name": "Adekar",
+    "name": "أدكار",
     "num_bladia": "178",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 197,
-    "name": "Beni K'sila",
+    "name": "بني كسيلة",
     "num_bladia": "189",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 198,
-    "name": "Taourit Ighil",
+    "name": "تاوريرت إغيل",
     "num_bladia": "220",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 199,
-    "name": "Akbou",
+    "name": "أقبو",
     "num_bladia": "181",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 200,
-    "name": "Chellata",
+    "name": "شلاطة",
     "num_bladia": "195",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 201,
-    "name": "Ighram",
+    "name": "اغرم",
     "num_bladia": "205",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 202,
-    "name": "Tamokra",
+    "name": "تامقرة",
     "num_bladia": "218",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 203,
-    "name": "Amalou",
+    "name": "أمالو",
     "num_bladia": "183",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 204,
-    "name": "Bouhamza",
+    "name": "بوحمزة",
     "num_bladia": "193",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 205,
-    "name": "M'cisna",
+    "name": "مسيسنة",
     "num_bladia": "208",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 206,
-    "name": "Seddouk",
+    "name": "صدوق",
     "num_bladia": "211",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 207,
-    "name": "Beni-Mallikeche",
+    "name": "بني مليكش",
     "num_bladia": "190",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 208,
-    "name": "Boudjellil",
+    "name": "بو جليل",
     "num_bladia": "192",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 209,
-    "name": "Tazmalt",
+    "name": "تازمالت",
     "num_bladia": "222",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 210,
-    "name": "Akfadou",
+    "name": "أكفادو",
     "num_bladia": "182",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 211,
-    "name": "Chemini",
+    "name": "شميني",
     "num_bladia": "196",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 212,
-    "name": "Souk Oufella",
+    "name": "سوق اوفلا",
     "num_bladia": "216",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 213,
-    "name": "Tibane",
+    "name": "طيبان",
     "num_bladia": "223",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 214,
-    "name": "Ouzellaguen",
+    "name": "أوزلاقن",
     "num_bladia": "203",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 215,
-    "name": "Amizour",
+    "name": "أميزور",
     "num_bladia": "184",
-    "wilaya": "Béjaïa",
+    "wilaya": "بجاية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 216,
-    "name": "El Feidh",
+    "name": "الفيض",
     "num_bladia": "241",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 217,
-    "name": "Lichana",
+    "name": "ليشانة",
     "num_bladia": "249",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 218,
-    "name": "Bouchakroun",
+    "name": "بوشقرون",
     "num_bladia": "235",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 219,
-    "name": "Mekhadma",
+    "name": "مخادمة",
     "num_bladia": "252",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 220,
-    "name": "Djemorah",
+    "name": "جمورة",
     "num_bladia": "239",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 221,
-    "name": "Branis",
+    "name": "برانيس",
     "num_bladia": "236",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 222,
-    "name": "El Outaya",
+    "name": "الوطاية",
     "num_bladia": "246",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 223,
-    "name": "Khenguet Sidi Nadji",
+    "name": "خنقة سيدي ناجي",
     "num_bladia": "248",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 224,
-    "name": "Ain Zaatout",
+    "name": "عين زعطوط",
     "num_bladia": "231",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 225,
-    "name": "Zeribet El Oued",
+    "name": "زريبة الوادي",
     "num_bladia": "262",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 226,
-    "name": "Meziraa",
+    "name": "المزيرعة",
     "num_bladia": "253",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 227,
-    "name": "Biskra",
+    "name": "بسكرة",
     "num_bladia": "233",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 228,
-    "name": "El Hadjab",
+    "name": "الحاجب",
     "num_bladia": "243",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 229,
-    "name": "M'lili",
+    "name": "مليلي",
     "num_bladia": "254",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 230,
-    "name": "Foughala",
+    "name": "فوغالة",
     "num_bladia": "247",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 231,
-    "name": "El Ghrous",
+    "name": "الغروس",
     "num_bladia": "242",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 232,
-    "name": "Bordj Ben Azzouz",
+    "name": "برج بن عزوز",
     "num_bladia": "234",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 233,
-    "name": "Ourlal",
+    "name": "أورلال",
     "num_bladia": "257",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 234,
-    "name": "Oumache",
+    "name": "أوماش",
     "num_bladia": "256",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 235,
-    "name": "Ain Naga",
+    "name": "عين الناقة",
     "num_bladia": "230",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 236,
-    "name": "Chetma",
+    "name": "شتمة",
     "num_bladia": "238",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 237,
-    "name": "El Haouch",
+    "name": "الحوش",
     "num_bladia": "244",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 238,
-    "name": "Sidi Okba",
+    "name": "سيدي عقبة",
     "num_bladia": "260",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 239,
-    "name": "M'chouneche",
+    "name": "مشونش",
     "num_bladia": "251",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 240,
-    "name": "Lioua",
+    "name": "ليوة",
     "num_bladia": "250",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 241,
-    "name": "Tolga",
+    "name": "طولقة",
     "num_bladia": "261",
-    "wilaya": "Biskra",
+    "wilaya": "بسكرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 242,
-    "name": "Bechar",
+    "name": "بشار",
     "num_bladia": "264",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 243,
-    "name": "Boukais",
+    "name": "بوكايس",
     "num_bladia": "268",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 244,
-    "name": "Lahmar",
+    "name": "لحمر",
     "num_bladia": "275",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 245,
-    "name": "Mogheul",
+    "name": "موغل",
     "num_bladia": "278",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 246,
-    "name": "Meridja",
+    "name": "المريجة",
     "num_bladia": "277",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 247,
-    "name": "Taghit",
+    "name": "تاغيت",
     "num_bladia": "281",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 248,
-    "name": "Abadla",
+    "name": "العبادلة",
     "num_bladia": "263",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 249,
-    "name": "Erg-Ferradj",
+    "name": "عرق فراج",
     "num_bladia": "270",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 250,
-    "name": "Machraa-Houari-Boumediene",
+    "name": "مشرع هواري بومدين",
     "num_bladia": "276",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 251,
-    "name": "Beni-Ounif",
+    "name": "بني ونيف",
     "num_bladia": "267",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 252,
-    "name": "Tabelbala",
+    "name": "تبلبالة",
     "num_bladia": "280",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 253,
-    "name": "Kenadsa",
+    "name": "القنادسة",
     "num_bladia": "272",
-    "wilaya": "Béchar",
+    "wilaya": "بشار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 254,
-    "name": "Beni Mered",
+    "name": "بني مراد",
     "num_bladia": "285",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 255,
-    "name": "Ouled Slama",
+    "name": "اولاد سلامة",
     "num_bladia": "305",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 256,
-    "name": "Mouzaia",
+    "name": "موزاية",
     "num_bladia": "302",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 257,
-    "name": "Hammam Elouane",
+    "name": "حمام ملوان",
     "num_bladia": "299",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 258,
-    "name": "Bougara",
+    "name": "بوقرة",
     "num_bladia": "291",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 259,
-    "name": "Souhane",
+    "name": "صوحان",
     "num_bladia": "307",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 260,
-    "name": "Larbaa",
+    "name": "الأربعاء",
     "num_bladia": "300",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 261,
-    "name": "Soumaa",
+    "name": "الصومعة",
     "num_bladia": "308",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 262,
-    "name": "Guerrouaou",
+    "name": "قرواو",
     "num_bladia": "298",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 263,
-    "name": "Boufarik",
+    "name": "بوفاريك",
     "num_bladia": "290",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 264,
-    "name": "Meftah",
+    "name": "مفتاح",
     "num_bladia": "301",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 265,
-    "name": "Chiffa",
+    "name": "الشفة",
     "num_bladia": "294",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 266,
-    "name": "Ain Romana",
+    "name": "عين الرمانة",
     "num_bladia": "284",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 267,
-    "name": "Oued  Djer",
+    "name": "وادي جر",
     "num_bladia": "303",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 268,
-    "name": "El-Affroun",
+    "name": "العفرون",
     "num_bladia": "297",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 269,
-    "name": "Ouled Yaich",
+    "name": "أولاد يعيش",
     "num_bladia": "306",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 270,
-    "name": "Chrea",
+    "name": "الشريعة",
     "num_bladia": "295",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 271,
-    "name": "Djebabra",
+    "name": "جبابرة",
     "num_bladia": "296",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 272,
-    "name": "Oued El Alleug",
+    "name": "وادي العلايق",
     "num_bladia": "304",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 273,
-    "name": "Benkhelil",
+    "name": "بن خليل",
     "num_bladia": "287",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 274,
-    "name": "Beni-Tamou",
+    "name": "بني تامو",
     "num_bladia": "286",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 275,
-    "name": "Chebli",
+    "name": "الشبلي",
     "num_bladia": "293",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 276,
-    "name": "Bouinan",
+    "name": "بوعينان",
     "num_bladia": "292",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 277,
-    "name": "Bouarfa",
+    "name": "بوعرفة",
     "num_bladia": "289",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 278,
-    "name": "Blida",
+    "name": "البليدة",
     "num_bladia": "288",
-    "wilaya": "Blida",
+    "wilaya": "البليدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 279,
-    "name": "Ain Laloui",
+    "name": "عين العلوي",
     "num_bladia": "312",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 280,
-    "name": "Hadjera Zerga",
+    "name": "الحجرة الزرقاء",
     "num_bladia": "334",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 281,
-    "name": "Mezdour",
+    "name": "مزدور",
     "num_bladia": "342",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 282,
-    "name": "Taguedite",
+    "name": "تاقديت",
     "num_bladia": "351",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 283,
-    "name": "Ridane",
+    "name": "ريدان",
     "num_bladia": "346",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 284,
-    "name": "Maamora",
+    "name": "المعمورة",
     "num_bladia": "341",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 285,
-    "name": "El-Hakimia",
+    "name": "الحاكمية",
     "num_bladia": "331",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 286,
-    "name": "Ahl El Ksar",
+    "name": "أهل القصر",
     "num_bladia": "310",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 287,
-    "name": "Dirah",
+    "name": "ديرة",
     "num_bladia": "325",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 288,
-    "name": "Dechmia",
+    "name": "الدشمية",
     "num_bladia": "324",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 289,
-    "name": "Bechloul",
+    "name": "بشلول",
     "num_bladia": "317",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 290,
-    "name": "Ath Mansour",
+    "name": "آث  منصور",
     "num_bladia": "352",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 291,
-    "name": "Saharidj",
+    "name": "سحاريج",
     "num_bladia": "347",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 292,
-    "name": "El Adjiba",
+    "name": "العجيبة",
     "num_bladia": "327",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 293,
-    "name": "El Asnam",
+    "name": "الأسنام",
     "num_bladia": "328",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 294,
-    "name": "M Chedallah",
+    "name": "أمشدالة",
     "num_bladia": "339",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 295,
-    "name": "Bordj Okhriss",
+    "name": "برج أوخريص",
     "num_bladia": "319",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 296,
-    "name": "Sour El Ghozlane",
+    "name": "سور الغزلان",
     "num_bladia": "349",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 297,
-    "name": "Hanif",
+    "name": "حنيف",
     "num_bladia": "336",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 298,
-    "name": "Chorfa",
+    "name": "الشرفاء",
     "num_bladia": "323",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
@@ -3043,583 +3043,583 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 299,
     "name": "Ouled Rached",
     "num_bladia": "344",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 300,
-    "name": "Ain El Hadjar",
+    "name": "عين الحجر",
     "num_bladia": "311",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 301,
-    "name": "Aghbalou",
+    "name": "أغبالو",
     "num_bladia": "309",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 302,
-    "name": "Raouraoua",
+    "name": "روراوة",
     "num_bladia": "345",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 303,
-    "name": "El Khabouzia",
+    "name": "الخبوزية",
     "num_bladia": "330",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 304,
-    "name": "Bir Ghbalou",
+    "name": "بئر غبالو",
     "num_bladia": "318",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 305,
-    "name": "Bouira",
+    "name": "البويرة",
     "num_bladia": "321",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 306,
-    "name": "Ain Turk",
+    "name": "عين الترك",
     "num_bladia": "313",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 307,
-    "name": "Ait Laaziz",
+    "name": "أيت لعزيز",
     "num_bladia": "315",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 308,
-    "name": "Ain-Bessem",
+    "name": "عين بسام",
     "num_bladia": "314",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 309,
-    "name": "El-Mokrani",
+    "name": "المقراني",
     "num_bladia": "332",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 310,
-    "name": "Souk El Khemis",
+    "name": "سوق الخميس",
     "num_bladia": "348",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 311,
-    "name": "Aomar",
+    "name": "أعمر",
     "num_bladia": "316",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 312,
-    "name": "Djebahia",
+    "name": "جباحية",
     "num_bladia": "326",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 313,
-    "name": "El Hachimia",
+    "name": "الهاشمية",
     "num_bladia": "329",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 314,
-    "name": "Haizer",
+    "name": "حيزر",
     "num_bladia": "335",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 315,
-    "name": "Taghzout",
+    "name": "تغزوت",
     "num_bladia": "350",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 316,
-    "name": "Bouderbala",
+    "name": "بودربالة",
     "num_bladia": "320",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 317,
-    "name": "Boukram",
+    "name": "بوكرم",
     "num_bladia": "322",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 318,
-    "name": "Guerrouma",
+    "name": "قرومة",
     "num_bladia": "333",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 319,
-    "name": "Lakhdaria",
+    "name": "الأخضرية",
     "num_bladia": "338",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 320,
-    "name": "Maala",
+    "name": "معلة",
     "num_bladia": "340",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 321,
-    "name": "Kadiria",
+    "name": "قادرية",
     "num_bladia": "337",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 322,
-    "name": "Z'barbar (El Isseri )",
+    "name": "زبربر",
     "num_bladia": "353",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 323,
-    "name": "Oued El Berdi",
+    "name": "وادي البردي",
     "num_bladia": "343",
-    "wilaya": "Bouira",
+    "wilaya": "البويرة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 324,
-    "name": "Tazrouk",
+    "name": "تاظروك",
     "num_bladia": "362",
-    "wilaya": "Tamanrasset",
+    "wilaya": "تمنراست",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 325,
-    "name": "Abelsa",
+    "name": "ابلسة",
     "num_bladia": "354",
-    "wilaya": "Tamanrasset",
+    "wilaya": "تمنراست",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 326,
-    "name": "Tamanrasset",
+    "name": "تمنراست",
     "num_bladia": "361",
-    "wilaya": "Tamanrasset",
+    "wilaya": "تمنراست",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 327,
-    "name": "Ain Amguel",
+    "name": "عين امقل",
     "num_bladia": "355",
-    "wilaya": "Tamanrasset",
+    "wilaya": "تمنراست",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 328,
-    "name": "Idles",
+    "name": "أدلس",
     "num_bladia": "359",
-    "wilaya": "Tamanrasset",
+    "wilaya": "تمنراست",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 329,
-    "name": "El-Houidjbet",
+    "name": "الحويجبات",
     "num_bladia": "380",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 330,
-    "name": "El-Aouinet",
+    "name": "العوينات",
     "num_bladia": "379",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 331,
-    "name": "Ferkane",
+    "name": "فركان",
     "num_bladia": "381",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 332,
-    "name": "Negrine",
+    "name": "نقرين",
     "num_bladia": "385",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 333,
-    "name": "Bir Mokkadem",
+    "name": "بئر مقدم",
     "num_bladia": "368",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 334,
-    "name": "Bir Dheheb",
+    "name": "بئر الذهب",
     "num_bladia": "367",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 335,
-    "name": "Saf Saf El Ouesra",
+    "name": "صفصاف الوسرى",
     "num_bladia": "388",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 336,
-    "name": "Guorriguer",
+    "name": "قريقر",
     "num_bladia": "382",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 337,
-    "name": "Bekkaria",
+    "name": "بكارية",
     "num_bladia": "366",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 338,
-    "name": "Boulhaf Dyr",
+    "name": "بولحاف الدير",
     "num_bladia": "371",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 339,
-    "name": "Oum Ali",
+    "name": "أم علي",
     "num_bladia": "387",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 340,
-    "name": "Boukhadra",
+    "name": "بوخضرة",
     "num_bladia": "370",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 341,
-    "name": "El Malabiod",
+    "name": "الماء الابيض",
     "num_bladia": "374",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 342,
-    "name": "Ouenza",
+    "name": "الونزة",
     "num_bladia": "386",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 343,
-    "name": "El Meridj",
+    "name": "المريج",
     "num_bladia": "375",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 344,
-    "name": "Ain Zerga",
+    "name": "عين الزرقاء",
     "num_bladia": "364",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 345,
-    "name": "Stah Guentis",
+    "name": "سطح قنطيس",
     "num_bladia": "389",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 346,
-    "name": "El Ogla",
+    "name": "العقلة",
     "num_bladia": "377",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 347,
-    "name": "El Mezeraa",
+    "name": "المزرعة",
     "num_bladia": "376",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 348,
-    "name": "Bedjene",
+    "name": "بجن",
     "num_bladia": "365",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 349,
-    "name": "Morsott",
+    "name": "مرسط",
     "num_bladia": "384",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 350,
-    "name": "Telidjen",
+    "name": "ثليجان",
     "num_bladia": "391",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 351,
-    "name": "Cheria",
+    "name": "الشريعة",
     "num_bladia": "372",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 352,
-    "name": "El Ogla El Malha",
+    "name": "العقلة المالحة",
     "num_bladia": "378",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 353,
-    "name": "Tebessa",
+    "name": "تبسة",
     "num_bladia": "390",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 354,
-    "name": "Hammamet",
+    "name": "الحمامات",
     "num_bladia": "383",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 355,
-    "name": "El Kouif",
+    "name": "الكويف",
     "num_bladia": "373",
-    "wilaya": "Tébessa",
+    "wilaya": "تبسة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 356,
-    "name": "Bab El Assa",
+    "name": "باب العسة",
     "num_bladia": "400",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 357,
-    "name": "Terny Beni Hediel",
+    "name": "تيرني بني هديل",
     "num_bladia": "441",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 358,
-    "name": "Mansourah",
+    "name": "منصورة",
     "num_bladia": "424",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 359,
-    "name": "Beni Mester",
+    "name": "بني مستر",
     "num_bladia": "404",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 360,
-    "name": "Ain Ghoraba",
+    "name": "عين غرابة",
     "num_bladia": "394",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 361,
-    "name": "Chetouane",
+    "name": "شتوان",
     "num_bladia": "411",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 362,
-    "name": "Amieur",
+    "name": "عمير",
     "num_bladia": "399",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 363,
-    "name": "Ain Fezza",
+    "name": "عين فزة",
     "num_bladia": "393",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 364,
-    "name": "Honnaine",
+    "name": "هنين",
     "num_bladia": "422",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 365,
-    "name": "Beni Khellad",
+    "name": "بني خلاد",
     "num_bladia": "403",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 366,
-    "name": "Sidi Djillali",
+    "name": "سيدي الجيلالي",
     "num_bladia": "436",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 367,
-    "name": "Bouihi",
+    "name": "البويهي",
     "num_bladia": "410",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 368,
-    "name": "Nedroma",
+    "name": "ندرومة",
     "num_bladia": "427",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 369,
-    "name": "M'sirda Fouaga",
+    "name": "مسيردة الفواقة",
     "num_bladia": "426",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 370,
-    "name": "Marsa Ben M'hidi",
+    "name": "مرسى بن مهيدي",
     "num_bladia": "425",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 371,
-    "name": "Sidi Medjahed",
+    "name": "سيدي مجاهد",
     "num_bladia": "437",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
@@ -3627,351 +3627,351 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 372,
     "name": "Beni Boussaid",
     "num_bladia": "402",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 373,
-    "name": "Sebdou",
+    "name": "سبدو",
     "num_bladia": "434",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 374,
-    "name": "El Gor",
+    "name": "القور",
     "num_bladia": "417",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 375,
-    "name": "Bouhlou",
+    "name": "بوحلو",
     "num_bladia": "409",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 376,
-    "name": "Maghnia",
+    "name": "مغنية",
     "num_bladia": "423",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 377,
-    "name": "Hammam Boughrara",
+    "name": "حمام بوغرارة",
     "num_bladia": "420",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 378,
-    "name": "Zenata",
+    "name": "زناتة",
     "num_bladia": "444",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 379,
-    "name": "Ouled Riyah",
+    "name": "أولاد رياح",
     "num_bladia": "430",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 380,
-    "name": "Hennaya",
+    "name": "الحناية",
     "num_bladia": "421",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 381,
-    "name": "Sidi Abdelli",
+    "name": "سيدي العبدلي",
     "num_bladia": "435",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 382,
-    "name": "Souk Tleta",
+    "name": "سوق الثلاثاء",
     "num_bladia": "440",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 383,
-    "name": "Bensekrane",
+    "name": "بن سكران",
     "num_bladia": "408",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 384,
-    "name": "Fellaoucene",
+    "name": "فلاوسن",
     "num_bladia": "418",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 385,
-    "name": "Ain Kebira",
+    "name": "عين الكبيرة",
     "num_bladia": "395",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 386,
-    "name": "Ain Fetah",
+    "name": "عين فتاح",
     "num_bladia": "392",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 387,
-    "name": "Tlemcen",
+    "name": "تلمسان",
     "num_bladia": "443",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 388,
-    "name": "Ain Nehala",
+    "name": "عين النحالة",
     "num_bladia": "396",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 389,
-    "name": "Ain Tellout",
+    "name": "عين تالوت",
     "num_bladia": "397",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 390,
-    "name": "Ain Youcef",
+    "name": "عين يوسف",
     "num_bladia": "398",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 391,
-    "name": "Beni Ouarsous",
+    "name": "بني وارسوس",
     "num_bladia": "405",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 392,
-    "name": "El Fehoul",
+    "name": "الفحول",
     "num_bladia": "416",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 393,
-    "name": "Remchi",
+    "name": "الرمشي",
     "num_bladia": "431",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 394,
-    "name": "Sebbaa Chioukh",
+    "name": "سبعة شيوخ",
     "num_bladia": "433",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 395,
-    "name": "Souani",
+    "name": "السواني",
     "num_bladia": "439",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 396,
-    "name": "Sabra",
+    "name": "صبرة",
     "num_bladia": "432",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 397,
-    "name": "Dar Yaghmoracen",
+    "name": "دار يغمراسن",
     "num_bladia": "412",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 398,
-    "name": "Ghazaouet",
+    "name": "الغزوات",
     "num_bladia": "419",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 399,
-    "name": "Souahlia",
+    "name": "السواحلية",
     "num_bladia": "438",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 400,
-    "name": "Tianet",
+    "name": "تيانت",
     "num_bladia": "442",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 401,
-    "name": "Beni Smiel",
+    "name": "بني صميل",
     "num_bladia": "406",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 402,
-    "name": "Oued Lakhdar",
+    "name": "وادي الخضر",
     "num_bladia": "428",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 403,
-    "name": "Ouled Mimoun",
+    "name": "أولاد ميمون",
     "num_bladia": "429",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 404,
-    "name": "Beni Bahdel",
+    "name": "بني بهدل",
     "num_bladia": "401",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 405,
-    "name": "Beni Snous",
+    "name": "بني سنوس",
     "num_bladia": "407",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 406,
-    "name": "Azail",
+    "name": "العزايل",
     "num_bladia": "415",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 407,
-    "name": "Djebala",
+    "name": "جبالة",
     "num_bladia": "413",
-    "wilaya": "Tlemcen",
+    "wilaya": "تلمسان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 408,
-    "name": "Mahdia",
+    "name": "مهدية",
     "num_bladia": "461",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 409,
-    "name": "Ain Dzarit",
+    "name": "عين دزاريت",
     "num_bladia": "447",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 410,
-    "name": "Sebaine",
+    "name": "السبعين",
     "num_bladia": "472",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 411,
-    "name": "Faidja",
+    "name": "الفايجة",
     "num_bladia": "455",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 412,
-    "name": "Si Abdelghani",
+    "name": "سي عبد الغني",
     "num_bladia": "475",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 413,
-    "name": "Sougueur",
+    "name": "السوقر",
     "num_bladia": "480",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 414,
-    "name": "Tousnina",
+    "name": "توسنينة",
     "num_bladia": "485",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 415,
-    "name": "Meghila",
+    "name": "مغيلة",
     "num_bladia": "465",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
@@ -3979,527 +3979,527 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 416,
     "name": "Sebt",
     "num_bladia": "473",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 417,
-    "name": "Sidi Hosni",
+    "name": "سيدي حسني",
     "num_bladia": "479",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 418,
-    "name": "Ain El Hadid",
+    "name": "عين الحديد",
     "num_bladia": "448",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 419,
-    "name": "Frenda",
+    "name": "فرندة",
     "num_bladia": "456",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 420,
-    "name": "Takhemaret",
+    "name": "تخمرت",
     "num_bladia": "482",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 421,
-    "name": "Ain Kermes",
+    "name": "عين كرمس",
     "num_bladia": "449",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 422,
-    "name": "Djebilet Rosfa",
+    "name": "جبيلات الرصفاء",
     "num_bladia": "453",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 423,
-    "name": "Madna",
+    "name": "مادنة",
     "num_bladia": "460",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 424,
-    "name": "Medrissa",
+    "name": "مدريسة",
     "num_bladia": "463",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 425,
-    "name": "Sidi Abderrahmane",
+    "name": "سيدي عبد الرحمن",
     "num_bladia": "476",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 426,
-    "name": "Guertoufa",
+    "name": "قرطوفة",
     "num_bladia": "457",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 427,
-    "name": "Serghine",
+    "name": "سرغين",
     "num_bladia": "474",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 428,
-    "name": "Zmalet El Emir Abdelkade",
+    "name": "زمالة  الأمير عبد القادر",
     "num_bladia": "486",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 429,
-    "name": "Oued Lilli",
+    "name": "وادي ليلي",
     "num_bladia": "469",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 430,
-    "name": "Sidi Ali Mellal",
+    "name": "سيدي علي ملال",
     "num_bladia": "477",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 431,
-    "name": "Djillali Ben Amar",
+    "name": "جيلالي بن عمار",
     "num_bladia": "454",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 432,
-    "name": "Mechraa Safa",
+    "name": "مشرع الصفا",
     "num_bladia": "462",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 433,
-    "name": "Tagdempt",
+    "name": "تاقدمت",
     "num_bladia": "481",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 434,
-    "name": "Bougara",
+    "name": "بوقرة",
     "num_bladia": "450",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 435,
-    "name": "Hamadia",
+    "name": "حمادية",
     "num_bladia": "458",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 436,
-    "name": "Rechaiga",
+    "name": "الرشايقة",
     "num_bladia": "471",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 437,
-    "name": "Tidda",
+    "name": "تيدة",
     "num_bladia": "484",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 438,
-    "name": "Nadorah",
+    "name": "الناظورة",
     "num_bladia": "467",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 439,
-    "name": "Tiaret",
+    "name": "تيارت",
     "num_bladia": "483",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 440,
-    "name": "Medroussa",
+    "name": "مدروسة",
     "num_bladia": "464",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 441,
-    "name": "Mellakou",
+    "name": "ملاكو",
     "num_bladia": "466",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 442,
-    "name": "Sidi Bakhti",
+    "name": "سيدي بختي",
     "num_bladia": "478",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 443,
-    "name": "Ain Deheb",
+    "name": "عين الذهب",
     "num_bladia": "446",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 444,
-    "name": "Chehaima",
+    "name": "شحيمة",
     "num_bladia": "451",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 445,
-    "name": "Naima",
+    "name": "النعيمة",
     "num_bladia": "468",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 446,
-    "name": "Ain Bouchekif",
+    "name": "عين بوشقيف",
     "num_bladia": "445",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 447,
-    "name": "Dahmouni",
+    "name": "دحموني",
     "num_bladia": "452",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 448,
-    "name": "Rahouia",
+    "name": "الرحوية",
     "num_bladia": "470",
-    "wilaya": "Tiaret",
+    "wilaya": "تيارت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 449,
-    "name": "Mizrana",
+    "name": "ميزرانـــة",
     "num_bladia": "535",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 450,
-    "name": "Idjeur",
+    "name": "إيجــار",
     "num_bladia": "522",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 451,
-    "name": "Beni-Douala",
+    "name": "بني دوالة",
     "num_bladia": "510",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 452,
-    "name": "Beni-Zikki",
+    "name": "بني زيكــي",
     "num_bladia": "512",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 453,
-    "name": "Illoula Oumalou",
+    "name": "إيلولة أومـــالو",
     "num_bladia": "527",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 454,
-    "name": "Agouni-Gueghrane",
+    "name": "أقني قغران",
     "num_bladia": "489",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 455,
-    "name": "Ait Bouaddou",
+    "name": "أيت بــوادو",
     "num_bladia": "493",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 456,
-    "name": "Ouadhias",
+    "name": "واضية",
     "num_bladia": "538",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 457,
-    "name": "Tizi N'tleta",
+    "name": "تيزي نثلاثة",
     "num_bladia": "547",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 458,
-    "name": "Aghribs",
+    "name": "أغريب",
     "num_bladia": "488",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 459,
-    "name": "Ait-Chafaa",
+    "name": "أيت شافع",
     "num_bladia": "498",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 460,
-    "name": "Akerrou",
+    "name": "أقرو",
     "num_bladia": "504",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 461,
-    "name": "Azeffoun",
+    "name": "أزفون",
     "num_bladia": "507",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 462,
-    "name": "Iflissen",
+    "name": "إفليـــسن",
     "num_bladia": "525",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 463,
-    "name": "Tigzirt",
+    "name": "تيقـزيرت",
     "num_bladia": "544",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 464,
-    "name": "Assi-Youcef",
+    "name": "أسي يوسف",
     "num_bladia": "505",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 465,
-    "name": "Boghni",
+    "name": "بوغني",
     "num_bladia": "513",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 466,
-    "name": "Bounouh",
+    "name": "بونوح",
     "num_bladia": "515",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 467,
-    "name": "Mechtras",
+    "name": "مشطراس",
     "num_bladia": "533",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 468,
-    "name": "Draa-Ben-Khedda",
+    "name": "ذراع بن خدة",
     "num_bladia": "517",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 469,
-    "name": "Sidi Namane",
+    "name": "سيدي نعمان",
     "num_bladia": "540",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 470,
-    "name": "Tadmait",
+    "name": "تادمايت",
     "num_bladia": "543",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 471,
-    "name": "Tirmitine",
+    "name": "تيرمتين",
     "num_bladia": "546",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 472,
-    "name": "Ait Boumahdi",
+    "name": "أيت بومهدي",
     "num_bladia": "494",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 473,
-    "name": "Ait-Toudert",
+    "name": "أيت تودرت",
     "num_bladia": "501",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 474,
-    "name": "Beni-Aissi",
+    "name": "بني عيسي",
     "num_bladia": "509",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 475,
-    "name": "Ouacif",
+    "name": "واسيف",
     "num_bladia": "537",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 476,
-    "name": "Ait Khellili",
+    "name": "أيت خليلي",
     "num_bladia": "495",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 477,
-    "name": "Mekla",
+    "name": "مقــلع",
     "num_bladia": "534",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 478,
-    "name": "Souama",
+    "name": "صوامـــع",
     "num_bladia": "541",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 479,
-    "name": "Beni-Yenni",
+    "name": "بني يني",
     "num_bladia": "511",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 480,
-    "name": "Iboudrarene",
+    "name": "إبودرارن",
     "num_bladia": "521",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 481,
-    "name": "Tizi-Ouzou",
+    "name": "تيزي وزو",
     "num_bladia": "549",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
@@ -4507,183 +4507,183 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 482,
     "name": "Abi-Youcef",
     "num_bladia": "487",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 483,
-    "name": "Ain-El-Hammam",
+    "name": "عين الحمام",
     "num_bladia": "490",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 484,
-    "name": "Ait-Yahia",
+    "name": "أيت يحيى",
     "num_bladia": "502",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 485,
-    "name": "Akbil",
+    "name": "اقبيل",
     "num_bladia": "503",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 486,
-    "name": "Boudjima",
+    "name": "بوجيمة",
     "num_bladia": "514",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 487,
-    "name": "Makouda",
+    "name": "ماكودة",
     "num_bladia": "532",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 488,
-    "name": "Ain-Zaouia",
+    "name": "عين الزاوية",
     "num_bladia": "491",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 489,
-    "name": "Ait Yahia Moussa",
+    "name": "أيت يحي موسى",
     "num_bladia": "496",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 490,
-    "name": "Draa-El-Mizan",
+    "name": "ذراع الميزان",
     "num_bladia": "518",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 491,
-    "name": "Frikat",
+    "name": "فريقات",
     "num_bladia": "520",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 492,
-    "name": "M'kira",
+    "name": "مكيرة",
     "num_bladia": "536",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 493,
-    "name": "Tizi-Gheniff",
+    "name": "تيزي غنيف",
     "num_bladia": "548",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 494,
-    "name": "Yatafene",
+    "name": "يطــافن",
     "num_bladia": "552",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 495,
-    "name": "Illilten",
+    "name": "إيلـيــلتـن",
     "num_bladia": "526",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 496,
-    "name": "Imsouhal",
+    "name": "إمســوحال",
     "num_bladia": "528",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 497,
-    "name": "Azazga",
+    "name": "عزازقة",
     "num_bladia": "506",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 498,
-    "name": "Freha",
+    "name": "فريحة",
     "num_bladia": "519",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 499,
-    "name": "Ifigha",
+    "name": "إيفيغاء",
     "num_bladia": "524",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 500,
-    "name": "Yakourene",
+    "name": "إعــكورن",
     "num_bladia": "551",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 501,
-    "name": "Zekri",
+    "name": "زكري",
     "num_bladia": "553",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 502,
-    "name": "Ait Aggouacha",
+    "name": "أيت عقـواشة",
     "num_bladia": "492",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 503,
-    "name": "Irdjen",
+    "name": "إيرجـــن",
     "num_bladia": "529",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 504,
-    "name": "Larbaa Nath Irathen",
+    "name": "الأربعــاء ناث إيراثن",
     "num_bladia": "530",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
@@ -4691,1431 +4691,1431 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 505,
     "name": "Ait-Oumalou",
     "num_bladia": "500",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 506,
-    "name": "Tizi-Rached",
+    "name": "تيزي راشد",
     "num_bladia": "550",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 507,
-    "name": "Ait-Aissa-Mimoun",
+    "name": "أيت عيسى ميمون",
     "num_bladia": "497",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 508,
-    "name": "Ouaguenoun",
+    "name": "واقنون",
     "num_bladia": "539",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 509,
-    "name": "Timizart",
+    "name": "تيمـيزار",
     "num_bladia": "545",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 510,
-    "name": "Maatkas",
+    "name": "معـــاتقة",
     "num_bladia": "531",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 511,
-    "name": "Souk-El-Tenine",
+    "name": "سوق الإثنين",
     "num_bladia": "542",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 512,
-    "name": "Ait-Mahmoud",
+    "name": "أيت محمود",
     "num_bladia": "499",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 513,
-    "name": "Beni Zmenzer",
+    "name": "بنــــي زمنزار",
     "num_bladia": "508",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 514,
-    "name": "Iferhounene",
+    "name": "إفــرحــونان",
     "num_bladia": "523",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 515,
-    "name": "Bouzeguene",
+    "name": "بوزقــن",
     "num_bladia": "516",
-    "wilaya": "Tizi Ouzou",
+    "wilaya": "تيزي وزو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 516,
-    "name": "Hussein Dey",
+    "name": "حسين داي",
     "num_bladia": "588",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 517,
-    "name": "Les Eucalyptus",
+    "name": "الكاليتوس",
     "num_bladia": "592",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 518,
-    "name": "Sidi Moussa",
+    "name": "سيدي موسى",
     "num_bladia": "606",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 519,
-    "name": "Kouba",
+    "name": "القبة",
     "num_bladia": "591",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 520,
-    "name": "Mohamed Belouzdad",
+    "name": "محمد بلوزداد",
     "num_bladia": "594",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 521,
-    "name": "Ain Taya",
+    "name": "عين طاية",
     "num_bladia": "555",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 522,
-    "name": "Bab Ezzouar",
+    "name": "باب الزوار",
     "num_bladia": "558",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 523,
-    "name": "Bordj El Kiffan",
+    "name": "برج الكيفان",
     "num_bladia": "569",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 524,
-    "name": "Dar El Beida",
+    "name": "الدار البيضاء",
     "num_bladia": "574",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 525,
-    "name": "El Marsa",
+    "name": "المرسى",
     "num_bladia": "584",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 526,
-    "name": "Mohammadia",
+    "name": "المحمدية",
     "num_bladia": "595",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 527,
-    "name": "Bir Touta",
+    "name": "بئر توتة",
     "num_bladia": "566",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 528,
-    "name": "Ouled Chebel",
+    "name": "اولاد شبل",
     "num_bladia": "598",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 529,
-    "name": "Tessala El Merdja",
+    "name": "تسالة المرجة",
     "num_bladia": "609",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 530,
-    "name": "Herraoua",
+    "name": "هراوة",
     "num_bladia": "587",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 531,
-    "name": "Reghaia",
+    "name": "رغاية",
     "num_bladia": "602",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 532,
-    "name": "Rouiba",
+    "name": "الرويبة",
     "num_bladia": "603",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 533,
-    "name": "Maalma",
+    "name": "المعالمة",
     "num_bladia": "593",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 534,
-    "name": "Rahmania",
+    "name": "الرحمانية",
     "num_bladia": "600",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 535,
-    "name": "Souidania",
+    "name": "سويدانية",
     "num_bladia": "607",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 536,
-    "name": "Staoueli",
+    "name": "سطاوالي",
     "num_bladia": "608",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 537,
-    "name": "Zeralda",
+    "name": "زرالدة",
     "num_bladia": "610",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 538,
-    "name": "Baba Hassen",
+    "name": "بابا حسن",
     "num_bladia": "559",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 539,
-    "name": "Douira",
+    "name": "الدويرة",
     "num_bladia": "577",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 540,
-    "name": "Draria",
+    "name": "الدرارية",
     "num_bladia": "578",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 541,
-    "name": "El Achour",
+    "name": "العاشور",
     "num_bladia": "579",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 542,
-    "name": "Khraissia",
+    "name": "الخرايسية",
     "num_bladia": "590",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 543,
-    "name": "Ain Benian",
+    "name": "عين البنيان",
     "num_bladia": "554",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 544,
-    "name": "Cheraga",
+    "name": "الشراقة",
     "num_bladia": "573",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 545,
-    "name": "Dely Ibrahim",
+    "name": "دالي ابراهيم",
     "num_bladia": "575",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 546,
-    "name": "Hammamet",
+    "name": "الحمامات",
     "num_bladia": "586",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 547,
-    "name": "Ouled Fayet",
+    "name": "اولاد فايت",
     "num_bladia": "599",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 548,
-    "name": "Alger Centre",
+    "name": "الجزائر الوسطى",
     "num_bladia": "556",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 549,
-    "name": "El Madania",
+    "name": "المدنية",
     "num_bladia": "582",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 550,
-    "name": "El Mouradia",
+    "name": "المرادية",
     "num_bladia": "585",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 551,
-    "name": "Sidi M'hamed",
+    "name": "سيدي امحمد",
     "num_bladia": "605",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 552,
-    "name": "Sehaoula",
+    "name": "السحاولة",
     "num_bladia": "604",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 553,
-    "name": "Bologhine Ibnou Ziri",
+    "name": "بولوغين بن زيري",
     "num_bladia": "567",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 554,
-    "name": "Casbah",
+    "name": "القصبة",
     "num_bladia": "572",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 555,
-    "name": "Oued Koriche",
+    "name": "وادي قريش",
     "num_bladia": "596",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 556,
-    "name": "Rais Hamidou",
+    "name": "الرايس حميدو",
     "num_bladia": "601",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 557,
-    "name": "Bir Mourad Rais",
+    "name": "بئر مراد رايس",
     "num_bladia": "564",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 558,
-    "name": "Birkhadem",
+    "name": "بئر خادم",
     "num_bladia": "565",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 559,
-    "name": "Djasr Kasentina",
+    "name": "جسر قسنطينة",
     "num_bladia": "576",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 560,
-    "name": "Hydra",
+    "name": "حيدرة",
     "num_bladia": "589",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 561,
-    "name": "El Magharia",
+    "name": "المغارية",
     "num_bladia": "583",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 562,
-    "name": "Ben Aknoun",
+    "name": "ابن عكنون",
     "num_bladia": "562",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 563,
-    "name": "Beni Messous",
+    "name": "بني مسوس",
     "num_bladia": "563",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 564,
-    "name": "Bouzareah",
+    "name": "بوزريعة",
     "num_bladia": "571",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 565,
-    "name": "El Biar",
+    "name": "الابيار",
     "num_bladia": "580",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 566,
-    "name": "Bachedjerah",
+    "name": "باش جراح",
     "num_bladia": "560",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 567,
-    "name": "Bourouba",
+    "name": "بوروبة",
     "num_bladia": "570",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 568,
-    "name": "El Harrach",
+    "name": "الحراش",
     "num_bladia": "581",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 569,
-    "name": "Oued Smar",
+    "name": "وادي السمار",
     "num_bladia": "597",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 570,
-    "name": "Baraki",
+    "name": "براقي",
     "num_bladia": "561",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 571,
-    "name": "Bordj El Bahri",
+    "name": "برج البحري",
     "num_bladia": "568",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 572,
-    "name": "Bab El Oued",
+    "name": "باب الوادي",
     "num_bladia": "557",
-    "wilaya": "Alger",
+    "wilaya": "الجزائر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 573,
-    "name": "Hassi El Euch",
+    "name": "حاسي العش",
     "num_bladia": "634",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 574,
-    "name": "Ain El Ibel",
+    "name": "عين الإبل",
     "num_bladia": "612",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 575,
-    "name": "El Guedid",
+    "name": "القديد",
     "num_bladia": "626",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 576,
-    "name": "Charef",
+    "name": "الشارف",
     "num_bladia": "621",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 577,
-    "name": "Benyagoub",
+    "name": "بن يعقوب",
     "num_bladia": "618",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 578,
-    "name": "Sidi Baizid",
+    "name": "سيدي بايزيد",
     "num_bladia": "642",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 579,
-    "name": "M'liliha",
+    "name": "مليليحة",
     "num_bladia": "637",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 580,
-    "name": "Dar Chioukh",
+    "name": "دار الشيوخ",
     "num_bladia": "622",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 581,
-    "name": "Taadmit",
+    "name": "تعظميت",
     "num_bladia": "644",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 582,
-    "name": "Had Sahary",
+    "name": "حد الصحاري",
     "num_bladia": "632",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 583,
-    "name": "Bouira Lahdab",
+    "name": "بويرة الأحداب",
     "num_bladia": "620",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 584,
-    "name": "Ain Fekka",
+    "name": "عين فقه",
     "num_bladia": "613",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 585,
-    "name": "Sidi Laadjel",
+    "name": "سيدي لعجال",
     "num_bladia": "643",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 586,
-    "name": "Hassi Fedoul",
+    "name": "حاسي فدول",
     "num_bladia": "635",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 587,
-    "name": "El Khemis",
+    "name": "الخميس",
     "num_bladia": "628",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 588,
-    "name": "Selmana",
+    "name": "سلمانة",
     "num_bladia": "641",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 589,
-    "name": "Sed Rahal",
+    "name": "سد الرحال",
     "num_bladia": "640",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 590,
-    "name": "Guettara",
+    "name": "قطارة",
     "num_bladia": "631",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 591,
-    "name": "Deldoul",
+    "name": "دلدول",
     "num_bladia": "623",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 592,
-    "name": "Zaccar",
+    "name": "زكار",
     "num_bladia": "646",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 593,
-    "name": "Douis",
+    "name": "دويس",
     "num_bladia": "625",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 594,
-    "name": "El Idrissia",
+    "name": "الادريسية",
     "num_bladia": "627",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 595,
-    "name": "Ain Chouhada",
+    "name": "عين الشهداء",
     "num_bladia": "611",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 596,
-    "name": "Djelfa",
+    "name": "الجلفة",
     "num_bladia": "624",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 597,
-    "name": "Birine",
+    "name": "بيرين",
     "num_bladia": "619",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 598,
-    "name": "Oum Laadham",
+    "name": "أم العظام",
     "num_bladia": "639",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 599,
-    "name": "Faidh El Botma",
+    "name": "فيض البطمة",
     "num_bladia": "629",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 600,
-    "name": "Amourah",
+    "name": "عمورة",
     "num_bladia": "616",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 601,
-    "name": "Zaafrane",
+    "name": "زعفران",
     "num_bladia": "645",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 602,
-    "name": "Guernini",
+    "name": "قرنيني",
     "num_bladia": "630",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 603,
-    "name": "Benhar",
+    "name": "بنهار",
     "num_bladia": "617",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 604,
-    "name": "Ain Maabed",
+    "name": "عين معبد",
     "num_bladia": "614",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 605,
-    "name": "Hassi Bahbah",
+    "name": "حاسي بحبح",
     "num_bladia": "633",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 606,
-    "name": "Moudjebara",
+    "name": "مجبارة",
     "num_bladia": "638",
-    "wilaya": "Djelfa",
+    "wilaya": "الجلفة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 607,
-    "name": "Jijel",
+    "name": "جيجل",
     "num_bladia": "662",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 608,
-    "name": "El Aouana",
+    "name": "العوانة",
     "num_bladia": "656",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 609,
-    "name": "Selma Benziada",
+    "name": "سلمى بن زيادة",
     "num_bladia": "668",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 610,
-    "name": "Erraguene Souissi",
+    "name": "أراقن سويسي",
     "num_bladia": "660",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 611,
-    "name": "Boussif Ouled Askeur",
+    "name": "بوسيف أولاد عسكر",
     "num_bladia": "650",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 612,
-    "name": "Ziama Mansouriah",
+    "name": "زيامة منصورية",
     "num_bladia": "674",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 613,
-    "name": "Chahna",
+    "name": "الشحنة",
     "num_bladia": "651",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 614,
-    "name": "Emir Abdelkader",
+    "name": "الامير عبد القادر",
     "num_bladia": "659",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 615,
-    "name": "Oudjana",
+    "name": "وجانة",
     "num_bladia": "665",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 616,
-    "name": "Taher",
+    "name": "الطاهير",
     "num_bladia": "672",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 617,
-    "name": "Chekfa",
+    "name": "الشقفة",
     "num_bladia": "652",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 618,
-    "name": "El Kennar Nouchfi",
+    "name": "القنار نشفي",
     "num_bladia": "657",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 619,
-    "name": "Sidi Abdelaziz",
+    "name": "سيدي عبد العزيز",
     "num_bladia": "670",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 620,
-    "name": "El Milia",
+    "name": "الميلية",
     "num_bladia": "658",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 621,
-    "name": "Ouled Yahia Khadrouch",
+    "name": "أولاد يحيى خدروش",
     "num_bladia": "667",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 622,
-    "name": "Ouled Rabah",
+    "name": "أولاد رابح",
     "num_bladia": "666",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 623,
-    "name": "Sidi Marouf",
+    "name": "سيدي معروف",
     "num_bladia": "671",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 624,
-    "name": "Ghebala",
+    "name": "غبالة",
     "num_bladia": "661",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 625,
-    "name": "Settara",
+    "name": "السطارة",
     "num_bladia": "669",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 626,
-    "name": "Bouraoui Belhadef",
+    "name": "بوراوي بلهادف",
     "num_bladia": "649",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 627,
-    "name": "El Ancer",
+    "name": "العنصر",
     "num_bladia": "655",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 628,
-    "name": "Khiri Oued Adjoul",
+    "name": "خيري واد عجول",
     "num_bladia": "664",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 629,
-    "name": "Djimla",
+    "name": "جيملة",
     "num_bladia": "654",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 630,
-    "name": "Kaous",
+    "name": "قاوس",
     "num_bladia": "663",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 631,
-    "name": "Texenna",
+    "name": "تاكسنة",
     "num_bladia": "673",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 632,
-    "name": "Bordj T'har",
+    "name": "برج الطهر",
     "num_bladia": "647",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 633,
-    "name": "Boudria Beniyadjis",
+    "name": "بودريعة بني  ياجيس",
     "num_bladia": "648",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 634,
-    "name": "Djemaa Beni Habibi",
+    "name": "الجمعة بني حبيبي",
     "num_bladia": "653",
-    "wilaya": "Jijel",
+    "wilaya": "جيجل",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 635,
-    "name": "Rosfa",
+    "name": "الرصفة",
     "num_bladia": "726",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 636,
-    "name": "Oued El Bared",
+    "name": "واد البارد",
     "num_bladia": "721",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 637,
-    "name": "Tizi N'bechar",
+    "name": "تيزي نبشار",
     "num_bladia": "734",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 638,
-    "name": "Mezloug",
+    "name": "مزلوق",
     "num_bladia": "720",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 639,
-    "name": "Guellal",
+    "name": "قلال",
     "num_bladia": "709",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 640,
-    "name": "Kasr El Abtal",
+    "name": "قصر الابطال",
     "num_bladia": "717",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 641,
-    "name": "Ouled Si Ahmed",
+    "name": "أولاد سي أحمد",
     "num_bladia": "724",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 642,
-    "name": "Ait Naoual Mezada",
+    "name": "أيت نوال مزادة",
     "num_bladia": "684",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 643,
-    "name": "Ait-Tizi",
+    "name": "ايت تيزي",
     "num_bladia": "685",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 644,
-    "name": "Bouandas",
+    "name": "بوعنداس",
     "num_bladia": "699",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 645,
-    "name": "Bousselam",
+    "name": "بوسلام",
     "num_bladia": "701",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 646,
-    "name": "Hamam Soukhna",
+    "name": "حمام السخنة",
     "num_bladia": "713",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 647,
-    "name": "Taya",
+    "name": "الطاية",
     "num_bladia": "732",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 648,
-    "name": "Tella",
+    "name": "التلة",
     "num_bladia": "733",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 649,
-    "name": "Ain Oulmene",
+    "name": "عين ولمان",
     "num_bladia": "680",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 650,
-    "name": "Boutaleb",
+    "name": "بوطالب",
     "num_bladia": "702",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 651,
-    "name": "Hamma",
+    "name": "الحامة",
     "num_bladia": "714",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 652,
-    "name": "Ouled Tebben",
+    "name": "أولاد تبان",
     "num_bladia": "725",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 653,
-    "name": "Amoucha",
+    "name": "عموشة",
     "num_bladia": "686",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 654,
-    "name": "Salah Bey",
+    "name": "صالح باي",
     "num_bladia": "727",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 655,
-    "name": "Ain Azel",
+    "name": "عين أزال",
     "num_bladia": "677",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 656,
-    "name": "Ain Lahdjar",
+    "name": "عين الحجر",
     "num_bladia": "679",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 657,
-    "name": "Beidha Bordj",
+    "name": "بيضاء برج",
     "num_bladia": "689",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 658,
-    "name": "Bir Haddada",
+    "name": "بئر حدادة",
     "num_bladia": "697",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 659,
-    "name": "Guenzet",
+    "name": "قنزات",
     "num_bladia": "711",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 660,
-    "name": "Harbil",
+    "name": "حربيل",
     "num_bladia": "716",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 661,
-    "name": "Ain-Roua",
+    "name": "عين الروى",
     "num_bladia": "682",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 662,
-    "name": "Beni Oussine",
+    "name": "بني وسين",
     "num_bladia": "694",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 663,
-    "name": "El Ouricia",
+    "name": "أوريسيا",
     "num_bladia": "707",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 664,
-    "name": "Bougaa",
+    "name": "بوقاعة",
     "num_bladia": "700",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 665,
-    "name": "Draa-Kebila",
+    "name": "ذراع قبيلة",
     "num_bladia": "705",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 666,
-    "name": "Hammam Guergour",
+    "name": "حمام قرقور",
     "num_bladia": "715",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 667,
-    "name": "Setif",
+    "name": "سطيف",
     "num_bladia": "729",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 668,
-    "name": "Ain El Kebira",
+    "name": "عين الكبيرة",
     "num_bladia": "678",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 669,
-    "name": "Dehamcha",
+    "name": "الدهامشة",
     "num_bladia": "703",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 670,
-    "name": "Ouled Addouane",
+    "name": "أولاد عدوان",
     "num_bladia": "722",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 671,
-    "name": "Ain-Sebt",
+    "name": "عين السبت",
     "num_bladia": "683",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 672,
-    "name": "Beni-Aziz",
+    "name": "بني عزيز",
     "num_bladia": "695",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 673,
-    "name": "Maaouia",
+    "name": "معاوية",
     "num_bladia": "718",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 674,
-    "name": "Bellaa",
+    "name": "بلاعة",
     "num_bladia": "690",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 675,
-    "name": "Bir-El-Arch",
+    "name": "بئر العرش",
     "num_bladia": "698",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 676,
-    "name": "El-Ouldja",
+    "name": "الولجة",
     "num_bladia": "708",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 677,
-    "name": "Tachouda",
+    "name": "تاشودة",
     "num_bladia": "730",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 678,
-    "name": "Tala-Ifacene",
+    "name": "تالة إيفاسن",
     "num_bladia": "731",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 679,
-    "name": "Serdj-El-Ghoul",
+    "name": "سرج الغول",
     "num_bladia": "728",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 680,
-    "name": "Guidjel",
+    "name": "قجال",
     "num_bladia": "712",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 681,
-    "name": "Ouled Sabor",
+    "name": "أولاد صابر",
     "num_bladia": "723",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 682,
-    "name": "Bazer-Sakra",
+    "name": "بازر سكرة",
     "num_bladia": "688",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 683,
-    "name": "El Eulma",
+    "name": "العلمة",
     "num_bladia": "706",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
@@ -6123,319 +6123,319 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 684,
     "name": "Guelta Zerka",
     "num_bladia": "710",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 685,
-    "name": "Beni Fouda",
+    "name": "بني فودة",
     "num_bladia": "692",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 686,
-    "name": "Djemila",
+    "name": "جميلة",
     "num_bladia": "704",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 687,
-    "name": "Ain-Legradj",
+    "name": "عين لقراج",
     "num_bladia": "681",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 688,
-    "name": "Beni Chebana",
+    "name": "بني شبانة",
     "num_bladia": "691",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 689,
-    "name": "Beni Ourtilane",
+    "name": "بني ورتيلان",
     "num_bladia": "693",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 690,
-    "name": "Beni-Mouhli",
+    "name": "بني موحلي",
     "num_bladia": "696",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 691,
-    "name": "Ain Abessa",
+    "name": "عين عباسة",
     "num_bladia": "675",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 692,
-    "name": "Ain Arnat",
+    "name": "عين أرنات",
     "num_bladia": "676",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 693,
-    "name": "Babor",
+    "name": "بابور",
     "num_bladia": "687",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 694,
-    "name": "Maouaklane",
+    "name": "ماوكلان",
     "num_bladia": "719",
-    "wilaya": "Sétif",
+    "wilaya": "سطيف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 695,
-    "name": "Saida",
+    "name": "سعيدة",
     "num_bladia": "745",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 696,
-    "name": "Tircine",
+    "name": "تيرسين",
     "num_bladia": "749",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 697,
-    "name": "Ouled Brahim",
+    "name": "أولاد إبراهيم",
     "num_bladia": "743",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 698,
-    "name": "Ain Soltane",
+    "name": "عين السلطان",
     "num_bladia": "737",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 699,
-    "name": "Maamora",
+    "name": "المعمورة",
     "num_bladia": "741",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 700,
-    "name": "El Hassasna",
+    "name": "الحساسنة",
     "num_bladia": "739",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 701,
-    "name": "Ain Sekhouna",
+    "name": "عين السخونة",
     "num_bladia": "736",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 702,
-    "name": "Sidi Boubekeur",
+    "name": "سيدي بوبكر",
     "num_bladia": "748",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 703,
-    "name": "Ouled Khaled",
+    "name": "أولاد خالد",
     "num_bladia": "744",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 704,
-    "name": "Hounet",
+    "name": "هونت",
     "num_bladia": "740",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 705,
-    "name": "Youb",
+    "name": "يوب",
     "num_bladia": "750",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 706,
-    "name": "Doui Thabet",
+    "name": "دوي ثابت",
     "num_bladia": "738",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 707,
-    "name": "Sidi Ahmed",
+    "name": "سيدي احمد",
     "num_bladia": "746",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 708,
-    "name": "Moulay Larbi",
+    "name": "مولاي العربي",
     "num_bladia": "742",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 709,
-    "name": "Ain El Hadjar",
+    "name": "عين الحجر",
     "num_bladia": "735",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 710,
-    "name": "Sidi Amar",
+    "name": "سيدي عمار",
     "num_bladia": "747",
-    "wilaya": "Saïda",
+    "wilaya": "سعيدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 711,
-    "name": "Ain Bouziane",
+    "name": "عين بوزيان",
     "num_bladia": "751",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 712,
-    "name": "Salah Bouchaour",
+    "name": "صالح بو الشعور",
     "num_bladia": "783",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 713,
-    "name": "El Hadaiek",
+    "name": "الحدائق",
     "num_bladia": "768",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 714,
-    "name": "Zerdezas",
+    "name": "زردازة",
     "num_bladia": "787",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 715,
-    "name": "Ouled Habbaba",
+    "name": "أولاد حبابة",
     "num_bladia": "780",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 716,
-    "name": "Beni Oulbane",
+    "name": "بني ولبان",
     "num_bladia": "759",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 717,
-    "name": "Sidi Mezghiche",
+    "name": "سيدي مزغيش",
     "num_bladia": "784",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 718,
-    "name": "Beni Bechir",
+    "name": "بني بشير",
     "num_bladia": "758",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 719,
-    "name": "Ramdane Djamel",
+    "name": "رمضان جمال",
     "num_bladia": "782",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 720,
-    "name": "Bin El Ouiden",
+    "name": "بين الويدان",
     "num_bladia": "761",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 721,
-    "name": "Emjez Edchich",
+    "name": "مجاز الدشيش",
     "num_bladia": "770",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 722,
-    "name": "Tamalous",
+    "name": "تمالوس",
     "num_bladia": "786",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 723,
-    "name": "Ain Kechra",
+    "name": "عين قشرة",
     "num_bladia": "753",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
@@ -6443,695 +6443,695 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 724,
     "name": "Ouldja Boulbalout",
     "num_bladia": "778",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 725,
-    "name": "Oum Toub",
+    "name": "أم الطوب",
     "num_bladia": "781",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 726,
-    "name": "El Ghedir",
+    "name": "الغدير",
     "num_bladia": "767",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 727,
-    "name": "Kerkara",
+    "name": "الكركرة",
     "num_bladia": "775",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 728,
-    "name": "El Arrouch",
+    "name": "الحروش",
     "num_bladia": "766",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 729,
-    "name": "Zitouna",
+    "name": "الزيتونة",
     "num_bladia": "788",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 730,
-    "name": "Ouled Attia",
+    "name": "أولاد عطية",
     "num_bladia": "779",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 731,
-    "name": "Oued Zhour",
+    "name": "وادي الزهور",
     "num_bladia": "777",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 732,
-    "name": "Collo",
+    "name": "القل",
     "num_bladia": "764",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 733,
-    "name": "Cheraia",
+    "name": "الشرايع",
     "num_bladia": "763",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 734,
-    "name": "Beni Zid",
+    "name": "بني زيد",
     "num_bladia": "760",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 735,
-    "name": "Khenag Maoune",
+    "name": "خناق مايو",
     "num_bladia": "776",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 736,
-    "name": "El Marsa",
+    "name": "المرسى",
     "num_bladia": "769",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 737,
-    "name": "Ben Azzouz",
+    "name": "بن عزوز",
     "num_bladia": "757",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 738,
-    "name": "Bekkouche Lakhdar",
+    "name": "بكوش لخضر",
     "num_bladia": "756",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 739,
-    "name": "Es Sebt",
+    "name": "السبت",
     "num_bladia": "771",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 740,
-    "name": "Ain Charchar",
+    "name": "عين شرشار",
     "num_bladia": "752",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 741,
-    "name": "Azzaba",
+    "name": "عزابة",
     "num_bladia": "755",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 742,
-    "name": "Bouchetata",
+    "name": "بوشطاطة",
     "num_bladia": "762",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 743,
-    "name": "Filfila",
+    "name": "فلفلة",
     "num_bladia": "772",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 744,
-    "name": "Hammadi Krouma",
+    "name": "حمادي كرومة",
     "num_bladia": "773",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 745,
-    "name": "Skikda",
+    "name": "سكيكدة",
     "num_bladia": "785",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 746,
-    "name": "Ain Zouit",
+    "name": "عين زويت",
     "num_bladia": "754",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 747,
-    "name": "Djendel Saadi Mohamed",
+    "name": "جندل سعدي محمد",
     "num_bladia": "765",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 748,
-    "name": "Kanoua",
+    "name": "قنواع",
     "num_bladia": "774",
-    "wilaya": "Skikda",
+    "wilaya": "سكيكدة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 749,
-    "name": "Sidi Ali Benyoub",
+    "name": "سيدي علي بن يوب",
     "num_bladia": "822",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 750,
-    "name": "Moulay Slissen",
+    "name": "مولاي سليسن",
     "num_bladia": "814",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 751,
-    "name": "El Hacaiba",
+    "name": "الحصيبة",
     "num_bladia": "804",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 752,
-    "name": "Ain Tindamine",
+    "name": "عين تندمين",
     "num_bladia": "792",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 753,
-    "name": "Tenira",
+    "name": "تنيرة",
     "num_bladia": "837",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 754,
-    "name": "Oued Sefioun",
+    "name": "وادي سفيون",
     "num_bladia": "816",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 755,
-    "name": "Hassi Dahou",
+    "name": "حاسي دحو",
     "num_bladia": "805",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 756,
-    "name": "Oued Taourira",
+    "name": "وادي تاوريرة",
     "num_bladia": "817",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 757,
-    "name": "Benachiba Chelia",
+    "name": "بن عشيبة شلية",
     "num_bladia": "798",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 758,
-    "name": "Sidi Yacoub",
+    "name": "سيدي يعقوب",
     "num_bladia": "831",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 759,
-    "name": "Sidi Lahcene",
+    "name": "سيدي لحسن",
     "num_bladia": "830",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 760,
-    "name": "Sidi Khaled",
+    "name": "سيدي  خالد",
     "num_bladia": "829",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 761,
-    "name": "Tabia",
+    "name": "طابية",
     "num_bladia": "832",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 762,
-    "name": "Sidi Brahim",
+    "name": "سيدي ابراهيم",
     "num_bladia": "825",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 763,
-    "name": "Amarnas",
+    "name": "العمارنة",
     "num_bladia": "794",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 764,
-    "name": "Boukhanefis",
+    "name": "بوخنفيس",
     "num_bladia": "801",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 765,
-    "name": "Hassi Zahana",
+    "name": "حاسي زهانة",
     "num_bladia": "806",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 766,
-    "name": "Chetouane Belaila",
+    "name": "شيطوان البلايلة",
     "num_bladia": "802",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 767,
-    "name": "Ben Badis",
+    "name": "أبن باديس الهرية",
     "num_bladia": "797",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 768,
-    "name": "Bedrabine El Mokrani",
+    "name": "بضرابين المقراني",
     "num_bladia": "795",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 769,
-    "name": "Sfisef",
+    "name": "سفيزف",
     "num_bladia": "821",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 770,
-    "name": "M'cid",
+    "name": "مسيد",
     "num_bladia": "810",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 771,
-    "name": "Boudjebaa El Bordj",
+    "name": "بوجبهة البرج",
     "num_bladia": "800",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 772,
-    "name": "Ain- Adden",
+    "name": "عين أدن",
     "num_bladia": "793",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 773,
-    "name": "Sidi Hamadouche",
+    "name": "سيدي حمادوش",
     "num_bladia": "828",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 774,
-    "name": "Sidi Chaib",
+    "name": "سيدي شعيب",
     "num_bladia": "826",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 775,
-    "name": "Makedra",
+    "name": "مكدرة",
     "num_bladia": "808",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 776,
-    "name": "Ain El Berd",
+    "name": "عين البرد",
     "num_bladia": "789",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 777,
-    "name": "Redjem Demouche",
+    "name": "رجم دموش",
     "num_bladia": "819",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 778,
-    "name": "Ras El Ma",
+    "name": "راس الماء",
     "num_bladia": "818",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 779,
-    "name": "Oued Sebaa",
+    "name": "وادي السبع",
     "num_bladia": "815",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 780,
-    "name": "Marhoum",
+    "name": "مرحوم",
     "num_bladia": "809",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 781,
-    "name": "Sidi Bel-Abbes",
+    "name": "سيدي بلعباس",
     "num_bladia": "824",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 782,
-    "name": "Ain Thrid",
+    "name": "عين الثريد",
     "num_bladia": "791",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 783,
-    "name": "Sehala Thaoura",
+    "name": "السهالة الثورة",
     "num_bladia": "820",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 784,
-    "name": "Tessala",
+    "name": "تسالة",
     "num_bladia": "838",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 785,
-    "name": "Belarbi",
+    "name": "بلعربي",
     "num_bladia": "796",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 786,
-    "name": "Mostefa  Ben Brahim",
+    "name": "مصطفى بن ابراهيم",
     "num_bladia": "813",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 787,
-    "name": "Tilmouni",
+    "name": "تلموني",
     "num_bladia": "839",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 788,
-    "name": "Zerouala",
+    "name": "زروالة",
     "num_bladia": "840",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 789,
-    "name": "Dhaya",
+    "name": "الضاية",
     "num_bladia": "803",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 790,
-    "name": "Mezaourou",
+    "name": "مزاورو",
     "num_bladia": "812",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 791,
-    "name": "Teghalimet",
+    "name": "تغاليمت",
     "num_bladia": "835",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 792,
-    "name": "Telagh",
+    "name": "تلاغ",
     "num_bladia": "836",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 793,
-    "name": "Ain Kada",
+    "name": "عين قادة",
     "num_bladia": "790",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 794,
-    "name": "Lamtar",
+    "name": "لمطار",
     "num_bladia": "807",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 795,
-    "name": "Sidi Ali Boussidi",
+    "name": "سيدي علي بوسيدي",
     "num_bladia": "823",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 796,
-    "name": "Sidi Dahou Zairs",
+    "name": "سيدي دحو الزاير",
     "num_bladia": "827",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 797,
-    "name": "Bir El Hammam",
+    "name": "بئر الحمام",
     "num_bladia": "799",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 798,
-    "name": "Merine",
+    "name": "مرين",
     "num_bladia": "811",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 799,
-    "name": "Tefessour",
+    "name": "تفسور",
     "num_bladia": "834",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 800,
-    "name": "Taoudmout",
+    "name": "تاودموت",
     "num_bladia": "833",
-    "wilaya": "Sidi Bel Abbès",
+    "wilaya": "سيدي بلعباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 801,
-    "name": "Annaba",
+    "name": "عنابة",
     "num_bladia": "842",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 802,
-    "name": "Seraidi",
+    "name": "سرايدي",
     "num_bladia": "850",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 803,
-    "name": "Berrahal",
+    "name": "برحال",
     "num_bladia": "843",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 804,
-    "name": "Oued El Aneb",
+    "name": "واد العنب",
     "num_bladia": "849",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 805,
-    "name": "El Hadjar",
+    "name": "الحجار",
     "num_bladia": "848",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 806,
-    "name": "Sidi Amar",
+    "name": "سيدي عمار",
     "num_bladia": "851",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 807,
-    "name": "El Bouni",
+    "name": "البوني",
     "num_bladia": "846",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 808,
-    "name": "Ain El Berda",
+    "name": "عين الباردة",
     "num_bladia": "841",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 809,
-    "name": "Cheurfa",
+    "name": "الشرفة",
     "num_bladia": "845",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 810,
-    "name": "El Eulma",
+    "name": "العلمة",
     "num_bladia": "847",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
@@ -7139,23 +7139,23 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 811,
     "name": "Treat",
     "num_bladia": "852",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 812,
-    "name": "Chetaibi",
+    "name": "شطايبي",
     "num_bladia": "844",
-    "wilaya": "Annaba",
+    "wilaya": "عنابة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 813,
-    "name": "Nechmaya",
+    "name": "نشماية",
     "num_bladia": "875",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
@@ -7163,215 +7163,215 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 814,
     "name": "Bou Hamdane",
     "num_bladia": "863",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 815,
-    "name": "Hammam Debagh",
+    "name": "حمام دباغ",
     "num_bladia": "872",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 816,
-    "name": "Roknia",
+    "name": "الركنية",
     "num_bladia": "884",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 817,
-    "name": "Dahouara",
+    "name": "الدهوارة",
     "num_bladia": "867",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 818,
-    "name": "Hammam N'bail",
+    "name": "حمام النبايل",
     "num_bladia": "873",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 819,
-    "name": "Guelma",
+    "name": "قالمة",
     "num_bladia": "871",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 820,
-    "name": "Boumahra Ahmed",
+    "name": "بومهرة أحمد",
     "num_bladia": "866",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 821,
-    "name": "Ain Ben Beida",
+    "name": "عين بن بيضاء",
     "num_bladia": "853",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 822,
-    "name": "Bouchegouf",
+    "name": "بوشقوف",
     "num_bladia": "865",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 823,
-    "name": "Medjez Sfa",
+    "name": "مجاز الصفاء",
     "num_bladia": "878",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 824,
-    "name": "Oued Ferragha",
+    "name": "وادي فراغة",
     "num_bladia": "881",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 825,
-    "name": "Bouati Mahmoud",
+    "name": "بوعاتي محمود",
     "num_bladia": "864",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 826,
-    "name": "El Fedjoudj",
+    "name": "الفجوج",
     "num_bladia": "869",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 827,
-    "name": "Heliopolis",
+    "name": "هيليوبوليس",
     "num_bladia": "874",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 828,
-    "name": "Medjez Amar",
+    "name": "مجاز عمار",
     "num_bladia": "877",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 829,
-    "name": "Houari Boumedienne",
+    "name": "هواري بومدين",
     "num_bladia": "879",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 830,
-    "name": "Ras El Agba",
+    "name": "رأس العقبة",
     "num_bladia": "883",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 831,
-    "name": "Sellaoua Announa",
+    "name": "سلاوة عنونة",
     "num_bladia": "885",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 832,
-    "name": "Djeballah Khemissi",
+    "name": "جبالة الخميسي",
     "num_bladia": "868",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 833,
-    "name": "Bordj Sabath",
+    "name": "برج صباط",
     "num_bladia": "861",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 834,
-    "name": "Oued Zenati",
+    "name": "وادي الزناتي",
     "num_bladia": "882",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 835,
-    "name": "Ain Regada",
+    "name": "عين رقادة",
     "num_bladia": "856",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 836,
-    "name": "Ain Larbi",
+    "name": "عين العربي",
     "num_bladia": "854",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 837,
-    "name": "Ain Makhlouf",
+    "name": "عين مخلوف",
     "num_bladia": "855",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 838,
-    "name": "Tamlouka",
+    "name": "تاملوكة",
     "num_bladia": "886",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 839,
-    "name": "Ain Sandel",
+    "name": "عين صندل",
     "num_bladia": "857",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 840,
-    "name": "Bou Hachana",
+    "name": "بوحشانة",
     "num_bladia": "862",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
@@ -7379,15 +7379,15 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 841,
     "name": "Khezaras",
     "num_bladia": "876",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 842,
-    "name": "Belkheir",
+    "name": "بلخير",
     "num_bladia": "858",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
@@ -7395,183 +7395,183 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 843,
     "name": "Beni Mezline",
     "num_bladia": "860",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 844,
-    "name": "Guelaat Bou Sbaa",
+    "name": "قلعة بوصبع",
     "num_bladia": "870",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 845,
-    "name": "Oued Cheham",
+    "name": "وادي الشحم",
     "num_bladia": "880",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 846,
-    "name": "Bendjarah",
+    "name": "بن جراح",
     "num_bladia": "859",
-    "wilaya": "Guelma",
+    "wilaya": "قالمة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 847,
-    "name": "Didouche Mourad",
+    "name": "ديدوش مراد",
     "num_bladia": "892",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 848,
-    "name": "Hamma Bouziane",
+    "name": "حامة بوزيان",
     "num_bladia": "894",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 849,
-    "name": "Beni Hamidane",
+    "name": "بني حميدان",
     "num_bladia": "890",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 850,
-    "name": "Zighoud Youcef",
+    "name": "زيغود يوسف",
     "num_bladia": "898",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 851,
-    "name": "Ain Smara",
+    "name": "عين السمارة",
     "num_bladia": "888",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 852,
-    "name": "El Khroub",
+    "name": "الخروب",
     "num_bladia": "893",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 853,
-    "name": "Ouled Rahmoun",
+    "name": "أولاد رحمون",
     "num_bladia": "897",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 854,
-    "name": "Ain Abid",
+    "name": "عين عبيد",
     "num_bladia": "887",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 855,
-    "name": "Ben Badis",
+    "name": "أبن باديس الهرية",
     "num_bladia": "889",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 856,
-    "name": "Ibn Ziad",
+    "name": "ابن زياد",
     "num_bladia": "895",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 857,
-    "name": "Messaoud Boudjeriou",
+    "name": "بوجريو مسعود",
     "num_bladia": "896",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 858,
-    "name": "Constantine",
+    "name": "قسنطينة",
     "num_bladia": "891",
-    "wilaya": "Constantine",
+    "wilaya": "قسنطينة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 859,
-    "name": "Ouled Hellal",
+    "name": "أولاد هلال",
     "num_bladia": "943",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 860,
-    "name": "Souagui",
+    "name": "السواقي",
     "num_bladia": "956",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 861,
-    "name": "M'fatha",
+    "name": "مفاتحة",
     "num_bladia": "934",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 862,
-    "name": "Saneg",
+    "name": "السانق",
     "num_bladia": "947",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 863,
-    "name": "El Azizia",
+    "name": "العزيزية",
     "num_bladia": "920",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 864,
-    "name": "Maghraoua",
+    "name": "مغراوة",
     "num_bladia": "930",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 865,
-    "name": "Mihoub",
+    "name": "ميهوب",
     "num_bladia": "935",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
@@ -7579,159 +7579,159 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 866,
     "name": "Bouaiche",
     "num_bladia": "909",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 867,
-    "name": "Boughzoul",
+    "name": "بوغزول",
     "num_bladia": "912",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 868,
-    "name": "Chabounia",
+    "name": "الشهبونية",
     "num_bladia": "914",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 869,
-    "name": "Hannacha",
+    "name": "حناشة",
     "num_bladia": "926",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 870,
-    "name": "Ouamri",
+    "name": "عوامري",
     "num_bladia": "936",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 871,
-    "name": "Oued Harbil",
+    "name": "وادي حربيل",
     "num_bladia": "937",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 872,
-    "name": "Beni Slimane",
+    "name": "بني سليمان",
     "num_bladia": "905",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 873,
-    "name": "Bouaichoune",
+    "name": "بوعيشون",
     "num_bladia": "910",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 874,
-    "name": "Ouled Bouachra",
+    "name": "أولاد بوعشرة",
     "num_bladia": "939",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 875,
-    "name": "Si Mahdjoub",
+    "name": "سي المحجوب",
     "num_bladia": "950",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 876,
-    "name": "Bouskene",
+    "name": "بوسكن",
     "num_bladia": "913",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 877,
-    "name": "Sidi Rabie",
+    "name": "سيدي الربيع",
     "num_bladia": "953",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 878,
-    "name": "Berrouaghia",
+    "name": "البرواقية",
     "num_bladia": "906",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 879,
-    "name": "Ouled Deid",
+    "name": "أولاد دايد",
     "num_bladia": "941",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 880,
-    "name": "Rebaia",
+    "name": "الربعية",
     "num_bladia": "946",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 881,
-    "name": "Medjebar",
+    "name": "مجبر",
     "num_bladia": "932",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 882,
-    "name": "Tletat Ed Douair",
+    "name": "ثلاث دوائر",
     "num_bladia": "961",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 883,
-    "name": "Zoubiria",
+    "name": "الزبيرية",
     "num_bladia": "962",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 884,
-    "name": "Aissaouia",
+    "name": "العيساوية",
     "num_bladia": "901",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 885,
-    "name": "El Haoudane",
+    "name": "الحوضان",
     "num_bladia": "923",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
@@ -7739,95 +7739,95 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 886,
     "name": "Mezerana",
     "num_bladia": "933",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 887,
-    "name": "Tablat",
+    "name": "تابلاط",
     "num_bladia": "957",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 888,
-    "name": "Boghar",
+    "name": "بوغار",
     "num_bladia": "908",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 889,
-    "name": "Seghouane",
+    "name": "سغوان",
     "num_bladia": "949",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 890,
-    "name": "Draa Esmar",
+    "name": "ذراع السمار",
     "num_bladia": "919",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 891,
-    "name": "Medea",
+    "name": "المدية",
     "num_bladia": "931",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 892,
-    "name": "Tamesguida",
+    "name": "تمسقيدة",
     "num_bladia": "959",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 893,
-    "name": "Ben Chicao",
+    "name": "بن شكاو",
     "num_bladia": "904",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 894,
-    "name": "El Hamdania",
+    "name": "الحمدانية",
     "num_bladia": "922",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 895,
-    "name": "Ouzera",
+    "name": "وزرة",
     "num_bladia": "945",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 896,
-    "name": "Tizi Mahdi",
+    "name": "تيزي مهدي",
     "num_bladia": "960",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 897,
-    "name": "Ain Boucif",
+    "name": "عين بوسيف",
     "num_bladia": "899",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
@@ -7835,175 +7835,175 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 898,
     "name": "El Ouinet",
     "num_bladia": "925",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 899,
-    "name": "Kef Lakhdar",
+    "name": "الكاف الاخضر",
     "num_bladia": "927",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 900,
-    "name": "Ouled Emaaraf",
+    "name": "أولاد امعرف",
     "num_bladia": "942",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 901,
-    "name": "Sidi Demed",
+    "name": "سيدي دامد",
     "num_bladia": "951",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 902,
-    "name": "Baata",
+    "name": "بعطة",
     "num_bladia": "903",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 903,
-    "name": "El Omaria",
+    "name": "العمارية",
     "num_bladia": "924",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 904,
-    "name": "Ouled Brahim",
+    "name": "أولاد إبراهيم",
     "num_bladia": "940",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 905,
-    "name": "Bir Ben Laabed",
+    "name": "بئر بن عابد",
     "num_bladia": "907",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 906,
-    "name": "El Guelbelkebir",
+    "name": "القلب الكبير",
     "num_bladia": "921",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 907,
-    "name": "Sedraya",
+    "name": "سدراية",
     "num_bladia": "948",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 908,
-    "name": "Ain Ouksir",
+    "name": "عين اقصير",
     "num_bladia": "900",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 909,
-    "name": "Chelalet El Adhaoura",
+    "name": "شلالة العذاورة",
     "num_bladia": "915",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 910,
-    "name": "Cheniguel",
+    "name": "شنيقل",
     "num_bladia": "916",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 911,
-    "name": "Tafraout",
+    "name": "تفراوت",
     "num_bladia": "958",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 912,
-    "name": "Bouchrahil",
+    "name": "بوشراحيل",
     "num_bladia": "911",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 913,
-    "name": "Khams Djouamaa",
+    "name": "خمس جوامع",
     "num_bladia": "928",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 914,
-    "name": "Sidi Naamane",
+    "name": "سيدي نعمان",
     "num_bladia": "952",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 915,
-    "name": "Aziz",
+    "name": "عزيز",
     "num_bladia": "902",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 916,
-    "name": "Derrag",
+    "name": "دراق",
     "num_bladia": "917",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 917,
-    "name": "Oum El Djellil",
+    "name": "أم الجليل",
     "num_bladia": "944",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 918,
-    "name": "Djouab",
+    "name": "جواب",
     "num_bladia": "918",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 919,
-    "name": "Sidi Zahar",
+    "name": "سيدي زهار",
     "num_bladia": "954",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
@@ -8011,199 +8011,199 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 920,
     "name": "Sidi Ziane",
     "num_bladia": "955",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 921,
-    "name": "Ouled Antar",
+    "name": "أولاد عنتر",
     "num_bladia": "938",
-    "wilaya": "Médéa",
+    "wilaya": "المدية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 922,
-    "name": "Fornaka",
+    "name": "فرناقة",
     "num_bladia": "970",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 923,
-    "name": "Oued El Kheir",
+    "name": "وادي الخير",
     "num_bladia": "981",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 924,
-    "name": "Hassiane",
+    "name": "الحسيان (بني ياحي",
     "num_bladia": "973",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 925,
-    "name": "Hassi Mameche",
+    "name": "حاسي ماماش",
     "num_bladia": "972",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 926,
-    "name": "Mazagran",
+    "name": "مزغران",
     "num_bladia": "977",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 927,
-    "name": "Stidia",
+    "name": "ستيدية",
     "num_bladia": "992",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 928,
-    "name": "Ain-Tedles",
+    "name": "عين تادلس",
     "num_bladia": "967",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 929,
-    "name": "Sidi Belaattar",
+    "name": "سيدي بلعطار",
     "num_bladia": "987",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 930,
-    "name": "Sour",
+    "name": "سور",
     "num_bladia": "991",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 931,
-    "name": "Ain-Boudinar",
+    "name": "عين بودينار",
     "num_bladia": "964",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 932,
-    "name": "Kheir-Eddine",
+    "name": "خير الدين",
     "num_bladia": "975",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 933,
-    "name": "Sayada",
+    "name": "صيادة",
     "num_bladia": "985",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 934,
-    "name": "Sidi Ali",
+    "name": "سيدي علي",
     "num_bladia": "986",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 935,
-    "name": "Tazgait",
+    "name": "تزقايت",
     "num_bladia": "993",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 936,
-    "name": "Benabdelmalek Ramdane",
+    "name": "بن عبد المالك رمضان",
     "num_bladia": "968",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 937,
-    "name": "Mostaganem",
+    "name": "مستغانم",
     "num_bladia": "979",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 938,
-    "name": "Hadjadj",
+    "name": "حجاج",
     "num_bladia": "971",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 939,
-    "name": "Sidi-Lakhdar",
+    "name": "سيدي لخضر",
     "num_bladia": "988",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 940,
-    "name": "Achaacha",
+    "name": "عشعاشة",
     "num_bladia": "963",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 941,
-    "name": "Khadra",
+    "name": "خضرة",
     "num_bladia": "974",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 942,
-    "name": "Nekmaria",
+    "name": "نكمارية",
     "num_bladia": "980",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 943,
-    "name": "Ouled Boughalem",
+    "name": "أولاد بوغالم",
     "num_bladia": "982",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 944,
-    "name": "Bouguirat",
+    "name": "بوقيراط",
     "num_bladia": "969",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
@@ -8211,199 +8211,199 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 945,
     "name": "Safsaf",
     "num_bladia": "984",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 946,
-    "name": "Sirat",
+    "name": "سيرات",
     "num_bladia": "989",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 947,
-    "name": "Souaflia",
+    "name": "السوافلية",
     "num_bladia": "990",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 948,
-    "name": "Ain-Sidi Cherif",
+    "name": "عين سيدي الشريف",
     "num_bladia": "966",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 949,
-    "name": "Mansourah",
+    "name": "منصورة",
     "num_bladia": "976",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 950,
-    "name": "Mesra",
+    "name": "ماسرة",
     "num_bladia": "978",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 951,
-    "name": "Touahria",
+    "name": "الطواهرية",
     "num_bladia": "994",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 952,
-    "name": "Ain-Nouissy",
+    "name": "عين نويسي",
     "num_bladia": "965",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 953,
-    "name": "Ouled-Maalah",
+    "name": "أولاد مع الله",
     "num_bladia": "983",
-    "wilaya": "Mostaganem",
+    "wilaya": "مستغانم",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 954,
-    "name": "Chellal",
+    "name": "شلال",
     "num_bladia": "1008",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 955,
-    "name": "Ouled Madhi",
+    "name": "أولاد ماضي",
     "num_bladia": "1028",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 956,
-    "name": "Khettouti Sed-El-Jir",
+    "name": "خطوطي سد الجير",
     "num_bladia": "1014",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 957,
-    "name": "Belaiba",
+    "name": "بلعايبة",
     "num_bladia": "1000",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 958,
-    "name": "Berhoum",
+    "name": "برهوم",
     "num_bladia": "1004",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 959,
-    "name": "Dehahna",
+    "name": "دهاهنة",
     "num_bladia": "1009",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 960,
-    "name": "Magra",
+    "name": "مقرة",
     "num_bladia": "1018",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 961,
-    "name": "Beni Ilmane",
+    "name": "بني يلمان",
     "num_bladia": "1002",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 962,
-    "name": "Bouti Sayeh",
+    "name": "بوطي السايح",
     "num_bladia": "1007",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 963,
-    "name": "Sidi Aissa",
+    "name": "سيدي عيسى",
     "num_bladia": "1033",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 964,
-    "name": "Ain El Hadjel",
+    "name": "عين الحجل",
     "num_bladia": "995",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 965,
-    "name": "Sidi Hadjeres",
+    "name": "سيدي هجرس",
     "num_bladia": "1035",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 966,
-    "name": "El Hamel",
+    "name": "الهامل",
     "num_bladia": "1011",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 967,
-    "name": "Oulteme",
+    "name": "ولتام",
     "num_bladia": "1032",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 968,
-    "name": "Benzouh",
+    "name": "بن زوه",
     "num_bladia": "1003",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 969,
-    "name": "Ouled Sidi Brahim",
+    "name": "أولاد سيدي ابراهيم",
     "num_bladia": "1030",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
@@ -8411,167 +8411,167 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 970,
     "name": "Sidi Ameur",
     "num_bladia": "1034",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 971,
-    "name": "Tamsa",
+    "name": "تامسة",
     "num_bladia": "1039",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 972,
-    "name": "Ben Srour",
+    "name": "بن سرور",
     "num_bladia": "1001",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 973,
-    "name": "Mohamed Boudiaf",
+    "name": "محمد بوضياف",
     "num_bladia": "1022",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 974,
-    "name": "Ouled Slimane",
+    "name": "أولاد سليمان",
     "num_bladia": "1031",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 975,
-    "name": "Zarzour",
+    "name": "زرزور",
     "num_bladia": "1041",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 976,
-    "name": "Ain El Melh",
+    "name": "عين الملح",
     "num_bladia": "996",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 977,
-    "name": "Ain Fares",
+    "name": "عين فارس",
     "num_bladia": "997",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 978,
-    "name": "Ain Rich",
+    "name": "عين الريش",
     "num_bladia": "999",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 979,
-    "name": "Bir Foda",
+    "name": "بئر فضة",
     "num_bladia": "1005",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 980,
-    "name": "Sidi M'hamed",
+    "name": "سيدي امحمد",
     "num_bladia": "1036",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 981,
-    "name": "Medjedel",
+    "name": "امجدل",
     "num_bladia": "1020",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 982,
-    "name": "Menaa",
+    "name": "منعة",
     "num_bladia": "1021",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 983,
-    "name": "Djebel Messaad",
+    "name": "جبل مساعد",
     "num_bladia": "1010",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 984,
-    "name": "Slim",
+    "name": "سليم",
     "num_bladia": "1037",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 985,
-    "name": "M'sila",
+    "name": "المسيلة",
     "num_bladia": "1023",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 986,
-    "name": "Hammam Dalaa",
+    "name": "حمام الضلعة",
     "num_bladia": "1013",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 987,
-    "name": "Ouanougha",
+    "name": "ونوغة",
     "num_bladia": "1025",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 988,
-    "name": "Ouled Mansour",
+    "name": "أولاد منصور",
     "num_bladia": "1029",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 989,
-    "name": "Tarmount",
+    "name": "تارمونت",
     "num_bladia": "1040",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 990,
-    "name": "Maadid",
+    "name": "المعاضيد",
     "num_bladia": "1016",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
@@ -8579,31 +8579,31 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 991,
     "name": "M'tarfa",
     "num_bladia": "1024",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 992,
-    "name": "Maarif",
+    "name": "معاريف",
     "num_bladia": "1017",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 993,
-    "name": "Ouled Derradj",
+    "name": "أولاد دراج",
     "num_bladia": "1027",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 994,
-    "name": "Souamaa",
+    "name": "السوامع",
     "num_bladia": "1038",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
@@ -8611,343 +8611,343 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 995,
     "name": "El Houamed",
     "num_bladia": "1012",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 996,
-    "name": "Khoubana",
+    "name": "خبانة",
     "num_bladia": "1015",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 997,
-    "name": "M'cif",
+    "name": "مسيف",
     "num_bladia": "1019",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 998,
-    "name": "Ain Khadra",
+    "name": "عين الخضراء",
     "num_bladia": "998",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 999,
-    "name": "Ouled Addi Guebala",
+    "name": "أولاد عدي لقبالة",
     "num_bladia": "1026",
-    "wilaya": "M'Sila",
+    "wilaya": "المسيلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1000,
-    "name": "Oued El Abtal",
+    "name": "وادي الأبطال",
     "num_bladia": "1075",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1001,
-    "name": "Sidi Abdelmoumene",
+    "name": "سيدي عبد المومن",
     "num_bladia": "1081",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1002,
-    "name": "Sedjerara",
+    "name": "سجرارة",
     "num_bladia": "1078",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1003,
-    "name": "Mohammadia",
+    "name": "المحمدية",
     "num_bladia": "1072",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1004,
-    "name": "Tighennif",
+    "name": "تيغنيف",
     "num_bladia": "1085",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1005,
-    "name": "Mocta-Douz",
+    "name": "مقطع الدوز",
     "num_bladia": "1071",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1006,
-    "name": "Ferraguig",
+    "name": "فراقيق",
     "num_bladia": "1060",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1007,
-    "name": "El Ghomri",
+    "name": "الغمري",
     "num_bladia": "1054",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1008,
-    "name": "Zahana",
+    "name": "زهانة",
     "num_bladia": "1087",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1009,
-    "name": "El Gaada",
+    "name": "القعدة",
     "num_bladia": "1053",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1010,
-    "name": "Ras El Ain Amirouche",
+    "name": "رأس عين عميروش",
     "num_bladia": "1077",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1011,
-    "name": "Oggaz",
+    "name": "عقاز",
     "num_bladia": "1074",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1012,
-    "name": "Alaimia",
+    "name": "العلايمية",
     "num_bladia": "1046",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1013,
-    "name": "Sig",
+    "name": "سيق",
     "num_bladia": "1084",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1014,
-    "name": "Chorfa",
+    "name": "الشرفاء",
     "num_bladia": "1051",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1015,
-    "name": "Bou Henni",
+    "name": "بوهني",
     "num_bladia": "1049",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1016,
-    "name": "El Mamounia",
+    "name": "المأمونية",
     "num_bladia": "1058",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1017,
-    "name": "El Gueitena",
+    "name": "القطنة",
     "num_bladia": "1055",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1018,
-    "name": "Ain Fares",
+    "name": "عين فارس",
     "num_bladia": "1042",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1019,
-    "name": "Gharrous",
+    "name": "غروس",
     "num_bladia": "1062",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1020,
-    "name": "Benian",
+    "name": "بنيان",
     "num_bladia": "1048",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1021,
-    "name": "Aouf",
+    "name": "عوف",
     "num_bladia": "1047",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1022,
-    "name": "Guerdjoum",
+    "name": "قرجوم",
     "num_bladia": "1064",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1023,
-    "name": "Ain Frass",
+    "name": "عين أفرص",
     "num_bladia": "1045",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1024,
-    "name": "Ain Fekan",
+    "name": "عين فكان",
     "num_bladia": "1043",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1025,
-    "name": "Khalouia",
+    "name": "خلوية",
     "num_bladia": "1066",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1026,
-    "name": "El Menaouer",
+    "name": "المنور",
     "num_bladia": "1059",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1027,
-    "name": "El Bordj",
+    "name": "البرج",
     "num_bladia": "1052",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1028,
-    "name": "Sidi Boussaid",
+    "name": "سيدي بوسعيد",
     "num_bladia": "1082",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1029,
-    "name": "Matemore",
+    "name": "المطمور",
     "num_bladia": "1070",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1030,
-    "name": "Sidi Kada",
+    "name": "سيدي قادة",
     "num_bladia": "1083",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1031,
-    "name": "Makhda",
+    "name": "ماقضة",
     "num_bladia": "1067",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1032,
-    "name": "Mascara",
+    "name": "معسكر",
     "num_bladia": "1069",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1033,
-    "name": "Bouhanifia",
+    "name": "بوحنيفية",
     "num_bladia": "1050",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1034,
-    "name": "Ghriss",
+    "name": "غريس",
     "num_bladia": "1063",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1035,
-    "name": "Hacine",
+    "name": "حسين",
     "num_bladia": "1065",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1036,
-    "name": "El Keurt",
+    "name": "القرط",
     "num_bladia": "1057",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1037,
-    "name": "Froha",
+    "name": "فروحة",
     "num_bladia": "1061",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
@@ -8955,367 +8955,367 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1038,
     "name": "Tizi",
     "num_bladia": "1086",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1039,
-    "name": "Sehailia",
+    "name": "السهايلية",
     "num_bladia": "1079",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1040,
-    "name": "Maoussa",
+    "name": "ماوسة",
     "num_bladia": "1068",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1041,
-    "name": "Sidi Abdeldjebar",
+    "name": "سيدي عبد الجبار",
     "num_bladia": "1080",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1042,
-    "name": "El Hachem",
+    "name": "الحشم",
     "num_bladia": "1056",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1043,
-    "name": "Nesmot",
+    "name": "نسمط",
     "num_bladia": "1073",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1044,
-    "name": "Zelamta",
+    "name": "زلامطة",
     "num_bladia": "1088",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1045,
-    "name": "Ain Ferah",
+    "name": "عين فراح",
     "num_bladia": "1044",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1046,
-    "name": "Oued Taria",
+    "name": "وادي التاغية",
     "num_bladia": "1076",
-    "wilaya": "Mascara",
+    "wilaya": "معسكر",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1047,
-    "name": "Ouargla",
+    "name": "ورقلة",
     "num_bladia": "1101",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1048,
-    "name": "Hassi Messaoud",
+    "name": "حاسي مسعود",
     "num_bladia": "1096",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1049,
-    "name": "Ain Beida",
+    "name": "عين البيضاء",
     "num_bladia": "1089",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1050,
-    "name": "Hassi Ben Abdellah",
+    "name": "حاسي بن عبد الله",
     "num_bladia": "1095",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1051,
-    "name": "Sidi Khouiled",
+    "name": "سيدي خويلد",
     "num_bladia": "1103",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1052,
-    "name": "El Borma",
+    "name": "البرمة",
     "num_bladia": "1093",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1053,
-    "name": "Rouissat",
+    "name": "الرويسات",
     "num_bladia": "1102",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1054,
-    "name": "N'goussa",
+    "name": "انقوسة",
     "num_bladia": "1100",
-    "wilaya": "Ouargla",
+    "wilaya": "ورقلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1055,
-    "name": "Sidi Chami",
+    "name": "سيدي الشحمي",
     "num_bladia": "1134",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1056,
-    "name": "Hassi Mefsoukh",
+    "name": "حاسي مفسوخ",
     "num_bladia": "1127",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1057,
-    "name": "Bir El Djir",
+    "name": "بئر الجير",
     "num_bladia": "1116",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1058,
-    "name": "Hassi Ben Okba",
+    "name": "حاسي بن عقبة",
     "num_bladia": "1125",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1059,
-    "name": "Gdyel",
+    "name": "قديل",
     "num_bladia": "1124",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1060,
-    "name": "Hassi Bounif",
+    "name": "حاسي بونيف",
     "num_bladia": "1126",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1061,
-    "name": "El Kerma",
+    "name": "الكرمة",
     "num_bladia": "1122",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1062,
-    "name": "Es Senia",
+    "name": "السانية",
     "num_bladia": "1123",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1063,
-    "name": "Ben Freha",
+    "name": "بن فريحة",
     "num_bladia": "1114",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1064,
-    "name": "Arzew",
+    "name": "أرزيو",
     "num_bladia": "1113",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1065,
-    "name": "Sidi Ben Yebka",
+    "name": "سيدي بن يبقى",
     "num_bladia": "1133",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1066,
-    "name": "Ain Biya",
+    "name": "عين البية",
     "num_bladia": "1110",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1067,
-    "name": "Bethioua",
+    "name": "بطيوة",
     "num_bladia": "1115",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1068,
-    "name": "Marsat El Hadjadj",
+    "name": "مرسى الحجاج",
     "num_bladia": "1128",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1069,
-    "name": "Ain Turk",
+    "name": "عين الترك",
     "num_bladia": "1112",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1070,
-    "name": "Oran",
+    "name": "وهران",
     "num_bladia": "1131",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1071,
-    "name": "El Ancor",
+    "name": "العنصر",
     "num_bladia": "1120",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1072,
-    "name": "Mers El Kebir",
+    "name": "المرسى الكبير",
     "num_bladia": "1129",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1073,
-    "name": "Boufatis",
+    "name": "بوفاتيس",
     "num_bladia": "1117",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1074,
-    "name": "El Braya",
+    "name": "البراية",
     "num_bladia": "1121",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1075,
-    "name": "Oued Tlelat",
+    "name": "وادي تليلات",
     "num_bladia": "1132",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1076,
-    "name": "Ain Kerma",
+    "name": "عين الكرمة",
     "num_bladia": "1111",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1077,
-    "name": "Boutlelis",
+    "name": "بوتليليس",
     "num_bladia": "1119",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1078,
-    "name": "Messerghin",
+    "name": "مسرغين",
     "num_bladia": "1130",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1079,
-    "name": "Bousfer",
+    "name": "بوسفر",
     "num_bladia": "1118",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1080,
-    "name": "Tafraoui",
+    "name": "طفراوي",
     "num_bladia": "1135",
-    "wilaya": "Oran",
+    "wilaya": "وهران",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1081,
-    "name": "Ain El Orak",
+    "name": "عين العراك",
     "num_bladia": "1136",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1082,
-    "name": "Krakda",
+    "name": "كراكدة",
     "num_bladia": "1151",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1083,
-    "name": "Sidi Slimane",
+    "name": "سيدي سليمان",
     "num_bladia": "1154",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
@@ -9323,175 +9323,175 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1084,
     "name": "Sidi Ameur",
     "num_bladia": "1153",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1085,
-    "name": "Boualem",
+    "name": "بوعلام",
     "num_bladia": "1138",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1086,
-    "name": "El Bnoud",
+    "name": "البنود",
     "num_bladia": "1146",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1087,
-    "name": "Bougtoub",
+    "name": "بوقطب",
     "num_bladia": "1139",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1088,
-    "name": "El Kheiter",
+    "name": "الخيثر",
     "num_bladia": "1147",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1089,
-    "name": "Tousmouline",
+    "name": "توسمولين",
     "num_bladia": "1157",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1090,
-    "name": "Sidi Tiffour",
+    "name": "سيدي طيفور",
     "num_bladia": "1155",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1091,
-    "name": "Stitten",
+    "name": "ستيتن",
     "num_bladia": "1156",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1092,
-    "name": "El Bayadh",
+    "name": "البيض",
     "num_bladia": "1144",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1093,
-    "name": "Rogassa",
+    "name": "رقاصة",
     "num_bladia": "1152",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1094,
-    "name": "El Mehara",
+    "name": "المحرة",
     "num_bladia": "1148",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1095,
-    "name": "Kef El Ahmar",
+    "name": "الكاف الأحمر",
     "num_bladia": "1150",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1096,
-    "name": "Brezina",
+    "name": "بريزينة",
     "num_bladia": "1141",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1097,
-    "name": "Ghassoul",
+    "name": "الغاسول",
     "num_bladia": "1149",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1098,
-    "name": "Boussemghoun",
+    "name": "بوسمغون",
     "num_bladia": "1140",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1099,
-    "name": "Cheguig",
+    "name": "الشقيق",
     "num_bladia": "1142",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1100,
-    "name": "Chellala",
+    "name": "شلالة",
     "num_bladia": "1143",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1101,
-    "name": "Arbaouat",
+    "name": "اربوات",
     "num_bladia": "1137",
-    "wilaya": "El Bayadh",
+    "wilaya": "البيض",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1102,
-    "name": "Bordj Omar Driss",
+    "name": "برج عمر إدريس",
     "num_bladia": "1159",
-    "wilaya": "Illizi",
+    "wilaya": "إيليزي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1103,
-    "name": "Debdeb",
+    "name": "دبداب",
     "num_bladia": "1160",
-    "wilaya": "Illizi",
+    "wilaya": "إيليزي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1104,
-    "name": "In Amenas",
+    "name": "إن أمناس",
     "num_bladia": "1163",
-    "wilaya": "Illizi",
+    "wilaya": "إيليزي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1105,
-    "name": "Illizi",
+    "name": "إيليزي",
     "num_bladia": "1162",
-    "wilaya": "Illizi",
+    "wilaya": "إيليزي",
     "centers": 4,
     "desks": 20
   },
@@ -9505,7 +9505,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1107,
-    "name": "Ouled Sidi-Brahim",
+    "name": "أولاد سيدي ابراهيم",
     "num_bladia": "1189",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9513,7 +9513,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1108,
-    "name": "Ain Taghrout",
+    "name": "عين تاغروت",
     "num_bladia": "1164",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9521,7 +9521,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1109,
-    "name": "Tixter",
+    "name": "تيكستار",
     "num_bladia": "1197",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9529,7 +9529,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1110,
-    "name": "Belimour",
+    "name": "بليمور",
     "num_bladia": "1167",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9537,7 +9537,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1111,
-    "name": "El Annasseur",
+    "name": "العناصر",
     "num_bladia": "1176",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9545,7 +9545,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1112,
-    "name": "Ghailasa",
+    "name": "غيلاسة",
     "num_bladia": "1180",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9553,7 +9553,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1113,
-    "name": "Taglait",
+    "name": "تقلعيت",
     "num_bladia": "1194",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9561,7 +9561,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1114,
-    "name": "Bordj Ghedir",
+    "name": "برج الغدير",
     "num_bladia": "1170",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9569,7 +9569,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1115,
-    "name": "El Euch",
+    "name": "العش",
     "num_bladia": "1174",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9577,7 +9577,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1116,
-    "name": "Sidi-Embarek",
+    "name": "سيدي أمبارك",
     "num_bladia": "1192",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9585,7 +9585,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1117,
-    "name": "Khelil",
+    "name": "خليل",
     "num_bladia": "1183",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9593,7 +9593,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1118,
-    "name": "Bir Kasdali",
+    "name": "بئر قاصد علي",
     "num_bladia": "1169",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9601,7 +9601,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1119,
-    "name": "Tefreg",
+    "name": "تفرق",
     "num_bladia": "1193",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9609,7 +9609,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1120,
-    "name": "El Main",
+    "name": "الماين",
     "num_bladia": "1178",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9617,7 +9617,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1121,
-    "name": "Djaafra",
+    "name": "جعافرة",
     "num_bladia": "1173",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9625,7 +9625,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1122,
-    "name": "Colla",
+    "name": "القلة",
     "num_bladia": "1172",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9633,7 +9633,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1123,
-    "name": "Teniet En Nasr",
+    "name": "ثنية النصر",
     "num_bladia": "1196",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9641,7 +9641,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1124,
-    "name": "El M'hir",
+    "name": "المهير",
     "num_bladia": "1179",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9649,7 +9649,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1125,
-    "name": "Ksour",
+    "name": "القصور",
     "num_bladia": "1184",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9657,7 +9657,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1126,
-    "name": "Mansoura",
+    "name": "المنصورة",
     "num_bladia": "1185",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9665,7 +9665,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1127,
-    "name": "Haraza",
+    "name": "حرازة",
     "num_bladia": "1181",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9673,7 +9673,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1128,
-    "name": "Rabta",
+    "name": "الرابطة",
     "num_bladia": "1190",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9681,7 +9681,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1129,
-    "name": "El Achir",
+    "name": "الياشير",
     "num_bladia": "1175",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9689,7 +9689,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1130,
-    "name": "Hasnaoua",
+    "name": "حسناوة",
     "num_bladia": "1182",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9697,7 +9697,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1131,
-    "name": "Medjana",
+    "name": "مجانة",
     "num_bladia": "1186",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9705,7 +9705,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1132,
-    "name": "Ain Tesra",
+    "name": "عين تسرة",
     "num_bladia": "1165",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9713,7 +9713,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1133,
-    "name": "Ouled Brahem",
+    "name": "أولاد أبراهم",
     "num_bladia": "1187",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9721,7 +9721,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1134,
-    "name": "Ras El Oued",
+    "name": "رأس الوادي",
     "num_bladia": "1191",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9729,7 +9729,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1135,
-    "name": "Bordj Zemmoura",
+    "name": "برج زمورة",
     "num_bladia": "1171",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9737,7 +9737,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1136,
-    "name": "Ouled Dahmane",
+    "name": "أولاد دحمان",
     "num_bladia": "1188",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9745,7 +9745,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1137,
-    "name": "Tassamert",
+    "name": "تسامرت",
     "num_bladia": "1195",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9753,7 +9753,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1138,
-    "name": "B. B. Arreridj",
+    "name": "برج بوعريرج",
     "num_bladia": "1166",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9761,7 +9761,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1139,
-    "name": "Ben Daoud",
+    "name": "بن داود",
     "num_bladia": "1168",
     "wilaya": "Bordj Bou Arreridj",
     "centers": 4,
@@ -9771,127 +9771,127 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1140,
     "name": "El Kharrouba",
     "num_bladia": "1212",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1141,
-    "name": "Dellys",
+    "name": "دلس",
     "num_bladia": "1210",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1142,
-    "name": "Ben Choud",
+    "name": "بن شود",
     "num_bladia": "1201",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1143,
-    "name": "Afir",
+    "name": "أعفير",
     "num_bladia": "1198",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1144,
-    "name": "Thenia",
+    "name": "الثنية",
     "num_bladia": "1226",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1145,
-    "name": "Beni Amrane",
+    "name": "بني عمران",
     "num_bladia": "1202",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1146,
-    "name": "Khemis El Khechna",
+    "name": "خميس الخشنة",
     "num_bladia": "1215",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1147,
-    "name": "Ammal",
+    "name": "عمال",
     "num_bladia": "1199",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1148,
-    "name": "Timezrit",
+    "name": "تيمزريت",
     "num_bladia": "1228",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1149,
-    "name": "Zemmouri",
+    "name": "زموري",
     "num_bladia": "1229",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1150,
-    "name": "Larbatache",
+    "name": "الاربعطاش",
     "num_bladia": "1216",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1151,
-    "name": "Isser",
+    "name": "يسر",
     "num_bladia": "1214",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1152,
-    "name": "Chabet El Ameur",
+    "name": "شعبة العامر",
     "num_bladia": "1208",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1153,
-    "name": "Ouled Aissa",
+    "name": "أولاد عيسى",
     "num_bladia": "1219",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1154,
-    "name": "Naciria",
+    "name": "الناصرية",
     "num_bladia": "1218",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1155,
-    "name": "Bouzegza Keddara",
+    "name": "بوزقزة قدارة",
     "num_bladia": "1207",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
@@ -9899,831 +9899,831 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1156,
     "name": "Souk El Had",
     "num_bladia": "1224",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1157,
-    "name": "Sidi Daoud",
+    "name": "سيدي داود",
     "num_bladia": "1223",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1158,
-    "name": "Baghlia",
+    "name": "بغلية",
     "num_bladia": "1200",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1159,
-    "name": "Leghata",
+    "name": "لقاطة",
     "num_bladia": "1217",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1160,
-    "name": "Djinet",
+    "name": "جنات",
     "num_bladia": "1211",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1161,
-    "name": "Tidjelabine",
+    "name": "تيجلابين",
     "num_bladia": "1227",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1162,
-    "name": "Si Mustapha",
+    "name": "سي مصطفى",
     "num_bladia": "1222",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1163,
-    "name": "Ouled Hedadj",
+    "name": "أولاد هداج",
     "num_bladia": "1220",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1164,
-    "name": "Ouled Moussa",
+    "name": "أولاد موسى",
     "num_bladia": "1221",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1165,
-    "name": "Boumerdes",
+    "name": "بومرداس",
     "num_bladia": "1206",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1166,
-    "name": "Corso",
+    "name": "قورصو",
     "num_bladia": "1209",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1167,
-    "name": "Bordj Menaiel",
+    "name": "برج منايل",
     "num_bladia": "1203",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1168,
-    "name": "Boudouaou",
+    "name": "بودواو",
     "num_bladia": "1204",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1169,
-    "name": "Boudouaou El Bahri",
+    "name": "بودواو البحري",
     "num_bladia": "1205",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1170,
-    "name": "Taourga",
+    "name": "تاورقة",
     "num_bladia": "1225",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1171,
-    "name": "Hammedi",
+    "name": "حمادي",
     "num_bladia": "1213",
-    "wilaya": "Boumerdès",
+    "wilaya": "بومرداس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1172,
-    "name": "Ain El Assel",
+    "name": "عين العسل",
     "num_bladia": "1230",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1173,
-    "name": "Bougous",
+    "name": "بوقوس",
     "num_bladia": "1236",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1174,
-    "name": "El Tarf",
+    "name": "الطارف",
     "num_bladia": "1246",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1175,
-    "name": "Zitouna",
+    "name": "الزيتونة",
     "num_bladia": "1253",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1176,
-    "name": "Besbes",
+    "name": "بسباس",
     "num_bladia": "1235",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1177,
-    "name": "Ain Kerma",
+    "name": "عين الكرمة",
     "num_bladia": "1231",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1178,
-    "name": "Bouhadjar",
+    "name": "بوحجار",
     "num_bladia": "1237",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1179,
-    "name": "Hammam Beni Salah",
+    "name": "حمام بني صالح",
     "num_bladia": "1247",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1180,
-    "name": "Oued Zitoun",
+    "name": "وادي الزيتون",
     "num_bladia": "1249",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1181,
-    "name": "Ben M Hidi",
+    "name": "بن مهيدي",
     "num_bladia": "1233",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1182,
-    "name": "Berrihane",
+    "name": "بريحان",
     "num_bladia": "1234",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1183,
-    "name": "Chebaita Mokhtar",
+    "name": "شبيطة مختار",
     "num_bladia": "1239",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1184,
-    "name": "Echatt",
+    "name": "الشط",
     "num_bladia": "1243",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1185,
-    "name": "El Aioun",
+    "name": "العيون",
     "num_bladia": "1244",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1186,
-    "name": "El Kala",
+    "name": "القالة",
     "num_bladia": "1245",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1187,
-    "name": "Souarekh",
+    "name": "السوارخ",
     "num_bladia": "1251",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1188,
-    "name": "Zerizer",
+    "name": "زريزر",
     "num_bladia": "1252",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1189,
-    "name": "Bouteldja",
+    "name": "بوثلجة",
     "num_bladia": "1238",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1190,
-    "name": "Chefia",
+    "name": "الشافية",
     "num_bladia": "1240",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1191,
-    "name": "Lac Des Oiseaux",
+    "name": "بحيرة الطيور",
     "num_bladia": "1248",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1192,
-    "name": "Chihani",
+    "name": "شحاني",
     "num_bladia": "1241",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1193,
-    "name": "Raml Souk",
+    "name": "رمل السوق",
     "num_bladia": "1250",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1194,
-    "name": "Asfour",
+    "name": "عصفور",
     "num_bladia": "1232",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1195,
-    "name": "Drean",
+    "name": "الذرعـان",
     "num_bladia": "1242",
-    "wilaya": "El Tarf",
+    "wilaya": "الطارف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1196,
-    "name": "Tindouf",
+    "name": "تندوف",
     "num_bladia": "1255",
-    "wilaya": "Tindouf",
+    "wilaya": "تندوف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1197,
-    "name": "Oum El Assel",
+    "name": "أم العسل",
     "num_bladia": "1254",
-    "wilaya": "Tindouf",
+    "wilaya": "تندوف",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1198,
-    "name": "Khemisti",
+    "name": "خميستي",
     "num_bladia": "1262",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1199,
-    "name": "Theniet El Had",
+    "name": "ثنية الاحد",
     "num_bladia": "1275",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1200,
-    "name": "Ouled Bessam",
+    "name": "أولاد بسام",
     "num_bladia": "1269",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1201,
-    "name": "Sidi Boutouchent",
+    "name": "سيدي بوتوشنت",
     "num_bladia": "1271",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1202,
-    "name": "Tissemsilt",
+    "name": "تيسمسيلت",
     "num_bladia": "1276",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1203,
-    "name": "Sidi Lantri",
+    "name": "سيدي العنتري",
     "num_bladia": "1272",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1204,
-    "name": "Beni Chaib",
+    "name": "بني شعيب",
     "num_bladia": "1257",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1205,
-    "name": "Beni Lahcene",
+    "name": "بني لحسن",
     "num_bladia": "1258",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1206,
-    "name": "Sidi Abed",
+    "name": "سيدي عابد",
     "num_bladia": "1270",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1207,
-    "name": "Sidi Slimane",
+    "name": "سيدي سليمان",
     "num_bladia": "1273",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1208,
-    "name": "Boucaid",
+    "name": "بوقائد",
     "num_bladia": "1261",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1209,
-    "name": "Larbaa",
+    "name": "الأربعاء",
     "num_bladia": "1263",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1210,
-    "name": "Lazharia",
+    "name": "الأزهرية",
     "num_bladia": "1266",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1211,
-    "name": "Lardjem",
+    "name": "لرجام",
     "num_bladia": "1264",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1212,
-    "name": "Melaab",
+    "name": "الملعب",
     "num_bladia": "1268",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1213,
-    "name": "Layoune",
+    "name": "العيون",
     "num_bladia": "1265",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1214,
-    "name": "Tamellahet",
+    "name": "تملاحت",
     "num_bladia": "1274",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1215,
-    "name": "Youssoufia",
+    "name": "اليوسفية",
     "num_bladia": "1277",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1216,
-    "name": "Bordj El Emir Abdelkader",
+    "name": "برج الأمير عبد القادر",
     "num_bladia": "1260",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1217,
-    "name": "Ammari",
+    "name": "عماري",
     "num_bladia": "1256",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1218,
-    "name": "Maacem",
+    "name": "المعاصم",
     "num_bladia": "1267",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1219,
-    "name": "Bordj Bounaama",
+    "name": "برج بونعامة",
     "num_bladia": "1259",
-    "wilaya": "Tissemsilt",
+    "wilaya": "تيسمسيلت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1220,
-    "name": "Douar El Maa",
+    "name": "دوار الماء",
     "num_bladia": "1282",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1221,
-    "name": "El Ogla",
+    "name": "العقلة",
     "num_bladia": "1283",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1222,
-    "name": "Magrane",
+    "name": "المقرن",
     "num_bladia": "1291",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1223,
-    "name": "Sidi Aoun",
+    "name": "سيدي عون",
     "num_bladia": "1301",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1224,
-    "name": "Mih Ouansa",
+    "name": "اميه وانسة",
     "num_bladia": "1292",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1225,
-    "name": "Kouinine",
+    "name": "كوينين",
     "num_bladia": "1290",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1226,
-    "name": "Bayadha",
+    "name": "البياضة",
     "num_bladia": "1278",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1227,
-    "name": "Nakhla",
+    "name": "النخلة",
     "num_bladia": "1294",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1228,
-    "name": "Robbah",
+    "name": "الرباح",
     "num_bladia": "1299",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1229,
-    "name": "Guemar",
+    "name": "قمار",
     "num_bladia": "1286",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1230,
-    "name": "Ben Guecha",
+    "name": "بن  قشة",
     "num_bladia": "1279",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1231,
-    "name": "Ourmes",
+    "name": "ورماس",
     "num_bladia": "1297",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1232,
-    "name": "Taghzout",
+    "name": "تغزوت",
     "num_bladia": "1304",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1233,
-    "name": "Hamraia",
+    "name": "الحمراية",
     "num_bladia": "1287",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1234,
-    "name": "Reguiba",
+    "name": "الرقيبة",
     "num_bladia": "1298",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1235,
-    "name": "Debila",
+    "name": "الدبيلة",
     "num_bladia": "1280",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1236,
-    "name": "Hassani Abdelkrim",
+    "name": "حساني عبد الكريم",
     "num_bladia": "1288",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1237,
-    "name": "Hassi Khalifa",
+    "name": "حاسي خليفة",
     "num_bladia": "1289",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1238,
-    "name": "Trifaoui",
+    "name": "الطريفاوي",
     "num_bladia": "1307",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1239,
-    "name": "Taleb Larbi",
+    "name": "الطالب العربي",
     "num_bladia": "1305",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1240,
-    "name": "Oued El Alenda",
+    "name": "وادي العلندة",
     "num_bladia": "1295",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1241,
-    "name": "El-Oued",
+    "name": "الوادي",
     "num_bladia": "1285",
-    "wilaya": "El Oued",
+    "wilaya": "الوادي",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1242,
-    "name": "Khirane",
+    "name": "خيران",
     "num_bladia": "1321",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1243,
-    "name": "Babar",
+    "name": "بابار",
     "num_bladia": "1309",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1244,
-    "name": "El Mahmal",
+    "name": "المحمل",
     "num_bladia": "1316",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1245,
-    "name": "Ouled Rechache",
+    "name": "أولاد رشاش",
     "num_bladia": "1324",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1246,
-    "name": "Djellal",
+    "name": "جلال",
     "num_bladia": "1314",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1247,
-    "name": "Yabous",
+    "name": "يابوس",
     "num_bladia": "1328",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1248,
-    "name": "Khenchela",
+    "name": "خنشلة",
     "num_bladia": "1320",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1249,
-    "name": "Kais",
+    "name": "قايس",
     "num_bladia": "1319",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1250,
-    "name": "Chelia",
+    "name": "شلية",
     "num_bladia": "1313",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1251,
-    "name": "Remila",
+    "name": "الرميلة",
     "num_bladia": "1325",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1252,
-    "name": "Taouzianat",
+    "name": "تاوزيانت",
     "num_bladia": "1327",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1253,
-    "name": "Baghai",
+    "name": "بغاي",
     "num_bladia": "1310",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1254,
-    "name": "El Hamma",
+    "name": "الحامة",
     "num_bladia": "1315",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1255,
-    "name": "Ensigha",
+    "name": "انسيغة",
     "num_bladia": "1318",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1256,
-    "name": "Tamza",
+    "name": "طامزة",
     "num_bladia": "1326",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1257,
-    "name": "Ain Touila",
+    "name": "عين الطويلة",
     "num_bladia": "1308",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1258,
-    "name": "M'toussa",
+    "name": "متوسة",
     "num_bladia": "1323",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1259,
-    "name": "Bouhmama",
+    "name": "بوحمامة",
     "num_bladia": "1311",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
@@ -10731,183 +10731,183 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1260,
     "name": "El Oueldja",
     "num_bladia": "1317",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1261,
-    "name": "M'sara",
+    "name": "مصارة",
     "num_bladia": "1322",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1262,
-    "name": "Chechar",
+    "name": "ششار",
     "num_bladia": "1312",
-    "wilaya": "Khenchela",
+    "wilaya": "خنشلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1263,
-    "name": "Souk Ahras",
+    "name": "سوق أهراس",
     "num_bladia": "1349",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1264,
-    "name": "Ain Soltane",
+    "name": "عين السلطان",
     "num_bladia": "1329",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1265,
-    "name": "Sedrata",
+    "name": "سدراتة",
     "num_bladia": "1347",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1266,
-    "name": "Hanencha",
+    "name": "الحنانشة",
     "num_bladia": "1334",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1267,
-    "name": "Machroha",
+    "name": "المشروحة",
     "num_bladia": "1337",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1268,
-    "name": "Ain Zana",
+    "name": "عين الزانة",
     "num_bladia": "1330",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1269,
-    "name": "Ouled Driss",
+    "name": "أولاد إدريس",
     "num_bladia": "1341",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1270,
-    "name": "Terraguelt",
+    "name": "ترقالت",
     "num_bladia": "1351",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1271,
-    "name": "Oum El Adhaim",
+    "name": "أم العظايم",
     "num_bladia": "1343",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1272,
-    "name": "Oued Kebrit",
+    "name": "وادي الكبريت",
     "num_bladia": "1340",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1273,
-    "name": "Tiffech",
+    "name": "تيفاش",
     "num_bladia": "1352",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1274,
-    "name": "Ragouba",
+    "name": "الراقوبة",
     "num_bladia": "1345",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1275,
-    "name": "Drea",
+    "name": "الدريعة",
     "num_bladia": "1332",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1276,
-    "name": "Taoura",
+    "name": "تاورة",
     "num_bladia": "1350",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1277,
-    "name": "Zaarouria",
+    "name": "الزعرورية",
     "num_bladia": "1353",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1278,
-    "name": "Haddada",
+    "name": "الحدادة",
     "num_bladia": "1333",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1279,
-    "name": "Khedara",
+    "name": "الخضارة",
     "num_bladia": "1335",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1280,
-    "name": "Ouled Moumen",
+    "name": "أولاد مومن",
     "num_bladia": "1342",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1281,
-    "name": "Merahna",
+    "name": "المراهنة",
     "num_bladia": "1339",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1282,
-    "name": "Ouillen",
+    "name": "ويلان",
     "num_bladia": "1344",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
@@ -10915,87 +10915,87 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1283,
     "name": "Sidi Fredj",
     "num_bladia": "1348",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1284,
-    "name": "Bir Bouhouche",
+    "name": "بئر بوحوش",
     "num_bladia": "1331",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1285,
-    "name": "Safel El Ouiden",
+    "name": "سافل الويدان",
     "num_bladia": "1346",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1286,
-    "name": "Khemissa",
+    "name": "خميسة",
     "num_bladia": "1336",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1287,
-    "name": "M'daourouche",
+    "name": "مداوروش",
     "num_bladia": "1338",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1288,
-    "name": "Zouabi",
+    "name": "الزوابي",
     "num_bladia": "1354",
-    "wilaya": "Souk Ahras",
+    "wilaya": "سوق أهراس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1289,
-    "name": "Hadjout",
+    "name": "حجوط",
     "num_bladia": "1369",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1290,
-    "name": "Merad",
+    "name": "مراد",
     "num_bladia": "1375",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1291,
-    "name": "Menaceur",
+    "name": "مناصر",
     "num_bladia": "1374",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1292,
-    "name": "Aghbal",
+    "name": "أغبال",
     "num_bladia": "1355",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1293,
-    "name": "Nador",
+    "name": "الناظور",
     "num_bladia": "1377",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
@@ -11003,863 +11003,863 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1294,
     "name": "Sidi-Amar",
     "num_bladia": "1381",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1295,
-    "name": "Gouraya",
+    "name": "قوراية",
     "num_bladia": "1368",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1296,
-    "name": "Messelmoun",
+    "name": "مسلمون",
     "num_bladia": "1376",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1297,
-    "name": "Cherchell",
+    "name": "شرشال",
     "num_bladia": "1364",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1298,
-    "name": "Hadjret Ennous",
+    "name": "حجرة النص",
     "num_bladia": "1370",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1299,
-    "name": "Sidi Ghiles",
+    "name": "سيدي غيلاس",
     "num_bladia": "1378",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1300,
-    "name": "Damous",
+    "name": "الداموس",
     "num_bladia": "1365",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1301,
-    "name": "Larhat",
+    "name": "الأرهاط",
     "num_bladia": "1373",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1302,
-    "name": "Fouka",
+    "name": "فوكة",
     "num_bladia": "1367",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1303,
-    "name": "Ain Tagourait",
+    "name": "عين تاقورايت",
     "num_bladia": "1357",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1304,
-    "name": "Bou Haroun",
+    "name": "بوهارون",
     "num_bladia": "1360",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1305,
-    "name": "Bou Ismail",
+    "name": "بواسماعيل",
     "num_bladia": "1361",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1306,
-    "name": "Khemisti",
+    "name": "خميستي",
     "num_bladia": "1371",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1307,
-    "name": "Ahmer El Ain",
+    "name": "أحمر العين",
     "num_bladia": "1356",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1308,
-    "name": "Bourkika",
+    "name": "بورقيقة",
     "num_bladia": "1362",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1309,
-    "name": "Douaouda",
+    "name": "دواودة",
     "num_bladia": "1366",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1310,
-    "name": "Sidi Rached",
+    "name": "سيدي راشد",
     "num_bladia": "1379",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1311,
-    "name": "Attatba",
+    "name": "الحطاطبة",
     "num_bladia": "1358",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1312,
-    "name": "Chaiba",
+    "name": "الشعيبة",
     "num_bladia": "1363",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1313,
-    "name": "Kolea",
+    "name": "القليعة",
     "num_bladia": "1372",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1314,
-    "name": "Sidi Semiane",
+    "name": "سيدي سميان",
     "num_bladia": "1380",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1315,
-    "name": "Tipaza",
+    "name": "تيبازة",
     "num_bladia": "1382",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1316,
-    "name": "Beni Mileuk",
+    "name": "بني ميلك",
     "num_bladia": "1359",
-    "wilaya": "Tipaza",
+    "wilaya": "تيبازة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1317,
-    "name": "El Mechira",
+    "name": "مشيرة",
     "num_bladia": "1394",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1318,
-    "name": "El Ayadi Barbes",
+    "name": "العياضي برباس",
     "num_bladia": "1393",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1319,
-    "name": "Ain Beida Harriche",
+    "name": " عين البيضاء أحريش",
     "num_bladia": "1384",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1320,
-    "name": "Tassala Lematai",
+    "name": "تسالة لمطاعي",
     "num_bladia": "1411",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1321,
-    "name": "Terrai Bainen",
+    "name": "ترعي باينان",
     "num_bladia": "1410",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1322,
-    "name": "Amira Arres",
+    "name": "اعميرة اراس",
     "num_bladia": "1387",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1323,
-    "name": "Tassadane Haddada",
+    "name": "تسدان حدادة",
     "num_bladia": "1408",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1324,
-    "name": "Minar Zarza",
+    "name": "مينار زارزة",
     "num_bladia": "1399",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1325,
-    "name": "Sidi Merouane",
+    "name": "سيدي مروان",
     "num_bladia": "1406",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1326,
-    "name": "Chigara",
+    "name": "الشيقارة",
     "num_bladia": "1391",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1327,
-    "name": "Hamala",
+    "name": "حمالة",
     "num_bladia": "1397",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1328,
-    "name": "Grarem Gouga",
+    "name": "القرارم قوقة",
     "num_bladia": "1396",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1329,
-    "name": "Tiberguent",
+    "name": "تيبرقنت",
     "num_bladia": "1412",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1330,
-    "name": "Rouached",
+    "name": "الرواشد",
     "num_bladia": "1404",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1331,
-    "name": "Derrahi Bousselah",
+    "name": "دراحي بوصلاح",
     "num_bladia": "1392",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1332,
-    "name": "Zeghaia",
+    "name": "زغاية",
     "num_bladia": "1414",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1333,
-    "name": "Oued Endja",
+    "name": "وادي النجاء",
     "num_bladia": "1401",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1334,
-    "name": "Ahmed Rachedi",
+    "name": "أحمد راشدي",
     "num_bladia": "1383",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1335,
-    "name": "Tadjenanet",
+    "name": "تاجنانت",
     "num_bladia": "1407",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1336,
-    "name": "Ain Mellouk",
+    "name": "عين الملوك",
     "num_bladia": "1385",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1337,
-    "name": "Ouled Khalouf",
+    "name": "أولاد اخلوف",
     "num_bladia": "1403",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1338,
-    "name": "Benyahia Abderrahmane",
+    "name": "بن يحي عبد الرحمن",
     "num_bladia": "1388",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1339,
-    "name": "Teleghma",
+    "name": "التلاغمة",
     "num_bladia": "1409",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1340,
-    "name": "Oued Seguen",
+    "name": "وادي سقان",
     "num_bladia": "1402",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1341,
-    "name": "Oued Athmenia",
+    "name": "وادي العثمانية",
     "num_bladia": "1400",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1342,
-    "name": "Ain Tine",
+    "name": "عين التين",
     "num_bladia": "1386",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1343,
-    "name": "Chelghoum Laid",
+    "name": "شلغوم العيد",
     "num_bladia": "1390",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1344,
-    "name": "Yahia Beniguecha",
+    "name": "يحي بني قشة",
     "num_bladia": "1413",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1345,
-    "name": "Ferdjioua",
+    "name": "فرجيوة",
     "num_bladia": "1395",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1346,
-    "name": "Sidi Khelifa",
+    "name": "سيدي خليفة",
     "num_bladia": "1405",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1347,
-    "name": "Mila",
+    "name": "ميلة",
     "num_bladia": "1398",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1348,
-    "name": "Bouhatem",
+    "name": "بوحاتم",
     "num_bladia": "1389",
-    "wilaya": "Mila",
+    "wilaya": "ميلة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1349,
-    "name": "Khemis-Miliana",
+    "name": "خميس مليانة",
     "num_bladia": "1440",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1350,
-    "name": "Sidi-Lakhdar",
+    "name": "سيدي لخضر",
     "num_bladia": "1446",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1351,
-    "name": "Ain-Benian",
+    "name": "عين البنيان",
     "num_bladia": "1415",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1352,
-    "name": "Ain-Torki",
+    "name": "عين التركي",
     "num_bladia": "1420",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1353,
-    "name": "Hammam-Righa",
+    "name": "حمام ريغة",
     "num_bladia": "1437",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1354,
-    "name": "Bourached",
+    "name": "بوراشد",
     "num_bladia": "1429",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1355,
-    "name": "Hoceinia",
+    "name": "الحسينية",
     "num_bladia": "1439",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1356,
-    "name": "Djelida",
+    "name": "جليدة",
     "num_bladia": "1430",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1357,
-    "name": "Arib",
+    "name": "عريب",
     "num_bladia": "1421",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1358,
-    "name": "Djemaa Ouled Cheikh",
+    "name": "جمعة أولاد الشيخ",
     "num_bladia": "1431",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1359,
-    "name": "El-Amra",
+    "name": "العامرة",
     "num_bladia": "1434",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1360,
-    "name": "El-Attaf",
+    "name": "العطاف",
     "num_bladia": "1435",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1361,
-    "name": "Tiberkanine",
+    "name": "تبركانين",
     "num_bladia": "1449",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1362,
-    "name": "Ain-Bouyahia",
+    "name": "عين بويحيى",
     "num_bladia": "1416",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1363,
-    "name": "El-Abadia",
+    "name": "العبادية",
     "num_bladia": "1433",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1364,
-    "name": "Tacheta Zegagha",
+    "name": "تاشتة زقاغة",
     "num_bladia": "1447",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1365,
-    "name": "Birbouche",
+    "name": "بربوش",
     "num_bladia": "1422",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1366,
-    "name": "Djendel",
+    "name": "جندل",
     "num_bladia": "1432",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1367,
-    "name": "Ben Allal",
+    "name": "بن علال",
     "num_bladia": "1425",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1368,
-    "name": "Oued Chorfa",
+    "name": "وادي الشرفاء",
     "num_bladia": "1443",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1369,
-    "name": "Boumedfaa",
+    "name": "بومدفع",
     "num_bladia": "1428",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1370,
-    "name": "Ain-Lechiakh",
+    "name": "عين الاشياخ",
     "num_bladia": "1418",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1371,
-    "name": "Ain-Soltane",
+    "name": "عين السلطان",
     "num_bladia": "1419",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1372,
-    "name": "Oued Djemaa",
+    "name": "واد الجمعة",
     "num_bladia": "1444",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1373,
-    "name": "El-Maine",
+    "name": "الماين",
     "num_bladia": "1436",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1374,
-    "name": "Rouina",
+    "name": "الروينة",
     "num_bladia": "1445",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1375,
-    "name": "Zeddine",
+    "name": "زدين",
     "num_bladia": "1450",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1376,
-    "name": "Bir-Ould-Khelifa",
+    "name": "بئر ولد خليفة",
     "num_bladia": "1426",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1377,
-    "name": "Bordj-Emir-Khaled",
+    "name": "برج الأمير خالد",
     "num_bladia": "1427",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1378,
-    "name": "Tarik-Ibn-Ziad",
+    "name": "طارق بن زياد",
     "num_bladia": "1448",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1379,
-    "name": "Bathia",
+    "name": "بطحية",
     "num_bladia": "1423",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1380,
-    "name": "Belaas",
+    "name": "بلعاص",
     "num_bladia": "1424",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1381,
-    "name": "Hassania",
+    "name": "الحسانية",
     "num_bladia": "1438",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1382,
-    "name": "Ain-Defla",
+    "name": "عين الدفلى",
     "num_bladia": "1417",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1383,
-    "name": "Miliana",
+    "name": "مليانة",
     "num_bladia": "1442",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1384,
-    "name": "Mekhatria",
+    "name": "المخاطرية",
     "num_bladia": "1441",
-    "wilaya": "Aïn Defla",
+    "wilaya": "عين الدفلى",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1385,
-    "name": "Tiout",
+    "name": "تيوت",
     "num_bladia": "1462",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1386,
-    "name": "Moghrar",
+    "name": "مغرار",
     "num_bladia": "1459",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1387,
-    "name": "Asla",
+    "name": "عسلة",
     "num_bladia": "1453",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1388,
-    "name": "Kasdir",
+    "name": "القصدير",
     "num_bladia": "1456",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1389,
-    "name": "Makmen Ben Amar",
+    "name": "مكمن بن عمار",
     "num_bladia": "1457",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1390,
-    "name": "Ain Sefra",
+    "name": "عين الصفراء",
     "num_bladia": "1452",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1391,
-    "name": "Mecheria",
+    "name": "المشرية",
     "num_bladia": "1458",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1392,
-    "name": "El Biodh",
+    "name": "البيوض",
     "num_bladia": "1455",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1393,
-    "name": "Ain Ben Khelil",
+    "name": "عين بن خليل",
     "num_bladia": "1451",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1394,
-    "name": "Naama",
+    "name": "النعامة",
     "num_bladia": "1460",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1395,
-    "name": "Djenienne Bourezg",
+    "name": "جنين بورزق",
     "num_bladia": "1454",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1396,
-    "name": "Sfissifa",
+    "name": "سفيسيفة",
     "num_bladia": "1461",
-    "wilaya": "Naâma",
+    "wilaya": "النعامة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1397,
-    "name": "Sidi Boumediene",
+    "name": "سيدي بومدين",
     "num_bladia": "1486",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1398,
-    "name": "Tamzoura",
+    "name": "تامزورة",
     "num_bladia": "1489",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1399,
-    "name": "Chaabat El Ham",
+    "name": "شعبة اللحم",
     "num_bladia": "1471",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1400,
-    "name": "El Maleh",
+    "name": "المالح",
     "num_bladia": "1474",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1401,
-    "name": "Ouled Kihal",
+    "name": "أولاد الكيحل",
     "num_bladia": "1483",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
@@ -11867,87 +11867,87 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1402,
     "name": "Chentouf",
     "num_bladia": "1472",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1403,
-    "name": "Terga",
+    "name": "تارقة",
     "num_bladia": "1490",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1404,
-    "name": "Oued Sebbah",
+    "name": "وادي الصباح",
     "num_bladia": "1481",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1405,
-    "name": "El Amria",
+    "name": "العامرية",
     "num_bladia": "1473",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1406,
-    "name": "Hassi El Ghella",
+    "name": "حاسي الغلة",
     "num_bladia": "1479",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1407,
-    "name": "Ouled Boudjemaa",
+    "name": "أولاد بوجمعة",
     "num_bladia": "1482",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1408,
-    "name": "Aghlal",
+    "name": "أغلال",
     "num_bladia": "1463",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1409,
-    "name": "Ain Kihal",
+    "name": "عين الكيحل",
     "num_bladia": "1465",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1410,
-    "name": "Ain Tolba",
+    "name": "عين الطلبة",
     "num_bladia": "1467",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1411,
-    "name": "Aoubellil",
+    "name": "عقب الليل",
     "num_bladia": "1468",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1412,
-    "name": "Beni Saf",
+    "name": "بني صاف",
     "num_bladia": "1469",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
@@ -11955,327 +11955,327 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1413,
     "name": "Hassasna",
     "num_bladia": "1478",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1414,
-    "name": "Emir Abdelkader",
+    "name": "الامير عبد القادر",
     "num_bladia": "1476",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1415,
-    "name": "Sidi Safi",
+    "name": "سيدي صافي",
     "num_bladia": "1488",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1416,
-    "name": "Oulhaca El Gheraba",
+    "name": "ولهاصة الغرابة",
     "num_bladia": "1484",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1417,
-    "name": "Sidi Ouriache",
+    "name": "سيدي ورياش",
     "num_bladia": "1487",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1418,
-    "name": "Ain El Arbaa",
+    "name": "عين الأربعاء",
     "num_bladia": "1464",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1419,
-    "name": "El Messaid",
+    "name": "المساعيد",
     "num_bladia": "1475",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1420,
-    "name": "Oued Berkeche",
+    "name": "وادي برقش",
     "num_bladia": "1480",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1421,
-    "name": "Sidi Ben Adda",
+    "name": "سيدي بن عدة",
     "num_bladia": "1485",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1422,
-    "name": "Ain Temouchent",
+    "name": "عين تموشنت",
     "num_bladia": "1466",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1423,
-    "name": "Bouzedjar",
+    "name": "بوزجار",
     "num_bladia": "1470",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1424,
-    "name": "Hammam Bou Hadjar",
+    "name": "حمام بوحجر",
     "num_bladia": "1477",
-    "wilaya": "Aïn Témouchent",
+    "wilaya": "عين تموشنت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1425,
-    "name": "Dhayet Bendhahoua",
+    "name": "ضاية بن ضحوة",
     "num_bladia": "1493",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1426,
-    "name": "Mansoura",
+    "name": "المنصورة",
     "num_bladia": "1500",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1427,
-    "name": "El Atteuf",
+    "name": "العطف",
     "num_bladia": "1494",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1428,
-    "name": "Bounoura",
+    "name": "بونورة",
     "num_bladia": "1492",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1429,
-    "name": "Zelfana",
+    "name": "زلفانة",
     "num_bladia": "1503",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1430,
-    "name": "El Guerrara",
+    "name": "القرارة",
     "num_bladia": "1497",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1431,
-    "name": "Sebseb",
+    "name": "سبسب",
     "num_bladia": "1502",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1432,
-    "name": "Metlili",
+    "name": "متليلي",
     "num_bladia": "1501",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1433,
-    "name": "Berriane",
+    "name": "بريان",
     "num_bladia": "1491",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1434,
-    "name": "Ghardaia",
+    "name": "غرداية",
     "num_bladia": "1496",
-    "wilaya": "Ghardaïa",
+    "wilaya": "غرداية",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1435,
-    "name": "El-Guettar",
+    "name": "القطار",
     "num_bladia": "1516",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1436,
-    "name": "Ouled Aiche",
+    "name": "أولاد يعيش",
     "num_bladia": "1530",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1437,
-    "name": "Beni Dergoun",
+    "name": "بني درقن",
     "num_bladia": "1509",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1438,
-    "name": "Dar Ben Abdelah",
+    "name": "دار بن عبد الله",
     "num_bladia": "1511",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1439,
-    "name": "Zemmoura",
+    "name": "زمورة",
     "num_bladia": "1541",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1440,
-    "name": "Djidiouia",
+    "name": "جديوية",
     "num_bladia": "1512",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1441,
-    "name": "Hamri",
+    "name": "حمري",
     "num_bladia": "1519",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1442,
-    "name": "Belaassel Bouzagza",
+    "name": "بلعسل بوزقزة",
     "num_bladia": "1507",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1443,
-    "name": "El-Matmar",
+    "name": "المطمر",
     "num_bladia": "1517",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1444,
-    "name": "Sidi Khettab",
+    "name": "سيدي  خطاب",
     "num_bladia": "1534",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1445,
-    "name": "Sidi M'hamed Benaouda",
+    "name": "سيدي امحمد بن عودة",
     "num_bladia": "1537",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1446,
-    "name": "Ain-Tarek",
+    "name": "عين طارق",
     "num_bladia": "1505",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1447,
-    "name": "Had Echkalla",
+    "name": "حد الشكالة",
     "num_bladia": "1518",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1448,
-    "name": "El Ouldja",
+    "name": "الولجة",
     "num_bladia": "1515",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1449,
-    "name": "Mazouna",
+    "name": "مازونة",
     "num_bladia": "1522",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1450,
-    "name": "Ain Rahma",
+    "name": "عين الرحمة",
     "num_bladia": "1504",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1451,
-    "name": "Kalaa",
+    "name": "القلعة",
     "num_bladia": "1520",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1452,
-    "name": "Sidi Saada",
+    "name": "سيدي سعادة",
     "num_bladia": "1538",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1453,
-    "name": "Yellel",
+    "name": "يلل",
     "num_bladia": "1540",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
@@ -12283,533 +12283,533 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1454,
     "name": "Souk El Had",
     "num_bladia": "1539",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1455,
-    "name": "Mendes",
+    "name": "منداس",
     "num_bladia": "1524",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1456,
-    "name": "Oued Essalem",
+    "name": "وادي السلام",
     "num_bladia": "1528",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1457,
-    "name": "Sidi Lazreg",
+    "name": "سيدي لزرق",
     "num_bladia": "1535",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1458,
-    "name": "Ammi Moussa",
+    "name": "عمي موسى",
     "num_bladia": "1506",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1459,
-    "name": "Ouarizane",
+    "name": "واريزان",
     "num_bladia": "1526",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1460,
-    "name": "Merdja Sidi Abed",
+    "name": "مرجة سيدي عابد",
     "num_bladia": "1525",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1461,
-    "name": "Ouled Sidi Mihoub",
+    "name": "أولاد سيدي الميهوب",
     "num_bladia": "1531",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1462,
-    "name": "Bendaoud",
+    "name": "بن داود",
     "num_bladia": "1508",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1463,
-    "name": "Oued-Rhiou",
+    "name": "وادي رهيو",
     "num_bladia": "1529",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1464,
-    "name": "El Hassi",
+    "name": "الحاسي",
     "num_bladia": "1513",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1465,
-    "name": "Sidi M'hamed Benali",
+    "name": "سيدي أمحمد بن علي",
     "num_bladia": "1536",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1466,
-    "name": "Mediouna",
+    "name": "مديونة",
     "num_bladia": "1523",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1467,
-    "name": "Beni Zentis",
+    "name": "بني زنطيس",
     "num_bladia": "1510",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1468,
-    "name": "Oued El Djemaa",
+    "name": "وادي الجمعة",
     "num_bladia": "1527",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1469,
-    "name": "Lahlef",
+    "name": "لحلاف",
     "num_bladia": "1521",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1470,
-    "name": "Relizane",
+    "name": "غليزان",
     "num_bladia": "1533",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1471,
-    "name": "El H'madna",
+    "name": "الحمادنة",
     "num_bladia": "1514",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1472,
-    "name": "Ramka",
+    "name": "الرمكة",
     "num_bladia": "1532",
-    "wilaya": "Relizane",
+    "wilaya": "غليزان",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1473,
-    "name": "Tinerkouk",
+    "name": "تنركوك",
     "num_bladia": "25",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1474,
-    "name": "Timimoun",
+    "name": "تيميمون",
     "num_bladia": "24",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1475,
-    "name": "Ouled Said",
+    "name": "أولاد السعيد",
     "num_bladia": "15",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1476,
-    "name": "Metarfa",
+    "name": "المطارفة",
     "num_bladia": "12",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1477,
-    "name": "Talmine",
+    "name": "طالمين",
     "num_bladia": "19",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1478,
-    "name": "Ouled Aissa",
+    "name": "أولاد عيسى",
     "num_bladia": "14",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1479,
-    "name": "Charouine",
+    "name": "شروين",
     "num_bladia": "07",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1480,
-    "name": "Aougrout",
+    "name": "أوقروت",
     "num_bladia": "03",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1481,
-    "name": "Deldoul",
+    "name": "دلدول",
     "num_bladia": "08",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1482,
-    "name": "Ksar Kaddour",
+    "name": "قصر قدور",
     "num_bladia": "11",
-    "wilaya": "Timimoun",
+    "wilaya": "تيميمون",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1483,
-    "name": "Timiaouine",
+    "name": "تيمياوين",
     "num_bladia": "23",
-    "wilaya": "Bordj Badji Mokhtar",
+    "wilaya": "برج باجي مختار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1484,
-    "name": "Bordj Badji Mokhtar",
+    "name": "برج باجي مختار",
     "num_bladia": "05",
-    "wilaya": "Bordj Badji Mokhtar",
+    "wilaya": "برج باجي مختار",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1485,
-    "name": "Ras El Miad",
+    "name": "رأس الميعاد",
     "num_bladia": "258",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1486,
-    "name": "Besbes",
+    "name": "بسباس",
     "num_bladia": "232",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1487,
-    "name": "Sidi Khaled",
+    "name": "سيدي  خالد",
     "num_bladia": "259",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1488,
-    "name": "Doucen",
+    "name": "الدوسن",
     "num_bladia": "240",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1489,
-    "name": "Chaiba",
+    "name": "الشعيبة",
     "num_bladia": "237",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1490,
-    "name": "Ouled Djellal",
+    "name": "أولاد جلال",
     "num_bladia": "255",
-    "wilaya": "Ouled Djellal",
+    "wilaya": "أولاد جلال",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1491,
-    "name": "Beni-Abbes",
+    "name": "بني عباس",
     "num_bladia": "265",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1492,
-    "name": "Tamtert",
+    "name": "تامترت",
     "num_bladia": "282",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1493,
-    "name": "Igli",
+    "name": "إقلي",
     "num_bladia": "271",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1494,
-    "name": "El Ouata",
+    "name": "الواتة",
     "num_bladia": "269",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1495,
-    "name": "Ouled-Khodeir",
+    "name": "أولاد خضير",
     "num_bladia": "279",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1496,
-    "name": "Kerzaz",
+    "name": "كرزاز",
     "num_bladia": "273",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1497,
-    "name": "Timoudi",
+    "name": "تيمودي",
     "num_bladia": "283",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1498,
-    "name": "Ksabi",
+    "name": "القصابي",
     "num_bladia": "274",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1499,
-    "name": "Beni-Ikhlef",
+    "name": "بن يخلف",
     "num_bladia": "266",
-    "wilaya": "Béni Abbès",
+    "wilaya": "بني عباس",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1500,
-    "name": "Inghar",
+    "name": "إينغر",
     "num_bladia": "360",
-    "wilaya": "In Salah",
+    "wilaya": "عين صالح",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1501,
-    "name": "Ain Salah",
+    "name": "عين صالح",
     "num_bladia": "357",
-    "wilaya": "In Salah",
+    "wilaya": "عين صالح",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1502,
-    "name": "Foggaret Ezzoua",
+    "name": "فقارة الزوى",
     "num_bladia": "358",
-    "wilaya": "In Salah",
+    "wilaya": "عين صالح",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1503,
-    "name": "Tin Zouatine",
+    "name": "تين زواتين",
     "num_bladia": "363",
-    "wilaya": "In Guezzam",
+    "wilaya": "عين قزام",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1504,
-    "name": "Ain Guezzam",
+    "name": "عين قزام",
     "num_bladia": "356",
-    "wilaya": "In Guezzam",
+    "wilaya": "عين قزام",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1505,
-    "name": "Temacine",
+    "name": "تماسين",
     "num_bladia": "1107",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1506,
-    "name": "Sidi Slimane",
+    "name": "سيدي سليمان",
     "num_bladia": "1104",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1507,
-    "name": "Megarine",
+    "name": "المقارين",
     "num_bladia": "1097",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1508,
-    "name": "Nezla",
+    "name": "النزلة",
     "num_bladia": "1099",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1509,
-    "name": "Blidet Amor",
+    "name": "بلدة اعمر",
     "num_bladia": "1091",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1510,
-    "name": "Tebesbest",
+    "name": "تبسبست",
     "num_bladia": "1106",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1511,
-    "name": "Touggourt",
+    "name": "تقرت",
     "num_bladia": "1108",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1512,
-    "name": "Taibet",
+    "name": "الطيبات",
     "num_bladia": "1105",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1513,
-    "name": "El Alia",
+    "name": "العالية",
     "num_bladia": "1092",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1514,
-    "name": "El-Hadjira",
+    "name": "الحجيرة",
     "num_bladia": "1094",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1515,
-    "name": "Benaceur",
+    "name": "بن ناصر",
     "num_bladia": "1090",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1516,
-    "name": "M'naguer",
+    "name": "المنقر",
     "num_bladia": "1098",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1517,
-    "name": "Zaouia El Abidia",
+    "name": "الزاوية العابدية",
     "num_bladia": "1109",
-    "wilaya": "Touggourt",
+    "wilaya": "تقرت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1518,
-    "name": "Djanet",
+    "name": "جانت",
     "num_bladia": "1161",
-    "wilaya": "Djanet",
+    "wilaya": "جانت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1519,
-    "name": "Bordj El Haouass",
+    "name": "برج الحواس",
     "num_bladia": "1158",
-    "wilaya": "Djanet",
+    "wilaya": "جانت",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1520,
-    "name": "Oum Touyour",
+    "name": "أم الطيور",
     "num_bladia": "1296",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12817,7 +12817,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1521,
-    "name": "Sidi Amrane",
+    "name": "سيدي عمران",
     "num_bladia": "1300",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12825,7 +12825,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1522,
-    "name": "M'rara",
+    "name": "المرارة",
     "num_bladia": "1293",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12833,7 +12833,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1523,
-    "name": "Djamaa",
+    "name": "جامعة",
     "num_bladia": "1281",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12841,7 +12841,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1524,
-    "name": "Tenedla",
+    "name": "تندلة",
     "num_bladia": "1306",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12849,7 +12849,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1525,
-    "name": "El-M'ghaier",
+    "name": "المغير",
     "num_bladia": "1284",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12857,7 +12857,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1526,
-    "name": "Still",
+    "name": "سطيل",
     "num_bladia": "1303",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12865,7 +12865,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1527,
-    "name": "Sidi Khelil",
+    "name": "سيدي خليل",
     "num_bladia": "1302",
     "wilaya": "El Meghaier",
     "centers": 4,
@@ -12873,7 +12873,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1528,
-    "name": "El Meniaa",
+    "name": "المنيعة",
     "num_bladia": "1495",
     "wilaya": "El Menia",
     "centers": 4,
@@ -12881,7 +12881,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1529,
-    "name": "Hassi Gara",
+    "name": "حاسي القارة",
     "num_bladia": "1499",
     "wilaya": "El Menia",
     "centers": 4,
@@ -12889,7 +12889,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1530,
-    "name": "Hassi Fehal",
+    "name": "حاسي الفحل",
     "num_bladia": "1498",
     "wilaya": "El Menia",
     "centers": 4,
@@ -12897,33 +12897,33 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1531,
-    "name": "Aflou",
+    "name": "أفلو",
     "num_bladia": "01",
-    "wilaya": "Aflou",
+    "wilaya": "أفلو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1532,
-    "name": "Sebgag",
+    "name": "سبقاق",
     "num_bladia": "02",
-    "wilaya": "Aflou",
+    "wilaya": "أفلو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1533,
-    "name": "Sidi Bouzid",
+    "name": "سيدي بوزيد",
     "num_bladia": "03",
-    "wilaya": "Aflou",
+    "wilaya": "أفلو",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1534,
-    "name": "Barika",
+    "name": "بريكة",
     "num_bladia": "01",
-    "wilaya": "Barika",
+    "wilaya": "بريكة",
     "centers": 4,
     "desks": 20
   },
@@ -12931,31 +12931,31 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1535,
     "name": "M'doukel",
     "num_bladia": "02",
-    "wilaya": "Barika",
+    "wilaya": "بريكة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1536,
-    "name": "Bitam",
+    "name": "بيطام",
     "num_bladia": "03",
-    "wilaya": "Barika",
+    "wilaya": "بريكة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1537,
-    "name": "Ksar Chellala",
+    "name": "قصر الشلالة",
     "num_bladia": "01",
-    "wilaya": "Ksar Chellala",
+    "wilaya": "قصر الشلالة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1538,
-    "name": "Serghine",
+    "name": "سرغين",
     "num_bladia": "02",
-    "wilaya": "Ksar Chellala",
+    "wilaya": "قصر الشلالة",
     "centers": 4,
     "desks": 20
   },
@@ -12963,47 +12963,47 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1539,
     "name": "Zmalet El Emir Abdelkader",
     "num_bladia": "03",
-    "wilaya": "Ksar Chellala",
+    "wilaya": "قصر الشلالة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1540,
-    "name": "Messaad",
+    "name": "مسعد",
     "num_bladia": "01",
-    "wilaya": "Messaad",
+    "wilaya": "مسعد",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1541,
-    "name": "Deldoul",
+    "name": "دلدول",
     "num_bladia": "02",
-    "wilaya": "Messaad",
+    "wilaya": "مسعد",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1542,
-    "name": "Selmana",
+    "name": "سلمانة",
     "num_bladia": "03",
-    "wilaya": "Messaad",
+    "wilaya": "مسعد",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1543,
-    "name": "Sed Rahal",
+    "name": "سد الرحال",
     "num_bladia": "04",
-    "wilaya": "Messaad",
+    "wilaya": "مسعد",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1544,
-    "name": "Guettara",
+    "name": "قطارة",
     "num_bladia": "05",
-    "wilaya": "Messaad",
+    "wilaya": "مسعد",
     "centers": 4,
     "desks": 20
   },
@@ -13017,7 +13017,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1546,
-    "name": "Guernini",
+    "name": "قرنيني",
     "num_bladia": "02",
     "wilaya": "Aïn Oussera",
     "centers": 4,
@@ -13033,7 +13033,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1548,
-    "name": "El Hamel",
+    "name": "الهامل",
     "num_bladia": "02",
     "wilaya": "Boussaâda",
     "centers": 4,
@@ -13057,9 +13057,9 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1551,
-    "name": "El Kantara",
+    "name": "القنطرة",
     "num_bladia": "01",
-    "wilaya": "El Kantara",
+    "wilaya": "القنطرة",
     "centers": 4,
     "desks": 20
   },
@@ -13067,7 +13067,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1552,
     "name": "Aïn Zaatout",
     "num_bladia": "02",
-    "wilaya": "El Kantara",
+    "wilaya": "القنطرة",
     "centers": 4,
     "desks": 20
   },
@@ -13089,9 +13089,9 @@ export function DataProvider({ children }: { children: ReactNode }) {
   },
   {
     "id": 1555,
-    "name": "Ksar El Boukhari",
+    "name": "قصر البخاري",
     "num_bladia": "01",
-    "wilaya": "Ksar El Boukhari",
+    "wilaya": "قصر البخاري",
     "centers": 4,
     "desks": 20
   },
@@ -13099,83 +13099,83 @@ export function DataProvider({ children }: { children: ReactNode }) {
     "id": 1556,
     "name": "Meftaha",
     "num_bladia": "02",
-    "wilaya": "Ksar El Boukhari",
+    "wilaya": "قصر البخاري",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1557,
-    "name": "Saneg",
+    "name": "السانق",
     "num_bladia": "03",
-    "wilaya": "Ksar El Boukhari",
+    "wilaya": "قصر البخاري",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1558,
-    "name": "El Aricha",
+    "name": "العريشة",
     "num_bladia": "01",
-    "wilaya": "El Aricha",
+    "wilaya": "العريشة",
     "centers": 4,
     "desks": 20
   },
   {
     "id": 1559,
-    "name": "El Gor",
+    "name": "القور",
     "num_bladia": "02",
-    "wilaya": "El Aricha",
+    "wilaya": "العريشة",
     "centers": 4,
     "desks": 20
   }
 ]);;
 
   const [centersData, setCentersData] = useState([
-    { id: 1, name: "Centre Pasteur", location: "Rue Didouche Mourad", male: 2400, female: 2400, total: 4800, numbers_desks: 12 },
-    { id: 2, name: "Centre Ibn Badis", location: "Place du 1er Mai", male: 1600, female: 1600, total: 3200, numbers_desks: 8 },
-    { id: 3, name: "Centre Emir Abdelkader", location: "Boulevard des Martyrs", male: 2000, female: 2000, total: 4000, numbers_desks: 10 },
+    { id: 1, name: "مركز باستور", location: "شارع ديدوش مراد", male: 2400, female: 2400, total: 4800, numbers_desks: 12 },
+    { id: 2, name: "مركز ابن باديس", location: "ساحة أول ماي", male: 1600, female: 1600, total: 3200, numbers_desks: 8 },
+    { id: 3, name: "مركز الأمير عبد القادر", location: "شارع الشهداء", male: 2000, female: 2000, total: 4000, numbers_desks: 10 },
   ]);
 
   const [desksData, setDesksData] = useState([
-    { id: 1, num_desk: "01", center: "Centre Pasteur", male: 200, female: 200, total: 400 },
-    { id: 2, num_desk: "02", center: "Centre Pasteur", male: 150, female: 150, total: 300 },
-    { id: 3, num_desk: "01", center: "Centre Ibn Badis", male: 250, female: 230, total: 480 },
+    { id: 1, num_desk: "01", center: "مركز باستور", male: 200, female: 200, total: 400 },
+    { id: 2, num_desk: "02", center: "مركز باستور", male: 150, female: 150, total: 300 },
+    { id: 3, num_desk: "01", center: "مركز ابن باديس", male: 250, female: 230, total: 480 },
   ]);
 
   const [partiesData, setPartiesData] = useState([
-    { id: 1, name: "Front de Libération Nationale", short: "FLN", leader: "Abou El Fadhel Baadji", wilaya_siege: "Alger" },
-    { id: 2, name: "Rassemblement National Démocratique", short: "RND", leader: "Mustapha Yahi", wilaya_siege: "Alger" },
-    { id: 3, name: "Mouvement de la Société pour la Paix", short: "MSP", leader: "Abdelali Hassani Cherif", wilaya_siege: "Alger" },
+    { id: 1, name: "Front de Libération Nationale", short: "FLN", leader: "Abou El Fadhel Baadji", wilaya_siege: "الجزائر" },
+    { id: 2, name: "Rassemblement National Démocratique", short: "RND", leader: "Mustapha Yahi", wilaya_siege: "الجزائر" },
+    { id: 3, name: "Mouvement de la Société pour la Paix", short: "MSP", leader: "Abdelali Hassani Cherif", wilaya_siege: "الجزائر" },
     { id: 4, name: "Front des Forces Socialistes", short: "FFS", leader: "Youcef Aouchiche", wilaya_siege: "Tizi Ouzou" },
-    { id: 5, name: "Parti des Travailleurs", short: "PT", leader: "Louisa Hanoune", wilaya_siege: "Alger" },
-    { id: 6, name: "Jil Jadid", short: "JJ", leader: "Soufiane Djilali", wilaya_siege: "Alger" },
+    { id: 5, name: "Parti des Travailleurs", short: "PT", leader: "Louisa Hanoune", wilaya_siege: "الجزائر" },
+    { id: 6, name: "Jil Jadid", short: "JJ", leader: "Soufiane Djilali", wilaya_siege: "الجزائر" },
   ]);
 
   const [candidatesData, setCandidatesData] = useState([
-    { id: 1, full_name: "Abdelmadjid Tebboune", party: "Indépendant", wilaya: "Alger", nin: "194511171600123456", phone: "0550112233", birthday: "1945-11-17", fav: true, result: 0 },
+    { id: 1, full_name: "Abdelmadjid Tebboune", party: "Indépendant", wilaya: "الجزائر", nin: "194511171600123456", phone: "0550112233", birthday: "1945-11-17", fav: true, result: 0 },
     { id: 2, full_name: "Youcef Aouchiche", party: "FFS", wilaya: "Tizi Ouzou", nin: "198301291500456789", phone: "0550445566", birthday: "1983-01-29", fav: false, result: 0 },
-    { id: 3, full_name: "Abdelali Hassani Cherif", party: "MSP", wilaya: "M'Sila", nin: "196603152800789123", phone: "0550778899", birthday: "1966-03-15", fav: false, result: 0 },
-    { id: 4, full_name: "Louisa Hanoune", party: "PT", wilaya: "Alger", nin: "195404071600234567", phone: "0661223344", birthday: "1954-04-07", fav: false, result: 0 },
+    { id: 3, full_name: "Abdelali Hassani Cherif", party: "MSP", wilaya: "المسيلة", nin: "196603152800789123", phone: "0550778899", birthday: "1966-03-15", fav: false, result: 0 },
+    { id: 4, full_name: "Louisa Hanoune", party: "PT", wilaya: "الجزائر", nin: "195404071600234567", phone: "0661223344", birthday: "1954-04-07", fav: false, result: 0 },
     { id: 5, full_name: "Ali Benflis", party: "Indépendant", wilaya: "Batna", nin: "194409080500345678", phone: "0770556677", birthday: "1944-09-08", fav: true, result: 0 },
   ]);
 
   const [adminsData, setAdminsData] = useState([
-    { id: 1, name: "Mohamed Benali", email: "m.benali@anie.dz", nin: "197516010012345678", phone: "0550123456", role: "Super Admin", status: "Actif", wilaya: "Alger" },
+    { id: 1, name: "Mohamed Benali", email: "m.benali@anie.dz", nin: "197516010012345678", phone: "0550123456", role: "Super Admin", status: "Actif", wilaya: "الجزائر" },
     { id: 2, name: "Zohra Mansouri", email: "z.mansouri@anie.dz", nin: "198009010098765432", phone: "0550987654", role: "Admin Wilaya (Blida)", status: "Actif", wilaya: "Blida" },
-    { id: 3, name: "Abdelkader Brahimi", email: "a.brahimi@anie.dz", nin: "197231010055555555", phone: "0550555555", role: "Admin Baladia (Oran)", status: "Actif", wilaya: "Oran" },
-    { id: 4, name: "Amine Khelladi", email: "a.khelladi@anie.dz", nin: "198825010022334455", phone: "0661223344", role: "Admin Wilaya (Constantine)", status: "Actif", wilaya: "Constantine" },
+    { id: 3, name: "Abdelkader Brahimi", email: "a.brahimi@anie.dz", nin: "197231010055555555", phone: "0550555555", role: "Admin Baladia (Oran)", status: "Actif", wilaya: "وهران" },
+    { id: 4, name: "Amine Khelladi", email: "a.khelladi@anie.dz", nin: "198825010022334455", phone: "0661223344", role: "Admin Wilaya (Constantine)", status: "Actif", wilaya: "قسنطينة" },
   ]);
 
   const [membersData, setMembersData] = useState([
-    { id: 1, name: "Yassine Belmadi", email: "y.belmadi@gmail.com", nin: "199016010011122233", phone: "0660112233", birthday: "1990-05-20", party: "FLN", goal: "Supervision du centre Pasteur", location: "Alger", admin_commun: "Mohamed Benali", status: "Permanent" },
+    { id: 1, name: "Yassine Belmadi", email: "y.belmadi@gmail.com", nin: "199016010011122233", phone: "0660112233", birthday: "1990-05-20", party: "FLN", goal: "Supervision du centre Pasteur", location: "الجزائر", admin_commun: "Mohamed Benali", status: "Permanent" },
     { id: 2, name: "Lydia Bensaïd", email: "l.bensaid@outlook.com", nin: "199509010077788899", phone: "0660998877", birthday: "1995-11-12", party: "MSP", goal: "Contrôle des listes électorales", location: "Blida", admin_commun: "Zohra Mansouri", status: "Permanent" },
-    { id: 3, name: "Ryad Mahrez", email: "r.mahrez@gmail.com", nin: "199131010033445566", phone: "0770334455", birthday: "1991-02-21", party: "FFS", goal: "Observateur de bureau", location: "Oran", admin_commun: "Abdelkader Brahimi", status: "Permanent" },
+    { id: 3, name: "Ryad Mahrez", email: "r.mahrez@gmail.com", nin: "199131010033445566", phone: "0770334455", birthday: "1991-02-21", party: "FFS", goal: "Observateur de bureau", location: "وهران", admin_commun: "Abdelkader Brahimi", status: "Permanent" },
   ]);
 
   const [observersData, setObserversData] = useState([
-    { id: 1, name: "Karim Slimani", role: "Observateur Bureau", center: "Centre Pasteur", desk: "08", location: "Centre Pasteur - Bureau 08", code: "TMP-882-X", status: "Actif", expires: "20:00", email: "k.slimani@gmail.com", nin: "198516010011223344", phone: "0550112233" },
-    { id: 2, name: "Sara Haddad", role: "Chef de Centre", center: "Centre Ibn Badis", desk: "N/A", location: "Centre Ibn Badis", code: "TMP-441-Y", status: "Actif", expires: "22:00", email: "s.haddad@gmail.com", nin: "199216010044556677", phone: "0550445566" },
-    { id: 3, name: "Ahmed Mansour", role: "Observateur Centre", center: "Centre Emir Abdelkader", desk: "N/A", location: "Centre Emir Abdelkader", code: "TMP-901-Z", status: "Expiré", expires: "08:00 (Fermé)", email: "a.mansour@gmail.com", nin: "197816010077889900", phone: "0550778899" },
-    { id: 4, name: "Leila Bekhti", role: "Observateur Bureau", center: "Centre Pasteur", desk: "02", location: "Centre Pasteur - Bureau 02", code: "TMP-112-A", status: "Actif", expires: "20:00", email: "l.bekhti@gmail.com", nin: "199516010022334455", phone: "0661223344" },
+    { id: 1, name: "Karim Slimani", role: "Observateur Bureau", center: "مركز باستور", desk: "08", location: "Centre Pasteur - Bureau 08", code: "TMP-882-X", status: "Actif", expires: "20:00", email: "k.slimani@gmail.com", nin: "198516010011223344", phone: "0550112233" },
+    { id: 2, name: "Sara Haddad", role: "Chef de Centre", center: "مركز ابن باديس", desk: "N/A", location: "مركز ابن باديس", code: "TMP-441-Y", status: "Actif", expires: "22:00", email: "s.haddad@gmail.com", nin: "199216010044556677", phone: "0550445566" },
+    { id: 3, name: "Ahmed Mansour", role: "Observateur Centre", center: "مركز الأمير عبد القادر", desk: "N/A", location: "مركز الأمير عبد القادر", code: "TMP-901-Z", status: "Expiré", expires: "08:00 (Fermé)", email: "a.mansour@gmail.com", nin: "197816010077889900", phone: "0550778899" },
+    { id: 4, name: "Leila Bekhti", role: "Observateur Bureau", center: "مركز باستور", desk: "02", location: "Centre Pasteur - Bureau 02", code: "TMP-112-A", status: "Actif", expires: "20:00", email: "l.bekhti@gmail.com", nin: "199516010022334455", phone: "0661223344" },
   ]);
 
   const [electionScope, setElectionScope] = useState<ElectionScope>("national");

@@ -67,7 +67,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login Card */}
-        <div className="glass-morphism rounded-[28px] p-6 md:p-8 border border-white/5 bg-[#0f0f12]/75 backdrop-blur-2xl shadow-2xl relative">
+        <div className="glass-morphism rounded-[28px] p-6 md:p-8 border border-white/5 bg-[#0f0f12]/75 backdrop-blur-2xl relative">
           <div className="mb-6">
             <h2 className="text-xl font-bold text-white tracking-tight">Welcome Back</h2>
             <p className="text-zinc-500 text-[13px] mt-1">Authenticate to continue</p>
@@ -118,7 +118,7 @@ export default function LoginPage() {
             <button 
               type="submit"
               disabled={isLoading}
-              className="w-full h-[50px] mt-2 rounded-[12px] bg-gradient-to-br from-[#006233] to-[#008c5a] text-white text-sm font-bold tracking-tight shadow-xl shadow-emerald-900/20 hover:translate-y-[-1px] active:scale-[0.98] transition-all flex items-center justify-center gap-2 relative overflow-hidden group disabled:opacity-70 disabled:hover:translate-y-0"
+              className="w-full h-[50px] mt-2 rounded-[12px] bg-gradient-to-br from-[#006233] to-[#008c5a] text-white text-sm font-bold tracking-tight hover:translate-y-[-1px] active:scale-[0.98] transition-all flex items-center justify-center gap-2 relative overflow-hidden group disabled:opacity-70 disabled:hover:translate-y-0"
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">

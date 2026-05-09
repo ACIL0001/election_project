@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { motion, useSpring, useTransform, animate } from "framer-motion";
 import { useEffect, useRef } from "react";
 
+import { useLanguage } from "@/app/context/LanguageContext";
+
 interface StatCardProps {
   title: string;
   value: string | number;
@@ -42,6 +44,7 @@ function Counter({ value }: { value: number | string }) {
 }
 
 export default function StatCard({ title, value, icon: Icon, trend, className, delay = 0 }: StatCardProps) {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -50,7 +53,7 @@ export default function StatCard({ title, value, icon: Icon, trend, className, d
       whileHover={{ y: -5, scale: 1.01 }}
       className={cn(
         "relative glass rounded-[24px] p-6 flex flex-col justify-between overflow-hidden group transition-all duration-500",
-        "border-white/5 bg-zinc-900/50 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-algerian-green/5",
+        "border-white/5 bg-zinc-900/50 hover:bg-zinc-900/80",
         className
       )}
     >
@@ -67,12 +70,12 @@ export default function StatCard({ title, value, icon: Icon, trend, className, d
               <Counter value={value} />
             </h3>
             {typeof value === 'number' && (
-              <span className="text-[10px] font-bold text-zinc-500 ml-1">UNITÉS</span>
+              <span className="text-[10px] font-bold text-zinc-500 ms-1">{t("common.units")}</span>
             )}
           </div>
         </div>
 
-        <div className="h-12 w-12 rounded-2xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-algerian-green dark:text-algerian-green-light shadow-inner group-hover:scale-110 transition-transform duration-500">
+        <div className="h-12 w-12 rounded-2xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-algerian-green dark:text-algerian-green-light group-hover:scale-110 transition-transform duration-500">
           <Icon size={22} strokeWidth={2.5} />
         </div>
       </div>
@@ -89,7 +92,7 @@ export default function StatCard({ title, value, icon: Icon, trend, className, d
               {trend.isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
               {trend.value}
             </div>
-            <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">Variation</span>
+            <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">{t("common.variation") || "Variation"}</span>
           </div>
         )}
         
