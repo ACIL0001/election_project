@@ -111,9 +111,9 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
       <nav className="flex-1 space-y-8 px-2 overflow-y-auto custom-scrollbar">
         {navigationGroups.map((group) => (
           <div key={group.title} className="space-y-2">
-            <h3 className="px-4 text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 dark:text-zinc-500">
+            <div className="px-4 text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 dark:text-zinc-500">
               {group.title}
-            </h3>
+            </div>
             <div className="space-y-1">
               {group.items.map((item) => {
                 const isActive = pathname === item.href;

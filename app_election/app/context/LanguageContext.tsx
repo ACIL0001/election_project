@@ -14,7 +14,7 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
   fr: {
     // Navigation
-    "nav.overview": "Vue d'ensemble",
+    "nav.overview": "Tableau de Bord",
     "nav.access": "Gestion des Accès",
     "nav.infrastructure": "Infrastructure",
     "nav.entities": "Entités Politiques",
@@ -24,7 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.logout": "Déconnexion",
 
     // Dashboard
-    "dash.title": "Console de Commandement",
+    "dash.title": "Tableau de Bord",
     "dash.subtitle": "Surveillance en temps réel de l'infrastructure électorale nationale et de la validation des résultats.",
     "dash.badge": "Opérations Nationales",
     "dash.kpi.centers": "Centres de Vote",
@@ -36,6 +36,7 @@ const translations: Record<Language, Record<string, string>> = {
     "dash.scope.national": "National",
     "dash.scope.wilaya": "Wilaya",
     "dash.scope.communal": "Communal",
+    "dash.scope.commun": "Commun",
 
     // Infrastructure
     "infra.title": "Infrastructure Électorale",
