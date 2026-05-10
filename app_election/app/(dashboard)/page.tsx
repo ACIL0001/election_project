@@ -69,7 +69,7 @@ export default function Dashboard() {
             <Zap size={12} className="text-algerian-green" />
             <span className="text-[10px] font-black uppercase tracking-widest text-algerian-green">{t("dash.badge")}</span>
           </div>
-          <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
+          <h1 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
             {t("dash.title")}
           </h1>
           <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
@@ -101,12 +101,12 @@ export default function Dashboard() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        className="flex overflow-x-auto pb-6 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 hide-scrollbar snap-x snap-mandatory"
       >
-        <StatCard title={language === 'ar' ? 'إجمالي الولايات' : 'Total Wilayas'} value={wilayasData.length} icon={Globe} trend={{ value: "100%", isPositive: true }} delay={0} />
-        <StatCard title={t("dash.kpi.desks")} value={desksData.length} icon={Vote} trend={{ value: "4.2%", isPositive: true }} delay={1} />
-        <StatCard title={language === 'ar' ? 'الموظفين النشطين' : 'Personnel Actif'} value={observersData.length + membersData.length} icon={Users} trend={{ value: "12.5%", isPositive: true }} delay={2} />
-        <StatCard title={language === 'ar' ? 'المترشحين المسجلين' : 'Candidats Inscrits'} value={candidatesData.length} icon={Flag} trend={{ value: "2.1%", isPositive: true }} delay={3} />
+        <StatCard className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 flex-shrink-0 snap-center" title={language === 'ar' ? 'إجمالي الولايات' : 'Total Wilayas'} value={wilayasData.length} icon={Globe} trend={{ value: "100%", isPositive: true }} delay={0} />
+        <StatCard className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 flex-shrink-0 snap-center" title={t("dash.kpi.desks")} value={desksData.length} icon={Vote} trend={{ value: "4.2%", isPositive: true }} delay={1} />
+        <StatCard className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 flex-shrink-0 snap-center" title={language === 'ar' ? 'الموظفين النشطين' : 'Personnel Actif'} value={observersData.length + membersData.length} icon={Users} trend={{ value: "12.5%", isPositive: true }} delay={2} />
+        <StatCard className="min-w-[85vw] sm:min-w-[300px] md:min-w-0 flex-shrink-0 snap-center" title={language === 'ar' ? 'المترشحين المسجلين' : 'Candidats Inscrits'} value={candidatesData.length} icon={Flag} trend={{ value: "2.1%", isPositive: true }} delay={3} />
       </motion.div>
 
       {/* Advanced Bento Grid */}
@@ -149,7 +149,7 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div className="md:col-span-2 grid grid-cols-3 gap-4">
+              <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { label: language === 'ar' ? "تمت المصادقة" : "Validés", value: "48,210", color: "text-emerald-500", icon: CheckCircle2 },
                   { label: language === 'ar' ? "نزاعات" : "Litiges", value: "1,190", color: "text-algerian-red", icon: AlertCircle },

@@ -168,22 +168,22 @@ export default function EntitesPolitiques() {
       </div>
 
       {/* Tabs System */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-fit border-white/5">
+      <div className="grid grid-cols-2 gap-1 md:flex md:flex-nowrap items-center md:gap-2 p-1.5 glass dark:bg-white/5 rounded-[22px] w-full md:w-fit border-white/5">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "flex items-center gap-3 px-6 py-3 rounded-[18px] text-xs font-black uppercase tracking-widest transition-all duration-500 relative",
+              "flex flex-col md:flex-row items-center justify-center gap-1 md:gap-3 p-2 md:px-6 md:py-3 rounded-[18px] text-[8px] md:text-xs font-black uppercase tracking-tight md:tracking-widest transition-all duration-500 relative",
               activeTab === tab.id
-                ? "bg-white dark:bg-white text-zinc-900 dark:text-black scale-105 z-10"
+                ? "bg-white dark:bg-white text-zinc-900 dark:text-black scale-100 md:scale-105 z-10"
                 : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
             )}
           >
-            <tab.icon size={16} strokeWidth={2.5} />
-            {tab.label}
+            <tab.icon className="w-4 h-4 md:w-4 md:h-4" strokeWidth={2.5} />
+            <span className="text-center leading-tight line-clamp-1">{tab.label}</span>
             <span className={cn(
-              "ml-1 px-2 py-0.5 rounded-full text-[9px] font-black",
+              "md:ml-1 px-1.5 md:px-2 py-0.5 rounded-full text-[8px] md:text-[9px] font-black hidden sm:block",
               activeTab === tab.id ? "bg-zinc-900/10 text-zinc-900" : "bg-zinc-200 dark:bg-white/10 text-zinc-500"
             )}>
               {tab.count}

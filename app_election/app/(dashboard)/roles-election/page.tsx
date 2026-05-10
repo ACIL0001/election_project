@@ -143,7 +143,7 @@ export default function RolesElection() {
       </div>
 
       {/* Stats Summary Bento */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-2 md:gap-4 w-full">
         {[
           { label: language === 'ar' ? "إجمالي المعتمدين" : "Total Accrédités", value: observersData.length, icon: Users, color: "text-emerald-500" },
           { label: language === 'ar' ? "الجلسات النشطة" : "Sessions Actives", value: observersData.filter(o => o.status === 'Actif' || o.status === 'نشط').length, icon: Activity, color: "text-blue-500" },
@@ -154,14 +154,14 @@ export default function RolesElection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="p-6 glass dark:bg-white/5 rounded-3xl border-white/10 flex items-center justify-between"
+            className="p-3 sm:p-4 md:p-6 glass dark:bg-white/5 rounded-2xl md:rounded-3xl border-white/10 flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-start gap-2 md:gap-0"
           >
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-1">{stat.label}</p>
-              <h3 className="text-3xl font-black text-zinc-900 dark:text-white">{stat.value}</h3>
+            <div className="order-2 md:order-1">
+              <p className="text-[8px] md:text-[10px] font-black uppercase tracking-tight md:tracking-widest text-zinc-500 mb-1 leading-tight line-clamp-1">{stat.label}</p>
+              <h3 className="text-lg md:text-3xl font-black text-zinc-900 dark:text-white leading-none">{stat.value}</h3>
             </div>
-            <div className={cn("h-12 w-12 rounded-2xl bg-zinc-100 dark:bg-white/5 flex items-center justify-center", stat.color)}>
-              <stat.icon size={24} strokeWidth={2.5} />
+            <div className={cn("h-8 w-8 md:h-12 md:w-12 rounded-xl md:rounded-2xl bg-zinc-100 dark:bg-white/5 flex items-center justify-center order-1 md:order-2 flex-shrink-0", stat.color)}>
+              <stat.icon className="w-4 h-4 md:w-6 md:h-6" strokeWidth={2.5} />
             </div>
           </motion.div>
         ))}

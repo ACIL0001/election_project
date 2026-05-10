@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import { DataProvider } from "./context/DataContext";
@@ -12,17 +13,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { dir } = useLanguage();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <DataProvider>
-      <div className="flex min-h-screen">
-        <Sidebar />
+      <div className="flex min-h-screen relative w-full overflow-x-hidden">
+        <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
         <div className={cn(
-          "flex-1 flex flex-col transition-all duration-300",
-          dir === 'rtl' ? 'pr-72 pl-0' : 'pl-72 pr-0'
+          "flex-1 flex flex-col transition-all duration-300 w-full min-w-0",
+          dir === 'rtl' ? 'lg:pr-72 pl-0' : 'lg:pl-72 pr-0'
         )}>
-          <Header />
-          <main className="flex-1 p-8">
+          <Header toggleSidebar={() => setIsSidebarOpen(true)} />
+          <main className="flex-1 p-4 lg:p-8 w-full">
             {children}
           </main>
         </div>

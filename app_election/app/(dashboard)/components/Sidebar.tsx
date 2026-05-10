@@ -16,12 +16,15 @@ import {
   ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/app/context/LanguageContext";
 
-// Moved inside component to support translation
+interface SidebarProps {
+  isOpen?: boolean;
+  setIsOpen?: (isOpen: boolean) => void;
+}
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
   const pathname = usePathname();
   const { t, dir, language } = useLanguage();
 
@@ -50,10 +53,26 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className={cn(
-      "flex h-full w-72 flex-col sidebar-glass fixed top-0 z-40 p-4",
-      dir === 'rtl' ? 'right-0 border-l border-white/5' : 'left-0 border-r border-white/5'
-    )}>
+    <>
+      {/* Mobile Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen?.(false)}
+            className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          />
+        )}
+      </AnimatePresence>
+
+      <div className={cn(
+        "flex h-full w-72 flex-col sidebar-glass fixed top-0 z-50 p-4 transition-transform duration-300",
+        dir === 'rtl' 
+          ? `right-0 border-l border-white/5 ${isOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'}` 
+          : `left-0 border-r border-white/5 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`
+      )}>
       {/* Brand Header */}
       <div className="flex h-16 items-center px-4 mb-6">
         <div className="flex items-center gap-3">
@@ -99,16 +118,17 @@ export default function Sidebar() {
               {group.items.map((item) => {
                 const isActive = pathname === item.href;
                 return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={cn(
-                      "group relative flex items-center rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300",
-                      isActive
-                        ? "text-algerian-green dark:text-white"
-                        : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
-                    )}
-                  >
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen?.(false)}
+                      className={cn(
+                        "group relative flex items-center rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300",
+                        isActive
+                          ? "text-algerian-green dark:text-white"
+                          : "text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
+                      )}
+                    >
                     {isActive && (
                       <motion.div
                         layoutId="activeNav"
@@ -150,15 +170,16 @@ export default function Sidebar() {
 
       {/* Footer Actions */}
       <div className="mt-auto px-2 pt-6 border-t border-zinc-100 dark:border-white/5 space-y-1">
-        <Link href="/settings" className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
+        <Link href="/settings" onClick={() => setIsOpen?.(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
           <Settings size={18} />
           <span>{t("nav.settings")}</span>
         </Link>
-        <Link href="/help" className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
+        <Link href="/help" onClick={() => setIsOpen?.(false)} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-white/5 transition-all">
           <HelpCircle size={18} />
           <span>{language === 'ar' ? 'المساعدة والدعم' : 'Aide & Support'}</span>
         </Link>
       </div>
     </div>
+    </>
   );
 }

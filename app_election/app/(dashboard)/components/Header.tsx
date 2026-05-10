@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Search, User, Sun, Moon, Activity, Globe, ShieldCheck } from "lucide-react";
+import { Bell, Search, User, Sun, Moon, Activity, Globe, ShieldCheck, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
@@ -9,7 +9,11 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/app/context/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Header() {
+interface HeaderProps {
+  toggleSidebar?: () => void;
+}
+
+export default function Header({ toggleSidebar }: HeaderProps) {
   const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
   const { electionScope, setElectionScope } = useData();
@@ -44,14 +48,22 @@ export default function Header() {
   };
 
   return (
-    <header className="h-20 glass sticky top-0 z-30 flex items-center justify-between px-10 border-b border-white/5 backdrop-blur-xl shadow-sm">
-      <div className="flex items-center gap-6">
+    <header className="h-20 glass sticky top-0 z-30 flex items-center justify-between px-4 lg:px-10 border-b border-white/5 backdrop-blur-xl shadow-sm">
+      <div className="flex items-center gap-3 lg:gap-6">
+        {/* Mobile Hamburger Menu */}
+        <button 
+          onClick={toggleSidebar}
+          className="lg:hidden h-10 w-10 flex items-center justify-center rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all"
+        >
+          <Menu size={20} />
+        </button>
+
         <div className="flex flex-col">
           <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 mb-0.5">
             <span className="flex h-1.5 w-1.5 rounded-full bg-algerian-green animate-pulse" />
             {language === 'ar' ? 'النظام نشط' : 'Système Actif'}
           </div>
-          <h2 className="text-lg font-black tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-sm lg:text-lg font-black tracking-tight text-zinc-900 dark:text-white truncate max-w-[120px] sm:max-w-xs lg:max-w-none">
             {getPageTitle()}
           </h2>
         </div>
@@ -102,18 +114,18 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="h-8 w-[1px] bg-zinc-200 dark:bg-white/10 mx-1"></div>
+        <div className="hidden sm:block h-8 w-[1px] bg-zinc-200 dark:bg-white/10 mx-1"></div>
 
-        <div className="flex items-center gap-3 group cursor-pointer ps-2">
-          <div className="flex flex-col items-end">
+        <div className="flex items-center gap-3 group cursor-pointer ps-1 sm:ps-2">
+          <div className="hidden md:flex flex-col items-end">
             <span className="text-sm font-black text-zinc-900 dark:text-white leading-tight">{t("user.admin_central")}</span>
             <div className="flex items-center gap-1.5">
               <ShieldCheck size={10} className="text-algerian-green dark:text-algerian-green-light" />
               <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">{language === 'ar' ? 'العمليات' : 'Opérations'}</span>
             </div>
           </div>
-          <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-algerian-green to-algerian-green-light flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300 ring-2 ring-offset-2 ring-transparent group-hover:ring-algerian-green/20 dark:ring-offset-black">
-            <User size={22} strokeWidth={2.5} />
+          <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl bg-gradient-to-br from-algerian-green to-algerian-green-light flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300 ring-2 ring-offset-2 ring-transparent group-hover:ring-algerian-green/20 dark:ring-offset-black flex-shrink-0">
+            <User size={20} strokeWidth={2.5} className="sm:h-[22px] sm:w-[22px]" />
           </div>
         </div>
       </div>

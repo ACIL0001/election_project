@@ -120,23 +120,23 @@ export default function DataTable({ columns, data, title, onEdit, onDelete }: Da
                     ))}
                     {(onEdit || onDelete) && (
                       <td className="px-6 py-4.5 text-end">
-                        <div className="flex items-center justify-end gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex items-center justify-end gap-3 transition-opacity">
                           {onEdit && (
                             <button 
                               onClick={() => onEdit(row)}
-                              className="h-8 w-8 flex items-center justify-center rounded-lg text-zinc-400 hover:text-algerian-green hover:bg-algerian-green/10 transition-all"
+                              className="p-1 text-algerian-green hover:text-emerald-600 transition-colors"
                               title={language === 'ar' ? 'تعديل' : 'Modifier'}
                             >
-                              <Edit2 size={14} />
+                              <Edit2 size={16} strokeWidth={2.5} />
                             </button>
                           )}
                           {onDelete && (
                             <button 
                               onClick={() => onDelete(row)}
-                              className="h-8 w-8 flex items-center justify-center rounded-lg text-zinc-400 hover:text-algerian-red hover:bg-algerian-red/10 transition-all"
+                              className="p-1 text-algerian-red hover:text-red-700 transition-colors"
                               title={language === 'ar' ? 'حذف' : 'Supprimer'}
                             >
-                              <Trash2 size={14} />
+                              <Trash2 size={16} strokeWidth={2.5} />
                             </button>
                           )}
                         </div>
