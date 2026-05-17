@@ -156,7 +156,7 @@ export default function RolesElection() {
           <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
             {t("nav.roles")}
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px] whitespace-nowrap">
             {language === 'ar' ? 'إدارة الاعتمادات المؤقتة والإشراف على الموظفين الميدانيين للاقتراع الوطني.' : 'Gestion des accréditations temporaires et supervision du personnel de terrain pour le scrutin national.'}
           </p>
         </motion.div>

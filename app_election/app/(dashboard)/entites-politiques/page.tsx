@@ -208,7 +208,7 @@ export default function EntitesPolitiques() {
           <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
             {t("nav.entities")}
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px] whitespace-nowrap">
             {language === 'ar' ? 'الإدارة المؤسسية للأحزاب والمصادقة على السجل الوطني للترشيحات.' : 'Gestion institutionnelle des partis et validation du registre national des candidatures.'}
           </p>
         </motion.div>

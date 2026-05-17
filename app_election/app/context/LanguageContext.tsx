@@ -52,7 +52,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Access Management
     "access.title": "Gestion des Accès",
     "access.subtitle": "Orchestration des permissions institutionnelles et audit du personnel opérationnel national.",
-    "access.badge": "Contرôle de Gouvernance",
+    "access.badge": "Contrôle de Gouvernance",
     "access.btn.add": "Créer Utilisateur",
     "access.tab.admins": "Administrateurs",
     "access.tab.members": "Membres de Bureau",
@@ -78,7 +78,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Roles
     "roles.title": "Rôles & Missions",
-    "roles.subtitle": "Gestion des accréditations temporaires et supervision du personnel de terrain.",
+    "roles.subtitle": "Gestion des accréditations temporaires et supervision du personnel de terrain pour le scrutin national.",
     "roles.badge": "Déploiement Opérationnel",
     "roles.btn.add": "Accréditer Observateur",
 

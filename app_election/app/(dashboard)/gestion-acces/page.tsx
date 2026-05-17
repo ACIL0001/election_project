@@ -193,7 +193,7 @@ export default function GestionAcces() {
           <h1 className="text-4xl font-black text-zinc-900 dark:text-white lg:text-4xl lg:whitespace-nowrap font-plus-jakarta">
             {t("nav.access")}
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px]">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium max-w-2xl leading-relaxed w-full min-w-[300px] whitespace-nowrap">
             {language === 'ar' ? 'تنظيم التصاريح المؤسسية وتدقيق الموظفين التشغيليين الوطنيين.' : 'Orchestration des permissions institutionnelles et audit du personnel opérationnel national.'}
           </p>
         </motion.div>

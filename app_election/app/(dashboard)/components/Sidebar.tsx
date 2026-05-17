@@ -18,6 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { AlgeriaMapIcon } from "./AlgeriaMapIcon";
 
 interface SidebarProps {
   isOpen?: boolean;
@@ -74,14 +75,14 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
           : `left-0 border-r border-white/5 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`
       )}>
       {/* Brand Header */}
-      <div className="flex h-16 items-center px-4 mb-6">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-algerian-green flex items-center justify-center text-white glow-emerald">
-            <ShieldCheck size={24} strokeWidth={2.5} />
+      <div className="flex h-16 items-center px-4 mb-6 mt-1">
+        <div className="flex items-center gap-3.5">
+          <div className="h-12 w-12 rounded-2xl bg-algerian-green flex items-center justify-center text-white glow-emerald">
+            <AlgeriaMapIcon className="w-7 h-7" />
           </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-black tracking-tighter text-algerian-green dark:text-white leading-none">ANIE</span>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{language === 'ar' ? 'الجزائر' : 'Algérie'}</span>
+          <div className="flex flex-col gap-0.5">
+            <span className="text-2xl font-black tracking-tighter text-algerian-green dark:text-white leading-none">ANIE</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-zinc-500 font-bold">{language === 'ar' ? 'الجزائر' : 'Algérie'}</span>
           </div>
         </div>
       </div>
