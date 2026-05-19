@@ -19,6 +19,7 @@ type CitizenRow = {
   wilaya: string;
   commune: string;
   party: string;
+  added_by: string;
 };
 
 function geoLabel(
@@ -56,6 +57,7 @@ function mapCitizen(
     wilaya: geoLabel(wilayaDoc, language),
     commune: geoLabel(communeDoc, language),
     party,
+    added_by: member?.full_name ? String(member.full_name) : "—",
   };
 }
 
@@ -306,6 +308,18 @@ export default function CitoyensPage() {
             {
               header: language === "ar" ? "البلدية" : "Commune",
               accessor: "commune",
+            },
+            {
+              header: language === "ar" ? "أضيف بواسطة" : "Ajouté par",
+              accessor: "added_by",
+              render: (val) => (
+                <span className={cn(
+                  "text-xs font-semibold",
+                  val && val !== "—" ? "text-indigo-600 dark:text-indigo-400 font-bold" : "text-zinc-400"
+                )}>
+                  {String(val)}
+                </span>
+              ),
             },
             {
               header: language === "ar" ? "الحزب" : "Parti",

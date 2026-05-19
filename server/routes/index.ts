@@ -121,7 +121,7 @@ apiRouter.get(
 apiRouter.get("/citizens/:id", requireAuth, validate(citizenVal.getByIdSchema), citizenCtrl.getById);
 apiRouter.post("/citizens", requireAuth, requireRoles("super_admin", "admin_commun", "member_actif"), writeLimiter, validate(citizenVal.createSchema), citizenCtrl.create);
 apiRouter.put("/citizens/:id", requireAuth, requireRoles("super_admin", "admin_commun", "member_actif"), writeLimiter, validate(citizenVal.updateSchema), citizenCtrl.update);
-apiRouter.delete("/citizens/:id", requireAuth, requireRoles("super_admin", "admin_commun"), writeLimiter, citizenCtrl.remove);
+apiRouter.delete("/citizens/:id", requireAuth, requireRoles("super_admin", "admin_commun", "member_actif"), writeLimiter, citizenCtrl.remove);
 
 // ────────────────────────── Centers ─────────────────────────
 apiRouter.get("/centers", requireAuth, validate(centerVal.listSchema), scopeGuard(), centerCtrl.list);

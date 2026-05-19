@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Building2, Flag, MapPin, Users, Vote } from "lucide-react";
+import { Building2, Flag, MapPin, Users, Vote, UsersRound } from "lucide-react";
 import { useAuth } from "@/app/context/AuthContext";
 import { useData } from "../context/DataContext";
 import { useLanguage } from "@/app/context/LanguageContext";
@@ -22,6 +22,7 @@ export default function AdminWilayaDashboard() {
     membersData,
     candidatesData,
     centersData,
+    citizensData,
     isLoading,
   } = useData();
   const { data: aggregateWilaya } = useAggregateByWilaya(user?.wilaya_id ?? null);
@@ -42,10 +43,18 @@ export default function AdminWilayaDashboard() {
     () => centersData.filter((c) => matchWilaya(c.wilaya_id, wilayaId)),
     [centersData, wilayaId]
   );
+  const scopedCandidates = useMemo(
+    () => candidatesData.filter((c) => matchWilaya(c.wilaya_id, wilayaId)),
+    [candidatesData, wilayaId]
+  );
+  const scopedCitizens = useMemo(
+    () => citizensData.filter((c) => matchWilaya(c.wilaya_id, wilayaId)),
+    [citizensData, wilayaId]
+  );
 
   const candidatsByCommune = useMemo(
-    () => topChartSeries(countByCommune(communesData, candidatesData, "candidates")),
-    [communesData, candidatesData]
+    () => topChartSeries(countByCommune(communesData, scopedCandidates, "candidates")),
+    [communesData, scopedCandidates]
   );
   const desksByCommune = useMemo(
     () => topChartSeries(countByCommune(communesData, scopedDesks, "desks")),
@@ -55,12 +64,21 @@ export default function AdminWilayaDashboard() {
     () => topChartSeries(countByCommune(communesData, scopedMembers, "members")),
     [communesData, scopedMembers]
   );
+  const citizensByCommune = useMemo(
+    () => topChartSeries(countByCommune(communesData, scopedCitizens, "members")),
+    [communesData, scopedCitizens]
+  );
 
   const donutElectoral = useMemo(
     () => [
       {
+        label: language === "ar" ? "مواطنون" : "Citoyens",
+        value: scopedCitizens.length,
+        color: "#10b981",
+      },
+      {
         label: language === "ar" ? "مترشحون" : "Candidats",
-        value: candidatesData.length,
+        value: scopedCandidates.length,
         color: "#006233",
       },
       {
@@ -74,7 +92,7 @@ export default function AdminWilayaDashboard() {
         color: "#f59e0b",
       },
     ],
-    [language, candidatesData.length, scopedMembers.length, scopedDesks.length]
+    [language, scopedCandidates.length, scopedMembers.length, scopedDesks.length, scopedCitizens.length]
   );
 
   const participationRate = aggregateWilaya?.total_voters
@@ -114,44 +132,51 @@ export default function AdminWilayaDashboard() {
       <motion.div
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6"
       >
+        <StatCard
+          title={language === "ar" ? "مواطنون مسجلون" : "Citoyens enregistrés"}
+          value={scopedCitizens.length}
+          icon={UsersRound}
+          delay={0}
+        />
         <StatCard
           title={language === "ar" ? "البلديات" : "Communes"}
           value={communesData.length}
           icon={Building2}
-          delay={0}
+          delay={1}
         />
         <StatCard
           title={language === "ar" ? "مكاتب التصويت" : "Bureaux de vote"}
           value={scopedDesks.length}
           icon={Vote}
-          delay={1}
+          delay={2}
         />
         <StatCard
           title={language === "ar" ? "أعضاء نشطون" : "Membres actifs"}
           value={scopedMembers.length}
           icon={Users}
-          delay={2}
+          delay={3}
         />
         <StatCard
           title={language === "ar" ? "المترشحون" : "Candidats"}
-          value={candidatesData.length}
+          value={scopedCandidates.length}
           icon={Flag}
-          delay={3}
+          delay={4}
         />
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <BarChartPanel
-          title={language === "ar" ? "المترشحون حسب البلدية" : "Candidats par commune"}
-          subtitle={language === "ar" ? "أعلى البلديات" : "Top communes"}
-          data={candidatsByCommune}
+          title={language === "ar" ? "المواطنون حسب البلدية" : "Citoyens par commune"}
+          subtitle={language === "ar" ? "توزيع المواطنين" : "Répartition des citoyens"}
+          data={citizensByCommune}
           emptyLabel={language === "ar" ? "لا توجد بيانات" : "Aucune donnée"}
         />
         <BarChartPanel
-          title={language === "ar" ? "مكاتب التصويت حسب البلدية" : "Bureaux par commune"}
-          data={desksByCommune}
+          title={language === "ar" ? "المترشحون حسب البلدية" : "Candidats par commune"}
+          subtitle={language === "ar" ? "أعلى البلديات" : "Top communes"}
+          data={candidatsByCommune}
           emptyLabel={language === "ar" ? "لا توجد بيانات" : "Aucune donnée"}
         />
       </div>
@@ -163,30 +188,38 @@ export default function AdminWilayaDashboard() {
           data={donutElectoral}
         />
         <BarChartPanel
-          title={language === "ar" ? "الأعضاء النشطون حسب البلدية" : "Membres actifs par commune"}
-          data={membersByCommune}
+          title={language === "ar" ? "مكاتب التصويت حسب البلدية" : "Bureaux par commune"}
+          data={desksByCommune}
           emptyLabel={language === "ar" ? "لا توجد بيانات" : "Aucune donnée"}
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="glass rounded-2xl p-5 border border-white/5">
-          <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 flex items-center gap-2">
-            <MapPin size={12} />
-            {language === "ar" ? "مراكز التصويت" : "Centres de vote"}
-          </p>
-          <p className="text-3xl font-black text-zinc-900 dark:text-white mt-2 tabular-nums">
-            {scopedCenters.length}
-          </p>
-        </div>
-        {participationRate != null && (
-          <div className="glass rounded-2xl p-5 border border-emerald-500/20 bg-emerald-500/5 md:col-span-2">
-            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-              {language === "ar" ? "مشاركة الولاية (نتائج)" : "Participation wilaya (résultats)"}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <BarChartPanel
+          title={language === "ar" ? "الأعضاء النشطون حسب البلدية" : "Membres actifs par commune"}
+          data={membersByCommune}
+          emptyLabel={language === "ar" ? "لا توجد بيانات" : "Aucune donnée"}
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-fit">
+          <div className="glass rounded-2xl p-5 border border-white/5 flex flex-col justify-center min-h-[110px]">
+            <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500 flex items-center gap-2">
+              <MapPin size={12} className="text-zinc-500" />
+              {language === "ar" ? "مراكز التصويت" : "Centres de vote"}
             </p>
-            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-2">{participationRate}%</p>
+            <p className="text-3xl font-black text-zinc-900 dark:text-white mt-2 tabular-nums">
+              {scopedCenters.length}
+            </p>
           </div>
-        )}
+          {participationRate != null && (
+            <div className="glass rounded-2xl p-5 border border-emerald-500/20 bg-emerald-500/5 flex flex-col justify-center min-h-[110px]">
+              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+                {language === "ar" ? "مشاركة الولاية (نتائج)" : "Participation wilaya (résultats)"}
+              </p>
+              <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-2">{participationRate}%</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

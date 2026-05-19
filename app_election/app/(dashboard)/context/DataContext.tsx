@@ -29,6 +29,7 @@ interface DataContextType {
   membersData: any[];
   observersData: any[];
   resultsData: any[];
+  citizensData: any[];
   memberWilaya: IWilaya | null;
   memberCommune: ICommune | null;
   isLoading: boolean;
@@ -43,6 +44,7 @@ interface DataContextType {
   setMembersData: (data: any) => void;
   setObserversData: (data: any) => void;
   setResultsData: (data: any) => void;
+  setCitizensData: (data: any) => void;
   electionScope: ElectionScope;
   setElectionScope: (scope: ElectionScope) => void;
   mutation: ReturnType<typeof useMutation>;
@@ -110,6 +112,11 @@ export function DataProvider({ children }: { children: ReactNode }) {
     [user?.role, user?.id, user?.wilaya_id, user?.commune_id]
   );
   const membersQ = useQuery<IMemberActif[]>(isMemberActif ? null : "/members-actifs", { limit: 5000 });
+  const citizensQ = useQuery<any[]>(
+    user ? "/citizens" : null,
+    { limit: 5000, sortBy: "createdAt", sortOrder: "desc" },
+    [user?.id, user?.role]
+  );
   const adminsQ = useQuery<IAdmin[]>(
     canFetchAdmins ? "/admins" : null,
     { limit: 500, ...(user?.role === "admin_wilaya" ? { role: "admin_commun" } : {}) },
@@ -465,6 +472,31 @@ export function DataProvider({ children }: { children: ReactNode }) {
     }));
   }, [membersQ.data]);
 
+  const citizensData = React.useMemo(() => {
+    if (!citizensQ.data) return [];
+    return (citizensQ.data as any[]).map((c) => {
+      const member = c.member_actif as any;
+      return {
+        id: String(c.id || c._id),
+        _id: String(c._id || c.id),
+        full_name: c.full_name,
+        nin: c.nin,
+        phone: c.phone,
+        email: c.email || "",
+        wilaya_id: c.wilaya
+          ? String(typeof c.wilaya === "object" ? c.wilaya._id || c.wilaya.id : c.wilaya)
+          : (member?.wilaya ? String(typeof member.wilaya === "object" ? member.wilaya._id || member.wilaya.id : member.wilaya) : ""),
+        commune_id: c.commune
+          ? String(typeof c.commune === "object" ? c.commune._id || c.commune.id : c.commune)
+          : (member?.commune ? String(typeof member.commune === "object" ? member.commune._id || member.commune.id : member.commune) : ""),
+        added_by: member?.full_name || "",
+        party: typeof c.party === "object" ? c.party?.acronym || c.party?.name : c.party,
+        party_id: c.party ? String(typeof c.party === "object" ? c.party._id || c.party.id : c.party) : "",
+        createdAt: c.createdAt,
+      };
+    });
+  }, [citizensQ.data]);
+
   const observersData = React.useMemo(() => {
     if (!rolesQ.data) return [];
     return (rolesQ.data as IRoleElectionDay[]).map((r) => ({
@@ -514,6 +546,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     candidatsQ.isLoading ||
     adminsQ.isLoading ||
     membersQ.isLoading ||
+    citizensQ.isLoading ||
     rolesQ.isLoading ||
     resultsQ.isLoading ||
     (isMemberActif && (memberWilayaQ.isLoading || memberCommuneQ.isLoading));
@@ -527,6 +560,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     candidatsQ.error ||
     adminsQ.error ||
     membersQ.error ||
+    citizensQ.error ||
     rolesQ.error ||
     resultsQ.error ||
     memberWilayaQ.error ||
@@ -541,9 +575,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
     void candidatsQ.refetch();
     void adminsQ.refetch();
     void membersQ.refetch();
+    void citizensQ.refetch();
     void rolesQ.refetch();
     void resultsQ.refetch();
-  }, [wilayasQ, communesQ, centersQ, desksQ, partiesQ, candidatsQ, adminsQ, membersQ, rolesQ, resultsQ]);
+  }, [wilayasQ, communesQ, centersQ, desksQ, partiesQ, candidatsQ, adminsQ, membersQ, citizensQ, rolesQ, resultsQ]);
 
   const refetchSetter = useCallback((refetchFn: () => Promise<void>) => () => void refetchFn(), []);
 
@@ -560,6 +595,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         membersData,
         observersData,
         resultsData,
+        citizensData,
         memberWilaya: memberWilayaQ.data,
         memberCommune: memberCommuneQ.data,
         isLoading,
@@ -574,6 +610,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         setMembersData: refetchSetter(membersQ.refetch),
         setObserversData: refetchSetter(rolesQ.refetch),
         setResultsData: refetchSetter(resultsQ.refetch),
+        setCitizensData: refetchSetter(citizensQ.refetch),
         electionScope,
         setElectionScope,
         mutation,

@@ -74,10 +74,10 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
       {
         title: language === "ar" ? "العمليات الانتخابية" : "Opérations Électorales",
         items: [
-          { name: t("nav.entities"), href: "/entites-politiques", icon: Flag },
+          user?.role !== "admin_commun" && { name: t("nav.entities"), href: "/entites-politiques", icon: Flag },
           { name: t("nav.validation"), href: "/validation", icon: CheckCircle },
           { name: t("nav.roles"), href: "/roles-election", icon: Calendar },
-        ],
+        ].filter(Boolean) as { name: string; href: string; icon: any }[],
       },
     ];
   }, [user?.role, language, t]);
@@ -199,20 +199,20 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
       </nav>
 
       {/* Footer */}
-      <div className="mt-auto space-y-2 border-t border-zinc-100 px-2 pt-6 dark:border-white/5">
+      <div className="mt-auto space-y-1 border-t border-zinc-100 px-2 pt-4 dark:border-white/5">
         <Link
           href="/settings"
           onClick={() => setIsOpen?.(false)}
           className={cn(
-            "group flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold transition-all duration-300",
+            "group flex items-center gap-3 rounded-xl px-3.5 py-2 text-[13px] font-semibold transition-all duration-300",
             pathname === "/settings"
-              ? "bg-white text-algerian-green shadow-sm dark:bg-white/10 dark:text-white"
-              : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-white/5 dark:hover:text-white"
+              ? "bg-zinc-100 text-algerian-green dark:bg-white/10 dark:text-white"
+              : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 dark:hover:bg-white/5 dark:hover:text-white"
           )}
         >
           <motion.div whileHover={{ rotate: 90 }} transition={{ type: "spring", stiffness: 400, damping: 18 }}>
             <Settings
-              size={18}
+              size={17}
               className={cn(
                 "transition-colors",
                 pathname === "/settings"
@@ -228,50 +228,30 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
           type="button"
           onClick={handleLogout}
           disabled={isLoggingOut}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
           className={cn(
-            "group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl border px-4 py-3 text-sm font-black uppercase tracking-widest transition-colors duration-300",
-            "border-red-500/20 bg-gradient-to-r from-red-500/5 via-transparent to-red-500/10",
-            "text-red-600 hover:border-red-500/40 hover:from-red-500/10 hover:to-red-500/20",
-            "dark:text-red-400 dark:hover:border-red-500/30",
-            isLoggingOut && "pointer-events-none opacity-70"
+            "group flex w-full items-center gap-3 rounded-xl px-3.5 py-2 text-[13px] font-semibold transition-all duration-300",
+            "text-red-600 hover:bg-red-50/50 hover:text-red-700 dark:text-red-400/90 dark:hover:bg-red-500/10 dark:hover:text-red-300",
+            isLoggingOut && "pointer-events-none opacity-50"
           )}
         >
-          <span
-            className={cn(
-              "absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100",
-              "bg-[radial-gradient(circle_at_20%_50%,rgba(239,68,68,0.12),transparent_55%)]"
-            )}
-          />
           <motion.span
-            className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-red-500/10 ring-1 ring-red-500/20 group-hover:bg-red-500/20 group-hover:ring-red-500/35"
-            animate={isLoggingOut ? { x: [0, 4, 0], opacity: [1, 0.6, 1] } : {}}
+            className="flex shrink-0 items-center justify-center transition-transform"
+            animate={isLoggingOut ? { x: [0, 3, 0] } : {}}
             whileHover={
               isLoggingOut
                 ? undefined
                 : {
-                    x: dir === "rtl" ? [0, -3, 0] : [0, 3, 0],
-                    transition: { duration: 0.45, ease: "easeInOut" },
+                    x: dir === "rtl" ? -2 : 2,
+                    transition: { duration: 0.3, ease: "easeInOut" },
                   }
             }
-            transition={
-              isLoggingOut ? { duration: 0.8, repeat: Infinity, ease: "easeInOut" } : undefined
-            }
+            transition={isLoggingOut ? { duration: 0.8, repeat: Infinity, ease: "easeInOut" } : undefined}
           >
-            <motion.span
-              animate={isLoggingOut ? { rotate: 360 } : { rotate: 0 }}
-              transition={
-                isLoggingOut
-                  ? { duration: 1, repeat: Infinity, ease: "linear" }
-                  : { type: "spring", stiffness: 300, damping: 20 }
-              }
-              whileHover={isLoggingOut ? undefined : { rotate: dir === "rtl" ? -12 : 12 }}
-            >
-              <LogOut size={18} strokeWidth={2.5} className="text-red-500 dark:text-red-400" />
-            </motion.span>
+            <LogOut size={17} className="text-red-500 dark:text-red-400" />
           </motion.span>
-          <span className="relative flex-1 text-start">
+          <span className="flex-1 text-start">
             {isLoggingOut
               ? language === "ar"
                 ? "جاري الخروج..."

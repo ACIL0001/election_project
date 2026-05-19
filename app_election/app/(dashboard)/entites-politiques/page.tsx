@@ -638,14 +638,14 @@ export default function EntitesPolitiques() {
               <DataTable 
                 title={language === 'ar' ? 'سجل الأحزاب السياسية' : "Registre des Partis Politiques"}
                 columns={[
-                  { header: language === 'ar' ? 'الشعار' : "Sigle", accessor: "short", render: (val) => (
+                  { header: language === 'ar' ? 'الشعار' : "Sigle", accessor: "short", render: (val: any) => (
                     <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 flex items-center justify-center font-black text-emerald-500 border border-transparent dark:border-white/10">
                       {val}
                     </div>
                   )},
-                  { header: language === 'ar' ? 'التسمية الرسمية' : "Dénomination Officielle", accessor: "name", render: (val) => <span className="font-black text-zinc-900 dark:text-white tracking-tight">{val}</span> },
-                  { header: language === 'ar' ? 'المقر الوطني' : "Siège National", accessor: "wilaya_siege", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
-                  { header: language === 'ar' ? 'الحالة' : "Status", accessor: "short", render: (val) => (
+                  { header: language === 'ar' ? 'التسمية الرسمية' : "Dénomination Officielle", accessor: "name", render: (val: any) => <span className="font-black text-zinc-900 dark:text-white tracking-tight">{val}</span> },
+                  { header: language === 'ar' ? 'المقر الوطني' : "Siège National", accessor: "wilaya_siege", render: (val: any) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'الحالة' : "Status", accessor: "short", render: (val: any) => (
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       <span className="text-[11px] font-black uppercase tracking-widest text-emerald-500">
@@ -655,8 +655,8 @@ export default function EntitesPolitiques() {
                   )},
                 ]}
                 data={visibleParties}
-                onEdit={canManageParties ? (row) => openModal(row) : undefined}
-                onDelete={canManageParties ? (row) => handleDelete(row.id, "party") : undefined}
+                onEdit={canManageParties ? (row: any) => openModal(row) : undefined}
+                onDelete={canManageParties ? (row: any) => handleDelete(row.id, "party") : undefined}
               />
             )}
 
@@ -733,7 +733,7 @@ export default function EntitesPolitiques() {
               <DataTable 
                 title={language === 'ar' ? 'السجل الوطني للترشيحات' : "Registre National des Candidatures"}
                 columns={[
-                  { header: language === 'ar' ? 'المترشح' : "Candidat", accessor: "full_name", render: (val, row: any) => (
+                  { header: language === 'ar' ? 'المترشح' : "Candidat", accessor: "full_name", render: (val: any, row: any) => (
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 border border-zinc-200 dark:border-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
                         {row._id ? (
@@ -758,7 +758,7 @@ export default function EntitesPolitiques() {
                       </div>
                     </div>
                   )},
-                  { header: language === 'ar' ? 'الانتماء' : "Affiliation", accessor: "party", render: (val) => (
+                  { header: language === 'ar' ? 'الانتماء' : "Affiliation", accessor: "party", render: (val: any) => (
                     <span className={cn(
                       "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest",
                       val === 'Indépendant' || !val ? "bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400" : "bg-emerald-500/10 text-emerald-500"
@@ -766,9 +766,9 @@ export default function EntitesPolitiques() {
                       {val === 'Indépendant' ? (language === 'ar' ? 'مستقل' : 'Indépendant') : (val || (language === 'ar' ? 'مستقل' : 'Indépendant'))}
                     </span>
                   )},
-                  { header: language === 'ar' ? 'الولاية' : "Wilaya", accessor: "wilaya", render: (val) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
-                  { header: language === 'ar' ? 'الاتصال' : "Contact", accessor: "phone", render: (val) => <span className="text-[11px] font-bold text-zinc-500">{val}</span> },
-                  { header: language === 'ar' ? 'المصادقة' : "Validation", accessor: "result", render: (val) => (
+                  { header: language === 'ar' ? 'الولاية' : "Wilaya", accessor: "wilaya", render: (val: any) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'الاتصال' : "Contact", accessor: "phone", render: (val: any) => <span className="text-[11px] font-bold text-zinc-500">{val}</span> },
+                  { header: language === 'ar' ? 'المصادقة' : "Validation", accessor: "result", render: (val: any) => (
                     <div className="flex items-center gap-2">
                       <Activity size={14} className="text-emerald-500" />
                       <span className="font-black text-emerald-500">{val}%</span>
@@ -776,8 +776,8 @@ export default function EntitesPolitiques() {
                   )},
                 ]}
                 data={visibleCandidates}
-                onEdit={canManageCandidates ? (row) => openModal(row) : undefined}
-                onDelete={canManageCandidates ? (row) => handleDelete(row.id, "candidate") : undefined}
+                onEdit={canManageCandidates ? (row: any) => openModal(row) : undefined}
+                onDelete={canManageCandidates ? (row: any) => handleDelete(row.id, "candidate") : undefined}
               />
               </motion.div>
             )}

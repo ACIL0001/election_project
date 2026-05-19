@@ -6,7 +6,6 @@ import { UsersRound, Target, ArrowUpRight, TrendingUp, MapPin, Building2 } from 
 import { useAuth } from "@/app/context/AuthContext";
 import { useData } from "../context/DataContext";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useQuery } from "@/lib/hooks/useApi";
 import type { IWilaya, ICommune } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -24,16 +23,10 @@ function parseGoal(goal?: string): number {
 
 export default function MemberDashboard() {
   const { user } = useAuth();
-  const { memberWilaya, memberCommune } = useData();
+  const { memberWilaya, memberCommune, citizensData, isLoading } = useData();
   const { language, t, dir } = useLanguage();
 
-  const { data: citizensRaw, isLoading } = useQuery<Record<string, unknown>[]>(
-    user?.role === "member_actif" ? "/citizens" : null,
-    { limit: 5000, sortBy: "createdAt", sortOrder: "desc" },
-    [user?.id]
-  );
-
-  const citizens = citizensRaw || [];
+  const citizens = citizensData || [];
   const enrolled = citizens.length;
   const wilayaLabel = geoName(memberWilaya, language);
   const communeLabel = geoName(memberCommune, language);

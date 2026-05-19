@@ -202,6 +202,30 @@ export default function MesCitoyensPage() {
     }
   };
 
+  const handleDelete = async (row: Record<string, unknown>) => {
+    const confirmMsg =
+      language === "ar"
+        ? `هل أنت متأكد من حذف ${row.full_name}؟`
+        : `Êtes-vous sûr de vouloir supprimer ${row.full_name} ?`;
+    if (!window.confirm(confirmMsg)) return;
+
+    try {
+      const apiId = row.id || row._id;
+      await mutation.mutate("DELETE", `/citizens/${apiId}`);
+      await refetch();
+    } catch (err: unknown) {
+      const msg =
+        err instanceof ApiError
+          ? err.message
+          : err instanceof Error
+            ? err.message
+            : language === "ar"
+              ? "فشلت العملية"
+              : "Operation failed";
+      alert(msg);
+    }
+  };
+
   return (
     <div className="space-y-10 pb-20">
       <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-start">
@@ -406,6 +430,7 @@ export default function MesCitoyensPage() {
               ]}
               data={citizens as unknown as Record<string, unknown>[]}
               onEdit={(row) => openModal(row)}
+              onDelete={handleDelete}
             />
           </motion.div>
         </AnimatePresence>

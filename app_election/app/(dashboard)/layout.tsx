@@ -38,6 +38,11 @@ export default function DashboardLayout({
         router.replace("/");
       }
     }
+    if (!isLoading && user?.role === "admin_commun") {
+      if (pathname === "/entites-politiques") {
+        router.replace("/");
+      }
+    }
   }, [isLoading, user?.role, pathname, router]);
 
   if (isLoading) {

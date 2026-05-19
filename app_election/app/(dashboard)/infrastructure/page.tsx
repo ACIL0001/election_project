@@ -43,7 +43,7 @@ export default function InfrastructureSetup() {
 
   const canManageWilayas = isSuperAdmin;
   const canManageCommunes = isSuperAdmin || isAdminWilaya;
-  const canManageCenters = isSuperAdmin;
+  const canManageCenters = isSuperAdmin || isAdminWilaya || isAdminCommun;
   const canManageDesks = isSuperAdmin || isAdminWilaya || isAdminCommun;
 
   type InfraTab = "wilayas" | "communes" | "centers" | "desks";
@@ -167,7 +167,9 @@ export default function InfrastructureSetup() {
   }, [wilayasData, communesData, isSuperAdmin]);
 
   const visibleCommunes = useMemo(() => {
-    if (isAdminCommun) return [];
+    if (isAdminCommun && user?.commune_id) {
+      return communesData.filter((c) => String(c._id || c.id) === String(user.commune_id));
+    }
     let rows = communesData;
     if (isAdminWilaya && user?.wilaya_id) {
       rows = rows.filter((c) => String(c.wilaya_id) === String(user.wilaya_id));
@@ -176,12 +178,19 @@ export default function InfrastructureSetup() {
       rows = rows.filter((c) => String(c.wilaya_id) === String(communeWilayaFilter));
     }
     return rows;
-  }, [communesData, isAdminCommun, isAdminWilaya, user?.wilaya_id, communeWilayaFilter]);
+  }, [communesData, isAdminCommun, isAdminWilaya, user?.wilaya_id, user?.commune_id, communeWilayaFilter]);
 
   const visibleCenters = useMemo(() => {
     if (!canManageCenters) return [];
-    return centersData;
-  }, [centersData, canManageCenters]);
+    let rows = centersData;
+    if (isAdminWilaya && user?.wilaya_id) {
+      rows = rows.filter((c) => String(c.wilaya_id) === String(user.wilaya_id));
+    }
+    if (isAdminCommun && user?.commune_id) {
+      rows = rows.filter((c) => String(c.commune_id) === String(user.commune_id));
+    }
+    return rows;
+  }, [centersData, canManageCenters, isAdminWilaya, isAdminCommun, user?.wilaya_id, user?.commune_id]);
 
   const visibleDesks = useMemo(() => {
     let rows = desksData;
@@ -206,11 +215,11 @@ export default function InfrastructureSetup() {
 
   const scopedWilayasForForm = useMemo(() => {
     if (isSuperAdmin) return wilayasData;
-    if (isAdminWilaya && user?.wilaya_id) {
+    if ((isAdminWilaya || isAdminCommun) && user?.wilaya_id) {
       return wilayasData.filter((w) => String(w._id || w.id) === String(user.wilaya_id));
     }
     return [];
-  }, [wilayasData, isSuperAdmin, isAdminWilaya, user?.wilaya_id]);
+  }, [wilayasData, isSuperAdmin, isAdminWilaya, isAdminCommun, user?.wilaya_id]);
 
   useEffect(() => {
     const allowed: InfraTab[] = [];
@@ -253,7 +262,7 @@ export default function InfrastructureSetup() {
         name: "",
         num: "",
         seats: "",
-        wilayaId: isAdminWilaya ? String(user?.wilaya_id || "") : "",
+        wilayaId: (isAdminWilaya || isAdminCommun) ? String(user?.wilaya_id || "") : "",
         communeId: isAdminCommun ? String(user?.commune_id || "") : "",
         centerId: "",
         location: "",
@@ -583,14 +592,24 @@ export default function InfrastructureSetup() {
                <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الولاية' : 'Wilaya'}</label>
-                  <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.wilayaId} onChange={(e) => setFormData({...formData, wilayaId: e.target.value, communeId: ""})}>
+                  <select 
+                    disabled={isAdminWilaya || isAdminCommun}
+                    className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60 disabled:cursor-not-allowed" 
+                    value={formData.wilayaId} 
+                    onChange={(e) => setFormData({...formData, wilayaId: e.target.value, communeId: ""})}
+                  >
                     <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
                     {scopedWilayasForForm.map(w => <option key={w.id} value={w.id}>{w.name}</option>)}
                   </select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'البلدية' : 'Commune'}</label>
-                  <select className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.communeId} onChange={(e) => setFormData({...formData, communeId: e.target.value})}>
+                  <select 
+                    disabled={isAdminCommun}
+                    className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60 disabled:cursor-not-allowed" 
+                    value={formData.communeId} 
+                    onChange={(e) => setFormData({...formData, communeId: e.target.value})}
+                  >
                     <option value="">{language === 'ar' ? 'اختر...' : 'Choisir...'}</option>
                     {visibleCommunes.filter(c => String(c.wilaya_id || c.wilaya) === String(formData.wilayaId)).map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                   </select>
@@ -687,19 +706,19 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'الولاية' : "Wilaya",
                     accessor: "name",
                     exportValue: (row) => geoLabelLatin(row as { name_fr?: string; name_ar?: string; name?: string }),
-                    render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
+                    render: (val: any) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'المقاعد' : "Sièges",
                     accessor: "seats_count",
                     exportValue: (row) => String(row.seats_count ?? 0),
-                    render: (val) => <span className="font-bold text-indigo-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-indigo-500">{val}</span>,
                   },
                   {
                     header: language === "ar" ? "البلديات" : "Communes",
                     accessor: "communes",
                     exportValue: (row) => String(row.communes ?? 0),
-                    render: (val, row: { communes?: number }) => (
+                    render: (val: any, row: { communes?: number }) => (
                       <button
                         type="button"
                         onClick={() => openCommunesForWilaya(row as { id?: string; _id?: string; name?: string })}
@@ -720,12 +739,12 @@ export default function InfrastructureSetup() {
                     header: language === "ar" ? "المراكز" : "Centres",
                     accessor: "centers",
                     exportValue: (row) => String(row.centers ?? 0),
-                    render: (val) => <span className="font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">{val ?? 0}</span>,
+                    render: (val: any) => <span className="font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">{val ?? 0}</span>,
                   },
                 ]}
                 data={visibleWilayas}
-                onEdit={canManageWilayas ? (row) => openModal("wilaya", row) : undefined}
-                onDelete={canManageWilayas ? (row) => handleDelete(row.id, "wilaya") : undefined}
+                onEdit={canManageWilayas ? (row: any) => openModal("wilaya", row) : undefined}
+                onDelete={canManageWilayas ? (row: any) => handleDelete(row.id, "wilaya") : undefined}
               />
             )}
 
@@ -770,7 +789,7 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'البلدية' : "Commune",
                     accessor: "name",
                     exportValue: (row) => geoLabelLatin(row as { name_fr?: string; name_ar?: string; name?: string }),
-                    render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
+                    render: (val: any) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'الولاية الأصلية' : "Wilaya d'Origine",
@@ -781,24 +800,24 @@ export default function InfrastructureSetup() {
                         wilayasData,
                         String(row.wilaya || "")
                       ),
-                    render: (val) => <span className="font-bold text-zinc-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-zinc-500">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'المراكز' : "Centres",
                     accessor: "centers",
                     exportValue: (row) => String(row.centers ?? 0),
-                    render: (val) => <span className="font-bold text-indigo-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-indigo-500">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'المكاتب' : "Bureaux",
                     accessor: "desks",
                     exportValue: (row) => String(row.desks ?? 0),
-                    render: (val) => <span className="font-bold text-zinc-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-zinc-500">{val}</span>,
                   },
                 ]}
                 data={visibleCommunes}
-                onEdit={canManageCommunes ? (row) => openModal("commune", row) : undefined}
-                onDelete={canManageCommunes ? (row) => handleDelete(row.id, "commune") : undefined}
+                onEdit={canManageCommunes ? (row: any) => openModal("commune", row) : undefined}
+                onDelete={canManageCommunes ? (row: any) => handleDelete(row.id, "commune") : undefined}
               />
               </>
             )}
@@ -812,13 +831,13 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'مركز التصويت' : "Centre de Vote",
                     accessor: "name",
                     exportValue: (row) => String(row.name || ""),
-                    render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
+                    render: (val: any) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'الموقع' : "Localisation",
                     accessor: "location",
                     exportValue: (row) => String(row.location || ""),
-                    render: (val) => <span className="text-[11px] font-medium text-zinc-500">{val}</span>,
+                    render: (val: any) => <span className="text-[11px] font-medium text-zinc-500">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'ذ' : "H",
@@ -834,18 +853,18 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'إجمالي المسجلين' : "Total Inscrits",
                     accessor: "total",
                     exportValue: (row) => String(row.total ?? 0),
-                    render: (val) => <span className="text-algerian-green font-black">{val?.toLocaleString()}</span>,
+                    render: (val: any) => <span className="text-algerian-green font-black">{val?.toLocaleString()}</span>,
                   },
                   {
                     header: language === 'ar' ? 'المكاتب' : "Bureaux",
                     accessor: "numbers_desks",
                     exportValue: (row) => String(row.numbers_desks ?? 0),
-                    render: (val) => <span className="font-bold text-indigo-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-indigo-500">{val}</span>,
                   },
                 ]}
                 data={visibleCenters}
-                onEdit={canManageCenters ? (row) => openModal("center", row) : undefined}
-                onDelete={canManageCenters ? (row) => handleDelete(row.id, "center") : undefined}
+                onEdit={canManageCenters ? (row: any) => openModal("center", row) : undefined}
+                onDelete={canManageCenters ? (row: any) => handleDelete(row.id, "center") : undefined}
               />
             )}
 
@@ -858,13 +877,13 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'رقم المكتب' : "N° Bureau",
                     accessor: "num_desk",
                     exportValue: (row) => String(row.num_desk ?? ""),
-                    render: (val) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
+                    render: (val: any) => <span className="text-zinc-900 dark:text-white font-black tracking-tight">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'المركز التابع له' : "Centre de Rattachement",
                     accessor: "center",
                     exportValue: (row) => String(row.center || ""),
-                    render: (val) => <span className="font-bold text-zinc-500">{val}</span>,
+                    render: (val: any) => <span className="font-bold text-zinc-500">{val}</span>,
                   },
                   {
                     header: language === 'ar' ? 'ذ' : "H",
@@ -880,12 +899,12 @@ export default function InfrastructureSetup() {
                     header: language === 'ar' ? 'المسجلين' : "Inscrits",
                     accessor: "total",
                     exportValue: (row) => String(row.total ?? 0),
-                    render: (val) => <span className="text-algerian-green font-black">{val}</span>,
+                    render: (val: any) => <span className="text-algerian-green font-black">{val}</span>,
                   },
                 ]}
                 data={visibleDesks}
-                onEdit={canManageDesks ? (row) => openModal("desk", row) : undefined}
-                onDelete={canManageDesks ? (row) => handleDelete(row.id, "desk") : undefined}
+                onEdit={canManageDesks ? (row: any) => openModal("desk", row) : undefined}
+                onDelete={canManageDesks ? (row: any) => handleDelete(row.id, "desk") : undefined}
               />
             )}
           </motion.div>

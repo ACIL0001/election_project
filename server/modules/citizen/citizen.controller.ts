@@ -118,4 +118,15 @@ export const update = makeUpdateHandler(Citizen, async (body, req) => {
   if (body.password) body.password = await hashPassword(String(body.password));
   return enrichCitizenBody(body);
 });
-export const remove = makeDeleteHandler(Citizen);
+export const remove: RequestHandler = async (req, res, next) => {
+  try {
+    const user = req.user as JwtUser | undefined;
+    if (user?.role === "member_actif") {
+      await assertMemberOwnsCitizen(String(req.params.id), user.sub);
+    }
+    await crud.deleteDoc(Citizen, req.params.id as string);
+    res.json({ ok: true, message: "Deleted" });
+  } catch (err: any) {
+    res.status(err.status || 500).json({ ok: false, message: err.message });
+  }
+};
