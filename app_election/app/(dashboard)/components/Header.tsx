@@ -42,6 +42,7 @@ export default function Header({ toggleSidebar }: HeaderProps) {
       case "/roles-election": return t("nav.roles");
       case "/citoyens": return t("nav.citizens");
       case "/mes-citoyens": return t("nav.myCitizens");
+      case "/settings": return t("nav.settings");
       default: return t("dash.title");
     }
   };

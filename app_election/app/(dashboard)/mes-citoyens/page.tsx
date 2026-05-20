@@ -227,29 +227,29 @@ export default function MesCitoyensPage() {
   };
 
   return (
-    <div className="space-y-10 pb-20">
-      <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-start">
+    <div className="w-full min-w-0 space-y-10 pb-20">
+      <div className="flex w-full flex-col justify-between gap-6 lg:flex-row lg:items-start">
         <motion.div
           initial={{ opacity: 0, x: dir === "rtl" ? 20 : -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="min-w-0 flex-1 space-y-2"
+          className="w-full min-w-0 flex-1 space-y-2"
         >
           <div className="flex w-fit items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-1">
             <UsersRound size={12} className="text-indigo-500" />
             <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500">
-              {language === "ar" ? "??????" : "Mes citoyens"}
+              {language === "ar" ? "\u0627\u0644\u0633\u062c\u0644 \u0627\u0644\u0634\u062e\u0635\u064a" : "Mes citoyens"}
             </span>
           </div>
-          <h1 className="text-3xl font-black text-zinc-900 dark:text-white font-plus-jakarta md:text-4xl">
+          <h1 className="w-full text-3xl font-black text-zinc-900 dark:text-white font-plus-jakarta md:text-4xl">
             {t("nav.myCitizens")}
           </h1>
-          <p className="text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="w-full text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400">
             {language === "ar"
-              ? "??? ????????? ????? ?????? ?????? ??????? ???."
-              : "Consultez les citoyens que vous avez enregistr?s et ajoutez-en de nouveaux."}
+              ? "\u0627\u0633\u062a\u0639\u0631\u0636 \u0627\u0644\u0645\u0648\u0627\u0637\u0646\u064a\u0646 \u0627\u0644\u0630\u064a\u0646 \u0633\u062c\u0644\u062a\u0647\u0645 \u0648\u0623\u0636\u0641 \u0645\u0648\u0627\u0637\u0646\u064a\u0646 \u062c\u062f\u062f\u064b \u0628\u0646\u0641\u0633 \u0646\u0637\u0627\u0642\u0643."
+              : "Consultez les citoyens que vous avez enregistr\u00e9s et ajoutez-en de nouveaux."}
           </p>
-          <p className="text-xs font-bold text-zinc-500">
-            {wilayaLabel} ? {communeLabel}
+          <p className="w-full text-xs font-bold text-zinc-500 dark:text-zinc-400">
+            {wilayaLabel} &middot; {communeLabel}
           </p>
         </motion.div>
         <button
@@ -258,7 +258,7 @@ export default function MesCitoyensPage() {
           className="inline-flex h-12 shrink-0 items-center gap-2 rounded-2xl bg-algerian-green px-6 text-[11px] font-black uppercase tracking-widest text-white"
         >
           <Plus size={18} strokeWidth={3} />
-          {language === "ar" ? "????? ????" : "Nouveau citoyen"}
+          {language === "ar" ? "\u0625\u0636\u0627\u0641\u0629 \u0645\u0648\u0627\u0637\u0646" : "Nouveau citoyen"}
         </button>
       </div>
 

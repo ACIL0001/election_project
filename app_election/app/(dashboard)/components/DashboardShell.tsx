@@ -42,7 +42,7 @@ export function DashboardHeader({
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="min-w-0 w-full flex-1 space-y-2"
+        className="w-full min-w-0 flex-1 space-y-2"
       >
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-algerian-green/10 border border-algerian-green/20 w-fit">
           <Zap size={12} className="text-algerian-green" />

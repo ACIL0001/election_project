@@ -55,7 +55,7 @@ export default function MemberDashboard() {
         <p className="w-full text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400">
           {t("dash.subtitle")}
         </p>
-        <div className="flex flex-wrap gap-3 pt-2">
+        <div className="flex w-full flex-wrap gap-3 pt-2">
           <div className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-4 py-2.5 dark:border-white/10 dark:bg-white/5">
             <MapPin size={16} className="shrink-0 text-algerian-green" />
             <div>

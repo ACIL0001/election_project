@@ -24,6 +24,7 @@ import { api, ApiError } from "@/lib/api";
 import { normalizeAuthUser } from "@/lib/auth-user";
 import type { AuthUser, UserRole } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import PageHero from "../components/PageHero";
 
 type TabId = "profile" | "security" | "notifications" | "appearance";
 
@@ -195,28 +196,23 @@ export default function SettingsPage() {
 
   return (
     <div className="w-full min-w-0 space-y-10 pb-20">
-      <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="min-w-0 flex-1 space-y-2"
-        >
+      <PageHero
+        dir={dir}
+        badge={
           <div className="flex w-fit items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1">
             <Settings2 size={12} className="text-blue-500" />
             <span className="text-[10px] font-black uppercase tracking-widest text-blue-500">
-              {language === "ar" ? "تكوين الحساب" : "Configuration du compte"}
+              {language === "ar" ? "\u062a\u0643\u0648\u064a\u0646 \u0627\u0644\u062d\u0633\u0627\u0628" : "Configuration du compte"}
             </span>
           </div>
-          <h1 className="w-full text-3xl font-black text-zinc-900 dark:text-white font-plus-jakarta md:text-4xl">
-            {t("nav.settings")}
-          </h1>
-          <p className="w-full max-w-full text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400">
-            {language === "ar"
-              ? "عرض وتعديل معلومات حسابك وكلمة المرور ومظهر الواجهة."
-              : "Consultez et modifiez vos informations, votre mot de passe et l'apparence de l'interface."}
-          </p>
-        </motion.div>
-      </div>
+        }
+        title={t("nav.settings")}
+        subtitle={
+          language === "ar"
+            ? "\u0639\u0631\u0636 \u0648\u062a\u0639\u062f\u064a\u0644 \u0645\u0639\u0644\u0648\u0645\u0627\u062a \u062d\u0633\u0627\u0628\u0643 \u0648\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u0648\u0645\u0638\u0647\u0631 \u0627\u0644\u0648\u0627\u062c\u0647\u0629."
+            : "Consultez et modifiez vos informations, votre mot de passe et l'apparence de l'interface."
+        }
+      />
 
       <div className="flex flex-col gap-8 lg:flex-row">
         <div className="w-full shrink-0 lg:w-64">
