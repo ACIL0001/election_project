@@ -194,6 +194,7 @@ export interface IRoleElectionDay {
   _id: string;
   full_name: string;
   email: string;
+  password_plain?: string;
   phone: string;
   nin: string;
   date_of_birth: string;

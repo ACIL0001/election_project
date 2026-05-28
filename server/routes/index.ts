@@ -138,11 +138,11 @@ apiRouter.put("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wila
 apiRouter.delete("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, deskCtrl.remove);
 
 // ────────────────────────── Roles Election Day ──────────────
-apiRouter.get("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya"), validate(roleEdVal.listSchema), scopeGuard(), roleEdCtrl.list);
-apiRouter.get("/roles-election-day/:id", requireAuth, validate(roleEdVal.getByIdSchema), roleEdCtrl.getById);
-apiRouter.post("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, validate(roleEdVal.createSchema), scopeGuard(), roleEdCtrl.create);
-apiRouter.put("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, validate(roleEdVal.updateSchema), roleEdCtrl.update);
-apiRouter.delete("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, roleEdCtrl.remove);
+apiRouter.get("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), validate(roleEdVal.listSchema), scopeGuard(), roleEdCtrl.list);
+apiRouter.get("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), validate(roleEdVal.getByIdSchema), roleEdCtrl.getById);
+apiRouter.post("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(roleEdVal.createSchema), scopeGuard(), roleEdCtrl.create);
+apiRouter.put("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(roleEdVal.updateSchema), scopeGuard(), roleEdCtrl.update);
+apiRouter.delete("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, scopeGuard(), roleEdCtrl.remove);
 
 // ────────────────────────── Results ─────────────────────────
 apiRouter.post("/results/desk", requireAuth, requireRoles("role_election_day"), uploadLimiter, uploadImage.single("image"), validate(resultDeskVal.submitDeskSchema), resultDeskCtrl.submitDesk);
