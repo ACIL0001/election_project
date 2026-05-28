@@ -122,7 +122,7 @@ export const getById: RequestHandler = async (req, res) => {
 
     res.json({
       ok: true,
-      data: serializeRoleDoc(doc as Record<string, unknown>, canSeeCredentials),
+      data: serializeRoleDoc(doc as unknown as Record<string, unknown>, canSeeCredentials),
     });
   } catch (err: unknown) {
     const e = err as { status?: number; message?: string };
@@ -184,6 +184,7 @@ export const create: RequestHandler = async (req, res) => {
       sent: boolean;
       error?: string;
       phone?: string;
+      parts?: number;
     } = { sent: false };
     if (populated) {
       try {
@@ -289,7 +290,7 @@ export const update: RequestHandler = async (req, res) => {
 
     const doc = await crud.updateDoc(RoleElectionDay, id, data as Record<string, unknown>);
 
-    let sms: { sent: boolean; error?: string; phone?: string; skipped?: boolean } = {
+    let sms: { sent: boolean; error?: string; phone?: string; parts?: number; skipped?: boolean } = {
       sent: false,
       skipped: !shouldResendSms,
     };

@@ -41,6 +41,7 @@ import * as deskCtrl from "../modules/desk/desk.controller";
 import * as deskVal from "../modules/desk/desk.validator";
 import * as roleEdCtrl from "../modules/role-election-day/role-election-day.controller";
 import * as roleEdVal from "../modules/role-election-day/role-election-day.validator";
+import * as infraImportCtrl from "../modules/infrastructure/infrastructure-import.controller";
 
 // ── Results ──
 import * as resultDeskCtrl from "../modules/result-desk/result-desk.controller";
@@ -136,6 +137,15 @@ apiRouter.get("/desks/:id", requireAuth, validate(deskVal.getByIdSchema), deskCt
 apiRouter.post("/desks", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(deskVal.createSchema), deskCtrl.create);
 apiRouter.put("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(deskVal.updateSchema), deskCtrl.update);
 apiRouter.delete("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, deskCtrl.remove);
+
+// ────────────────────────── Infrastructure Import ─────────────
+apiRouter.post(
+  "/infrastructure/import-centers-desks",
+  requireAuth,
+  requireRoles("super_admin"),
+  writeLimiter,
+  infraImportCtrl.importCentersAndDesks
+);
 
 // ────────────────────────── Roles Election Day ──────────────
 apiRouter.get("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), validate(roleEdVal.listSchema), scopeGuard(), roleEdCtrl.list);

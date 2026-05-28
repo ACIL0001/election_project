@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import DataTable from "../components/DataTable";
 import Modal from "../components/Modal";
 import { 
@@ -15,11 +15,13 @@ import {
   MapPin,
   ShieldCheck,
   UserCheck,
+  UserPlus,
   Fingerprint,
   Zap,
   Activity,
   Timer,
-  Loader2
+  Loader2,
+  Search,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -28,7 +30,22 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { useAuth } from "@/app/context/AuthContext";
 import { normalizeAlgerianPhone, normalizeNin } from "@/lib/phone";
 import { api } from "@/lib/api";
+import { useQuery } from "@/lib/hooks/useApi";
+import { normalizeEntityId } from "@/lib/entity-id";
 import type { IRoleElectionDay } from "@/lib/types";
+
+type CreateMode = "new" | "existing";
+
+type PickerPerson = {
+  key: string;
+  kind: "member" | "citizen";
+  id: string;
+  full_name: string;
+  email: string;
+  phone: string;
+  nin: string;
+  date_of_birth: string;
+};
 
 type CenterRow = {
   id?: string;
@@ -98,6 +115,34 @@ function toDateInputValue(v: unknown): string {
   return d.toISOString().slice(0, 10);
 }
 
+function mapMemberToPicker(m: Record<string, unknown>): PickerPerson {
+  const id = normalizeEntityId(m._id) || normalizeEntityId(m.id);
+  return {
+    key: `member-${id}`,
+    kind: "member",
+    id,
+    full_name: String(m.full_name || ""),
+    email: String(m.email || ""),
+    phone: String(m.phone || ""),
+    nin: String(m.nin || ""),
+    date_of_birth: toDateInputValue(m.date_of_birth),
+  };
+}
+
+function mapCitizenToPicker(c: Record<string, unknown>): PickerPerson {
+  const id = normalizeEntityId(c._id) || normalizeEntityId(c.id);
+  return {
+    key: `citizen-${id}`,
+    kind: "citizen",
+    id,
+    full_name: String(c.full_name || ""),
+    email: String(c.email || ""),
+    phone: String(c.phone || ""),
+    nin: String(c.nin || ""),
+    date_of_birth: toDateInputValue(c.date_of_birth),
+  };
+}
+
 const API_ROLE_TO_FORM: Record<string, string> = {
   observateur_centre: "obs_center",
   observateur_bureau: "obs_desk",
@@ -117,7 +162,16 @@ export default function RolesElection() {
   const { t, language, dir } = useLanguage();
   const { user } = useAuth();
 
+  const isSuperAdmin = user?.role === "super_admin";
+  const isAdminWilaya = user?.role === "admin_wilaya";
+  const isAdminCommun = user?.role === "admin_commun";
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [createMode, setCreateMode] = useState<CreateMode>("new");
+  const [pickerWilayaId, setPickerWilayaId] = useState("");
+  const [pickerCommuneId, setPickerCommuneId] = useState("");
+  const [selectedPerson, setSelectedPerson] = useState<PickerPerson | null>(null);
+  const [personSearch, setPersonSearch] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingEdit, setIsLoadingEdit] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -149,33 +203,150 @@ export default function RolesElection() {
     }
   }, [formError, isModalOpen]);
 
+  const scopedWilayas = useMemo(() => {
+    if (isSuperAdmin) return wilayasData;
+    if (user?.wilaya_id) {
+      return wilayasData.filter((w) => String(w._id || w.id) === String(user.wilaya_id));
+    }
+    return [];
+  }, [wilayasData, isSuperAdmin, user?.wilaya_id]);
+
+  const scopedCommunes = useMemo(() => {
+    let rows = communesData;
+    if (isAdminCommun && user?.commune_id) {
+      return rows.filter((c) => String(c._id || c.id) === String(user.commune_id));
+    }
+    if (isAdminWilaya && user?.wilaya_id) {
+      rows = rows.filter((c) => String(c.wilaya_id) === String(user.wilaya_id));
+    }
+    if (pickerWilayaId) {
+      rows = rows.filter((c) => String(c.wilaya_id) === String(pickerWilayaId));
+    }
+    return rows;
+  }, [communesData, isAdminCommun, isAdminWilaya, user?.commune_id, user?.wilaya_id, pickerWilayaId]);
+
+  const pickerFetchEnabled = createMode === "existing" && Boolean(pickerCommuneId) && isModalOpen && !editingItem;
+
+  const membersPickerQ = useQuery<Record<string, unknown>[]>(
+    pickerFetchEnabled ? "/members-actifs" : null,
+    { commune: pickerCommuneId, limit: 5000, sortBy: "full_name", sortOrder: "asc" },
+    [pickerCommuneId, createMode, isModalOpen]
+  );
+
+  const citizensPickerQ = useQuery<Record<string, unknown>[]>(
+    pickerFetchEnabled ? "/citizens" : null,
+    { commune: pickerCommuneId, limit: 5000, sortBy: "full_name", sortOrder: "asc" },
+    [pickerCommuneId, createMode, isModalOpen]
+  );
+
+  const accreditedNins = useMemo(() => {
+    const set = new Set<string>();
+    for (const o of observersData) {
+      const n = normalizeNin(String(o.nin || ""));
+      if (n) set.add(n);
+    }
+    return set;
+  }, [observersData]);
+
+  const pickerPeople = useMemo(() => {
+    const members = (membersPickerQ.data || []).map(mapMemberToPicker);
+    const citizens = (citizensPickerQ.data || []).map(mapCitizenToPicker);
+    const byNin = new Map<string, PickerPerson>();
+    for (const p of [...members, ...citizens]) {
+      const ninKey = normalizeNin(p.nin) || p.key;
+      if (!byNin.has(ninKey)) byNin.set(ninKey, p);
+    }
+    let list = Array.from(byNin.values()).sort((a, b) =>
+      a.full_name.localeCompare(b.full_name, language === "ar" ? "ar" : "fr")
+    );
+    const q = personSearch.trim().toLowerCase();
+    if (q) {
+      list = list.filter(
+        (p) =>
+          p.full_name.toLowerCase().includes(q) ||
+          p.nin.includes(q) ||
+          p.phone.includes(q) ||
+          p.email.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }, [membersPickerQ.data, citizensPickerQ.data, personSearch, language]);
+
+  const identityLocked = createMode === "existing" && Boolean(selectedPerson);
+
+  const centersForMission = useMemo(() => {
+    const rows = centersData as CenterRow[];
+    if (createMode === "existing" && pickerCommuneId) {
+      return rows.filter((c) => String(c.commune_id) === String(pickerCommuneId));
+    }
+    if (user?.commune_id) {
+      return rows.filter((c) => String(c.commune_id) === String(user.commune_id));
+    }
+    if (user?.wilaya_id) {
+      return rows.filter((c) => String(c.wilaya_id) === String(user.wilaya_id));
+    }
+    return rows;
+  }, [centersData, createMode, pickerCommuneId, user?.commune_id, user?.wilaya_id]);
+
   const generatePassword = () => {
     const n = Math.floor(1000 + Math.random() * 9000);
     return `Anie${n}!`;
   };
 
+  const defaultNewUser = () => ({
+    name: "",
+    email: "",
+    password: "",
+    birthday: "",
+    role: "obs_center",
+    center: "",
+    desk: "",
+    time: "08:00",
+    date: defaultMissionDate(),
+    nin: "",
+    phone: "",
+  });
+
+  const applyPersonToForm = (person: PickerPerson) => {
+    setSelectedPerson(person);
+    setNewUser((prev) => ({
+      ...prev,
+      name: person.full_name,
+      email: person.email,
+      nin: person.nin,
+      phone: person.phone.replace(/\D/g, "").slice(0, 10),
+      birthday: person.date_of_birth || prev.birthday,
+      password: prev.password || generatePassword(),
+    }));
+  };
+
+  const openCreateModal = (mode: CreateMode) => {
+    setCreateMode(mode);
+    setEditingItem(null);
+    setEditBaseline(null);
+    setFormError(null);
+    setSelectedPerson(null);
+    setPersonSearch("");
+    const wilayaDefault =
+      isAdminWilaya || isAdminCommun ? String(user?.wilaya_id || "") : "";
+    const communeDefault = isAdminCommun ? String(user?.commune_id || "") : "";
+    setPickerWilayaId(wilayaDefault);
+    setPickerCommuneId(communeDefault);
+    setNewUser(defaultNewUser());
+    setIsModalOpen(true);
+  };
+
   const openModal = async (item: any = null) => {
+    if (!item) {
+      openCreateModal("new");
+      return;
+    }
+    setCreateMode("new");
     setEditingItem(item);
     setEditBaseline(null);
     setFormError(null);
-
-    if (!item) {
-      setNewUser({
-        name: "",
-        email: "",
-        password: "",
-        birthday: "",
-        role: "obs_center",
-        center: "",
-        desk: "",
-        time: "08:00",
-        date: defaultMissionDate(),
-        nin: "",
-        phone: "",
-      });
-      setIsModalOpen(true);
-      return;
-    }
+    setSelectedPerson(null);
+    setPersonSearch("");
 
     const apiId = item._id || item.id;
     const fallbackRole =
@@ -306,9 +477,42 @@ export default function RolesElection() {
         return;
       }
 
+      if (!editingItem && createMode === "existing") {
+        if (!pickerWilayaId || !pickerCommuneId) {
+          setFormError(
+            language === "ar"
+              ? "اختر الولاية والبلدية أولاً"
+              : "Sélectionnez d'abord la wilaya et la commune."
+          );
+          return;
+        }
+        if (!selectedPerson) {
+          setFormError(
+            language === "ar"
+              ? "اختر عضواً نشطاً أو مواطناً من القائمة"
+              : "Sélectionnez un membre actif ou un citoyen dans la liste."
+          );
+          return;
+        }
+        if (!String(newUser.email || "").trim()) {
+          setFormError(
+            language === "ar"
+              ? "البريد الإلكتروني مطلوب لهذا الشخص"
+              : "L'email est requis pour cette personne."
+          );
+          return;
+        }
+      }
+
       let centerId = "";
-      let wilayaId = String(user?.wilaya_id || "");
-      let communeId = String(user?.commune_id || "");
+      let wilayaId =
+        !editingItem && createMode === "existing"
+          ? pickerWilayaId
+          : String(user?.wilaya_id || "");
+      let communeId =
+        !editingItem && createMode === "existing"
+          ? pickerCommuneId
+          : String(user?.commune_id || "");
       const locationText = typedCenter;
 
       if (matchedCenter) {
@@ -465,15 +669,6 @@ export default function RolesElection() {
           </p>
         </motion.div>
 
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <button 
-            onClick={() => openModal()}
-            className="h-12 px-6 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
-          >
-            <UserCheck size={18} strokeWidth={3} />
-            {language === 'ar' ? 'اعتماد مراقب' : 'Accréditer Observateur'}
-          </button>
-        </div>
       </div>
 
       {/* Stats Summary Bento */}
@@ -505,9 +700,19 @@ export default function RolesElection() {
         isOpen={isModalOpen} 
         onClose={() => !isSubmitting && setIsModalOpen(false)} 
         size="xlarge"
-        title={editingItem 
-          ? (language === 'ar' ? "تحديث الاعتماد" : "Mise à jour d'Accréditation") 
-          : (language === 'ar' ? "اعتماد مؤقت جديد" : "Nouvelle Accréditation Temporaire")}
+        title={
+          editingItem
+            ? language === "ar"
+              ? "تحديث الاعتماد"
+              : "Mise à jour d'Accréditation"
+            : createMode === "existing"
+              ? language === "ar"
+                ? "اعتماد — شخص مسجّل مسبقاً"
+                : "Accréditation — personne déjà connue"
+              : language === "ar"
+                ? "اعتماد مؤقت جديد"
+                : "Nouvelle accréditation"
+        }
       >
         <form onSubmit={handleSubmit} className="flex min-h-[520px] flex-col space-y-6 px-1">
           <div ref={formTopRef} />
@@ -530,15 +735,168 @@ export default function RolesElection() {
               isLoadingEdit && "pointer-events-none opacity-50"
             )}
           >
+            {!editingItem && createMode === "existing" && (
+              <div className="space-y-4 rounded-2xl border border-indigo-500/20 bg-indigo-500/5 p-4">
+                <p className="text-[10px] font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+                  {language === "ar"
+                    ? "اختر الولاية والبلدية ثم الشخص"
+                    : "Wilaya, commune, puis choisissez la personne"}
+                </p>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <div className="space-y-1">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                      {language === "ar" ? "الولاية" : "Wilaya"}
+                    </label>
+                    <select
+                      disabled={isSubmitting || isAdminWilaya || isAdminCommun}
+                      className="h-12 w-full rounded-xl border border-zinc-200 bg-white px-3 text-sm font-bold outline-none disabled:opacity-60 dark:border-white/10 dark:bg-zinc-900"
+                      value={pickerWilayaId}
+                      onChange={(e) => {
+                        setPickerWilayaId(e.target.value);
+                        setPickerCommuneId("");
+                        setSelectedPerson(null);
+                        setPersonSearch("");
+                      }}
+                    >
+                      <option value="">{language === "ar" ? "اختر الولاية" : "Choisir wilaya"}</option>
+                      {scopedWilayas.map((w) => {
+                        const wId = String(w._id || w.id);
+                        return (
+                          <option key={wId} value={wId}>
+                            {w.num_wilaya ? `${w.num_wilaya} - ` : ""}
+                            {w.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                      {language === "ar" ? "البلدية" : "Commune"}
+                    </label>
+                    <select
+                      disabled={isSubmitting || !pickerWilayaId || isAdminCommun}
+                      className="h-12 w-full rounded-xl border border-zinc-200 bg-white px-3 text-sm font-bold outline-none disabled:opacity-60 dark:border-white/10 dark:bg-zinc-900"
+                      value={pickerCommuneId}
+                      onChange={(e) => {
+                        setPickerCommuneId(e.target.value);
+                        setSelectedPerson(null);
+                        setPersonSearch("");
+                      }}
+                    >
+                      <option value="">{language === "ar" ? "اختر البلدية" : "Choisir commune"}</option>
+                      {scopedCommunes.map((c) => {
+                        const cId = String(c._id || c.id);
+                        return (
+                          <option key={cId} value={cId}>
+                            {c.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
+
+                {pickerCommuneId && (
+                  <>
+                    <div className="relative">
+                      <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
+                      <input
+                        type="search"
+                        disabled={isSubmitting}
+                        placeholder={
+                          language === "ar" ? "بحث بالاسم أو NIN…" : "Rechercher nom, NIN…"
+                        }
+                        className="h-11 w-full rounded-xl border border-zinc-200 bg-white pl-10 pr-3 text-sm font-bold outline-none dark:border-white/10 dark:bg-zinc-900"
+                        value={personSearch}
+                        onChange={(e) => setPersonSearch(e.target.value)}
+                      />
+                    </div>
+                    {(membersPickerQ.isLoading || citizensPickerQ.isLoading) && (
+                      <div className="flex items-center justify-center gap-2 py-6 text-sm font-bold text-zinc-500">
+                        <Loader2 size={18} className="animate-spin text-indigo-500" />
+                        {language === "ar" ? "جاري التحميل…" : "Chargement…"}
+                      </div>
+                    )}
+                    {!membersPickerQ.isLoading && !citizensPickerQ.isLoading && (
+                      <div className="max-h-48 space-y-2 overflow-y-auto custom-scrollbar pr-1">
+                        {pickerPeople.length === 0 ? (
+                          <p className="py-4 text-center text-xs font-bold text-zinc-500">
+                            {language === "ar"
+                              ? "لا يوجد أعضاء أو مواطنون في هذه البلدية"
+                              : "Aucun membre actif ni citoyen dans cette commune"}
+                          </p>
+                        ) : (
+                          pickerPeople.map((p) => {
+                            const ninKey = normalizeNin(p.nin);
+                            const already = ninKey && accreditedNins.has(ninKey);
+                            const selected = selectedPerson?.key === p.key;
+                            return (
+                              <button
+                                key={p.key}
+                                type="button"
+                                disabled={isSubmitting || already}
+                                onClick={() => applyPersonToForm(p)}
+                                className={cn(
+                                  "flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-all",
+                                  selected
+                                    ? "border-algerian-green bg-algerian-green/10"
+                                    : "border-zinc-200 bg-white hover:border-indigo-300 dark:border-white/10 dark:bg-zinc-900 dark:hover:border-indigo-500/40",
+                                  already && "cursor-not-allowed opacity-50"
+                                )}
+                              >
+                                <div className="min-w-0">
+                                  <p className="truncate text-sm font-black text-zinc-900 dark:text-white">
+                                    {p.full_name}
+                                  </p>
+                                  <p className="text-[10px] font-bold text-zinc-500">
+                                    {p.kind === "member"
+                                      ? language === "ar"
+                                        ? "عضو نشط"
+                                        : "Membre actif"
+                                      : language === "ar"
+                                        ? "مواطن"
+                                        : "Citoyen"}{" "}
+                                    · NIN {p.nin}
+                                  </p>
+                                </div>
+                                {already ? (
+                                  <span className="shrink-0 text-[9px] font-black uppercase text-amber-600">
+                                    {language === "ar" ? "معتمد" : "Accrédité"}
+                                  </span>
+                                ) : selected ? (
+                                  <UserCheck size={18} className="shrink-0 text-algerian-green" />
+                                ) : null}
+                              </button>
+                            );
+                          })
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            )}
+
+            {createMode === "existing" && !selectedPerson && !editingItem && (
+              <p className="rounded-xl border border-dashed border-zinc-300 px-4 py-3 text-center text-xs font-bold text-zinc-500 dark:border-white/10">
+                {language === "ar"
+                  ? "اختر شخصاً من القائمة أعلاه لإكمال المهمة"
+                  : "Sélectionnez une personne ci-dessus pour compléter la mission"}
+              </p>
+            )}
+
+            {(editingItem || createMode === "new" || selectedPerson) && (
+            <>
             <div className="space-y-2">
               <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'هوية الموظف' : 'Identité du Personnel'}</label>
-              <input required disabled={isSubmitting} type="text" placeholder={language === 'ar' ? 'الاسم واللقب' : 'Prénom et Nom'} className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.name} onChange={(e) => setNewUser({...newUser, name: e.target.value})} />
+              <input required disabled={isSubmitting || identityLocked} type="text" placeholder={language === 'ar' ? 'الاسم واللقب' : 'Prénom et Nom'} className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.name} onChange={(e) => setNewUser({...newUser, name: e.target.value})} />
             </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'البريد الإلكتروني' : 'Email'}</label>
-                <input required disabled={isSubmitting} type="email" placeholder="email@exemple.dz" className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.email} onChange={(e) => setNewUser({...newUser, email: e.target.value})} />
+                <input required disabled={isSubmitting || (identityLocked && Boolean(newUser.email))} type="email" placeholder="email@exemple.dz" className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.email} onChange={(e) => setNewUser({...newUser, email: e.target.value})} />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'كلمة المرور' : 'Mot de Passe'}</label>
@@ -574,11 +932,11 @@ export default function RolesElection() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'تاريخ الميلاد' : 'Date de Naissance'}</label>
-                <input required disabled={isSubmitting} type="date" className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.birthday || ""} onChange={(e) => setNewUser({...newUser, birthday: e.target.value})} />
+                <input required disabled={isSubmitting || identityLocked} type="date" className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.birthday || ""} onChange={(e) => setNewUser({...newUser, birthday: e.target.value})} />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الرقم التعريفي الوطني (NIN)' : 'Identifiant National (NIN)'}</label>
-                <input required disabled={isSubmitting} type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder={language === 'ar' ? '18 رقم' : '18 chiffres'} className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.nin} onChange={(e) => setNewUser({...newUser, nin: e.target.value.replace(/\D/g, "")})} />
+                <input required disabled={isSubmitting || identityLocked} type="text" maxLength={18} pattern="[0-9]*" inputMode="numeric" placeholder={language === 'ar' ? '18 رقم' : '18 chiffres'} className="w-full h-14 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold disabled:opacity-60" value={newUser.nin} onChange={(e) => setNewUser({...newUser, nin: e.target.value.replace(/\D/g, "")})} />
               </div>
             </div>
 
@@ -603,7 +961,7 @@ export default function RolesElection() {
                   onChange={(e) => setNewUser({ ...newUser, center: e.target.value })}
                 />
                 <datalist id="center-suggestions">
-                  {(centersData as CenterRow[]).map((c) => {
+                  {centersForMission.map((c) => {
                     const id = String(c.id || c._id || "");
                     const label = [c.name, c.location].filter(Boolean).join(" — ");
                     return <option key={id} value={String(c.name || label)} />;
@@ -616,7 +974,7 @@ export default function RolesElection() {
               <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'جهة اتصال طارئة' : 'Contact Urgent'}</label>
               <input
                 required
-                disabled={isSubmitting}
+                disabled={isSubmitting || identityLocked}
                 type="tel"
                 inputMode="numeric"
                 maxLength={10}
@@ -671,6 +1029,8 @@ export default function RolesElection() {
                 </button>
               </div>
             </div>
+            </>
+            )}
           </div>
 
           <div className="mt-auto flex gap-4 border-t border-zinc-100 pt-6 dark:border-white/5">
@@ -684,7 +1044,11 @@ export default function RolesElection() {
             </button>
             <button
               type="submit"
-              disabled={isSubmitting || isLoadingEdit}
+              disabled={
+                isSubmitting ||
+                isLoadingEdit ||
+                (createMode === "existing" && !editingItem && !selectedPerson)
+              }
               className="flex flex-1 h-16 items-center justify-center gap-2 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-black text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-70 disabled:hover:scale-100"
             >
               {isSubmitting ? (
@@ -703,6 +1067,59 @@ export default function RolesElection() {
           </div>
         </form>
       </Modal>
+
+      {/* Create accréditation — two flows */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="grid gap-4 md:grid-cols-2"
+      >
+        <button
+          type="button"
+          onClick={() => openCreateModal("new")}
+          className="group flex flex-col items-start gap-4 rounded-[28px] border border-zinc-200 bg-white p-6 text-left transition-all hover:border-zinc-900 hover:shadow-lg dark:border-white/10 dark:bg-zinc-900 dark:hover:border-white"
+        >
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-black">
+            <UserPlus size={26} strokeWidth={2.5} />
+          </div>
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-widest text-zinc-500">
+              {language === "ar" ? "القسم 1" : "Section 1"}
+            </p>
+            <h3 className="mt-1 text-lg font-black text-zinc-900 dark:text-white">
+              {language === "ar" ? "اعتماد شخص جديد" : "Nouvelle personne"}
+            </h3>
+            <p className="mt-2 text-sm font-medium text-zinc-500">
+              {language === "ar"
+                ? "إدخال كامل للبيانات كما في النموذج الحالي"
+                : "Saisie complète des informations (formulaire actuel)"}
+            </p>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => openCreateModal("existing")}
+          className="group flex flex-col items-start gap-4 rounded-[28px] border border-indigo-500/25 bg-indigo-500/5 p-6 text-left transition-all hover:border-indigo-500 hover:shadow-lg dark:border-indigo-500/30 dark:bg-indigo-500/10"
+        >
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-500 text-white">
+            <Users size={26} strokeWidth={2.5} />
+          </div>
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+              {language === "ar" ? "القسم 2" : "Section 2"}
+            </p>
+            <h3 className="mt-1 text-lg font-black text-zinc-900 dark:text-white">
+              {language === "ar" ? "شخص تعاملنا معه سابقاً" : "Personne déjà connue"}
+            </h3>
+            <p className="mt-2 text-sm font-medium text-zinc-500">
+              {language === "ar"
+                ? "اختر الولاية والبلدية ثم عضوًا نشطًا أو مواطنًا"
+                : "Choisir wilaya, commune, puis membre actif ou citoyen"}
+            </p>
+          </div>
+        </button>
+      </motion.div>
 
       <DataTable 
         title={language === 'ar' ? "مراقبة الاعتمادات المؤقتة" : "Contrôle des Accréditations Temporaires"}

@@ -110,6 +110,9 @@ export interface IDesk {
   _id: string;
   desk_number: number;
   center: string | ICenter;
+  wilaya?: string | IWilaya;
+  commune?: string | ICommune;
+  type?: "male" | "female";
   male_count: number;
   female_count: number;
   total_voters: number;
