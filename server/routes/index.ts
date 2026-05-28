@@ -41,6 +41,7 @@ import * as deskCtrl from "../modules/desk/desk.controller";
 import * as deskVal from "../modules/desk/desk.validator";
 import * as roleEdCtrl from "../modules/role-election-day/role-election-day.controller";
 import * as roleEdVal from "../modules/role-election-day/role-election-day.validator";
+import * as infraImportCtrl from "../modules/infrastructure/infrastructure-import.controller";
 
 // ── Results ──
 import * as resultDeskCtrl from "../modules/result-desk/result-desk.controller";
@@ -137,12 +138,21 @@ apiRouter.post("/desks", requireAuth, requireRoles("super_admin", "admin_wilaya"
 apiRouter.put("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(deskVal.updateSchema), deskCtrl.update);
 apiRouter.delete("/desks/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, deskCtrl.remove);
 
+// ────────────────────────── Infrastructure Import ─────────────
+apiRouter.post(
+  "/infrastructure/import-centers-desks",
+  requireAuth,
+  requireRoles("super_admin"),
+  writeLimiter,
+  infraImportCtrl.importCentersAndDesks
+);
+
 // ────────────────────────── Roles Election Day ──────────────
-apiRouter.get("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya"), validate(roleEdVal.listSchema), scopeGuard(), roleEdCtrl.list);
-apiRouter.get("/roles-election-day/:id", requireAuth, validate(roleEdVal.getByIdSchema), roleEdCtrl.getById);
-apiRouter.post("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, validate(roleEdVal.createSchema), scopeGuard(), roleEdCtrl.create);
-apiRouter.put("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, validate(roleEdVal.updateSchema), roleEdCtrl.update);
-apiRouter.delete("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya"), writeLimiter, roleEdCtrl.remove);
+apiRouter.get("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), validate(roleEdVal.listSchema), scopeGuard(), roleEdCtrl.list);
+apiRouter.get("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), validate(roleEdVal.getByIdSchema), roleEdCtrl.getById);
+apiRouter.post("/roles-election-day", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(roleEdVal.createSchema), scopeGuard(), roleEdCtrl.create);
+apiRouter.put("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, validate(roleEdVal.updateSchema), scopeGuard(), roleEdCtrl.update);
+apiRouter.delete("/roles-election-day/:id", requireAuth, requireRoles("super_admin", "admin_wilaya", "admin_commun"), writeLimiter, scopeGuard(), roleEdCtrl.remove);
 
 // ────────────────────────── Results ─────────────────────────
 apiRouter.post("/results/desk", requireAuth, requireRoles("role_election_day"), uploadLimiter, uploadImage.single("image"), validate(resultDeskVal.submitDeskSchema), resultDeskCtrl.submitDesk);

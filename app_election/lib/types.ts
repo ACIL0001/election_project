@@ -110,6 +110,9 @@ export interface IDesk {
   _id: string;
   desk_number: number;
   center: string | ICenter;
+  wilaya?: string | IWilaya;
+  commune?: string | ICommune;
+  type?: "male" | "female";
   male_count: number;
   female_count: number;
   total_voters: number;
@@ -194,6 +197,7 @@ export interface IRoleElectionDay {
   _id: string;
   full_name: string;
   email: string;
+  password_plain?: string;
   phone: string;
   nin: string;
   date_of_birth: string;

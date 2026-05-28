@@ -4,7 +4,7 @@ import { Center } from "../center/center.model";
 import * as crud from "../common/crud.helpers";
 import type { JwtUser } from "../../middleware/auth";
 
-const POPULATE = ["center"];
+const POPULATE = ["center", "wilaya", "commune"];
 
 async function centerIdsForUser(user: JwtUser | undefined): Promise<string[] | null> {
   if (!user || user.role === "super_admin") return null;
@@ -81,6 +81,11 @@ export const getById: RequestHandler = async (req, res, next) => {
 export const create: RequestHandler = async (req, res, next) => {
   try {
     await assertCenterInScope(req, req.body.center);
+    // Ensure wilaya/commune are correct for the chosen center (defense-in-depth)
+    const center = await Center.findById(req.body.center).select("wilaya commune").lean();
+    if (!center) return res.status(400).json({ ok: false, message: "Invalid center" });
+    req.body.wilaya = String((center as any).wilaya);
+    req.body.commune = String((center as any).commune);
     const doc = await crud.createDoc(Desk, req.body);
     res.status(201).json({ ok: true, data: doc });
   } catch (err: any) {
@@ -91,7 +96,13 @@ export const create: RequestHandler = async (req, res, next) => {
 export const update: RequestHandler = async (req, res, next) => {
   try {
     await assertDeskInScope(req, req.params.id as string);
-    if (req.body.center) await assertCenterInScope(req, req.body.center);
+    if (req.body.center) {
+      await assertCenterInScope(req, req.body.center);
+      const center = await Center.findById(req.body.center).select("wilaya commune").lean();
+      if (!center) return res.status(400).json({ ok: false, message: "Invalid center" });
+      req.body.wilaya = String((center as any).wilaya);
+      req.body.commune = String((center as any).commune);
+    }
     const doc = await crud.updateDoc(Desk, req.params.id as string, req.body);
     res.json({ ok: true, data: doc });
   } catch (err: any) {
