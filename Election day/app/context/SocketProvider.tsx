@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { io, Socket } from "socket.io-client";
 import { useAuth } from "./AuthContext";
+import { getAccessToken } from "@/lib/api";
 
 interface SocketContextType {
   socket: Socket | null;
@@ -17,7 +18,7 @@ const SocketContext = createContext<SocketContextType>({
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }: { children: ReactNode }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const [socket, setSocket] = useState<Socket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
 
@@ -31,7 +32,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
 
-    const token = localStorage.getItem("token");
+    const token = getAccessToken();
     if (!token) return;
 
     // Connect to the socket server
@@ -58,9 +59,23 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       setIsConnected(false);
     });
 
+    socketInstance.on("election:status_changed", (data: { isOpen: boolean }) => {
+      if (!data.isOpen) {
+        // Election is closed! Force logout.
+        socketInstance.disconnect();
+        setSocket(null);
+        setIsConnected(false);
+        // Clear tokens and state
+        logout().then(() => {
+          window.location.href = "/login?reason=closed";
+        });
+      }
+    });
+
     setSocket(socketInstance);
 
     return () => {
+      socketInstance.off("election:status_changed");
       socketInstance.disconnect();
     };
   }, [isAuthenticated]);

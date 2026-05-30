@@ -138,7 +138,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
       </div>
       
       {/* Navigation Groups */}
-      <nav className="flex-1 space-y-8 px-2 overflow-y-auto custom-scrollbar">
+      <nav className="flex-1 space-y-4 px-2 overflow-y-auto custom-scrollbar">
         {navigationGroups.map((group) => (
           <div key={group.title} className="space-y-2">
             <div className="px-4 text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 dark:text-zinc-500">

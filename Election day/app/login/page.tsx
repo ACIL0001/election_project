@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ShieldCheck, 
   Shield,
@@ -10,10 +10,12 @@ import {
   ArrowRight, 
   Eye, 
   EyeOff,
-  AlertCircle
+  AlertCircle,
+  Activity
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
+import { api } from "@/lib/api";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,10 +23,26 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isElectionDayOpen, setIsElectionDayOpen] = useState<boolean | null>(null);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+
+  useEffect(() => {
+    // Check if election day is open
+    api.get<{ ok: boolean; is_election_day_open: boolean }>("/settings/public")
+      .then(data => {
+        if (data && typeof data.is_election_day_open === "boolean") {
+          setIsElectionDayOpen(data.is_election_day_open);
+        } else {
+          setIsElectionDayOpen(true); // Fallback
+        }
+      })
+      .catch(() => {
+        setIsElectionDayOpen(true); // Fallback to true if network error
+      });
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,6 +60,47 @@ export default function LoginPage() {
 
   return (
     <div className="h-screen w-full bg-black flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      
+      <AnimatePresence>
+        {isElectionDayOpen === false && (
+          <motion.div 
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
+            className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="w-[90%] max-w-[400px] bg-zinc-900/80 border border-white/10 rounded-[32px] p-8 text-center shadow-2xl relative overflow-hidden"
+            >
+              {/* Decorative inner glow */}
+              <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.5)' }} />
+              
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mb-6 border border-red-500/20">
+                  <Shield size={36} className="text-red-500" />
+                </div>
+                
+                <h2 className="text-2xl font-black text-white mb-3">Accès Restreint</h2>
+                
+                <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+                  Le système d&apos;observation n&apos;est pas encore ouvert pour le jour de l&apos;élection. 
+                  L&apos;accès sera activé par l&apos;Administration Centrale le moment venu.
+                </p>
+                
+                <button 
+                  onClick={() => window.location.reload()}
+                  className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold text-sm transition-colors flex items-center gap-2"
+                >
+                  <Activity size={16} />
+                  Réessayer
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Subtle Background Lighting */}
       <div 
         className="absolute top-0 left-0 w-full h-full pointer-events-none"

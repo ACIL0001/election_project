@@ -61,10 +61,17 @@ import { Center } from "../modules/center/center.model";
 import { ResultDesk } from "../modules/result-desk/result-desk.model";
 import { RoleElectionDay } from "../modules/role-election-day/role-election-day.model";
 
+// ── Settings ──
+import * as settingsCtrl from "../modules/settings/settings.controller";
+
 export const apiRouter = Router();
 
 // ────────────────────────── Health ──────────────────────────
 apiRouter.get("/health", (_req, res) => res.json({ ok: true }));
+
+// ────────────────────────── Settings ──────────────────────────
+apiRouter.get("/settings/public", settingsCtrl.getPublicSettings);
+apiRouter.put("/settings", requireAuth, requireRoles("super_admin"), writeLimiter, settingsCtrl.updateSettings);
 
 // ────────────────────────── Auth ────────────────────────────
 apiRouter.post("/auth/register", authLimiter, validate(registerSuperAdminSchema), authCtrl.registerHandler);
