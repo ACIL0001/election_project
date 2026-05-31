@@ -6,7 +6,7 @@
 import type { LoginResponse, RefreshResponse, ApiResponse } from "./types";
 
 const BASE_URL = "/api";
-const TOKEN_KEY = "anie_observer_token";
+const TOKEN_KEY = "pvp_observer_token";
 
 let accessToken: string | null = (typeof window !== "undefined") ? localStorage.getItem(TOKEN_KEY) : null;
 let refreshPromise: Promise<string | null> | null = null;

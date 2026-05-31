@@ -1,5 +1,5 @@
 // ────────────────────────────────────────────────────────────────
-// Central API client for the ANIE Electoral Management System.
+// Central API client for the PVP Electoral Management System.
 // Handles JWT token management, auto-refresh, and typed requests.
 // ────────────────────────────────────────────────────────────────
 
@@ -7,7 +7,7 @@ import type { ApiResponse, LoginResponse, RefreshResponse } from "./types";
 
 const BASE_URL = "/api";
 
-const TOKEN_KEY = "anie_token";
+const TOKEN_KEY = "pvp_token";
 
 let accessToken: string | null = (typeof window !== "undefined") ? localStorage.getItem(TOKEN_KEY) : null;
 let refreshPromise: Promise<string | null> | null = null;

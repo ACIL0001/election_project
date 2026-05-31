@@ -1,11 +1,11 @@
 import mongoose, { Schema, type Document } from "mongoose";
 
-export interface ISystemSettings extends Document {
+export interface IElectionDay extends Document {
   is_election_day_open: boolean;
   updatedAt?: Date;
 }
 
-const systemSettingsSchema = new Schema<ISystemSettings>(
+const electionDaySchema = new Schema<IElectionDay>(
   {
     is_election_day_open: { type: Boolean, default: false },
   },
@@ -14,4 +14,4 @@ const systemSettingsSchema = new Schema<ISystemSettings>(
   }
 );
 
-export const SystemSettings = mongoose.model<ISystemSettings>("SystemSettings", systemSettingsSchema);
+export const ElectionDay = mongoose.model<IElectionDay>("ElectionDay", electionDaySchema, "election day");

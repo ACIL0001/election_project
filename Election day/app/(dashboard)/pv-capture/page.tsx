@@ -176,7 +176,7 @@ export default function PVCapturePage() {
       formData.append("image", photoBlob, "pv_capture.jpg");
 
       // API Call via fetch / upload multipart
-      const token = localStorage.getItem("anie_observer_token");
+      const token = localStorage.getItem("pvp_observer_token");
       const res = await fetch("/api/results/desk", {
         method: "POST",
         headers: {

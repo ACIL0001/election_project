@@ -67,7 +67,7 @@ export default function LoginPage() {
             <ShieldCheck size={28} className="text-emerald-500" strokeWidth={1.5} />
           </motion.div>
           <h1 className="text-2xl md:text-[28px] font-bold text-white tracking-tight leading-tight mb-2">
-            ANIE Electoral <br /> Management System
+            PVP Electoral <br /> Management System
           </h1>
           <p className="text-zinc-500 text-sm font-medium">
             Secure Administrative Access
@@ -103,7 +103,7 @@ export default function LoginPage() {
                 <input 
                   required
                   type="email" 
-                  placeholder="admin@anie.dz"
+                  placeholder="admin@pvp.dz"
                   className="w-full h-[50px] pl-11 pr-4 rounded-[12px] bg-white/[0.03] border border-white/10 text-white placeholder:text-zinc-700 outline-none focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/5 transition-all text-sm font-medium"
                   value={formData.email}
                   onChange={(e) => { setFormData({...formData, email: e.target.value}); setError(null); }}

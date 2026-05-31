@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useQuery, useMutation } from "./useApi";
 
-export interface SystemSettings {
+export interface ElectionDaySettings {
   is_election_day_open: boolean;
 }
 
@@ -12,7 +12,7 @@ export function useSettings() {
 
   const updateSettingsAsync = useCallback(async (is_election_day_open: boolean) => {
     try {
-      await mutate<{ ok: boolean; data: SystemSettings }>("PUT", "/settings", { is_election_day_open });
+      await mutate<{ ok: boolean; data: ElectionDaySettings }>("PUT", "/settings", { is_election_day_open });
       await refetch();
     } catch (err) {
       console.error("Failed to update settings", err);

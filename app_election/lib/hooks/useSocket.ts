@@ -71,7 +71,7 @@ export function useSocket(options?: { playSound?: boolean }) {
   }, []);
 
   useEffect(() => {
-    const token = getAccessToken() || localStorage.getItem("anie_token");
+    const token = getAccessToken() || localStorage.getItem("pvp_token");
     if (!token) return;
 
     const socket = io(process.env.NEXT_PUBLIC_API_URL || "http://localhost:4005", {

@@ -50,4 +50,4 @@ resultDeskSchema.index({ desk: 1, party: 1, candidat: 1 }, { unique: true });
 resultDeskSchema.index({ status: 1, createdAt: -1 });
 resultDeskSchema.index({ owner: 1 });
 
-export const ResultDesk = mongoose.model<IResultDesk>("ResultDesk", resultDeskSchema);
+export const ResultDesk = mongoose.model<IResultDesk>("ResultDesk", resultDeskSchema, "result desks");

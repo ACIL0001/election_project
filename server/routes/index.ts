@@ -62,7 +62,7 @@ import { ResultDesk } from "../modules/result-desk/result-desk.model";
 import { RoleElectionDay } from "../modules/role-election-day/role-election-day.model";
 
 // ── Settings ──
-import * as settingsCtrl from "../modules/settings/settings.controller";
+import * as settingsCtrl from "../modules/election-day-access/election-day-access.controller";
 
 export const apiRouter = Router();
 
