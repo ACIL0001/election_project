@@ -48,8 +48,7 @@ import * as resultDeskCtrl from "../modules/result-desk/result-desk.controller";
 import * as resultDeskVal from "../modules/result-desk/result-desk.validator";
 
 // ── Messaging ──
-import * as messageCtrl from "../modules/message/message.controller";
-import * as messageVal from "../modules/message/message.validator";
+
 import * as notifCtrl from "../modules/notification/notification.controller";
 import * as notifVal from "../modules/notification/notification.validator";
 
@@ -271,11 +270,7 @@ apiRouter.get("/observer/my-results", requireAuth, requireRoles("role_election_d
   }
 });
 
-// ────────────────────────── Messages ────────────────────────
-apiRouter.post("/messages", requireAuth, writeLimiter, uploadMessageFiles.fields([{ name: "images", maxCount: 5 }, { name: "video", maxCount: 1 }, { name: "pdf", maxCount: 1 }]), validate(messageVal.sendSchema), messageCtrl.send);
-apiRouter.get("/messages", requireAuth, validate(messageVal.listSchema), messageCtrl.list);
-apiRouter.get("/messages/:id", requireAuth, validate(messageVal.getByIdSchema), messageCtrl.getById);
-apiRouter.put("/messages/:id/read", requireAuth, messageCtrl.markRead);
+
 
 // ────────────────────────── Notifications ───────────────────
 apiRouter.get("/notifications", requireAuth, validate(notifVal.listSchema), notifCtrl.list);
