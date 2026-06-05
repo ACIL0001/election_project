@@ -14,6 +14,7 @@ import {
   ChevronRight,
   LogOut,
   UsersRound,
+  BarChart3,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -77,6 +78,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
           user?.role !== "admin_commun" && { name: t("nav.entities"), href: "/entites-politiques", icon: Flag },
           { name: t("nav.validation"), href: "/validation", icon: CheckCircle },
           { name: t("nav.roles"), href: "/roles-election", icon: Calendar },
+          { name: language === "ar" ? "النتائج والـ OCR" : "Résultats & OCR", href: "/resultats", icon: BarChart3 },
         ].filter(Boolean) as { name: string; href: string; icon: any }[],
       },
     ];
@@ -117,7 +119,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
 
       
       {/* Navigation Groups */}
-      <nav className="flex-1 flex flex-col justify-between pb-2 space-y-2 px-2 overflow-y-auto custom-scrollbar">
+      <nav className="flex-1 flex flex-col pb-2 space-y-4 px-2 overflow-y-auto custom-scrollbar">
         {navigationGroups.map((group) => (
           <div key={group.title} className="space-y-2">
             <div className="px-4 text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 dark:text-zinc-500">

@@ -232,4 +232,32 @@ export const api = {
   }): Promise<{ ok: boolean; message?: string }> {
     return request("/auth/password", { method: "PATCH", body });
   },
+
+  // Results
+  getResultsDesk(params?: {
+    wilayaId?: string;
+    communeId?: string;
+    centerId?: string;
+    desk?: string;
+    status?: string;
+    candidat?: string;
+    party?: string;
+    page?: number;
+    limit?: number;
+  }): Promise<{ ok: boolean; data: any[]; total: number; page: number; limit: number; totalPages: number }> {
+    return api.get("/results/desk", params as Record<string, unknown>);
+  },
+
+  getOcrSummary(params?: { wilayaId?: string; communeId?: string }): Promise<{ ok: boolean; data: { summary: Record<string, number>; total: number } }> {
+    return api.get("/results/ocr-summary", params as Record<string, unknown>);
+  },
+
+  triggerOcr(resultId: string): Promise<{ ok: boolean; data: any; message: string }> {
+    return request(`/results/desk/${resultId}/ocr`, { method: "POST" });
+  },
+
+  getDeskImageUrl(resultId: string): string {
+    const token = getAccessToken() || "";
+    return `/api/results/desk/${resultId}/image?token=${token}`;
+  },
 };

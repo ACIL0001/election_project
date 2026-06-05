@@ -36,7 +36,8 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
 
     // Connect to the socket server
-    const socketInstance = io("http://localhost:4005", {
+    const socketHost = typeof window !== "undefined" ? `http://${window.location.hostname}:4005` : "http://localhost:4005";
+    const socketInstance = io(socketHost, {
       auth: { token },
       transports: ["websocket"],
       reconnection: true,

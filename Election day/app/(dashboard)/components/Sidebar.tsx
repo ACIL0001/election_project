@@ -11,6 +11,7 @@ import {
   LogOut,
   Search,
   MessageSquarePlus,
+  BarChart3,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -78,6 +79,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
         title: language === "ar" ? "المركز" : "Centre",
         items: [
           { name: t("nav.centerView"), href: "/centre-overview", icon: Building2 },
+          { name: language === "ar" ? "النتائج والـ OCR" : "Résultats & OCR", href: "/resultats", icon: BarChart3 },
           { name: language === "ar" ? "رسائل وشكاوى" : "Réclamations", href: "/reclamation", icon: MessageSquarePlus },
         ],
       },
@@ -119,7 +121,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
 
       
       {/* Navigation Groups */}
-      <nav className="flex-1 flex flex-col justify-between pb-2 space-y-2 px-2 overflow-y-auto custom-scrollbar">
+      <nav className="flex-1 flex flex-col pb-2 space-y-4 px-2 overflow-y-auto custom-scrollbar">
         {navigationGroups.map((group) => (
           <div key={group.title} className="space-y-2">
             <div className="px-4 text-[10px] uppercase tracking-[0.2em] font-black text-zinc-400 dark:text-zinc-500">

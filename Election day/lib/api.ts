@@ -198,4 +198,18 @@ export const api = {
   me(): Promise<{ ok: boolean; user: Record<string, unknown> }> {
     return request("/auth/me");
   },
+
+  // Observer Centre
+  getCentreResults(params?: {
+    page?: number;
+    limit?: number;
+    status?: string;
+  }): Promise<{ ok: boolean; data: any[]; total: number; page: number; limit: number; totalPages: number }> {
+    return api.get("/observer/centre-results", params as Record<string, unknown>);
+  },
+
+  getDeskImageUrl(resultId: string): string {
+    const token = getAccessToken() || "";
+    return `/api/results/desk/${resultId}/image?token=${token}`;
+  },
 };
