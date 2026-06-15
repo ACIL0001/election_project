@@ -76,9 +76,15 @@ export default function InfrastructureSetup() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    if (!selectedWilayaId) {
+      alert(language === 'ar' ? "يرجى تحديد ولاية أولاً قبل الاستيراد." : "Veuillez d'abord sélectionner une wilaya avant d'importer.");
+      e.target.value = "";
+      return;
+    }
+
     setIsImporting(true);
     const reader = new FileReader();
-    reader.onload = (evt) => {
+    reader.onload = async (evt) => {
       try {
         const bstr = evt.target?.result;
         const wb = XLSX.read(bstr, { type: 'binary' });
@@ -86,57 +92,56 @@ export default function InfrastructureSetup() {
         const ws = wb.Sheets[wsname];
         const data: any[] = XLSX.utils.sheet_to_json(ws);
 
-        const newWilayas: any[] = [];
-        const newCommunes: any[] = [];
-        const newCenters: any[] = [];
+        if (!data || data.length === 0) {
+          throw new Error(language === 'ar' ? "لم يتم العثور على بيانات في الملف" : "Aucune donnée trouvée dans le fichier");
+        }
 
-        data.forEach((row, index) => {
-          if (row.Wilaya && !newWilayas.find(w => w.name === row.Wilaya)) {
-            newWilayas.push({
-              id: Date.now() + index,
-              name: row.Wilaya,
-              num_wilaya: row.CodeWilaya || "00",
-              seats_count: row.Sieges || 10,
-              communes: 0,
-              centers: 0,
-              desks: 0
-            });
-          }
+        const rows = data.map((row) => {
+          const totalBureaux = Number(row.Bureaux) || 0;
+          const male = row.BureauxHommes !== undefined ? Number(row.BureauxHommes) : 
+                       row.Bureaux_Hommes !== undefined ? Number(row.Bureaux_Hommes) : 
+                       Math.ceil(totalBureaux / 2);
+          const female = row.BureauxFemmes !== undefined ? Number(row.BureauxFemmes) : 
+                         row.Bureaux_Femmes !== undefined ? Number(row.Bureaux_Femmes) : 
+                         Math.floor(totalBureaux / 2);
 
-          if (row.Commune && !newCommunes.find(c => c.name === row.Commune)) {
-            newCommunes.push({
-              id: Date.now() + index + 1000,
-              name: row.Commune,
-              num_bladia: row.CodeCommune || "00",
-              wilaya: row.Wilaya || "Alger",
-              centers: 0,
-              desks: 0
-            });
-          }
+          return {
+            commune_name: String(row.Commune || "").trim(),
+            center_name: String(row.Centre || "").trim(),
+            address: String(row.Localisation || row.Adresse || "Adresse inconnue").trim(),
+            male_desks: male,
+            female_desks: female,
+          };
+        }).filter(r => r.commune_name && r.center_name);
 
-          if (row.Centre) {
-            newCenters.push({
-              id: Date.now() + index + 2000,
-              name: row.Centre,
-              location: row.Localisation || "Inconnu",
-              male: row.Hommes || 0,
-              female: row.Femmes || 0,
-              total: (row.Hommes || 0) + (row.Femmes || 0),
-              numbers_desks: row.Bureaux || 0
-            });
-          }
+        if (rows.length === 0) {
+          throw new Error(language === 'ar' ? "لم يتم العثور على أسطر صالحة تحتوي على البلدية والمركز" : "Aucune ligne valide contenant la Commune et le Centre");
+        }
+
+        const response = await mutation.mutate("POST", "/infrastructure/import-centers-desks", {
+          wilaya_id: selectedWilayaId,
+          rows
         });
 
-        // Note: In a real integration, this should hit a batch create API endpoint.
-        // For now, we just refresh the data.
+        // Trigger full refetch
+        setWilayasData([]);
+        setCommunesData([]);
         setCentersData([]);
+        setDesksData([]);
+
+        const summary = (response as any)?.summary || {};
+        const successMsg = language === 'ar'
+          ? `تم الاستيراد بنجاح!\nالصفوف التي تمت معالجتها: ${summary.rows || rows.length}\nالمراكز المضافة: ${summary.created_centers || 0}\nالمكاتب المضافة: ${summary.created_desks || 0}`
+          : `Importation réussie !\nLignes traitées : ${summary.rows || rows.length}\nCentres créés : ${summary.created_centers || 0}\nBureaux créés : ${summary.created_desks || 0}`;
         
-        alert(language === 'ar' ? `تم الاستيراد بنجاح: تمت معالجة ${data.length} صفًا.` : "Importation réussie : " + data.length + " lignes traitées.");
-      } catch (err) {
+        alert(successMsg);
+      } catch (err: any) {
         console.error(err);
-        alert(language === 'ar' ? "خطأ أثناء الاستيراد. تحقق من تنسيق الملف." : "Erreur lors de l'importation. Vérifiez le format du fichier.");
+        const errMsg = err?.message || "Erreur inconnue";
+        alert((language === 'ar' ? "خطأ أثناء الاستيراد: " : "Erreur lors de l'importation : ") + errMsg);
       } finally {
         setIsImporting(false);
+        e.target.value = "";
       }
     };
     reader.readAsBinaryString(file);
