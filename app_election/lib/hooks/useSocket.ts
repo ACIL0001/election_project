@@ -74,7 +74,7 @@ export function useSocket(options?: { playSound?: boolean }) {
     const token = getAccessToken() || localStorage.getItem("pvp_token");
     if (!token) return;
 
-    const socket = io(process.env.NEXT_PUBLIC_API_URL || "https://server-c9pg.onrender.com", {
+    const socket = io(process.env.NEXT_PUBLIC_API_URL || "https://server-pz3x.onrender.com", {
       auth: { token },
       transports: ["websocket", "polling"],
       reconnectionAttempts: 5,

@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://server-c9pg.onrender.com/api/:path*",
+        destination: "https://server-pz3x.onrender.com/api/:path*",
       },
     ];
   },

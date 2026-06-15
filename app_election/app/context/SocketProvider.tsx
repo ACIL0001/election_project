@@ -37,7 +37,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
 
     // Connect to the socket server
-    const socketInstance = io(process.env.NEXT_PUBLIC_API_URL || "https://server-c9pg.onrender.com", {
+    const socketInstance = io(process.env.NEXT_PUBLIC_API_URL || "https://server-pz3x.onrender.com", {
       auth: { token },
       transports: ["websocket"],
       reconnection: true,
