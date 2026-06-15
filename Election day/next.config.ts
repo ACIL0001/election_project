@@ -9,7 +9,7 @@ function buildCspHeader(isDev: boolean) {
     "form-action 'self'",
     `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
     "style-src 'self' 'unsafe-inline'",
-    `connect-src 'self'${isDev ? " ws: wss:" : ""} https:`,
+    "connect-src 'self' ws: wss: https:",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
     "manifest-src 'self'",
