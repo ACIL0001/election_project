@@ -36,7 +36,7 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
 
     // Connect to the socket server
-    const socketHost = typeof window !== "undefined" ? `http://${window.location.hostname}:4005` : "http://localhost:4005";
+    const socketHost = process.env.NEXT_PUBLIC_API_URL || "https://server-c9pg.onrender.com";
     const socketInstance = io(socketHost, {
       auth: { token },
       transports: ["websocket"],

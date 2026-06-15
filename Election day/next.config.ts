@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:4005/api/:path*",
+        destination: "https://server-c9pg.onrender.com/api/:path*",
       },
     ];
   },
