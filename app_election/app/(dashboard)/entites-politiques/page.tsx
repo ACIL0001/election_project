@@ -149,6 +149,7 @@ export default function EntitesPolitiques() {
     imageFile: null,
     imagePreview: null,
     partyId: "",
+    number: "",
   });
 
   /** Parties selectable when adding/editing a candidate (scoped by role + wilaya) */
@@ -199,6 +200,7 @@ export default function EntitesPolitiques() {
         fav: item.fav || item.is_favorite || false,
         imageFile: null,
         imagePreview: item._id ? `/api/candidats/${item._id}/portrait` : null,
+        number: item.number ?? "",
       });
     } else {
       const defaultWilaya =
@@ -220,6 +222,7 @@ export default function EntitesPolitiques() {
         fav: false,
         imageFile: null,
         imagePreview: null,
+        number: "",
       });
     }
     setIsModalOpen(true);
@@ -290,6 +293,7 @@ export default function EntitesPolitiques() {
           leader: formData.leader,
           wilaya: selectedWilaya._id || selectedWilaya.id,
           founded: formData.founded,
+          number: formData.number ? Number(formData.number) : undefined,
         };
         if (editingItem) {
           const apiId = editingItem._id || editingItem.id;
@@ -345,6 +349,10 @@ export default function EntitesPolitiques() {
         
         if (formData.imageFile) {
           fData.append("image", formData.imageFile);
+        }
+
+        if (formData.number) {
+          fData.append("number", String(formData.number));
         }
 
         if (editingItem) {
@@ -487,7 +495,7 @@ export default function EntitesPolitiques() {
                 <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'التسمية الرسمية' : 'Dénomination Officielle'}</label>
                 <input required type="text" placeholder={language === 'ar' ? 'مثال: جبهة التحرير الوطني' : "Ex: Front de Libération Nationale"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الشعار' : 'Acronyme'}</label>
                   <input required type="text" placeholder="Ex: FLN" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.short} onChange={(e) => setFormData({...formData, short: e.target.value})} />
@@ -495,6 +503,10 @@ export default function EntitesPolitiques() {
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'الأمين العام' : 'Secrétaire Général'}</label>
                   <input required type="text" placeholder={language === 'ar' ? 'المسؤول القانوني' : "Responsable légal"} className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.leader} onChange={(e) => setFormData({...formData, leader: e.target.value})} />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'رقم الحزب' : 'Numéro du Parti'}</label>
+                  <input required type="number" min={1} placeholder="Ex: 5" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.number} onChange={(e) => setFormData({...formData, number: e.target.value})} />
                 </div>
               </div>
               <div className="space-y-2">
@@ -604,18 +616,22 @@ export default function EntitesPolitiques() {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-2 col-span-2">
                   <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'تاريخ الميلاد' : 'Date de Naissance'}</label>
                   <input required type="date" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.birthday} onChange={(e) => setFormData({...formData, birthday: e.target.value})} />
                 </div>
-                <div className="flex items-center gap-3 pt-8">
-                   <div className="relative flex items-center">
-                    <input type="checkbox" id="fav" className="peer w-6 h-6 rounded-lg border-2 border-zinc-200 dark:border-white/10 appearance-none checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer" checked={formData.fav} onChange={(e) => setFormData({...formData, fav: e.target.checked})} />
-                    <ShieldCheck size={14} className="absolute left-1.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-all" />
-                  </div>
-                  <label htmlFor="fav" className="text-[11px] font-black uppercase tracking-widest text-zinc-500 cursor-pointer">{language === 'ar' ? 'تأكيد الأهلية' : 'Éligibilité Confirmée'}</label>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">{language === 'ar' ? 'رقم المترشح' : 'Numéro du Candidat'}</label>
+                  <input required type="number" min={1} placeholder="Ex: 8" className="w-full h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 outline-none text-sm font-bold" value={formData.number} onChange={(e) => setFormData({...formData, number: e.target.value})} />
                 </div>
+              </div>
+              <div className="flex items-center gap-3">
+                 <div className="relative flex items-center">
+                  <input type="checkbox" id="fav" className="peer w-6 h-6 rounded-lg border-2 border-zinc-200 dark:border-white/10 appearance-none checked:bg-emerald-500 checked:border-emerald-500 transition-all cursor-pointer" checked={formData.fav} onChange={(e) => setFormData({...formData, fav: e.target.checked})} />
+                  <ShieldCheck size={14} className="absolute left-1.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none transition-all" />
+                </div>
+                <label htmlFor="fav" className="text-[11px] font-black uppercase tracking-widest text-zinc-500 cursor-pointer">{language === 'ar' ? 'تأكيد الأهلية' : 'Éligibilité Confirmée'}</label>
               </div>
               <div 
                 onClick={() => fileInputRef.current?.click()}
@@ -672,6 +688,7 @@ export default function EntitesPolitiques() {
               <DataTable 
                 title={language === 'ar' ? 'سجل الأحزاب السياسية' : "Registre des Partis Politiques"}
                 columns={[
+                  { header: language === 'ar' ? 'الرقم' : "N°", accessor: "number", render: (val: any) => <span className="text-sm font-black text-zinc-900 dark:text-white">{val ?? "—"}</span> },
                   { header: language === 'ar' ? 'الشعار' : "Sigle", accessor: "short", render: (val: any) => (
                     <div className="h-10 w-10 rounded-xl bg-zinc-100 dark:bg-white/10 flex items-center justify-center font-black text-emerald-500 border border-transparent dark:border-white/10">
                       {val}
@@ -773,17 +790,20 @@ export default function EntitesPolitiques() {
                       <CandidateAvatar row={row} val={val} />
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-black text-zinc-900 dark:text-white tracking-tight leading-tight">{val}</span>
+                        <span className="font-black text-zinc-900 dark:text-white tracking-tight leading-tight">
+                          {row.number ? `${row.number} - ${val}` : val}
+                        </span>
                         <span className="text-[9px] font-black text-zinc-400 uppercase tracking-widest">{language === 'ar' ? 'التعريف الوطني' : 'NIN'}: {row.nin}</span>
                       </div>
                     </div>
                   )},
-                  { header: language === 'ar' ? 'الانتماء' : "Affiliation", accessor: "party", render: (val: any) => (
+                  { header: language === 'ar' ? 'الانتماء' : "Affiliation", accessor: "party", render: (val: any, row: any) => (
                     <span className={cn(
                       "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest",
                       val === 'Indépendant' || !val ? "bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400" : "bg-emerald-500/10 text-emerald-500"
                     )}>
-                      {val === 'Indépendant' ? (language === 'ar' ? 'مستقل' : 'Indépendant') : (val || (language === 'ar' ? 'مستقل' : 'Indépendant'))}
+                      {val === 'Indépendant' ? (language === 'ar' ? 'مستقل' : 'Indépendant') : 
+                       (row.party_number ? `${row.party_number} - ${val}` : (val || (language === 'ar' ? 'مستقل' : 'Indépendant')))}
                     </span>
                   )},
                   { header: language === 'ar' ? 'الولاية' : "Wilaya", accessor: "wilaya", render: (val: any) => <span className="text-[11px] font-black uppercase text-zinc-500">{val}</span> },

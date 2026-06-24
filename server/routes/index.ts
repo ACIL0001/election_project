@@ -304,8 +304,8 @@ apiRouter.get("/observer/centre-results", requireAuth, requireRoles("role_electi
         .skip(skip)
         .limit(parseInt(limit))
         .populate("desk", "desk_number type")
-        .populate("candidat", "full_name")
-        .populate("party", "name")
+        .populate("candidat", "full_name number")
+        .populate("party", "name number")
         .select("-image -image_mimetype")
         .lean(),
     ]);

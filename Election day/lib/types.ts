@@ -89,6 +89,7 @@ export interface IParty {
   acronym: string;
   leader: string;
   logo?: string;
+  number?: number;
 }
 
 export interface ICandidat {
@@ -98,6 +99,7 @@ export interface ICandidat {
   party: string | IParty;
   wilaya: string | IWilaya;
   result: number;
+  number?: number;
 }
 
 // ── Results ─────────────────────────────────────────────────────

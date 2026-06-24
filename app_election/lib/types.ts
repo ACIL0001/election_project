@@ -133,6 +133,7 @@ export interface IParty {
   logo_mimetype?: string;
   createdAt?: string;
   updatedAt?: string;
+  number?: number;
 }
 
 export interface ICandidat {
@@ -150,6 +151,7 @@ export interface ICandidat {
   result: number;
   createdAt?: string;
   updatedAt?: string;
+  number?: number;
 }
 
 // ── User Administration ─────────────────────────────────────────

@@ -32,8 +32,8 @@ interface ResultRecord {
   ocr_confidence?: number;
   hasImage?: boolean;
   desk?: { _id: string; desk_number: number; type: string };
-  party?: { _id: string; name: string };
-  candidat?: { _id: string; full_name: string };
+  party?: { _id: string; name: string; number?: number };
+  candidat?: { _id: string; full_name: string; number?: number };
   createdAt?: string;
 }
 
@@ -265,8 +265,12 @@ export default function CentreResultatsPage() {
                               "border-b border-zinc-50 dark:border-white/3 transition-colors",
                               rowMismatch ? "bg-red-500/[0.02] hover:bg-red-500/[0.04]" : "hover:bg-zinc-50 dark:hover:bg-white/3"
                             )}>
-                            <td className="px-6 py-3 font-bold text-zinc-900 dark:text-white">{r.candidat?.full_name || "—"}</td>
-                            <td className="px-4 py-3 text-xs text-zinc-500">{r.party?.name || "—"}</td>
+                            <td className="px-6 py-3 font-bold text-zinc-900 dark:text-white">
+                              {r.candidat?.number ? `${r.candidat.number} - ${r.candidat.full_name}` : r.candidat?.full_name || "—"}
+                            </td>
+                            <td className="px-4 py-3 text-xs text-zinc-500">
+                              {r.party?.number ? `${r.party.number} - ${r.party.name}` : r.party?.name || "—"}
+                            </td>
                             <td className="px-4 py-3 text-center font-black text-zinc-900 dark:text-white">{r.total}</td>
                             <td className={cn("px-4 py-3 text-center font-black font-mono",
                               rowMismatch ? "text-red-500" : rowVerified ? "text-emerald-500" : "text-zinc-400")}>
@@ -319,7 +323,9 @@ export default function CentreResultatsPage() {
               <div className="flex items-center justify-between p-6 border-b border-zinc-100 dark:border-white/10">
                 <div>
                   <h2 className="text-xl font-black text-zinc-900 dark:text-white">PV — Bureau #{modalResult.desk?.desk_number}</h2>
-                  <p className="text-sm text-zinc-500 mt-0.5">{modalResult.candidat?.full_name} · {modalResult.party?.name}</p>
+                  <p className="text-sm text-zinc-500 mt-0.5">
+                    {modalResult.candidat?.number ? `${modalResult.candidat.number} - ${modalResult.candidat.full_name}` : modalResult.candidat?.full_name} · {modalResult.party?.number ? `${modalResult.party.number} - ${modalResult.party.name}` : modalResult.party?.name}
+                  </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <StatusBadge status={modalResult.status} />

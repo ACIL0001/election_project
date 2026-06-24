@@ -20,8 +20,12 @@ import { useQuery, useMutation } from "@/lib/hooks/useApi";
 import { api } from "@/lib/api";
 import type { IParty, ICandidat } from "@/lib/types";
 import Modal from "../components/Modal";
+import { isCentre } from "@/lib/auth-user";
+import { useData } from "../context/DataContext";
 
 type VoteEntry = Record<string, number>; // candidat_id → votes
+
+const EMPTY_ARRAY: any[] = [];
 
 export default function VotesPage() {
   const { user } = useAuth();
@@ -43,16 +47,31 @@ export default function VotesPage() {
   const [modalLoading, setModalLoading] = useState(false);
   const [modalError, setModalError] = useState<string | null>(null);
 
+  const { centerDesks } = useData();
+  const [selectedDeskId, setSelectedDeskId] = useState("");
+
+  const deskIdToUse = useMemo(() => {
+    if (user?.election_role === "observateur_bureau") {
+      return user.desk_id;
+    }
+    return selectedDeskId;
+  }, [user, selectedDeskId]);
+
+  const queryParams = useMemo(() => {
+    if (!user) return null;
+    return deskIdToUse ? { desk: deskIdToUse, limit: 500 } : null;
+  }, [user, deskIdToUse]);
+
   const { data: partiesRaw, isLoading: partiesLoading } = useQuery<IParty[]>("/parties", { limit: 500 });
   const { data: candidatsRaw, isLoading: candidatsLoading } = useQuery<ICandidat[]>("/candidats", { limit: 1000 });
   const { data: existingResults, refetch: refetchResults } = useQuery<any[]>(
-    "/results/desk",
-    { owner: user?.id, limit: 500 }
+    queryParams ? "/results/desk" : null,
+    queryParams || {}
   );
 
-  const parties: IParty[] = Array.isArray(partiesRaw) ? partiesRaw : (partiesRaw as any)?.data || [];
-  const candidats: ICandidat[] = Array.isArray(candidatsRaw) ? candidatsRaw : (candidatsRaw as any)?.data || [];
-  const results: any[] = Array.isArray(existingResults) ? existingResults : (existingResults as any)?.data || [];
+  const parties: IParty[] = Array.isArray(partiesRaw) ? partiesRaw : (partiesRaw as any)?.data || EMPTY_ARRAY;
+  const candidats: ICandidat[] = Array.isArray(candidatsRaw) ? candidatsRaw : (candidatsRaw as any)?.data || EMPTY_ARRAY;
+  const results: any[] = Array.isArray(existingResults) ? existingResults : (existingResults as any)?.data || EMPTY_ARRAY;
 
   // Group candidats by party
   const candidatsByParty = useMemo(() => {
@@ -68,17 +87,15 @@ export default function VotesPage() {
 
   // Sync submitted map and prefilled votes dynamically
   useEffect(() => {
-    if (results.length > 0) {
-      const prefilled: VoteEntry = {};
-      const submittedMap: Record<string, boolean> = {};
-      results.forEach((r: any) => {
-        const candidatId = typeof r.candidat === "object" ? String(r.candidat._id || r.candidat.id) : String(r.candidat);
-        prefilled[candidatId] = r.total ?? 0;
-        submittedMap[candidatId] = true;
-      });
-      setSubmitted(submittedMap);
-      setVotes((prev) => ({ ...prefilled, ...prev }));
-    }
+    const prefilled: VoteEntry = {};
+    const submittedMap: Record<string, boolean> = {};
+    results.forEach((r: any) => {
+      const candidatId = typeof r.candidat === "object" ? String(r.candidat._id || r.candidat.id) : String(r.candidat);
+      prefilled[candidatId] = r.total ?? 0;
+      submittedMap[candidatId] = true;
+    });
+    setSubmitted(submittedMap);
+    setVotes(prefilled);
   }, [results]);
 
   const filteredParties = useMemo(() => {
@@ -100,9 +117,11 @@ export default function VotesPage() {
         id: r._id || r.id,
         candidatId: candidatObj?.id || candidatObj?._id || String(r.candidat),
         candidatName: candidatObj?.full_name || "—",
+        candidatNumber: candidatObj?.number,
         partyId: partyObj?.id || partyObj?._id || String(r.party),
         partyName: partyObj?.name || "—",
         partyAcronym: partyObj?.acronym || "—",
+        partyNumber: partyObj?.number,
         totalVotes: r.total ?? 0,
         status: r.status || "draft",
       };
@@ -150,7 +169,7 @@ export default function VotesPage() {
       setModalError(language === "ar" ? "يرجى ملء جميع الحقول" : "Veuillez remplir tous les champs");
       return;
     }
-    if (!user?.desk_id) {
+    if (!deskIdToUse) {
       setModalError(language === "ar" ? "لم يتم تعيين مكتب" : "Aucun bureau assigné");
       return;
     }
@@ -161,7 +180,7 @@ export default function VotesPage() {
     try {
       await api.post("/results/desk", {
         party: selectedPartyId,
-        desk: user.desk_id,
+        desk: deskIdToUse,
         candidat: selectedCandidatId,
         total: Number(voteCount),
       });
@@ -195,7 +214,7 @@ export default function VotesPage() {
 
   const handleSubmitParty = useCallback(
     async (partyId: string) => {
-      if (!user?.desk_id) {
+      if (!deskIdToUse) {
         setSubmitError(language === "ar" ? "لم يتم تعيين مكتب" : "Aucun bureau assigné");
         return;
       }
@@ -213,7 +232,7 @@ export default function VotesPage() {
 
           await api.post("/results/desk", {
             party: partyId,
-            desk: user.desk_id,
+            desk: deskIdToUse,
             candidat: cid,
             total,
           });
@@ -235,7 +254,7 @@ export default function VotesPage() {
         setSubmitError(msg);
       }
     },
-    [user, votes, candidatsByParty, language, refetchResults]
+    [deskIdToUse, votes, candidatsByParty, language, refetchResults]
   );
 
   const isLoading = partiesLoading || candidatsLoading;
@@ -276,6 +295,47 @@ export default function VotesPage() {
             : "Sélectionnez un parti pour voir ses candidats et saisir le nombre de vote"}
         </p>
       </motion.div>
+
+      {user?.election_role === "observateur_centre" && (
+        <div className="p-6 bg-white dark:bg-white/5 rounded-3xl border border-zinc-200 dark:border-white/10 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="text-sm font-black text-zinc-900 dark:text-white">
+              {language === "ar" ? "اختر مكتب التصويت" : "Sélectionner un Bureau de Vote"}
+            </h3>
+            <p className="text-[11px] text-zinc-500 font-bold mt-0.5">
+              {language === "ar"
+                ? "يرجى تحديد مكتب التصويت لإدخال أو تعديل الأصوات"
+                : "Veuillez sélectionner un bureau de vote pour saisir ou modifier les votes."}
+            </p>
+          </div>
+          <select
+            value={selectedDeskId}
+            onChange={(e) => setSelectedDeskId(e.target.value)}
+            className="w-full sm:w-64 h-12 px-4 rounded-xl bg-zinc-50 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-sm font-black text-zinc-900 dark:text-white outline-none focus:border-emerald-500/50"
+          >
+            <option value="">
+              {language === "ar" ? "-- اختر مكتب التصويت --" : "-- Choisir un Bureau --"}
+            </option>
+            {centerDesks.map((d) => (
+              <option key={d._id} value={d._id}>
+                {language === "ar" ? `مكتب رقم ${d.desk_number}` : `Bureau N°${d.desk_number}`} ({d.type === "male" ? (language === "ar" ? "رجال" : "Hommes") : (language === "ar" ? "نساء" : "Femmes")})
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {!deskIdToUse ? (
+        <div className="text-center py-20 bg-white dark:bg-white/5 rounded-3xl border border-zinc-200 dark:border-white/10 flex flex-col items-center gap-3 text-zinc-400">
+          <Vote size={48} className="opacity-20 animate-pulse" />
+          <p className="text-sm font-semibold">
+            {language === "ar"
+              ? "يرجى اختيار مكتب التصويت لعرض وإدخال الأصوات"
+              : "Veuillez sélectionner un bureau de vote pour afficher et saisir les votes"}
+          </p>
+        </div>
+      ) : (
+        <>
 
       {/* Alerts */}
       <AnimatePresence>
@@ -375,11 +435,13 @@ export default function VotesPage() {
                         <div className="h-9 w-9 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 font-black text-xs border border-emerald-500/20">
                           {row.partyAcronym}
                         </div>
-                        <span className="text-sm font-bold text-zinc-900 dark:text-white">{row.partyName}</span>
+                        <span className="text-sm font-bold text-zinc-900 dark:text-white">
+                          {row.partyNumber ? `${row.partyNumber} - ${row.partyName}` : row.partyName}
+                        </span>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm font-bold text-zinc-900 dark:text-white">
-                      {row.candidatName}
+                      {row.candidatNumber ? `${row.candidatNumber} - ${row.candidatName}` : row.candidatName}
                     </td>
                     <td className="px-6 py-4 text-center">
                       <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-black text-sm border border-emerald-500/20">
@@ -459,7 +521,9 @@ export default function VotesPage() {
                       {party.acronym?.slice(0, 3) || "—"}
                     </div>
                     <div className="text-start">
-                      <h3 className="text-sm font-black text-zinc-900 dark:text-white">{party.name}</h3>
+                      <h3 className="text-sm font-black text-zinc-900 dark:text-white">
+                        {party.number ? `${party.number} - ${party.name}` : party.name}
+                      </h3>
                       <p className="text-[11px] text-zinc-500 font-bold">
                         {partyCandidats.length} {language === "ar" ? "مرشح" : "candidat(s)"}
                         {allSubmitted && partyCandidats.length > 0 && (
@@ -506,7 +570,7 @@ export default function VotesPage() {
                             >
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm font-black text-zinc-900 dark:text-white truncate">
-                                  {candidat.full_name}
+                                  {candidat.number ? `${candidat.number} - ${candidat.full_name}` : candidat.full_name}
                                 </p>
                                 {isSubmittedItem && (
                                   <p className="text-[10px] text-emerald-500 font-bold mt-0.5">
@@ -560,6 +624,8 @@ export default function VotesPage() {
           })}
         </div>
       </div>
+    </>
+  )}
 
       {/* Modal for adding results */}
       <Modal
@@ -597,7 +663,7 @@ export default function VotesPage() {
               </option>
               {parties.map((p) => (
                 <option key={String(p._id || p.id)} value={String(p._id || p.id)} className="bg-zinc-950 text-white">
-                  {p.name} ({p.acronym || ""})
+                  {p.number ? `${p.number} - ${p.name}` : p.name} ({p.acronym || ""})
                 </option>
               ))}
             </select>
@@ -623,7 +689,7 @@ export default function VotesPage() {
                 </option>
                 {availableCandidatsForModal.map((cand) => (
                   <option key={String(cand._id || cand.id)} value={String(cand._id || cand.id)} className="bg-zinc-950 text-white">
-                    {cand.full_name}
+                    {cand.number ? `${cand.number} - ${cand.full_name}` : cand.full_name}
                   </option>
                 ))}
               </select>

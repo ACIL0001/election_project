@@ -79,6 +79,7 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps = {}) {
         title: language === "ar" ? "المركز" : "Centre",
         items: [
           { name: t("nav.centerView"), href: "/centre-overview", icon: Building2 },
+          { name: t("nav.votes"), href: "/votes", icon: Vote },
           { name: language === "ar" ? "النتائج والـ OCR" : "Résultats & OCR", href: "/resultats", icon: BarChart3 },
           { name: language === "ar" ? "رسائل وشكاوى" : "Réclamations", href: "/reclamation", icon: MessageSquarePlus },
         ],

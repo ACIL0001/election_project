@@ -341,6 +341,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         wilaya_id: wId,
         wilaya: wName,
         founded: p.founded || "",
+        number: p.number,
       };
     });
   }, [partiesQ.data, wilayaLabelById]);
@@ -400,6 +401,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         fav: c.is_favorite,
         result: c.result || 0,
         _id: String(c._id || c.id),
+        number: c.number,
+        party_number: typeof c.party === "object" ? (c.party as IParty).number : undefined,
       };
     });
   }, [candidatsQ.data, memberCommuneByCreator, communeLabelById]);
