@@ -28,16 +28,7 @@ export default function DashboardLayout({
   }, [isLoading, isAuthenticated, router]);
 
   if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-white dark:bg-[#09090b]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-8 h-8 border-3 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
-          <span className="text-[11px] font-black uppercase tracking-widest text-zinc-400">
-            Initialisation Session Sécurisée…
-          </span>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   if (!isAuthenticated) {

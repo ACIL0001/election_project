@@ -33,7 +33,8 @@ export default function InfrastructureSetup() {
     communesData, setCommunesData,
     centersData, setCentersData,
     desksData, setDesksData,
-    mutation
+    mutation,
+    refetchAll
   } = useData();
   const { t, language, dir } = useLanguage();
   const { user } = useAuth();
@@ -72,71 +73,213 @@ export default function InfrastructureSetup() {
     deskType: "" as "" | "male" | "female",
   });
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     setIsImporting(true);
     const reader = new FileReader();
-    reader.onload = (evt) => {
+    reader.onload = async (evt) => {
       try {
         const bstr = evt.target?.result;
-        const wb = XLSX.read(bstr, { type: 'binary' });
+        const wb = XLSX.read(bstr, { type: "binary" });
         const wsname = wb.SheetNames[0];
         const ws = wb.Sheets[wsname];
-        const data: any[] = XLSX.utils.sheet_to_json(ws);
+        const firstSheetData: any[] = XLSX.utils.sheet_to_json(ws);
 
-        const newWilayas: any[] = [];
-        const newCommunes: any[] = [];
-        const newCenters: any[] = [];
+        // Detect format:
+        // Flat format has columns like 'Centre' or 'Centre Name' in the first sheet.
+        const isFlatFormat = firstSheetData.some(
+          (row) => row.Centre || row.Centre_Name || row["Centre Name"]
+        );
 
-        data.forEach((row, index) => {
-          if (row.Wilaya && !newWilayas.find(w => w.name === row.Wilaya)) {
-            newWilayas.push({
-              id: Date.now() + index,
-              name: row.Wilaya,
-              num_wilaya: row.CodeWilaya || "00",
-              seats_count: row.Sieges || 10,
-              communes: 0,
-              centers: 0,
-              desks: 0
+        // Group rows by wilaya ID
+        const groupedByWilaya = new Map<string, any[]>();
+
+        if (isFlatFormat) {
+          firstSheetData.forEach((row) => {
+            let wId = "";
+            if (selectedWilayaId) {
+              wId = selectedWilayaId;
+            } else {
+              const codeStr = String(row.CodeWilaya || "").trim();
+              const nameStr = String(row.Wilaya || "").trim().toLowerCase();
+
+              const foundWilaya = wilayasData.find((w) => {
+                const matchesCode = codeStr && String(w.num_wilaya) === codeStr;
+                const matchesName =
+                  nameStr &&
+                  (String(w.name || "").toLowerCase() === nameStr ||
+                    String(w.name_fr || "").toLowerCase() === nameStr ||
+                    String(w.name_ar || "").toLowerCase() === nameStr);
+                return matchesCode || matchesName;
+              });
+
+              if (foundWilaya) {
+                wId = String(foundWilaya._id || foundWilaya.id);
+              }
+            }
+
+            if (!wId) return;
+
+            const totalBureaux = Number(row.Bureaux) || 0;
+            let maleDesks = Number(row.Bureaux_Hommes || row.BureauxHommes || 0);
+            let femaleDesks = Number(row.Bureaux_Femmes || row.BureauxFemmes || 0);
+
+            if (!maleDesks && !femaleDesks && totalBureaux) {
+              maleDesks = Math.ceil(totalBureaux / 2);
+              femaleDesks = Math.floor(totalBureaux / 2);
+            }
+
+            const communeName = String(row.Commune || "").trim();
+            const centerName = String(row.Centre || "").trim();
+
+            if (communeName && centerName) {
+              if (!groupedByWilaya.has(wId)) {
+                groupedByWilaya.set(wId, []);
+              }
+              groupedByWilaya.get(wId)!.push({
+                commune_name: communeName,
+                center_name: centerName,
+                address: String(row.Localisation || row.Adresse || "").trim() || "Inconnu",
+                male_desks: maleDesks,
+                female_desks: femaleDesks,
+              });
+            }
+          });
+        } else {
+          wb.SheetNames.forEach((sheetName) => {
+            const cleanSheetName = sheetName.trim();
+            if (["الدوائر", "شامل", "Template", "Sheet1"].includes(cleanSheetName)) return;
+
+            let wId = selectedWilayaId;
+            if (!wId) {
+              const matchedCommune = communesData.find(
+                (c) =>
+                  String(c.name_ar || "").trim() === cleanSheetName ||
+                  String(c.name_fr || "").trim().toLowerCase() === cleanSheetName.toLowerCase()
+              );
+              if (matchedCommune) {
+                wId = String(matchedCommune.wilaya_id);
+              }
+            }
+
+            if (!wId) return;
+
+            const sheet = wb.Sheets[sheetName];
+            const rows = XLSX.utils.sheet_to_json(sheet);
+
+            rows.forEach((row: any) => {
+              const name = String(
+                row["تسمية المركز "] || row["تسمية المركز"] || row["__EMPTY"] || ""
+              ).trim();
+              const address =
+                String(row["العنوان "] || row["العنوان"] || "").trim() || "Inconnu";
+
+              if (
+                !name ||
+                name.includes("تسمية المركز") ||
+                name === "المجموع" ||
+                name === "المجموع العام"
+              )
+                return;
+
+              let male =
+                Number(row["عدد مكاتب التصويت "]) || Number(row["عدد مكاتب التصويت"]) || 0;
+              let female = Number(row["__EMPTY_1"]) || 0;
+              const total = Number(row["__EMPTY_2"]) || 0;
+
+              if (!male && !female && total) {
+                male = Math.ceil(total / 2);
+                female = Math.floor(total / 2);
+              }
+
+              if (!groupedByWilaya.has(wId)) {
+                groupedByWilaya.set(wId, []);
+              }
+
+              groupedByWilaya.get(wId)!.push({
+                commune_name: cleanSheetName,
+                center_name: name,
+                address: address,
+                male_desks: male,
+                female_desks: female,
+              });
             });
-          }
+          });
+        }
 
-          if (row.Commune && !newCommunes.find(c => c.name === row.Commune)) {
-            newCommunes.push({
-              id: Date.now() + index + 1000,
-              name: row.Commune,
-              num_bladia: row.CodeCommune || "00",
-              wilaya: row.Wilaya || "Alger",
-              centers: 0,
-              desks: 0
-            });
-          }
+        if (groupedByWilaya.size === 0) {
+          alert(
+            language === "ar"
+              ? "يرجى تحديد ولاية أو التأكد من أن الملف يحتوي على اسم أو رمز ولاية صالح."
+              : "Veuillez sélectionner une Wilaya ou vous assurer que le fichier contient des noms/codes de Wilaya valides."
+          );
+          return;
+        }
 
-          if (row.Centre) {
-            newCenters.push({
-              id: Date.now() + index + 2000,
-              name: row.Centre,
-              location: row.Localisation || "Inconnu",
-              male: row.Hommes || 0,
-              female: row.Femmes || 0,
-              total: (row.Hommes || 0) + (row.Femmes || 0),
-              numbers_desks: row.Bureaux || 0
-            });
-          }
-        });
+        let totalRows = 0;
+        let createdCenters = 0;
+        let skippedCenters = 0;
+        let createdDesks = 0;
+        let totalErrors = 0;
+        let lastErrorMessage = "";
 
-        // Note: In a real integration, this should hit a batch create API endpoint.
-        // For now, we just refresh the data.
-        setCentersData([]);
-        
-        alert(language === 'ar' ? `تم الاستيراد بنجاح: تمت معالجة ${data.length} صفًا.` : "Importation réussie : " + data.length + " lignes traitées.");
-      } catch (err) {
+        for (const [wId, rows] of groupedByWilaya.entries()) {
+          try {
+            const response: any = await mutation.mutate(
+              "POST",
+              "/infrastructure/import-centers-desks",
+              {
+                wilaya_id: wId,
+                rows,
+              }
+            );
+
+            if (response?.ok || response?.summary) {
+              const summary = response.summary || {};
+              totalRows += summary.rows || 0;
+              createdCenters += summary.created_centers || 0;
+              skippedCenters += summary.skipped_centers || 0;
+              createdDesks += summary.created_desks || 0;
+              totalErrors += summary.errors || 0;
+            } else {
+              totalErrors += rows.length;
+              lastErrorMessage = response?.message || "Import failed";
+            }
+          } catch (e: any) {
+            console.error(`Error importing for Wilaya ${wId}:`, e);
+            totalErrors += rows.length;
+            lastErrorMessage = e?.response?.data?.message || e?.message || "";
+          }
+        }
+
+        const msgAr = `تم الاستيراد بنجاح!
+مجموع الأسطر: ${totalRows}
+المراكز التي تم إنشاؤها: ${createdCenters}
+المراكز التي تم تخطيها (موجودة بالفعل): ${skippedCenters}
+المراكز التي تم إنشاؤها: ${createdDesks}
+الأخطاء: ${totalErrors}${lastErrorMessage ? `\nآخر خطأ: ${lastErrorMessage}` : ""}`;
+
+        const msgFr = `Importation réussie !
+Lignes totales : ${totalRows}
+Centres créés : ${createdCenters}
+Centres ignorés (déjà existants) : ${skippedCenters}
+Bureaux créés : ${createdDesks}
+Erreurs : ${totalErrors}${lastErrorMessage ? `\nDernière erreur: ${lastErrorMessage}` : ""}`;
+
+        alert(language === "ar" ? msgAr : msgFr);
+        refetchAll();
+      } catch (err: any) {
         console.error(err);
-        alert(language === 'ar' ? "خطأ أثناء الاستيراد. تحقق من تنسيق الملف." : "Erreur lors de l'importation. Vérifiez le format du fichier.");
+        const errorMsg = err?.response?.data?.message || err?.message || "";
+        alert(
+          (language === "ar" ? "حدث خطأ أثناء الاستيراد: " : "Erreur lors de l'importation : ") +
+            errorMsg
+        );
       } finally {
         setIsImporting(false);
+        e.target.value = "";
       }
     };
     reader.readAsBinaryString(file);
