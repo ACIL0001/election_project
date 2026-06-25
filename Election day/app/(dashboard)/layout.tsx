@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useAuth } from "@/app/context/AuthContext";
 import { DataProvider } from "./context/DataContext";
+import LoadingScreen from "./components/LoadingScreen";
 import { cn } from "@/lib/utils";
 
 import { SocketProvider } from "../context/SocketProvider";
@@ -28,7 +29,7 @@ export default function DashboardLayout({
   }, [isLoading, isAuthenticated, router]);
 
   if (isLoading) {
-    return null;
+    return <LoadingScreen />;
   }
 
   if (!isAuthenticated) {

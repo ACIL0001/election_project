@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { DataProvider } from "./context/DataContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useAuth } from "@/app/context/AuthContext";
+import LoadingScreen from "./components/LoadingScreen";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { isMemberActifPath } from "@/lib/member-routes";
@@ -48,7 +49,7 @@ export default function DashboardLayout({
   }, [isLoading, user?.role, pathname, router]);
 
   if (isLoading) {
-    return null;
+    return <LoadingScreen />;
   }
 
   if (!isAuthenticated) {

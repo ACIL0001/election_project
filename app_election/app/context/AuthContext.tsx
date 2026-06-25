@@ -36,6 +36,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     async function restoreSession() {
       try {
+        if (typeof window !== "undefined" && localStorage.getItem("session_exists") === "false") {
+          setIsLoading(false);
+          return;
+        }
+
         if (!getAccessToken()) {
           const refreshRes = await fetch("/api/auth/refresh", {
             method: "POST",
@@ -46,7 +51,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             const data = await refreshRes.json();
             if (data.ok && data.accessToken) {
               setAccessToken(data.accessToken);
+              if (typeof window !== "undefined") localStorage.setItem("session_exists", "true");
+            } else {
+              if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
             }
+          } else {
+            if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
           }
         }
 
@@ -55,11 +65,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           if (!cancelled && meRes.ok && meRes.user) {
             const normalized = normalizeAuthUser(meRes.user as any);
             setUser(normalized);
+            if (typeof window !== "undefined") localStorage.setItem("session_exists", "true");
+          } else {
+            if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
           }
         }
       } catch {
         setAccessToken(null);
         setUser(null);
+        if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
       } finally {
         if (!cancelled) setIsLoading(false);
       }
@@ -81,12 +95,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
         setAccessToken(result.accessToken);
         setUser(normalized);
+        if (typeof window !== "undefined") localStorage.setItem("session_exists", "true");
       } else {
         throw new Error("Login failed");
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "An error occurred during login";
       setError(message);
+      if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
       throw err;
     } finally {
       setIsLoading(false);
@@ -111,12 +127,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }
         setAccessToken(result.accessToken);
         setUser(normalized);
+        if (typeof window !== "undefined") localStorage.setItem("session_exists", "true");
       } else {
         throw new Error("Registration failed");
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "An error occurred during registration";
       setError(message);
+      if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
       throw err;
     } finally {
       setIsLoading(false);
@@ -131,6 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } finally {
       setAccessToken(null);
       setUser(null);
+      if (typeof window !== "undefined") localStorage.setItem("session_exists", "false");
     }
   }, []);
 
