@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { 
-  ShieldCheck, 
-  Shield,
   Mail, 
   Lock, 
   ArrowRight, 
@@ -18,14 +16,11 @@ import { useAuth } from "@/app/context/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { login, isLoading: authLoading } = useAuth();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,35 +37,35 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-screen w-full bg-white dark:bg-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="h-screen w-full bg-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Subtle Background Lighting */}
-      <div 
+      <div
         className="absolute top-0 left-0 w-full h-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 0% 0%, rgba(0, 98, 51, 0.05) 0%, transparent 40%)"
-        }}
+        style={{ background: "radial-gradient(circle at 0% 0%, rgba(0, 98, 51, 0.05) 0%, transparent 40%)" }}
       />
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+
+      <div
         className="w-full max-w-[420px] z-10"
+        style={{ animation: "loginFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both" }}
       >
         {/* Branding Section */}
         <div className="text-center mb-6">
-          <img 
-            src="/icon.png" 
-            alt="PVP Logo" 
-            className="w-32 h-32 object-contain mx-auto mb-4" 
+          <Image
+            src="/icon.png"
+            alt="PVP Logo"
+            width={128}
+            height={128}
+            priority
+            fetchPriority="high"
+            className="object-contain mx-auto mb-4"
           />
-          <h1 
+          <h1
             className="text-lg sm:text-xl md:text-2xl font-semibold text-zinc-900 tracking-tight leading-tight mb-2 whitespace-nowrap"
-            style={{ 
-              color: '#09090b', 
-              whiteSpace: 'nowrap', 
+            style={{
+              color: "#09090b",
+              whiteSpace: "nowrap",
               fontFamily: "'Plus Jakarta Sans', 'Inter', system-ui, sans-serif",
-              fontWeight: 600
+              fontWeight: 600,
             }}
           >
             PVP Electoral Management System
@@ -86,51 +81,54 @@ export default function LoginPage() {
 
           {/* Error Message */}
           {error && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
+            <div
               className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-2"
+              style={{ animation: "loginFadeUp 0.3s ease both" }}
             >
               <AlertCircle size={16} className="text-red-500 flex-shrink-0" />
               <span className="text-[12px] font-bold text-red-400">{error}</span>
-            </motion.div>
+            </div>
           )}
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-1.5">
-              <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest ml-1">Identifiant Email</label>
+              <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest ml-1">
+                Identifiant Email
+              </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Mail size={16} className="text-zinc-400 group-focus-within:text-emerald-600 transition-colors" />
                 </div>
-                <input 
+                <input
                   required
-                  type="email" 
+                  type="email"
                   placeholder="admin@pvp.dz"
                   className="w-full h-[50px] pl-11 pr-4 rounded-[12px] border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/10 transition-all text-sm font-medium shadow-sm"
-                  style={{ backgroundColor: 'white', color: 'black' }}
+                  style={{ backgroundColor: "white", color: "black" }}
                   value={formData.email}
-                  onChange={(e) => { setFormData({...formData, email: e.target.value}); setError(null); }}
+                  onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setError(null); }}
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest ml-1">Mot de passe</label>
+              <label className="text-[9px] font-black text-zinc-500 uppercase tracking-widest ml-1">
+                Mot de passe
+              </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Lock size={16} className="text-zinc-400 group-focus-within:text-emerald-600 transition-colors" />
                 </div>
-                <input 
+                <input
                   required
-                  type={showPassword ? "text" : "password"} 
+                  type={showPassword ? "text" : "password"}
                   placeholder="••••••••••••"
                   className="w-full h-[50px] pl-11 pr-11 rounded-[12px] border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 outline-none focus:border-emerald-500/50 focus:ring-4 focus:ring-emerald-500/10 transition-all text-sm font-medium shadow-sm"
-                  style={{ backgroundColor: 'white', color: 'black' }}
+                  style={{ backgroundColor: "white", color: "black" }}
                   value={formData.password}
-                  onChange={(e) => { setFormData({...formData, password: e.target.value}); setError(null); }}
+                  onChange={(e) => { setFormData({ ...formData, password: e.target.value }); setError(null); }}
                 />
-                <button 
+                <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-400 hover:text-zinc-900 transition-colors"
@@ -140,7 +138,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={isLoading}
               className="w-full h-[50px] mt-2 rounded-[12px] bg-gradient-to-br from-[#006233] to-[#008c5a] text-white text-sm font-bold tracking-tight hover:translate-y-[-1px] active:scale-[0.98] transition-all flex items-center justify-center gap-2 relative overflow-hidden group disabled:opacity-70 disabled:hover:translate-y-0"
@@ -168,11 +166,18 @@ export default function LoginPage() {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Decorative Blur Orbs */}
       <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute -top-24 -left-24 w-64 h-64 bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <style>{`
+        @keyframes loginFadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }

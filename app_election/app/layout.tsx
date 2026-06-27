@@ -8,11 +8,13 @@ import { ThemeProvider } from "./context/ThemeContext";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

@@ -59,22 +59,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="h-screen w-full bg-white dark:bg-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="h-screen w-full bg-white dark:bg-white flex flex-col items-center justify-center p-4 relative">
       
       <AnimatePresence>
         {isElectionDayOpen === false && (
             <motion.div 
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-            className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-white/60 p-4"
           >
               <motion.div 
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="w-[90%] max-w-[400px] bg-white/90 border border-zinc-200 rounded-[32px] p-8 text-center shadow-2xl relative overflow-hidden"
+              className="w-[90%] max-w-[400px] my-auto bg-white/90 border border-zinc-200 rounded-[32px] p-8 text-center shadow-2xl relative"
             >
               {/* Decorative inner glow */}
-              <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.5)' }} />
+              <div className="absolute inset-0 pointer-events-none rounded-[32px]" style={{ boxShadow: 'inset 0 0 80px rgba(0, 0, 0, 0.08)' }} />
               
               <div className="relative z-10 flex flex-col items-center">
                 <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mb-6 border border-red-500/20">

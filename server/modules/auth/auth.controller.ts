@@ -61,7 +61,9 @@ export const meHandler: RequestHandler = async (req, res) => {
     if (!req.user?.sub) {
       return res.status(401).json({ ok: false, message: "Unauthorized" });
     }
-    const user = await authService.findUserById(req.user.sub);
+    // Pass the collection hint from the JWT so findUserById() does a direct
+    // single-collection query instead of the Admin→MemberActif→RoleElectionDay chain.
+    const user = await authService.findUserById(req.user.sub, req.user.col);
     if (!user) {
       return res.status(401).json({ ok: false, message: "User not found" });
     }

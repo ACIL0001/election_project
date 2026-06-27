@@ -49,7 +49,11 @@ export function toAuthUser(user: Record<string, unknown>) {
   };
 }
 
-function signAccessToken(user: JwtUser): string {
+// Maps a user sub to the collection it lives in — stored in JWT to avoid
+// the Admin → MemberActif → RoleElectionDay fallback chain on every request.
+type UserCollection = "admin" | "member_actif" | "role_election_day";
+
+function signAccessToken(user: JwtUser & { collection?: UserCollection }): string {
   return jwt.sign(
     {
       role: user.role,
@@ -58,6 +62,7 @@ function signAccessToken(user: JwtUser): string {
       election_role: user.election_role,
       center_id: user.center_id,
       desk_id: user.desk_id,
+      col: user.collection,          // collection hint — fast path for /me and /refresh
     },
     env.jwt.accessSecret,
     { subject: user.sub, issuer: env.jwt.issuer, audience: env.jwt.audience, expiresIn: ACCESS_EXPIRES }
@@ -120,13 +125,23 @@ export async function findRoleElectionDayById(id: string) {
   };
 }
 
-/** Resolve dashboard user from Admin, MemberActif, or RoleElectionDay */
-export async function findUserById(id: string) {
-  const admin = await findAdminById(id);
-  if (admin) return admin;
-  const member = await findMemberActifById(id);
-  if (member) return member;
-  return findRoleElectionDayById(id);
+/**
+ * Resolve dashboard user from a known collection hint (fast path) or by
+ * trying all three collections in parallel (fallback for old tokens without
+ * the `col` claim).
+ */
+export async function findUserById(id: string, collection?: string) {
+  if (collection === "admin") return findAdminById(id);
+  if (collection === "member_actif") return findMemberActifById(id);
+  if (collection === "role_election_day") return findRoleElectionDayById(id);
+
+  // Fallback: run all three lookups in parallel — still 1 round-trip latency
+  const [adminRes, memberRes, roleRes] = await Promise.all([
+    findAdminById(id).catch(() => null),
+    findMemberActifById(id).catch(() => null),
+    findRoleElectionDayById(id).catch(() => null),
+  ]);
+  return adminRes ?? memberRes ?? roleRes ?? null;
 }
 
 async function issueSession(jwtUser: JwtUser, safeUser: Record<string, unknown>) {
@@ -160,11 +175,32 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
 
   const emailNorm = emailInput.toLowerCase().trim();
 
-  const admin = await Admin.findOne({ email: emailNorm, status: "active" })
-    .select("+password")
-    .populate("wilaya commune")
-    .lean();
+  // ── Run all three collection lookups IN PARALLEL ─────────────────────────
+  // This eliminates the sequential Admin→MemberActif→RoleElectionDay chain
+  // (was ~300-600ms overhead for observer users). All queries hit MongoDB
+  // concurrently so total wait ≈ slowest single query (~100-200ms).
+  const { ElectionDay } = await import("../election-day-access/election-day-access.model");
 
+  const [adminResult, memberResult, roleResult] = await Promise.allSettled([
+    Admin.findOne({ email: emailNorm, status: "active" })
+      .select("+password")
+      .populate("wilaya commune")
+      .lean(),
+    MemberActif.findOne({ email: emailNorm })
+      .select("+password")
+      .populate("wilaya commune party")
+      .lean(),
+    RoleElectionDay.findOne({ email: emailNorm })
+      .select("+password")
+      .populate("wilaya commune center desk")
+      .lean(),
+  ]);
+
+  const admin = adminResult.status === "fulfilled" ? adminResult.value : null;
+  const member = memberResult.status === "fulfilled" ? memberResult.value : null;
+  const roleUser = roleResult.status === "fulfilled" ? roleResult.value : null;
+
+  // ── Admin / Dashboard user ────────────────────────────────────────────────
   if (admin) {
     if (!DASHBOARD_ROLES.includes(admin.role as AdminRole)) {
       throw Object.assign(new Error("Access denied for this account type"), { status: 403 });
@@ -184,22 +220,19 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
     await clearAttempts(`ip:${ip}`);
     await clearAttempts(`acct:${admin._id}`);
 
-    const jwtUser: JwtUser = {
+    const jwtUser: JwtUser & { collection: UserCollection } = {
       sub: String(admin._id),
       role: admin.role as UserRole,
       wilaya_id: refId(admin.wilaya),
       commune_id: refId(admin.commune),
+      collection: "admin",
     };
 
     const { password: _pw, ...safeUser } = admin;
     return await issueSession(jwtUser, { ...safeUser, role: admin.role } as unknown as Record<string, unknown>);
   }
 
-  const member = await MemberActif.findOne({ email: emailNorm })
-    .select("+password")
-    .populate("wilaya commune party")
-    .lean();
-
+  // ── MemberActif ───────────────────────────────────────────────────────────
   if (member) {
     if (await checkLockout(`acct:${member._id}`)) {
       throw Object.assign(new Error("Account locked. Try again later."), { status: 429 });
@@ -215,11 +248,12 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
     await clearAttempts(`ip:${ip}`);
     await clearAttempts(`acct:${member._id}`);
 
-    const jwtUser: JwtUser = {
+    const jwtUser: JwtUser & { collection: UserCollection } = {
       sub: String(member._id),
       role: "member_actif",
       wilaya_id: refId(member.wilaya),
       commune_id: refId(member.commune),
+      collection: "member_actif",
     };
 
     const { password: _pw, ...safeMember } = member;
@@ -230,12 +264,7 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
     } as unknown as Record<string, unknown>);
   }
 
-  // ── Login: RoleElectionDay (observateur_bureau / observateur_centre) ──
-  const roleUser = await RoleElectionDay.findOne({ email: emailNorm })
-    .select("+password")
-    .populate("wilaya commune center desk")
-    .lean();
-
+  // ── RoleElectionDay (observateur_bureau / observateur_centre) ─────────────
   if (!roleUser) {
     await recordFailedAttempt(`ip:${ip}`);
     throw Object.assign(new Error("Invalid email or password"), { status: 401 });
@@ -246,7 +275,6 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
   }
 
   // Check if Election Day is open
-  const { ElectionDay } = await import("../election-day-access/election-day-access.model");
   const settings = await ElectionDay.findOne();
   if (!settings || !settings.is_election_day_open) {
     throw Object.assign(new Error("L'élection n'est pas encore ouverte."), { status: 403 });
@@ -266,7 +294,7 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
   await clearAttempts(`ip:${ip}`);
   await clearAttempts(`acct:${roleUser._id}`);
 
-  const jwtUserRole: JwtUser = {
+  const jwtUserRole: JwtUser & { collection: UserCollection } = {
     sub: String(roleUser._id),
     role: "role_election_day",
     wilaya_id: refId(roleUser.wilaya),
@@ -274,6 +302,7 @@ export async function login(emailInput: string, passwordInput: string, ip: strin
     election_role: roleUser.role,
     center_id: refId(roleUser.center),
     desk_id: refId(roleUser.desk),
+    collection: "role_election_day",
   };
 
   const { password: _pwRole, ...safeRoleUser } = roleUser;
@@ -333,40 +362,77 @@ export async function refreshTokens(oldRefreshToken: string) {
 
   await redis.set(`rt:${jti}`, JSON.stringify({ ...meta, used: true }), "EX", 60);
 
-  let jwtUser: JwtUser;
+  let jwtUser: JwtUser & { collection: UserCollection };
 
-  const userDoc = await Admin.findById(sub).lean();
-  if (userDoc && userDoc.status === "active") {
+  // Use the collection hint from the old token for an O(1) DB lookup.
+  // Fall back to sequential queries only for tokens issued before this change.
+  const col = decoded.col as UserCollection | undefined;
+
+  if (col === "admin" || !col) {
+    const userDoc = await Admin.findById(sub).lean();
+    if (userDoc && userDoc.status === "active") {
+      jwtUser = {
+        sub,
+        role: userDoc.role as UserRole,
+        wilaya_id: userDoc.wilaya ? String(userDoc.wilaya) : undefined,
+        commune_id: userDoc.commune ? String(userDoc.commune) : undefined,
+        collection: "admin",
+      };
+    } else if (col === "admin") {
+      // Claimed admin but not found — revoke
+      throw Object.assign(new Error("User not found"), { status: 401 });
+    } else {
+      // Legacy token — fall through to check other collections
+      const memberDoc = await MemberActif.findById(sub).lean();
+      if (memberDoc) {
+        jwtUser = {
+          sub,
+          role: "member_actif",
+          wilaya_id: memberDoc.wilaya ? String(memberDoc.wilaya) : undefined,
+          commune_id: memberDoc.commune ? String(memberDoc.commune) : undefined,
+          collection: "member_actif",
+        };
+      } else {
+        const roleDoc = await RoleElectionDay.findById(sub).lean();
+        if (!roleDoc) {
+          throw Object.assign(new Error("User not found"), { status: 401 });
+        }
+        jwtUser = {
+          sub,
+          role: "role_election_day",
+          wilaya_id: roleDoc.wilaya ? String(roleDoc.wilaya) : undefined,
+          commune_id: roleDoc.commune ? String(roleDoc.commune) : undefined,
+          election_role: roleDoc.role,
+          center_id: roleDoc.center ? String(roleDoc.center) : undefined,
+          desk_id: roleDoc.desk ? String(roleDoc.desk) : undefined,
+          collection: "role_election_day",
+        };
+      }
+    }
+  } else if (col === "member_actif") {
+    const memberDoc = await MemberActif.findById(sub).lean();
+    if (!memberDoc) throw Object.assign(new Error("User not found"), { status: 401 });
     jwtUser = {
       sub,
-      role: userDoc.role as UserRole,
-      wilaya_id: userDoc.wilaya ? String(userDoc.wilaya) : undefined,
-      commune_id: userDoc.commune ? String(userDoc.commune) : undefined,
+      role: "member_actif",
+      wilaya_id: memberDoc.wilaya ? String(memberDoc.wilaya) : undefined,
+      commune_id: memberDoc.commune ? String(memberDoc.commune) : undefined,
+      collection: "member_actif",
     };
   } else {
-    const memberDoc = await MemberActif.findById(sub).lean();
-    if (memberDoc) {
-      jwtUser = {
-        sub,
-        role: "member_actif",
-        wilaya_id: memberDoc.wilaya ? String(memberDoc.wilaya) : undefined,
-        commune_id: memberDoc.commune ? String(memberDoc.commune) : undefined,
-      };
-    } else {
-      const roleDoc = await RoleElectionDay.findById(sub).lean();
-      if (!roleDoc) {
-        throw Object.assign(new Error("User not found"), { status: 401 });
-      }
-      jwtUser = {
-        sub,
-        role: "role_election_day",
-        wilaya_id: roleDoc.wilaya ? String(roleDoc.wilaya) : undefined,
-        commune_id: roleDoc.commune ? String(roleDoc.commune) : undefined,
-        election_role: roleDoc.role,
-        center_id: roleDoc.center ? String(roleDoc.center) : undefined,
-        desk_id: roleDoc.desk ? String(roleDoc.desk) : undefined,
-      };
-    }
+    // col === "role_election_day"
+    const roleDoc = await RoleElectionDay.findById(sub).lean();
+    if (!roleDoc) throw Object.assign(new Error("User not found"), { status: 401 });
+    jwtUser = {
+      sub,
+      role: "role_election_day",
+      wilaya_id: roleDoc.wilaya ? String(roleDoc.wilaya) : undefined,
+      commune_id: roleDoc.commune ? String(roleDoc.commune) : undefined,
+      election_role: roleDoc.role,
+      center_id: roleDoc.center ? String(roleDoc.center) : undefined,
+      desk_id: roleDoc.desk ? String(roleDoc.desk) : undefined,
+      collection: "role_election_day",
+    };
   }
 
   const accessToken = signAccessToken(jwtUser);

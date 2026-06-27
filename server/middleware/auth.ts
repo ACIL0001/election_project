@@ -22,6 +22,7 @@ export interface JwtUser {
   election_role?: string;  // specific election-day sub-role (observateur_bureau, etc.)
   center_id?: string;      // assigned center for election-day roles
   desk_id?: string;        // assigned desk for observateur_bureau
+  col?: string;            // collection hint — fast path for DB lookups ("admin" | "member_actif" | "role_election_day")
 }
 
 declare global {
@@ -67,6 +68,7 @@ export const requireAuth: RequestHandler = (req, res, next) => {
       election_role: decoded.election_role,
       center_id: decoded.center_id,
       desk_id: decoded.desk_id,
+      col: decoded.col,           // forward collection hint for fast /me lookups
     };
     return next();
   } catch {

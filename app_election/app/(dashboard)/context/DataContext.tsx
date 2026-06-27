@@ -34,6 +34,12 @@ function resolveCommuneLabel(
 
 export type ElectionScope = "national" | "wilaya" | "commun";
 
+interface CenterStats {
+  totalDesks: number;
+  maleDesksCount: number;
+  femaleDesksCount: number;
+}
+
 interface DataContextType {
   wilayasData: any[];
   communesData: any[];
@@ -65,6 +71,11 @@ interface DataContextType {
   setElectionScope: (scope: ElectionScope) => void;
   mutation: ReturnType<typeof useMutation>;
   refetchAll: () => void;
+  // Chef-centre specific
+  myCenter: ICenter | null;
+  centerDesks: IDesk[];
+  centerStats: CenterStats | null;
+  loadingCenter: boolean;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -82,6 +93,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const canFetchAdmins = user?.role === "super_admin" || user?.role === "admin_wilaya";
 
   const isMemberActif = user?.role === "member_actif";
+  const isChefCentre = user?.role === "role_election_day" && user?.election_role === "chef_centre";
 
   const geoQueryParams = React.useMemo(() => {
     if (user?.role === "admin_wilaya" && user.wilaya_id) return { wilaya: user.wilaya_id };
@@ -149,6 +161,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
     isMemberActif && user?.commune_id ? `/communes/${user.commune_id}` : null,
     undefined,
     [user?.commune_id]
+  );
+  const myCenterQ = useQuery<ICenter>(
+    isChefCentre && user?.center_id ? `/centers/${user.center_id}` : null,
+    undefined,
+    [user?.center_id]
+  );
+  const centerDesksQ = useQuery<IDesk[]>(
+    isChefCentre && user?.center_id ? "/desks" : null,
+    { center: user?.center_id, limit: 500 },
+    [user?.center_id]
   );
 
   const mutation = useMutation();
@@ -594,6 +616,19 @@ export function DataProvider({ children }: { children: ReactNode }) {
     }));
   }, [resultsQ.data]);
 
+  const myCenter = (myCenterQ.data as ICenter | null | undefined) ?? null;
+  const centerDesks = React.useMemo(() => {
+    if (!centerDesksQ.data) return [];
+    return centerDesksQ.data as IDesk[];
+  }, [centerDesksQ.data]);
+  const centerStats = React.useMemo<CenterStats | null>(() => {
+    if (!centerDesks.length && !myCenter) return null;
+    const male = centerDesks.filter((d) => d.type === "male").length;
+    const female = centerDesks.filter((d) => d.type === "female").length;
+    return { totalDesks: centerDesks.length, maleDesksCount: male, femaleDesksCount: female };
+  }, [centerDesks, myCenter]);
+  const loadingCenter = myCenterQ.isLoading || centerDesksQ.isLoading;
+
   const isLoading =
     wilayasQ.isLoading ||
     communesQ.isLoading ||
@@ -672,6 +707,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
         setElectionScope,
         mutation,
         refetchAll,
+        myCenter,
+        centerDesks,
+        centerStats,
+        loadingCenter,
       }}
     >
       {children}

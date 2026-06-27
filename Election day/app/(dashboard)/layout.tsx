@@ -28,7 +28,7 @@ export default function DashboardLayout({
     }
   }, [isLoading, isAuthenticated, router]);
 
-  if (isLoading) {
+  if (isLoading && !user) {
     return <LoadingScreen />;
   }
 
